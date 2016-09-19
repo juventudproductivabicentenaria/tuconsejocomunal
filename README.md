@@ -1,2 +1,3 @@
-# tuconsejocomunal
-Este proyecto tiene como objetivo enseñar git a los estudiantes de la Unefa y a su vez desarrollar una aplicación para los consejos comunales.
+![logo jpb](https://yt3.ggpht.com/-Pdd2Yc_w1cs/AAAAAAAAAAI/AAAAAAAAAAA/zPOludtwSjU/s88-c-k-no-mo-rj-c0xffffff/photo.jpg,"Logo de juventud Productiva")![logo unefa](https://tecnologiaeducativaunefa.files.wordpress.com/2012/02/unefa-sin-fondo1.png?w=70&h=70,"Logo de unefa")![logo jpv](https://lh3.googleusercontent.com/-DnZXSzvOvRs/V9gxAUjRJIE/AAAAAAAAAAg/ledszMQjm7AJ16qBGs9PFuwBHEBX9iF9gCEw/w163-h110-p/6329863157855626369,"Logo de JPV")
+# Sistema tuconsejocomunal
+###Este repositorio se crea con el objetivo de enseñar Git y Github mediante un curso en  [Youtube de Juventud Prductiva](https://www.youtube.com/playlist?list=PLZHhaK4KCZZwAak-U_3aEuAdnnY7vW7Bk) y a su vez para desarrollar un sistema en Odoo para	 los Consejos Comununales.
