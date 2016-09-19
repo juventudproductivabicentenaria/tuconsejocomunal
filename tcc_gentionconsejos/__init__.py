@@ -1,3 +1,5 @@
 # -*- coding: utf-8 -*-
-import controllers
-import models
+import controladores
+import data
+import modelos
+import vistas
