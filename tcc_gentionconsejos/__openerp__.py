@@ -7,7 +7,8 @@
         """,
 
     'description': """
-        Este módulo es para el registro de los consejos comunales
+        Este módulo es para el registro de los consejos comunales,
+        en el cual se podran registrar, modificar e incluso elimirar.
     """,
 
     'author': "Felipe Villamizar",
