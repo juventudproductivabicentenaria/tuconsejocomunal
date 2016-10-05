@@ -25,7 +25,7 @@
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
-        #'vista/templates.xml',
+        'vistas/consejocomunal_views.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
