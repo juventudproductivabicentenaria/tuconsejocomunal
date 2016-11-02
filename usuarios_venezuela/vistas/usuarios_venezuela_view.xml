@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+   <openerp>
+     <data>
+    <record model="ir.ui.view" id="view_res_user_venezuela_form">
+        <field name="name">res.users.form.inherit.venezuela</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <field name="email" invisible="1" position="before">
+                <label for="cedula" class="oe_edit_only" />
+                <h2><field name="cedula" select="1" /></h2>
+                <label for="telefono" class="oe_edit_only" />
+                <h2><field name="telefono" select="1" /></h2>
+            </field>
+        <notebook colspan="4" position="inside">
+            <page string="Dirección">
+                    <group>
+                        <group>
+                        <field name="estado_id" select="2"  on_change="limpiar_campos('estado')"/>
+                        <field name="municipio_id" select="3" domain="[('estado_id','=',[estado_id])]" on_change="limpiar_campos('municipio')"/>
+                        <field name="parroquia_id" select="4" domain="[('municipio_id','=',[municipio_id])]" on_change="limpiar_campos('parroquia')"/>
+                        <field name="sector" select="6" />
+                        </group>
+                        <group>
+                        <field name="calle_av" select="7" />
+                        <field name="casa_edif" select="9" />
+                        <field name="piso_apart" select="9" />
+                        </group>
+                </group>
+            </page>
+        </notebook>
+        </field>
+    </record>
+    
+    <record model="ir.ui.view" id="view_res_user_venezuela_simple_form">
+        <field name="name">res.users.form.inheri.simple.venezuela</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_simple_form"/>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <field name="email" invisible="1" position="before">
+                <label for="cedula" class="oe_edit_only" />
+                <h2><field name="cedula" select="1" /></h2>
+                <label for="telefono" class="oe_edit_only" />
+                <h2><field name="telefono" select="1" /></h2>
+            </field>
+        </field>
+    </record>
+    </data>
+</openerp>
+

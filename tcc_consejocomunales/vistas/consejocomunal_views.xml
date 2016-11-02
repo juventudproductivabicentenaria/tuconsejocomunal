@@ -8,11 +8,17 @@
         <field name="arch" type="xml">
             <form string="Registro de Consejo Comunales">
                 <group>
-                    <field name="nombre" />
+                    <field name="name" />
                     <field name="rif" placeholder="hola" />
                     <field name="cd_situr"/>
                     <field name="fecha"/>
                     <field name="active"/>
+                    <field name="estado_id" on_change="limpiar_campos('estado')"/>
+                    <field 
+                        name="municipio_id" 
+                        domain="[('estado_id','=',estado_id)]"
+                        on_change="limpiar_campos('municipio')"/>
+                    <field name="parroquia_id" domain="[('municipio_id','=',municipio_id)]"/>
                 </group>
                 
             </form>
@@ -25,7 +31,7 @@
         <field name="type">tree</field>
         <field name="arch" type="xml">
             <tree string="Registro de Consejo Comunales">
-                <field name="nombre"/>
+                <field name="name"/>
                 <field name="rif"/>
 
             </tree>
