@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+ <data>
+     <record model="ir.ui.view" id="view_tcc_consejocomunales_form">
+        <field name="name">vista form del formulario tcc.consejocomunales </field>
+        <field name="model">tcc.consejocomunales</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Registro de Consejo Comunales">
+                <group>
+                    <field name="name" />
+                    <field name="rif" placeholder="hola" />
+                    <field name="cd_situr"/>
+                    <field name="fecha"/>
+                    <field name="active"/>
+                    <field name="estado_id" on_change="limpiar_campos('estado')"/>
+                    <field 
+                        name="municipio_id" 
+                        domain="[('estado_id','=',estado_id)]"
+                        on_change="limpiar_campos('municipio')"/>
+                    <field name="parroquia_id" domain="[('municipio_id','=',municipio_id)]"/>
+                </group>
+                
+            </form>
+        </field>
+    </record>
+    
+    <record model="ir.ui.view" id="view_tcc_consejocomunales_tree">
+        <field name="name">vista tree del formulario tcc.consejocomunales</field>
+        <field name="model">tcc.consejocomunales</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="Registro de Consejo Comunales">
+                <field name="name"/>
+                <field name="rif"/>
+
+            </tree>
+        </field>
+    </record>
+    
+    
+    <record model="ir.actions.act_window" id="action_tcc_consejocomunales">
+        <field name="name">Gestión de Consejos Comunales</field>
+        <field name="res_model">tcc.consejocomunales</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+    <menuitem 
+        name="Consejo Comunales" 
+        id="tcc_consejocomunal_horizontal_menu" 
+        sequence="5" />
+    <menuitem 
+        name="Gestión de Consejos Comunales" 
+        id="tcc_consejocomunal_vertical_menu" 
+        parent="tcc_consejocomunal_horizontal_menu" 
+        sequence="5"/>
+        
+    <menuitem 
+        name="Registros de Consejos Comunales" 
+        id="tcc_consejocomunal_subvertical_menu" 
+        parent="tcc_consejocomunal_vertical_menu"
+        action="action_tcc_consejocomunales" 
+        sequence="5"/>
+
+ </data>
+</openerp>

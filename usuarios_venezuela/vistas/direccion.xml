@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+   <openerp>
+     <data>
+    <record model="ir.ui.view" id="view_res_estados_form">
+        <field name="name">res.estados.form</field>
+        <field name="model">res.estados</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="res_estados">
+                <group>
+                <field name="estado" select="1"/>
+                <field name="codigo" select="2"/>
+                <field name="active" select="0"/>
+                </group>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_res_estados_tree">
+        <field name="name">res.estados.tree</field>
+        <field name="model">res.estados</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="res_estados">
+                <field name="estado"/>
+                <field name="codigo"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_res_estados">
+        <field name="name">Configuracion Estados</field>
+        <field name="res_model">res.estados</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+
+        
+    <record model="ir.ui.view" id="view_res_municipios_form">
+        <field name="name">res.municipios.form</field>
+        <field name="model">res.municipios</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="res_municipios">
+                <group>
+                <field name="municipio" select="1"/>
+                <field name="codigo" select="2"/>
+                <field name="estado_id" select="0"/>
+                <field name="active" select="0"/>
+                </group>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_res_municipios_tree">
+        <field name="name">res.municipios.tree</field>
+        <field name="model">res.municipios</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="res_municipios">
+                <field name="municipio"/>
+                <field name="codigo"/>
+                <field name="estado_id"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_res_municipios">
+        <field name="name">Configuracion Municipios</field>
+        <field name="res_model">res.municipios</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+
+    </record>
+    
+
+        
+    <record model="ir.ui.view" id="view_res_parroquias_form">
+        <field name="name">res_parroquias.form</field>
+        <field name="model">res.parroquias</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="res_parroquias">
+                <group>
+                <field name="parroquia" select="1"/>
+                <field name="codigo" select="2"/>
+                <field name="municipio_id" select="0"/>
+                <field name="active" select="0"/>
+                </group>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_res_parroquias_tree">
+        <field name="name">res.parroquias.tree</field>
+        <field name="model">res.parroquias</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="res_parroquias">
+                <field name="parroquia"/>
+                <field name="codigo"/>
+                <field name="municipio_id"/>
+
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_res_parroquias">
+        <field name="name">Configuracion Parroquia</field>
+        <field name="res_model">res.parroquias</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+    <menuitem name="Direccion" id="next_id_82" parent="base.menu_administration"  />
+    <menuitem name="Estados" id="menu_res_estados" parent="usuarios_venezuela.next_id_82" action="action_res_estados" sequence="5"/>
+    <menuitem name="Municipios" id="menu_res_municipios" parent="usuarios_venezuela.next_id_82" action="action_res_municipios" sequence="10"/>
+    <menuitem name="Parroquia" id="menu_res_parroquias" parent="usuarios_venezuela.next_id_82" action="action_res_parroquias" sequence="15"/>
+    </data>
+</openerp>
+

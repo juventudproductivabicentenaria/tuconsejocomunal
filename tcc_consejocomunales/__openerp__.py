@@ -1,36 +1,34 @@
 # -*- coding: utf-8 -*-
-#módulo desarrollado por personal docente y estudianten de la unefa
 {
-    'name': "Gestión de los Consejos comunales",
+    'name': "Gestión de los Consejos Comunales",
 
     'summary': """
-		Este módulo lleva todo el CRUD del los consejos comunales 
-        """,
+        Short (1 phrase/line) summary of the module's purpose, used as
+        subtitle on modules listing or apps.openerp.com""",
 
     'description': """
-        Este módulo es para el registro de los consejos comunales,
-        en el cual se podran registrar, modificar e incluso elimirar.
+        Long description of module's purpose
     """,
 
-    'author': "Felipe Villamizar",
+    'author': "Your Company",
     'website': "http://www.yourcompany.com",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/master/openerp/addons/base/module/module_data.xml
     # for the full list
-    'category': 'Gestión Publica',
+    'category': 'Uncategorized',
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base','usuarios_venezuela'],
 
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
-        'vistas/templates.xml',
+        'vistas/consejocomunal_views.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
-        'datas/demo.xml',
+        'demo/demo.xml',
     ],
 }
