@@ -40,10 +40,10 @@ class tcc_familia(osv.osv):
                                 'Nombre del Consejo Comunal', 
                                 required=True),
          'casa_id':fields.many2one(
-                        'tcc_familia.tcc_casa',
+                        'tcc.casas',
                         'Casa'),
          'edificio_id':fields.many2one(
-                        'tcc_familia.tcc_edificio',
+                        'tcc.edificios',
                         'Edificio'),
          'fecha_antiguedad':fields.date(
                         'Fecha de Antiguedad',
