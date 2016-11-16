@@ -1,17 +1,16 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Gestión de los Consejos Comunales",
+    'name': "Gestion de Vivienda",
 
     'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
+        En este modulo se relaliza el registro de las viviendas de los consejos comunales""",
 
     'description': """
-        Long description of module's purpose
+       Este modulo es para el registro de las viviendas de los consejos comunales
     """,
 
-    'author': "Your Company",
-    'website': "http://www.yourcompany.com",
+    'author': "Isaac Laplante",
+    'website': "http://www.yourcompany.com.ve",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/master/openerp/addons/base/module/module_data.xml
@@ -20,15 +19,19 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','usuarios_venezuela'],
+    'depends': ['base'],
 
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
-        'vistas/consejocomunal_views.xml',
+        'vistas/vivienda_view.xml',
+        'vistas/casas_view.xml',
+        'vistas/edificios_view.xml',
+        'vistas/callesoavenidas_view.xml',
+        'vistas/sectores_view.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
-        'demo/demo.xml',
+        'demo.xml',
     ],
 }

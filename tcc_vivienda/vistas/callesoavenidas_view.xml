@@ -1,0 +1,35 @@
+<openerp>
+    <data>
+       <record model="ir.ui.view" id="view_tcc_callesoavenidas_form">
+            <field name="name">Calles o Avenidas</field>
+            <field name="model">tcc.callesoavenidas</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Registro">
+                    <group>
+                        <field name="nombre"/>
+                        <field name="active"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_tcc_callesoavenidas_tree">
+            <field name="name">Calles o Avenidas</field>
+            <field name="model">tcc.callesoavenidas</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="callesoavenida">
+                    <field name="nombre"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_tcc_callesoavenidas">
+            <field name="name">Calles o Avenidas</field>
+            <field name="res_model">tcc.callesoavenidas</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</openerp>
