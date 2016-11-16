@@ -79,19 +79,11 @@
            id="tcc_familia_horizontal_menu" 
            sequence="5" 
            />
-           
-           <menuitem 
-           name="inicio "
-           parent="tcc_familia_horizontal_menu" 
-           id="tcc_inicio_vertical_menu"
-           sequence="10" 
-           />
-           
            <menuitem 
            name="registro de familia" 
            id="tcc_registro_subvertical_menu" 
            action="action_tcc_familia"
-           parent="tcc_inicio_vertical_menu"
+           parent="tcc_familia_horizontal_menu"
            sequence="10" 
            /> 
             
