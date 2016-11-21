@@ -31,14 +31,14 @@
         </record>
 
         <record model="ir.actions.act_window" id="action_tcc_viviendas">
-            <field name="name">Vivienda</field>
+            <field name="name">Gestion de registro de Vivienda</field>
             <field name="res_model">tcc.viviendas</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
         </record>
 
-        <menuitem name="Viviendas" id="menu_viviendas" sequence="10"/>
-        <menuitem name="Registro de Viviendas" parent="menu_viviendas" id="conf_viviendas" sequence="10"/>
+        <menuitem name="Gestion de Viviendas" id="menu_viviendas" sequence="10"/>
+        <menuitem name="Registro de Viviendas" parent="menu_tcc_consejocomunal" id="conf_viviendas" sequence="10"/>
         <menuitem name="Viviendas" parent="conf_viviendas" action="action_tcc_viviendas" id="menu_registro" sequence="10"/>
     </data>
 </openerp>
