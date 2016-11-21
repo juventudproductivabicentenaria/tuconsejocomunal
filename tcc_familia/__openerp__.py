@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "gestion de familia",
+    'name': "Gestion de Familia",
 
     'summary': """
         Reguistro de grupos familiares en los consejos comunales""",
