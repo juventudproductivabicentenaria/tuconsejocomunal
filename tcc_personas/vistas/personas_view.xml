@@ -11,8 +11,8 @@
                         <group>
                             <field name='consejocomunal_id'/>
                             <field name='familia_id'/>
-                            <field name='login'/>
-                            <field name='password'/>
+                            <field string="Correo" name='login'/>
+                            <field name='cedula'/>
                             <field name='name'/>
                             <field name='s_nombre'/>
                             <field name='p_apellido'/>
