@@ -7,10 +7,10 @@
             <field name="arch" type="xml">
                 <form string="Registro">
                     <group>
-                        <field name="nombre"/>
-                        <field name="numero"/>
-                        <field name="sector_id"/>
-                        <field name="calleoavenida_id"/>
+                        <field name="nombre" style="width:80%"/>
+                        <field name="numero" style="width:80%"/>
+                        <field name="sector_id" style="width:80%"/>
+                        <field name="calleoavenida_id" style="width:80%"/>
                         <field name="active"/>
                     </group>
                 </form>
@@ -36,6 +36,11 @@
             <field name="res_model">tcc.casas</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Dale click para registrar los datos de las casas.
+                </p>
+            </field>
         </record>
     </data>
 </openerp>
