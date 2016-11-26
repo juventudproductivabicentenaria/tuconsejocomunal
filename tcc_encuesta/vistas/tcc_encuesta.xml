@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+     <data>
+    <record model="ir.ui.view" id="vistas_tcc_encuesta_form">
+        <field name="name">vista form del formulario tcc_encuesta </field>
+        <field name="model">tcc_encuesta</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Encuestas para la Comuna">
+                <group>
+                    <field name="crear_encuesta"/>
+                    <field name="editar_encuesta"/>
+                    <field name="enviar_encuesta"/>
+                    <field name="consejocomunal_id"/>
+                       
+                </group>
+                
+            </form>
+        </field>
+    </record>      
+    
+    <record model="ir.ui.view" id="vistas_tcc_encuesta_tree">
+        <field name="name">vista tree del formulario tcc_encuesta</field>
+        <field name="model">tcc_encuesta</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="Encuestas para la Comuna">
+                    <field name="crear_encuesta"/>
+                    <field name="editar_encuesta"/>
+                    <field name="enviar_encuesta"/>
+                    <field name="consejocomunal_id"/>
+            </tree>
+        </field>
+    </record>
+    
+    
+    <record model="ir.actions.act_window" id="action_tcc_encuesta">
+        <field name="name"> Encuestas para la Comuna </field>
+        <field name="res_model">tcc_encuesta</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+    <menuitem 
+        name="Encuestas" 
+        id="tcc_encuesta_horizontal_menu" 
+        sequence="5" />
+    <menuitem 
+        name="Encuesta" 
+        id="tcc_encuesta_vertical_menu" 
+        parent="tcc_encuesta_horizontal_menu" 
+        sequence="5"/>
+        
+    <menuitem 
+        name="Encuestas" 
+        id="tcc_encuesta_subvertical_menu" 
+        parent="tcc_encuesta_vertical_menu"
+        action="action_tcc_encuesta" 
+        sequence="5"/>
+ </data>
+</openerp>
