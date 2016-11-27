@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
 
+#MODELO QUE HEREDA A PADRE SURVEY.SURVEY
+
 from openerp.osv import fields, osv
 
-class tcc_encuesta(osv.osv):
-	_name = 'tcc_encuesta'
+class survey_survey(osv.osv):
+	_name = 'survey.survey'
 	_inherit = 'survey.survey'
 
+#SE AÑADE CAMPO PARA CONSEJOS COMUNALES AFECTANDO SURVEY_SURVEY
 	_columns={
-		'crear_encuesta':fields.many2one('survey.survey','Crear Encuesta'),
-		'editar_encuesta':fields.many2one('survey.survey',''),
-		'enviar_encuesta':fields.many2one('survey.survey',''),
 		'consejocomunal_id':fields.many2one(
                                 'tcc.consejocomunales',
                                 'Nombre del Consejo Comunal', 

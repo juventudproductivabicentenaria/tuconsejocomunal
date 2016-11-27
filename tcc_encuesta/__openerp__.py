@@ -24,7 +24,7 @@
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
-         'vistas/tcc_encuesta.xml',
+         'vistas/survey_survey.xml'
          
     ],
     # only loaded in demonstration mode
