@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+ <data>
+     <record model="ir.ui.view" id="view_tcc_noticias_form">
+        <field name="name">vista form del formulario</field>
+        <field name="model">tcc_noticias.tcc_noticias</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Noticia">
+				<header>
+				 <!-- Pruebas de button para aplicarles funcionamiento a los estados 
+					<button name="action_button_confirm" states="publicado" string="Borrador" type="object" groups="base.group_user"/>
+                    <button name="cancel" states="borrador" string="Cancelar" groups="base.group_user"/>
+                 -->   
+                    
+                     <!-- Declaracion del estado -->
+                    <field name="state" widget="statusbar" clickable="True"/>
+                          <!-- clickable="True" type="action" -->
+                </header>
+				<sheet>
+                <group>
+					<field name="consejocomunal_id" style="width:80%"/>
+                    <field name="titulo_noticia" style="width:80%"/>
+                    <field name="subtitulo" style="width:80%"/>
+                    <field name="categorias_id" style="width:80%"/>
+                    <field name="fecha_p" style="width:30%"/>
+                    <field name="contenido"/>
+                    <field name="fecha_f" style="width:30%"/>
+                    <field name="active"/>
+                </group>
+                </sheet>
+            </form>
+        
+        </field>
+    </record>
+    
+   
+    <record model="ir.ui.view" id="view_tcc_noticias_kanban">
+        <field name="name">vista kanban del formulario</field>
+        <field name="model">tcc_noticias.tcc_noticias</field>
+        <field name="type">kanban</field>
+        <field name="arch" type="xml">
+            <kanban string="noticia">
+					<field name="consejocomunal_id"/>	
+					<field name="titulo_noticia"/>
+                    <field name="subtitulo"/>
+                    <field name="categorias_id"/>
+                    <field name="fecha_p"/>
+                    <field name="state"/>
+                    <field name="fecha_f"/>
+
+            </kanban>
+        </field>
+    </record>
+    
+    
+    <record model="ir.actions.act_window" id="action_tcc_noticias">
+        <field name="name">Noticia</field>
+        <field name="res_model">tcc_noticias.tcc_noticias</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Dale click para crear una nueva publicacion.
+                </p>
+                <p>
+                    Este modulo esta creado para registrar noticias y mantener informado a la comunidad.
+                </p>
+        </field>
+    </record>
+    
+    <menuitem 
+        name="Noticias"
+        parent="tcc_consejocomunales.tcc_consejocomunal_horizontal_menu" 
+        id="noticia_horizontal_menu" 
+        sequence="5" />
+    <menuitem 
+        name="Noticias" 
+        id="FormularioP_vertical_menu" 
+        parent="noticia_horizontal_menu"
+        action="action_tcc_noticias"
+        sequence="5"/>
+        
+
+ </data>
+</openerp>

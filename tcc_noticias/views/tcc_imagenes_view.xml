@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+ <data>
+   <record model="ir.ui.view" id="view_tcc_categorias_form">
+        <field name="name">vista form del formulario</field>
+        <field name="model">tcc_categorias.tcc_categorias</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+        <sheet>   
+            <form string="categorias">
+                <group>
+                    <field name="categorias"/>
+                    <field name="active"/>
+                </group>
+            </form>
+        </sheet>    
+        </field>
+    </record>
+    
+    
+    <record model="ir.ui.view" id="view_tcc_categorias_tree">
+            <field name="name">vista tree del formulario</field>
+            <field name="model">tcc_categorias.tcc_categorias</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="categorias">
+                    <field name="categorias"/>
+                </tree>
+            </field>
+        </record>
+   
+   <!--
+    <record model="ir.ui.view" id="tcc_categorias_view_tree">
+        <field name="name">vista tree del formulario</field>
+        <field name="model">tcc_categorias.tcc_categorias</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="categorias">
+				
+				<field name="categorias"/>
+
+            </tree>
+        </field>
+    </record>
+    -->
+    
+    <!--
+    <record model="ir.ui.view" id="view_tcc_noticias_kanban">
+        <field name="name">vista kanban del formulario</field>
+        <field name="model">tcc_noticias.tcc_noticias</field>
+        <field name="type">kanban</field>
+        <field name="arch" type="xml">
+            <kanban string="noticia">
+				<field name="titulo_noticia" />
+                    <field name="subtitulo" />
+                    <field name="fecha_p"/>
+                    <field name="fecha_f"/>
+                    <field name="estado_id"/>
+
+            </kanban>
+        </field>
+    </record>
+    -->
+    
+    <record model="ir.actions.act_window" id="action_view_tcc_categorias">
+        <field name="name">categorias</field>
+        <field name="res_model">tcc_categorias.tcc_categorias</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+     <menuitem 
+        name="Categorias" 
+        id="categoria_vertical_menu" 
+        parent="noticia_horizontal_menu" 
+        action="action_view_tcc_categorias"
+        sequence="5"/>
+        
+
+ </data>
+</openerp>
