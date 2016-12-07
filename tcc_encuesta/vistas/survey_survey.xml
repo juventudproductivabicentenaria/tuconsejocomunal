@@ -25,6 +25,9 @@
             <xpath expr="/form/sheet/div/h1" position="after">
                 <h2>
                     <field name="consejocomunal_id" class="oe_inline" placeholder="Consejo Comunal" />
+
+                    <!-- hacer domain con los parther de los consejos comunales -->
+
                 </h2>
             </xpath>
         </field>
