@@ -81,7 +81,7 @@
            />
            <menuitem 
            name="registro de familia" 
-           id="tcc_registro_subvertical_menu" 
+           id="tcc_registro_vertical_menu" 
            action="action_tcc_familia"
            parent="tcc_familia_horizontal_menu"
            sequence="10" 
