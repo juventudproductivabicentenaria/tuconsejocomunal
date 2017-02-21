@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Personas",
+    'name': "Personas (4)",
 
     'summary': """
         Modulo Diseñado para la registrar personas pertenecientes al consejo comunal""",

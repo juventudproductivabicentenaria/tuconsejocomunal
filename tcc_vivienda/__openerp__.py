@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Gestion de Vivienda",
+    'name': "Gestion de Vivienda (2)",
 
     'summary': """
         En este modulo se relaliza el registro de las viviendas de los consejos comunales""",

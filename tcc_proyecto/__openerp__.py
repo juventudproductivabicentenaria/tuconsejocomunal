@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Gestion de proyecto",
+    'name': "Gestion de proyecto (6)",
 
     'summary': """
         """,

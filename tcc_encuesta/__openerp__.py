@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Encuestas de Consejos Comunales",
+    'name': "Encuestas de Consejos Comunales (5)",
 
     'summary': """
         Registro de encuestas realizadas a consejos comunales""",
