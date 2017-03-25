@@ -31,7 +31,7 @@
         </record>
 
         <record model="ir.actions.act_window" id="action_tcc_viviendas">
-             <field name="name">Gestion de registro de Vivienda</field>
+            <field name="name">Gestion de registro de Vivienda</field>
             <field name="res_model">tcc.viviendas</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
@@ -47,3 +47,5 @@
            sequence="5" 
            />
         <menuitem name="Viviendas" parent="tcc_viviendas_horizontal_menu" action="action_tcc_viviendas" id="menu_registro" sequence="10"/>
+    </data>
+</openerp>
