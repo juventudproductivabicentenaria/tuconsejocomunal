@@ -7,9 +7,9 @@
             <field name="arch" type="xml">
                 <form string="Registro">
                     <group>             
-                            <field name="consejocomunal_id"/>
-                            <field name="casas_ids"/>
-                            <field name="edificios_ids"/>
+                            <field name="consejocomunal_id" style="width:80%"/>
+                            <field name="casas_ids" style="width:80%"/>
+                            <field name="edificios_ids" style="width:80%"/>
                             <field name="active"/>
                         
                     </group>
@@ -31,14 +31,19 @@
         </record>
 
         <record model="ir.actions.act_window" id="action_tcc_viviendas">
-            <field name="name">Vivienda</field>
+             <field name="name">Gestion de registro de Vivienda</field>
             <field name="res_model">tcc.viviendas</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
+             <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Dale click para crear el registro de las viviendas.
+                </p>
+            </field>
         </record>
 
-        <menuitem name="Viviendas" id="menu_viviendas" sequence="10"/>
-        <menuitem name="Registro de Viviendas" parent="menu_viviendas" id="conf_viviendas" sequence="10"/>
-        <menuitem name="Viviendas" parent="conf_viviendas" action="action_tcc_viviendas" id="menu_registro" sequence="10"/>
-    </data>
-</openerp>
+        <menuitem name="Gestion de Viviendas" parent="tcc_consejocomunales.tcc_consejocomunal_horizontal_menu" 
+           id="tcc_viviendas_horizontal_menu" 
+           sequence="5" 
+           />
+        <menuitem name="Viviendas" parent="tcc_viviendas_horizontal_menu" action="action_tcc_viviendas" id="menu_registro" sequence="10"/>
