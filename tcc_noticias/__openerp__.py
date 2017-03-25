@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "tcc_noticias",
+    'name': "tcc_noticias (5)",
 
     'summary': """
         Short (1 phrase/line) summary of the module's purpose, used as
@@ -26,6 +26,7 @@
     'data': [
         # 'security/ir.model.access.csv',
         'templates.xml',
+        'views/noticias_views.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

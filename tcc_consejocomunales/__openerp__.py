@@ -1,16 +1,14 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Gestión de los Consejos Comunales",
+    'name': "Gestión de los Consejos Comunales (1)",
 
-    'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
+    'summary': """ En este módulo se registra a los Consejos Comunales""",
 
     'description': """
-        Long description of module's purpose
+        Registro de los Consejos Comunales 
     """,
 
-    'author': "Your Company",
+    'author': "Felipe Villamizar",
     'website': "http://www.yourcompany.com",
 
     # Categories can be used to filter modules in modules listing
