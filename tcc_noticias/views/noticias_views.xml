@@ -31,6 +31,7 @@
                 <field name="titulo"/>
                 <field name="categoria_id" />
                 <field name="fecha_init" groups="tcc_noticias.group_tcc_vocero" />
+
             </tree>
         </field>
     </record>
