@@ -25,8 +25,14 @@
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
+        'security/groups.xml',
+        'security/group_tcc_consejo/ir.model.access.csv',
+        'security/group_tcc_residentes/ir.model.access.csv',
+        'security/group_tcc_vocero/ir.model.access.csv',
+        'security/public/ir.model.access.csv',
         'templates.xml',
         'views/noticias_views.xml',
+        
     ],
     # only loaded in demonstration mode
     'demo': [

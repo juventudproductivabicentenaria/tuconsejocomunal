@@ -29,8 +29,8 @@
             <tree string="Registro de Consejo Comunales">
                 <field name="consejo_id"/>
                 <field name="titulo"/>
-                <field name="categoria_id"/>
-                <field name="fecha_init"/>
+                <field name="categoria_id" />
+                <field name="fecha_init" groups="tcc_noticias.group_tcc_vocero" />
             </tree>
         </field>
     </record>
