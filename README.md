@@ -10,6 +10,7 @@ de una plataforma web que brinde benificos a toda las comunidades organizadas en
 
 ## Código de ejemplo
 
+-------------------------
 class partner(osv.osv):
     _name = 'res.partner'
     _inherit="res.partner"
@@ -44,7 +45,7 @@ class tcc_consejocomunales(osv.osv):
         'fecha':fields.date('Fecha',size=20,help='Nombre del Consejo Comunal'),
         'active':fields.boolean('Activo',help='Si esta activo el motor lo incluira en la vista...'),
         }
-        
+-------------------------
 ## Motivación
 
 Insentivar a los Consejos Comunales a actuar de forma organizada
