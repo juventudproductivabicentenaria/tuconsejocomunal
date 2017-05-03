@@ -72,4 +72,4 @@ y seguir éste orden de intalación de los módulos:
 ## Documentación
 
     [![Docomentación](https://github.com/juventudproductivabicentenaria/tuconsejocomunal/tree/master/docs)
-    [![Tech Doc](docs/doc.png)](docs)
+    [![Tech Doc](docs/img/doc.png)](docs)
