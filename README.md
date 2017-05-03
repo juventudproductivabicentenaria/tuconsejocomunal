@@ -11,7 +11,6 @@ de una plataforma web que brinde benificos a toda las comunidades organizadas en
 ## Cádigo de ejemplo
 
 from openerp.osv import fields, osv
-
 class partner(osv.osv):
     _name = 'res.partner'
     _inherit="res.partner"
@@ -30,11 +29,9 @@ class partner(osv.osv):
      'municipio_id':fields.many2one('res.municipios','Municipio',required=True),
      'parroquia_id':fields.many2one('res.parroquias','Parroquia',required=True)
     }
-    
     _defaults={
         'is_consejo':False
         }
-
 class tcc_consejocomunales(osv.osv):
      _name = 'tcc.consejocomunales'
      _inherits = {'res.partner': 'parent_id'}
@@ -61,6 +58,7 @@ información en tiempo real y oportuna.
 
 Para intalación requiere la versión [odoo-9.0](https://github.com/odoo/odoo/tree/9.0)
 y seguir éste orden de intalación de los módulos:
+
 1.- Gestión de los Consejos Comunales (1)
 
 2.- Gestion de Vivienda (2)
