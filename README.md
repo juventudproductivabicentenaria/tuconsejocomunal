@@ -4,19 +4,18 @@
 ## Resumen
 
 tuconsejocomunal.com nace con el fin de suplir la necesidades de las 
-Organizaciones de Base del Poder Popular del Estado Venozalano,
+Organizaciones de Base del Poder Popular (OBPP) del Estado Venozalano,
 para brindar apoyo en la gestión interna de los Consejos Comunales a tráves
 de una plataforma web que brinde benificos a toda las comunidades organizadas en OBPP.
 
-## Cádigo de ejemplo
+## Código de ejemplo
 
 class partner(osv.osv):
     _name = 'res.partner'
     _inherit="res.partner"
     _columns = {
         'is_consejo': fields.boolean(
-                'Consejo Comunal'
-                ),
+                'Consejo Comunal'),
         'rif': fields.char(
                 'RIF',
                 size=15,
