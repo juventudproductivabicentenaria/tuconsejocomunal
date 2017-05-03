@@ -10,21 +10,21 @@ de una plataforma web que brinde benificos a toda las comunidades organizadas en
 
 ## Código de ejemplo
 
-class partner(osv.osv):
-    _name = 'res.partner'
-    _inherit="res.partner"
-    _columns = {
-        'is_consejo': fields.boolean(
-                'Consejo Comunal'),
-        'rif': fields.char(
-                'RIF',
-                size=15,
-                required=True,
-                help='Número del R.I.F. de la Entidad'),
-        'estado_id':fields.many2one('res.estados','Estado',required=True),
-        'municipio_id':fields.many2one('res.municipios','Municipio',required=True),
-        'parroquia_id':fields.many2one('res.parroquias','Parroquia',required=True)
-    }
+    class partner(osv.osv):
+        _name = 'res.partner'
+        _inherit="res.partner"
+        _columns = {
+            'is_consejo': fields.boolean(
+                    'Consejo Comunal'),
+            'rif': fields.char(
+                    'RIF',
+                    size=15,
+                    required=True,
+                    help='Número del R.I.F. de la Entidad'),
+            'estado_id':fields.many2one('res.estados','Estado',required=True),
+            'municipio_id':fields.many2one('res.municipios','Municipio',required=True),
+            'parroquia_id':fields.many2one('res.parroquias','Parroquia',required=True)
+        }
     _defaults={
         'is_consejo':False
         }
