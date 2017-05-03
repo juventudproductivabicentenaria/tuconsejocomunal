@@ -10,7 +10,6 @@ de una plataforma web que brinde benificos a toda las comunidades organizadas en
 
 ## Código de ejemplo
 
--------------------------
 class partner(osv.osv):
     _name = 'res.partner'
     _inherit="res.partner"
@@ -21,8 +20,7 @@ class partner(osv.osv):
                 'RIF',
                 size=15,
                 required=True,
-                help='Número del R.I.F. de la Entidad'
-                ),
+                help='Número del R.I.F. de la Entidad'),
         'estado_id':fields.many2one('res.estados','Estado',required=True),
         'municipio_id':fields.many2one('res.municipios','Municipio',required=True),
         'parroquia_id':fields.many2one('res.parroquias','Parroquia',required=True)
@@ -30,7 +28,8 @@ class partner(osv.osv):
     _defaults={
         'is_consejo':False
         }
-class tcc_consejocomunales(osv.osv):
+        
+    class tcc_consejocomunales(osv.osv):
      _name = 'tcc.consejocomunales'
      _inherits = {'res.partner': 'parent_id'}
      _rec_name='parent_id'
@@ -45,7 +44,6 @@ class tcc_consejocomunales(osv.osv):
         'fecha':fields.date('Fecha',size=20,help='Nombre del Consejo Comunal'),
         'active':fields.boolean('Activo',help='Si esta activo el motor lo incluira en la vista...'),
         }
--------------------------
 ## Motivación
 
 Insentivar a los Consejos Comunales a actuar de forma organizada
