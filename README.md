@@ -15,7 +15,6 @@ from openerp.osv import fields, osv
 class partner(osv.osv):
     _name = 'res.partner'
     _inherit="res.partner"
-
     _columns = {
         'is_consejo': fields.boolean(
                     'Consejo Comunal'
@@ -40,7 +39,6 @@ class tcc_consejocomunales(osv.osv):
      _name = 'tcc.consejocomunales'
      _inherits = {'res.partner': 'parent_id'}
      _rec_name='parent_id'
-     
      _columns={
 		'parent_id':fields.many2one(
                     'res.partner',
@@ -64,10 +62,16 @@ información en tiempo real y oportuna.
 Para intalación requiere la versión [odoo-9.0](https://github.com/odoo/odoo/tree/9.0)
 y seguir éste orden de intalación de los módulos:
 1.- Gestión de los Consejos Comunales (1)
+
 2.- Gestion de Vivienda (2)
+
 3.- Gestion de Familia (3)
+
 4.- Personas (4)
+
 5.- tcc_noticias (5)
+
 6.- Encuestas de Consejos Comunales (5)
+
 7.- Gestion de proyecto (6)
 
