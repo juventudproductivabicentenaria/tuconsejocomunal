@@ -1,18 +1,31 @@
-# Sistema tuconsejocomunal.com
+# Sistema tuconsejocomunal.com.ve
 
-## Resumen
+## Índice ##
 
-tuconsejocomunal.com es una herramienta web para mejorar la gestión interna de
+*   [Resumen](#resumen)
+
+*   [Código de ejemplo](#código-de-ejemplo)
+
+*   [Motivación](#motivación)
+
+*   [Instalación](#instalación)
+
+*   [Documentación](#documentación)
+
+*   [Sé un colaborador](#formas-de-colaborar)
+
+## Resumen ##
+
+tuconsejocomunal.com.ve es una herramienta web para mejorar la gestión interna de
 las Organizaciones de Base del Poder Popular (OBPP) del Estado Venozalano,
 y brindar apoyo en la organización y esparcimiento de la información y agilizar
 los procesos activos de los consejos comunales. Tales como:
 
-    -Ofrecer registro de familias que conforman el Consejo Comunal y  estructura organizacional del mismo.
-    -Publicar información en la plataforma y notificar a todos los miembros de la comunaidad registrados.
-    -Descargar formatos de documentos solicitados por los entes del Estado reguladores de los Consejos Comunales.
-        
+* Ofrecer registro de familias que conforman el Consejo Comunal y estructura organizacional del mismo.
+* Publicar información en la plataforma y notificar a todos los miembros de la comunaidad registrados.
+* Descargar formatos de documentos solicitados por los entes del Estado reguladores de los Consejos Comunales.
 
-## Código de ejemplo
+## Código de ejemplo ##
 
     class partner(osv.osv):
         _name = 'res.partner'
@@ -48,13 +61,13 @@ los procesos activos de los consejos comunales. Tales como:
         'fecha':fields.date('Fecha',size=20,help='Nombre del Consejo Comunal'),
         'active':fields.boolean('Activo',help='Si esta activo el motor lo incluira en la vista...'),
         }
-## Motivación
+## Motivación ##
 
 Insentivar a los Consejos Comunales a actuar de forma organizada
 y sistematizada, donde las familias integrantes puedan contar con
 información en tiempo real y oportuna.
 
-## Instalación
+## Instalación ##
 
 Para intalación requiere la versión [odoo-9.0](https://github.com/odoo/odoo/tree/9.0)
 y seguir éste orden de intalación de los módulos:
@@ -73,13 +86,16 @@ y seguir éste orden de intalación de los módulos:
 
     7.- Gestion de proyecto (6)
 
-## Documentación
+## Documentación ##
 
-    - [Documentación](/docs)
+[![Docs](/docs/img/doc.png)](/docs)
 
+## Formas de colaborar ##
     
-    
-##Si deseas colaborar
-    
-    Este es un proyecto de caracter pública cualquier desarrollador puede
-    ser colaborador.
+Este es un proyecto de carácter público y colaborativo cualquiera puede hacer aportes como:
+
+* Desarrollo de código
+* Resolviendo las [__Issues__](https://github.com/juventudproductivabicentenaria/tuconsejocomunal/issues)
+* Realizando pruebas y detectando fallos del sistema
+* Utilizando la plataforma
+* Aportar ideas para mejorar la plataforma
