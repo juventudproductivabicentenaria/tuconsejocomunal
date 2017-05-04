@@ -77,7 +77,7 @@ y seguir éste orden de intalación de los módulos:
 
 ## Documentación
 
-    [Documentación](docs)
+    [Documentación](/docs/)
 
     
     
