@@ -1,6 +1,6 @@
 # Sistema tuconsejocomunal.com.ve
 
-## Índice
+## Índice ##
 
 *   [Resumen](#resumen)
 
@@ -21,7 +21,7 @@ las Organizaciones de Base del Poder Popular (OBPP) del Estado Venozalano,
 y brindar apoyo en la organización y esparcimiento de la información y agilizar
 los procesos activos de los consejos comunales. Tales como:
 
-* Ofrecer registro de familias que conforman el Consejo Comunal y  estructura organizacional del mismo.
+* Ofrecer registro de familias que conforman el Consejo Comunal y estructura organizacional del mismo.
 * Publicar información en la plataforma y notificar a todos los miembros de la comunaidad registrados.
 * Descargar formatos de documentos solicitados por los entes del Estado reguladores de los Consejos Comunales.
         
