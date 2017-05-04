@@ -75,11 +75,11 @@ y seguir éste orden de intalación de los módulos:
 
 ## Documentación
 
-    - [Documentación](/docs)
+    [Documentación](/docs)
 
     
     
-##Si deseas colaborar
+##Proyecto colaborativo
     
-    Este es un proyecto de caracter pública cualquier desarrollador puede
+    Este es un proyecto de caracter público cualquier desarrollador puede
     ser colaborador.
