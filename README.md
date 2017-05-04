@@ -75,9 +75,7 @@ y seguir éste orden de intalación de los módulos:
 
 ## Documentación
 
-    Para intalación requiere la versión [Docs](https://github.com/juventudproductivabicentenaria/tuconsejocomunal/tree/master/docs)
-
-    
+    [Docs](https://github.com/juventudproductivabicentenaria/tuconsejocomunal/tree/master/docs)
     
 ## Proyecto colaborativo
     
