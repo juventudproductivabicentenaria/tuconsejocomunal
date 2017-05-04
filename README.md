@@ -76,7 +76,8 @@ y seguir éste orden de intalación de los módulos:
 ## Documentación
 
 [Docs](/docs)
-    
+[![Docs](/docs/img/doc.png)](/docs)
+
 ## Proyecto colaborativo
     
     Este es un proyecto de caracter público cualquier desarrollador puede
