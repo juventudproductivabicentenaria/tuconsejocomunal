@@ -94,7 +94,7 @@ y seguir éste orden de intalación de los módulos:
 Este es un proyecto de carácter público y colaborativo cualquiera puede hacer aportes como:
 
 * Desarrollo de código
-* Resolviendo las [__Issues__](/issues)
+* Resolviendo las [__Issues__](https://github.com/juventudproductivabicentenaria/tuconsejocomunal/issues)
 * Realizando pruebas y detectando fallos del sistema
 * Utilizando la plataforma
 * Aportar ideas para mejorar la plataforma
