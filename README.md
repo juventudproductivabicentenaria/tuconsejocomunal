@@ -89,7 +89,12 @@ y seguir éste orden de intalación de los módulos:
 
 [![Docs](/docs/img/doc.png)](/docs)
 
-## Proyecto colaborativo ##
+## Forma de colaborar ##
     
-    Este es un proyecto de caracter público cualquier desarrollador puede
-    ser colaborador.
+Este es un proyecto de carácter público y colaborativo cualquiera puede hacer aportes como:
+
+* Desarrollo de código
+* Resolviendo las [__Issues__](/issues)
+* Realizando pruebas y detectando fallos del sistema
+* Utilizando la plataforma
+* Aportar ideas para mejorar la plataforma
