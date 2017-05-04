@@ -12,6 +12,8 @@
 
 *   [Documentación](#documentación)
 
+*   [Sé un colaborador](#formas-de-colaborar)
+
 ## Resumen ##
 
 tuconsejocomunal.com.ve es una herramienta web para mejorar la gestión interna de
@@ -89,7 +91,7 @@ y seguir éste orden de intalación de los módulos:
 
 [![Docs](/docs/img/doc.png)](/docs)
 
-## Forma de colaborar ##
+## Formas de colaborar ##
     
 Este es un proyecto de carácter público y colaborativo cualquiera puede hacer aportes como:
 
