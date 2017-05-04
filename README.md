@@ -77,7 +77,9 @@ y seguir éste orden de intalación de los módulos:
 
 ## Documentación
 
-    ![Documentación](tuconsejocomunal/docs/img/doc.png)
+    [Documentación](docs)
+
+    
     
 ##Si deseas colaborar
     
