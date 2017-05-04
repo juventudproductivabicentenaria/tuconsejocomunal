@@ -76,7 +76,7 @@ y seguir éste orden de intalación de los módulos:
 ## Documentación
 
 [Docs](/docs)
-[![Docs](/docs/img/doc.png)](/docs)
+[![](/docs/img/doc.png)](/docs)
 
 ## Proyecto colaborativo
     
