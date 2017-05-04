@@ -1,8 +1,18 @@
-# Sistema tuconsejocomunal.com
+Sistema tuconsejocomunal.com.ve
 
-## Resumen
+*   [Resumen](#resumen)
 
-tuconsejocomunal.com es una herramienta web para mejorar la gestión interna de
+*   [Código de ejemplo](#código-de-ejemplo)
+
+*   [Motivación](#motivación)
+
+*   [Instalación](#instalación)
+
+*   [Documentación](#documentación)
+
+## Resumen ##
+
+tuconsejocomunal.comve es una herramienta web para mejorar la gestión interna de
 las Organizaciones de Base del Poder Popular (OBPP) del Estado Venozalano,
 y brindar apoyo en la organización y esparcimiento de la información y agilizar
 los procesos activos de los consejos comunales. Tales como:
@@ -12,7 +22,7 @@ los procesos activos de los consejos comunales. Tales como:
     -Descargar formatos de documentos solicitados por los entes del Estado reguladores de los Consejos Comunales.
         
 
-## Código de ejemplo
+## Código de ejemplo ##
 
     class partner(osv.osv):
         _name = 'res.partner'
@@ -48,13 +58,13 @@ los procesos activos de los consejos comunales. Tales como:
         'fecha':fields.date('Fecha',size=20,help='Nombre del Consejo Comunal'),
         'active':fields.boolean('Activo',help='Si esta activo el motor lo incluira en la vista...'),
         }
-## Motivación
+## Motivación ##
 
 Insentivar a los Consejos Comunales a actuar de forma organizada
 y sistematizada, donde las familias integrantes puedan contar con
 información en tiempo real y oportuna.
 
-## Instalación
+## Instalación ##
 
 Para intalación requiere la versión [odoo-9.0](https://github.com/odoo/odoo/tree/9.0)
 y seguir éste orden de intalación de los módulos:
@@ -73,11 +83,11 @@ y seguir éste orden de intalación de los módulos:
 
     7.- Gestion de proyecto (6)
 
-## Documentación
+## Documentación ##
 
 [![Docs](/docs/img/doc.png)](/docs)
 
-## Proyecto colaborativo
+## Proyecto colaborativo ##
     
     Este es un proyecto de caracter público cualquier desarrollador puede
     ser colaborador.
