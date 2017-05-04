@@ -79,7 +79,7 @@ y seguir éste orden de intalación de los módulos:
 
     
     
-##Proyecto colaborativo
+## Proyecto colaborativo
     
     Este es un proyecto de caracter público cualquier desarrollador puede
     ser colaborador.
