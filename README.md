@@ -1,12 +1,18 @@
-![logo jpb](https://yt3.ggpht.com/-Pdd2Yc_w1cs/AAAAAAAAAAI/AAAAAAAAAAA/zPOludtwSjU/s88-c-k-no-mo-rj-c0xffffff/photo.jpg,"Logo de juventud Productiva")![logo unefa](https://tecnologiaeducativaunefa.files.wordpress.com/2012/02/unefa-sin-fondo1.png?w=70&h=70,"Logo de unefa")![logo jpv](https://lh3.googleusercontent.com/-DnZXSzvOvRs/V9gxAUjRJIE/AAAAAAAAAAg/ledszMQjm7AJ16qBGs9PFuwBHEBX9iF9gCEw/w163-h110-p/6329863157855626369,"Logo de JPV")
 # Sistema tuconsejocomunal.com
 
 ## Resumen
 
-tuconsejocomunal.com nace con el fin de suplir la necesidades de las 
-Organizaciones de Base del Poder Popular (OBPP) del Estado Venozalano,
-para brindar apoyo en la gestión interna de los Consejos Comunales a tráves
-de una plataforma web que brinde benificos a toda las comunidades organizadas en OBPP.
+tuconsejocomunal.com es una herramienta web para mejorar la gestión interna de
+las Organizaciones de Base del Poder Popular (OBPP) del Estado Venozalano,
+y brindar apoyo en la organización y esparcimiento de la información y agilizar
+los procesos activos de los consejos comunales. Tales como:
+    
+    *Ofrecer registro de familias que conforman el Consejo Comunal y  estructura organizacional del mismo.
+
+    *Publicar información en la plataforma y notificar a todos los miembros de la comunaidad registrados.
+    
+    *Descargar formatos de documentos solicitados por los entes del Estado reguladores de los Consejos Comunales.
+        
 
 ## Código de ejemplo
 
@@ -71,5 +77,9 @@ y seguir éste orden de intalación de los módulos:
 
 ## Documentación
 
-    [![Docomentación](https://github.com/juventudproductivabicentenaria/tuconsejocomunal/tree/master/docs)
-    [![Tech Doc](docs/img/doc.png)](docs)
+    ![Documentación](docs/img/doc.png)
+    
+##Si deseas colaborar
+    
+    Este es un proyecto de caracter pública cualquier desarrollador puede
+    ser colaborador.
