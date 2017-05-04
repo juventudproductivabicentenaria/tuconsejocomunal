@@ -6,12 +6,10 @@ tuconsejocomunal.com es una herramienta web para mejorar la gestión interna de
 las Organizaciones de Base del Poder Popular (OBPP) del Estado Venozalano,
 y brindar apoyo en la organización y esparcimiento de la información y agilizar
 los procesos activos de los consejos comunales. Tales como:
-    
-    *Ofrecer registro de familias que conforman el Consejo Comunal y  estructura organizacional del mismo.
 
-    *Publicar información en la plataforma y notificar a todos los miembros de la comunaidad registrados.
-    
-    *Descargar formatos de documentos solicitados por los entes del Estado reguladores de los Consejos Comunales.
+    -Ofrecer registro de familias que conforman el Consejo Comunal y  estructura organizacional del mismo.
+    -Publicar información en la plataforma y notificar a todos los miembros de la comunaidad registrados.
+    -Descargar formatos de documentos solicitados por los entes del Estado reguladores de los Consejos Comunales.
         
 
 ## Código de ejemplo
@@ -77,7 +75,7 @@ y seguir éste orden de intalación de los módulos:
 
 ## Documentación
 
-    [Documentación](/docs/)
+    - [Documentación](/docs)
 
     
     
