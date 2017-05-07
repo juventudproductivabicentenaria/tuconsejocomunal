@@ -108,9 +108,9 @@ Para que todos entendamos los cambios realizados y así entender más rápido
 el código es conveniente seguir estos sencillos pasos, Así al navegar por
 los mensajes de los commits no parezca un desastre.
 
-[1. Separar el tútulo del cuerpo del mensaje](#separar-el-tútulo-del-cuerpo-del-mensaje)
+[1. Separar el título del cuerpo del mensaje](#separar-el-título-del-cuerpo-del-mensaje)
 
-[2. Limitar el título del mensaje a 50 caráteres](#limitar-el-título-del-mensaje-a-50-caráteres)
+[2. Limitar el título del mensaje a 50 carácteres](####limitar-el-título-del-mensaje-a-50-carácteres)
 
 [3. Iniciar el tulo del mensaje en mayúscula](#iniciar-el-tulo-del-mensaje-en-mayúscula)
 
