@@ -108,33 +108,33 @@ Para que todos entendamos los cambios realizados y así entender más rápido
 el código es conveniente seguir estos sencillos pasos, Así al navegar por
 los mensajes de los commits no parezca un desastre.
 
-[1. Separar el tútulo del cuerpo del mensaje](#1.-separar-el-tútulo-del-cuerpo-del-mensaje)
+[1. Separar el tútulo del cuerpo del mensaje](#separar-el-tútulo-del-cuerpo-del-mensaje)
 
-[2. Limitar el título del mensaje a 50 caráteres](#2.-limitar-el-título-del-mensaje-a-50-caráteres)
+[2. Limitar el título del mensaje a 50 caráteres](#limitar-el-título-del-mensaje-a-50-caráteres)
 
-[3. Iniciar el tulo del mensaje en mayúscula](#3.-iniciar-el-tulo-del-mensaje-en-mayúscula)
+[3. Iniciar el tulo del mensaje en mayúscula](#iniciar-el-tulo-del-mensaje-en-mayúscula)
 
-[4. No terminar el título del mensaje en punto](#4.-no-terminar-el-título-del-mensaje-en-punto)
+[4. No terminar el título del mensaje en punto](#no-terminar-el-título-del-mensaje-en-punto)
 
-[5. Usar el modo imperativo en la línea del título](#5.-usar-el-modo-imperativo-en-la-línea-del-título)
+[5. Usar el modo imperativo en la línea del título](#usar-el-modo-imperativo-en-la-línea-del-título)
 
-[6. Envolver el cuerpo del mensaje en 72 carácteres](#6.-envolver-el-cuerpo-del-mensaje-en-72-carácteres)
+[6. Envolver el cuerpo del mensaje en 72 carácteres](#envolver-el-cuerpo-del-mensaje-en-72-carácteres)
 
-[7. Usar el cuerpo del mensaje para explicar qué y por qué vs. el cómo](#7.-usar-el-cuerpo-del-mensaje-para-explicar-qué-y-por-qué-vs.-el-cómo)
+[7. Usar el cuerpo del mensaje para explicar qué y por qué vs. el cómo](#usar-el-cuerpo-del-mensaje-para-explicar-qué-y-por-qué-vs.-el-cómo)
 
 ### Por ejemplo ###
 
-#### 1. Separar el tútulo del cuerpo del mensaje ####
+#### Separar el tútulo del cuerpo del mensaje ####
 
-#### 2. Limitar el título del mensaje a 50 caráteres ####
+#### Limitar el título del mensaje a 50 caráteres ####
 
-#### 3. Iniciar el tulo del mensaje en mayúscula ####
+#### Iniciar el tulo del mensaje en mayúscula ####
 
-#### 4. No terminar el título del mensaje en punto ####
+#### No terminar el título del mensaje en punto ####
 
-#### 5. Usar el modo imperativo en la línea del título ####
+#### Usar el modo imperativo en la línea del título ####
 
-#### 6. Envolver el cuerpo del mensaje en 72 carácteres ####
+#### Envolver el cuerpo del mensaje en 72 carácteres ####
 
-#### 7. Usar el cuerpo del mensaje para explicar qué y por qué vs. el cómo ####
+#### Usar el cuerpo del mensaje para explicar qué y por qué vs. el cómo ####
 
