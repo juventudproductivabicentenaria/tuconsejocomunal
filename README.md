@@ -14,6 +14,8 @@
 
 *   [Sé un colaborador](#formas-de-colaborar)
 
+*   [Para los desarrolladores](#guía-para-los-commits)
+
 ## Resumen ##
 
 tuconsejocomunal.com.ve es una herramienta web para mejorar la gestión interna de
@@ -99,3 +101,34 @@ Este es un proyecto de carácter público y colaborativo cualquiera puede hacer 
 * Realizando pruebas y detectando fallos del sistema
 * Utilizando la plataforma
 * Aportar ideas para mejorar la plataforma
+
+## Guía para los commits ##
+
+Para que todos entendamos los cambios realizados y así entender más rápido
+el código es conveniente seguir estos sencillos pasos, Así al navegar por
+los mensajes de los commits no parezca un desastre.
+
+[1. Separar el tútulo del cuerpo del mensaje](#1.-separar-el-tútulo-del-cuerpo-del-mensaje)
+[2. Limitar el título del mensaje a 50 caráteres](#2.-limitar-el-título-del-mensaje-a-50-caráteres)
+[3. Iniciar el tulo del mensaje en mayúscula](#3.-iniciar-el-tulo-del-mensaje-en-mayúscula)
+[4. No terminar el título del mensaje en punto](#4.-no-terminar-el-título-del-mensaje-en-punto)
+[5. Usar el modo imperativo en la línea del título](#5.-usar-el-modo-imperativo-en-la-línea-del-título)
+[6. Envolver el cuerpo del mensaje en 72 carácteres](#6.-envolver-el-cuerpo-del-mensaje-en-72-carácteres)
+[7. Usar el cuerpo del mensaje para explicar qué y por qué vs. el cómo](#7.-usar-el-cuerpo-del-mensaje-para-explicar-qué-y-por-qué-vs.-el-cómo)
+
+### Por ejemplo ###
+
+#### 1. Separar el tútulo del cuerpo del mensaje ####
+
+#### 2. Limitar el título del mensaje a 50 caráteres ####
+
+#### 3. Iniciar el tulo del mensaje en mayúscula ####
+
+#### 4. No terminar el título del mensaje en punto ####
+
+#### 5. Usar el modo imperativo en la línea del título ####
+
+#### 6. Envolver el cuerpo del mensaje en 72 carácteres ####
+
+#### 7. Usar el cuerpo del mensaje para explicar qué y por qué vs. el cómo ####
+
