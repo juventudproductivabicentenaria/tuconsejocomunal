@@ -108,33 +108,48 @@ Para que todos entendamos los cambios realizados y así entender más rápido
 el código es conveniente seguir estos sencillos pasos, Así al navegar por
 los mensajes de los commits no parezca un desastre.
 
-[1. Separar el título del cuerpo del mensaje](#separar-el-título-del-cuerpo-del-mensaje)
+1. Separar el título del cuerpo del mensaje
 
-[2. Limitar el título del mensaje a 50 carácteres](####limitar-el-título-del-mensaje-a-50-carácteres)
+2. Limitar el título del mensaje a 50 carácteres
 
-[3. Iniciar el tulo del mensaje en mayúscula](#iniciar-el-tulo-del-mensaje-en-mayúscula)
+3. Iniciar el título del mensaje en mayúscula
 
-[4. No terminar el título del mensaje en punto](#no-terminar-el-título-del-mensaje-en-punto)
+4. No terminar el título del mensaje en punto
 
-[5. Usar el modo imperativo en la línea del título](#usar-el-modo-imperativo-en-la-línea-del-título)
+5. Usar el modo imperativo en la línea del título
 
-[6. Envolver el cuerpo del mensaje en 72 carácteres](#envolver-el-cuerpo-del-mensaje-en-72-carácteres)
+6. Envolver el cuerpo del mensaje en 72 carácteres
 
-[7. Usar el cuerpo del mensaje para explicar qué y por qué vs. el cómo](#usar-el-cuerpo-del-mensaje-para-explicar-qué-y-por-qué-vs.-el-cómo)
+7. Usar el cuerpo del mensaje para explicar qué y por qué vs. el cómo
 
 ### Por ejemplo ###
 
-#### Separar el tútulo del cuerpo del mensaje ####
+    Resumir los cambios en alrededor de 50 caracteres
 
-#### Limitar el título del mensaje a 50 caráteres ####
+    Texto explicativo lo más detallado, si es necesario. Envuélvalo a unos 72
+    carácteres mas o menos. En algunos contextos, la primera línea se trata como
+    el título commit y el resto del texto como el cuerpo. La línea en blanco que
+    separa el resumen del cuerpo del mensaje es obligatoria (a menos que omita
+    el cuerpo por completo); Varias herramientas como `log`, `shortlog`
+    Y `rebase` puede confundirse si se ejecutan los dos juntos.
 
-#### Iniciar el tulo del mensaje en mayúscula ####
+    Explique el problema que el commit está resolviendo. Concéntrese en por qué
+    está haciendo este cambio en lugar de cómo (el código explica eso).
+    ¿Hay efectos secundarios u otras consecuencias no intuitivas de este
+    ¿cambio? Aquí es el lugar para explicarlo.
 
-#### No terminar el título del mensaje en punto ####
+    Otros párrafos vienen después de líneas en blanco.
 
-#### Usar el modo imperativo en la línea del título ####
+     - Las viñetas también están bien.
 
-#### Envolver el cuerpo del mensaje en 72 carácteres ####
+     - Normalmente se utiliza un guión o un asterisco para la viñeta, precedido
+       Por un solo espacio, con líneas en blanco entre cada viñeta, pero las 
+       convenciones pueden variar aquí.
 
-#### Usar el cuerpo del mensaje para explicar qué y por qué vs. el cómo ####
+    Si utiliza un rastreador de Issues, ponga referencias a ellos en la parte inferior,
+    como esto:
 
+
+    Resolves: #123
+    See also: #456, #789
+    Fix: #31
