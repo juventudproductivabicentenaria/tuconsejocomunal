@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="assets_backend" name="hide_duplicate" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/web_fields_masks/static/lib/jquery.inputmask.js"></script>
+                <script type="text/javascript" src="/web_fields_masks/static/lib/jquery.inputmask.extensions.js"></script>
+                <script type="text/javascript" src="/web_fields_masks/static/lib/jquery.inputmask.numeric.extensions.js"></script>
+                <script type="text/javascript" src="/web_fields_masks/static/lib/jquery.inputmask.regex.extensions.js"></script>
+                <script type="text/javascript" src="/web_fields_masks/static/src/js/main.js"></script>
+            </xpath>
+        </template>
+    </data>
+</openerp>
