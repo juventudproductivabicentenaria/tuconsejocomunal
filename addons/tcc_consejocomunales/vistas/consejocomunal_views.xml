@@ -7,20 +7,32 @@
         <field name="type">form</field>
         <field name="arch" type="xml">
             <form string="Registro de Consejo Comunales">
-                <group>
-                    <field name="name" />
-                    <field name="rif" placeholder="hola" />
-                    <field name="cd_situr"/>
-                    <field name="fecha"/>
-                    <field name="active"/>
-                    <field name="estado_id" on_change="limpiar_campos('estado')"/>
-                    <field 
-                        name="municipio_id" 
-                        domain="[('estado_id','=',estado_id)]"
-                        on_change="limpiar_campos('municipio')"/>
-                    <field name="parroquia_id" domain="[('municipio_id','=',municipio_id)]"/>
-                </group>
-                
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        
+                    </group>
+                    <group col="4">
+                        <field name="rif" placeholder="C-00000000-0" data-inputmask="'mask': 'C-9999999-9'"/>
+                        <field name="cd_situr"/>
+                        <field name="estado_id" 
+                            on_change="limpiar_campos('estado')"
+                            options="{'no_create': True}"/>
+                        <field name="fecha" 
+                            on_change="on_change_validate_date(fecha)"
+                            options="{'no_create': True}"/>
+                        <field 
+                            name="municipio_id" 
+                            domain="[('estado_id','=',estado_id)]"
+                            on_change="limpiar_campos('municipio')"
+                            options="{'no_create': True}"/>
+                        <field name="active"/>
+                        <field name="parroquia_id" domain="[('municipio_id','=',municipio_id)]"/>
+                    </group>
+                    <group>
+                        <field name="ubicacion" placeholder = "Sector, Calle, Casa/Apto."/>
+                    </group>
+                </sheet>
             </form>
         </field>
     </record>
@@ -33,7 +45,7 @@
             <tree string="Registro de Consejo Comunales">
                 <field name="name"/>
                 <field name="rif"/>
-
+                <field name="cd_situr"/>
             </tree>
         </field>
     </record>
@@ -51,13 +63,13 @@
         id="tcc_consejocomunal_horizontal_menu" 
         sequence="5" />
     <menuitem 
-        name="Gestión de Consejos Comunales" 
+        name="Consejos Comunales" 
         id="tcc_consejocomunal_vertical_menu" 
         parent="tcc_consejocomunal_horizontal_menu" 
         sequence="5"/>
         
     <menuitem 
-        name="Registros de Consejos Comunales" 
+        name="Consejos Comunales" 
         id="tcc_consejocomunal_subvertical_menu" 
         parent="tcc_consejocomunal_vertical_menu"
         action="action_tcc_consejocomunales" 
