@@ -8,9 +8,10 @@
         <field name="arch" type="xml">
             <form string="Registro de Consejo Comunales">
                 <group>
-                    <field name="name" />
-                    <field name="rif" placeholder="hola" />
-                    <field name="cd_situr"/>
+                    <field name="name" placeholder="Nombre del consejo comunal"/>
+                    <field name="rif" placeholder="R.I.F Ejem: 123456789" />
+                    <field name="cd_situr" placeholder="Código Situr Ejem: 123A456B789C0"/>
+                    <field name="tlf" placeholder="Teléfono"/>
                     <field name="fecha"/>
                     <field name="active"/>
                     <field name="estado_id" on_change="limpiar_campos('estado')"/>
