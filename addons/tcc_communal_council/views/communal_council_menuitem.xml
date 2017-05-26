@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Top menu item -->
+        <menuitem name="Consejo Comunal"
+            id="tcc_communal_coincil_menutop"
+            web_icon="tcc_communal_council,static/description/icon.png"
+            groups="base.group_system,tcc_group_consejo,tcc_group_vocero,tcc_group_residente"
+            />
+        <menuitem id="tcc_communal_coincil_menu" 
+            name="Consejo Comunal" 
+            parent="tcc_communal_coincil_menutop" 
+            groups="base.group_system,tcc_group_consejo,tcc_group_vocero,tcc_group_residente"
+            sequence="2"/>
+        
+    </data>
+</odoo>
+

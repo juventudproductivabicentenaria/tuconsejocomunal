@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_tcc_communal_council_form" model="ir.ui.view">
+            <field name="name">tcc.communal.council.form</field>
+            <field name="model">tcc.communal.council</field>
+            <field name="arch" type="xml">
+                <form string="Consejo Comunal">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box" groups="base.group_system">
+                            <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-check">
+                                <field name="active" widget="boolean_button"  options='{"terminology": "active"}' />
+                            </button>
+                        </div>
+                        <group>
+                            <field name="name" />
+                            <field name="login" string="Correo electrónico" /> 
+                        </group>
+                        <group col="4">
+                            <field name="situr_code"/>
+                            <field widget="mask_regex" data-inputmask-regex="[GJC]-[0-9]{8}-[0-9]{1}" name="rif" placeholder="C-00000000-0"/>
+                            <field name="creation_date"/>
+                            <field widget="mask" data-inputmask="'mask': '+58-999-9999999'" name="phone" />
+                            <field name="state_id" domain="[('country_id','=',240)]" options="{'no_create': True}"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record id="view_tcc_communal_council_tree" model="ir.ui.view">
+            <field name="name">tcc.communal.council.tree</field>
+            <field name="model">tcc.communal.council</field>
+            <field name="arch" type="xml">
+                <tree string="Consejo Comunal">
+                    <field name="name"/>
+                    <field name="rif"/>
+                    <field name="login"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="action_tcc_communal_council_form" model="ir.actions.act_window">
+            <field name="name">Consejo Comunal</field>
+            <field name="res_model">tcc.communal.council</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <menuitem name="Consejo Comunal"
+            id="tcc_communal_coincil_menutop"
+            web_icon="tcc_communal_council,static/description/icon.png"
+            groups="base.group_system,tcc_group_consejo,tcc_group_vocero,tcc_group_residente"
+            />
+        <menuitem id="tcc_communal_coincil_menu" 
+            name="Consejo Comunal" 
+            parent="tcc_communal_coincil_menutop" 
+            sequence="2"/>
+        
+        <menuitem id="tcc_communal_coincil_action" 
+            parent="tcc_communal_coincil_menu" 
+            action="action_tcc_communal_council_form" 
+            name="Consejo comunal" 
+            sequence="5" />
+        
+    </data>
+</odoo>

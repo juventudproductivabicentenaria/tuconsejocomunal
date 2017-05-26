@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_tcc_tcc_communal_council_residente,tcc.communal.council,model_tcc_communal_council,tcc_group_residente,1,0,0,0
+access_res_partner_residente,base.res.partner,model_res_partner,tcc_group_residente,1,0,0,0
+access_family_residente,tcc.family,model_tcc_family,tcc_group_residente,1,0,0,0

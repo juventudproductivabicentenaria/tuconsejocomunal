@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data noupdate="1">
+
+	<!-- Estados -->
+	<record id="geo_est_AMA" model="res.country.state">
+		<field name="code">AMA</field>
+		<field name="name">Amazonas</field>
+		<field name="country_id" ref="base.ve"/>
+	</record>
+
+	<record id="geo_est_ANZ" model="res.country.state">
+		<field name="code">ANZ</field>
+		<field name="name">Anzoátegui</field>
+		<field name="country_id" ref="base.ve"/>
+	</record>
+	
+	<record id="geo_est_APU" model="res.country.state">
+		<field name="code">APU</field>
+		<field name="name">Apure</field>
+		<field name="country_id" ref="base.ve"/>
+	</record>
+	
+	<record id="geo_est_ARA" model="res.country.state">
+		<field name="code">ARA</field>
+		<field name="name">Aragua</field>
+		<field name="country_id" ref="base.ve"/>
+	</record>
+	
+	<record id="geo_est_BAR" model="res.country.state">
+		<field name="code">BAR</field>
+		<field name="name">Barinas</field>
+		<field name="country_id" ref="base.ve"/>
+	</record>
+
+	<record id="geo_est_BOL" model="res.country.state">
+		<field name="code">BOL</field>
+		<field name="name">Bolívar</field>
+		<field name="country_id" ref="base.ve"/>
+	</record>
+	
+	<record id="geo_est_CAR" model="res.country.state">
+		<field name="code">CAR</field>
+		<field name="name">Carabobo</field>
+		<field name="country_id" ref="base.ve"/>
+	</record>
+	
+	<record id="geo_est_COJ" model="res.country.state">
+		<field name="code">COJ</field>
+		<field name="name">Cojedes</field>
+		<field name="country_id" ref="base.ve"/>
+	</record>
+	
+	<record id="geo_est_DEA" model="res.country.state">
+		<field name="code">DEA</field>
+		<field name="name">Delta Amacuro</field>
+		<field name="country_id" ref="base.ve"/>
+	</record>
+
+	<record id="geo_est_DTO" model="res.country.state">
+		<field name="code">DTO</field>
+		<field name="name">Distrito Capital</field>
+		<field name="country_id" ref="base.ve"/>
+	</record>
+
+	<record id="geo_est_FAL" model="res.country.state">
+		<field name="code">FAL</field>
+		<field name="name">Falcón</field>
+		<field name="country_id" ref="base.ve"/>
+	</record>
+
+	<record id="geo_est_GUA" model="res.country.state">
+		<field name="code">GUA</field>
+		<field name="name">Guárico</field>
+		<field name="country_id" ref="base.ve"/>
+	</record>
+
+	<record id="geo_est_LAR" model="res.country.state">
+		<field name="code">LAR</field>
+		<field name="name">Lara</field>
+		<field name="country_id" ref="base.ve"/>
+	</record>
+
+	<record id="geo_est_MER" model="res.country.state">
+		<field name="code">MER</field>
+		<field name="name">Mérida</field>
+		<field name="country_id" ref="base.ve"/>
+	</record>
+	
+	<record id="geo_est_MIR" model="res.country.state">
+		<field name="code">MIR</field>
+		<field name="name">Miranda</field>
+		<field name="country_id" ref="base.ve"/>
+	</record>
+
+	<record id="geo_est_MON" model="res.country.state">
+		<field name="code">MON</field>
+		<field name="name">Monagas</field>
+		<field name="country_id" ref="base.ve"/>
+	</record>
+
+	<record id="geo_est_NVA" model="res.country.state">
+		<field name="code">NVA</field>
+		<field name="name">Nueva Esparta</field>
+		<field name="country_id" ref="base.ve"/>
+	</record>
+
+	<record id="geo_est_POR" model="res.country.state">
+		<field name="code">POR</field>
+		<field name="name">Portuguesa</field>
+		<field name="country_id" ref="base.ve"/>
+	</record>
+
+	<record id="geo_est_SUC" model="res.country.state">
+		<field name="code">SUC</field>
+		<field name="name">Sucre</field>
+		<field name="country_id" ref="base.ve"/>
+	</record>
+
+	<record id="geo_est_TAC" model="res.country.state">
+		<field name="code">TAC</field>
+		<field name="name">Táchira</field>
+		<field name="country_id" ref="base.ve"/>
+	</record>
+
+	<record id="geo_est_TRU" model="res.country.state">
+		<field name="code">TRU</field>
+		<field name="name">Trujillo</field>
+		<field name="country_id" ref="base.ve"/>
+	</record>
+	
+	<record id="geo_est_VAR" model="res.country.state">
+		<field name="code">VAR</field>
+		<field name="name">Vargas</field>
+		<field name="country_id" ref="base.ve"/>
+	</record>
+
+	<record id="geo_est_YAR" model="res.country.state">
+		<field name="code">YAR</field>
+		<field name="name">Yaracuy</field>
+		<field name="country_id" ref="base.ve"/>
+	</record>
+
+	<record id="geo_est_ZUL" model="res.country.state">
+		<field name="code">ZUL</field>
+		<field name="name">Zulia</field>
+		<field name="country_id" ref="base.ve"/>
+	</record>
+
+	</data>
+</openerp>
