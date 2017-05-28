@@ -20,13 +20,34 @@ class CommunalCouncil(models.Model):
     _rec_name = 'name'
     
     
-    user_id = fields.Many2one('res.users', string='Usuario',)
-    situr_code = fields.Char(string='Código situr',)
-    creation_date = fields.Date(string='Fecha creación',)
+    user_id = fields.Many2one(
+                    'res.users', 
+                    string='Usuario',
+                    ondelete="cascade"
+                    )
+    situr_code = fields.Char(
+                    string='Código situr',
+                    )
+    creation_date = fields.Date(
+                    string='Fecha creación',
+                    )
+    rif = fields.Char(
+                    string='RIF',
+                    )
+    state_id = fields.Many2one(
+                    'res.country.state', 
+                    string='Estado',
+                    )
+    municipality_id = fields.Many2one(
+                    'res.country.state.municipality', 
+                    string='Municipio',
+                    )
+    parish_id = fields.Many2one(
+                    'res.country.state.municipality.parish', 
+                    string='Parroquia',
+                    )
     active = fields.Boolean(default=True)
-    rif = fields.Char(string='RIF',)
-    state_id = fields.Many2one('res.country.state', string='Estado',)
-    municipality_id = fields.Many2one('res.country.state', string='Estado',)
+    
     
     _sql_constraints = [('situr_code_uniq', 'unique (situr_code)', "El Código SITUR ya Existe  !")]
     

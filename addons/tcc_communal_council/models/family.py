@@ -42,6 +42,22 @@ class Family(models.Model):
                 string='Consejo comunal', 
                 default=default_communal_council,
                 )
+    apartment_id = fields.Many2one(
+                'tcc.family.apartment',
+                string='Apartamento', 
+                )
+    floor_id = fields.Many2one(
+                'tcc.family.apartment.floor',
+                string='Piso', 
+                )
+    house_id = fields.Many2one(
+                'tcc.dwelling.house',
+                string='Casa', 
+                )
+    edifice_id = fields.Many2one(
+                'tcc.dwelling.edifice',
+                string='Edificio', 
+                )
     tenancy = fields.Selection(
                 _tenancy_data, 
                 string='Tenecia de la vivienda', 
@@ -55,5 +71,25 @@ class Family(models.Model):
     arrival_date = fields.Date(
                 string='Fecha de llegada',
                 index=True,
+                )
+    active = fields.Boolean(default=True)
+
+
+class FamilyApartment(models.Model):
+    _name = "tcc.family.apartment"
+    _rec_name = 'name'
+    
+    name = fields.Char(
+                string='Nombre o número del apartamento',
+                )
+    active = fields.Boolean(default=True)
+
+
+class FamilyApartmentFloor(models.Model):
+    _name = "tcc.family.apartment.floor"
+    _rec_name = 'name'
+    
+    name = fields.Char(
+                string='Nombre o número del Piso',
                 )
     active = fields.Boolean(default=True)

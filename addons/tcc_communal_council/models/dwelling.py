@@ -5,7 +5,7 @@ from odoo.exceptions import AccessDenied, AccessError, UserError, ValidationErro
 
 class Dwelling(models.Model):
     _name = "tcc.dwelling"
-    _rec_name = 'name'
+    _rec_name = 'communal_council_id'
     _description = "Vivienda"
     
     def default_communal_council(self):
@@ -30,10 +30,11 @@ class Dwelling(models.Model):
     edifice_ids = fields.One2many(
                 'tcc.dwelling.edifice',
                 'dwelling_id',
-                string='Casas',
-                help="Edificios ubicadas en el sector del Consejo comunal.",
+                string='Edificios',
+                help="Edificios ubicados en el sector del Consejo comunal.",
                 )
     active = fields.Boolean(default=True)
+
 
 class DwellingHouse(models.Model):
     _name = "tcc.dwelling.house"
@@ -41,13 +42,45 @@ class DwellingHouse(models.Model):
     _description = "Casas"
     
     name = fields.Char(
-                string='Nombre de la casa',
-                )
-    number = fields.Integer(
-                string='Numero de la casa',
+                string='Nombre o número de la casa',
+                required=True,
                 )
     dwelling_id = fields.Many2one(
                 'tcc.dwelling',
                 string='Vivienda', 
-                default=default_communal_council,
                 )
+    sector_id = fields.Many2one(
+                'tcc.address.sector',
+                string='Sector', 
+                )
+    street_id = fields.Many2one(
+                'tcc.address.street',
+                string='Calle', 
+                )
+    active = fields.Boolean(default=True)
+    
+    
+class DwellingEdifice(models.Model):
+    _name = "tcc.dwelling.edifice"
+    _rec_name = 'name'
+    _description = "Edificio"
+    
+    
+    name = fields.Char(
+                string='Nombre o número del edificio',
+                required=True,
+                )
+    dwelling_id = fields.Many2one(
+                'tcc.dwelling',
+                string='Vivienda', 
+                )
+    sector_id = fields.Many2one(
+                'tcc.address.sector',
+                string='Sector', 
+                )
+    street_id = fields.Many2one(
+                'tcc.address.street',
+                string='Calle', 
+                )
+    active = fields.Boolean(default=True)
+    

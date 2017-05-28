@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
 import communal_council
-#~ import dwelling
+import home_address
+import dwelling
 import family

@@ -46,7 +46,7 @@
         <menuitem id="tcc_family_menu" 
             name="Familias" 
             parent="tcc_communal_coincil_menutop" 
-            sequence="5"/>
+            sequence="10"/>
         
         <menuitem id="tcc_family_action" 
             parent="tcc_family_menu" 

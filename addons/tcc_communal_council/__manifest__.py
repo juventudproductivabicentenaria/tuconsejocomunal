@@ -18,10 +18,11 @@ Cada Consejo comunal podrá realizar registros de noticias, tareas y encuentas y
     #~ 'images' : ['images/accounts.jpeg','images/bank_statement.jpeg','images/cash_register.jpeg','images/chart_of_accounts.jpeg','images/customer_invoice.jpeg','images/journal_entries.jpeg'],
     'depends' : ['base_setup',],
     'data': [
-        'security/communal_council_security.xml',
-        'security/filter_users_rule.xml',
-        'views/communal_council_view.xml',
-        'views/family_view.xml',
+        'security/communal_council_security.xml',   # Grupos y roles
+        'security/filter_users_rule.xml',           # Filtros 
+        'views/communal_council_view.xml',          # Vistas Consejos comunales
+        'views/dwelling_view.xml',                  # Vistas Vivienda
+        'views/family_view.xml',                    # Vistas Familia
         
         'security/tcc_group_consejo/ir.model.access.csv',
         'security/tcc_group_residente/ir.model.access.csv',

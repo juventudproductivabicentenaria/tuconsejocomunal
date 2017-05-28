@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_tcc_dwelling_form" model="ir.ui.view">
+            <field name="name">tcc.dwelling.form</field>
+            <field name="model">tcc.dwelling</field>
+            <field name="arch" type="xml">
+                <form string="Vivienda">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-check">
+                                <field name="active" widget="boolean_button"  options='{"terminology": "active"}' />
+                            </button>
+                        </div>
+                        <group>
+                            <field name="communal_council_id" options="{'no_create': True}"/>
+                        </group>
+                        <notebook>
+                            <page name="house_ids" string="Casas">
+                                <group>
+<!--
+                                    <group>
+-->
+                                        <field name="house_ids"/>
+<!--
+                                        <field name="sector_id"/>
+                                        <field name="street_id" />
+                                        <field name="active"/>
+                                    </group>
+                                    <group>
+                                        <field name="default_debit_account_id" domain="[('deprecated', '=', False)]" />
+                                        <field name="default_credit_account_id" domain="[('deprecated', '=', False)]" />
+                                        <field name="currency_id" options="{'no_create': True}" groups="base.group_multi_currency"/>
+                                    </group>
+-->
+                                </group>
+                            </page>
+                            <page name="edifice_ids" string="Edificios">
+                                <group>
+<!--
+                                    <group string="Control-Access" groups="base.group_no_one">
+-->
+<!--
+                                        <div class="text-muted" colspan="2">Keep empty for no control</div>
+-->
+                                        <field name="edifice_ids"/>
+<!--
+                                        <field name="account_control_ids" widget="many2many_tags"/>
+-->
+<!--
+                                    </group>
+-->
+<!--
+                                    <group string="Miscellaneous">
+                                        <field name="inbound_payment_method_ids" widget="many2many_checkboxes" attrs="{'invisible': [('type', 'not in', ['bank', 'cash'])]}"/>
+                                        <field name="outbound_payment_method_ids" widget="many2many_checkboxes" attrs="{'invisible': [('type', 'not in', ['bank', 'cash'])]}"/>
+                                        <field name="group_invoice_lines" attrs="{'invisible': [('type', 'not in', ['sale', 'purchase'])]}"/>
+                                        <field name="profit_account_id" attrs="{'invisible': [('type', '!=', 'cash')]}"/>
+                                        <field name="loss_account_id" attrs="{'invisible': [('type', '!=', 'cash')]}"/>
+                                        <field name="show_on_dashboard" groups="base.group_no_one"/>
+                                    </group>
+-->
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record id="view_tcc_dwelling_tree" model="ir.ui.view">
+            <field name="name">tcc.dwelling.tree</field>
+            <field name="model">tcc.dwelling</field>
+            <field name="arch" type="xml">
+                <tree string="Vivienda">
+                    <field name="communal_council_id"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="action_tcc_dwelling_form" model="ir.actions.act_window">
+            <field name="name">Vivienda</field>
+            <field name="res_model">tcc.dwelling</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <menuitem id="tcc_dwelling_menu" 
+            name="Viviendas" 
+            parent="tcc_communal_coincil_menutop" 
+            sequence="5"/>
+        
+        <menuitem id="tcc_dwelling_menu_action" 
+            parent="tcc_dwelling_menu" 
+            action="action_tcc_dwelling_form" 
+            name="Viviendas" 
+            sequence="5" />
+        
+    </data>
+</odoo>
