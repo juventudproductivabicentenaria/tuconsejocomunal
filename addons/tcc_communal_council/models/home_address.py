@@ -10,7 +10,8 @@ class HomeAddressSector(models.Model):
     
     
     name = fields.Char(
-                string='Nombre de la casa',
+                string='Nombre del sector',
+                required=True,
                 )
     active = fields.Boolean(default=True)
     
@@ -22,7 +23,8 @@ class HomeAddressStreet(models.Model):
     
     
     name = fields.Char(
-                string='Nombre de la casa',
+                string='Nombre o Número de la calle',
+                required=True,
                 )
     active = fields.Boolean(default=True)
     

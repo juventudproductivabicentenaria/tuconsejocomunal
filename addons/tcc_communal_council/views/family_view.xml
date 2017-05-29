@@ -12,12 +12,23 @@
                                 <field name="active" widget="boolean_button"  options='{"terminology": "active"}' />
                             </button>
                         </div>
-                        <group col="4">
-                            <field name="name" />
+                        <group>
                             <field name="communal_council_id" options='{"no_create": True}'/>
+                        </group>
+                        
+                        <group col="4" >
+                            <field name="name" />
                             <field name="arrival_date" /> 
                             <field name="tenancy" /> 
                             <field name="type_dwelling" /> 
+                        </group>
+                        <group col="4" attrs="{'invisible': [('type_dwelling', '=', 'Casa')]}">
+                            <field name="edifice_id" attrs="{'invisible': [('type_dwelling', '=', 'Casa')]}"/>
+                            <field name="apartment_id" attrs="{'invisible': [('type_dwelling', '=', 'Casa')]}"/>
+                            <field name="floor_id" attrs="{'invisible': [('type_dwelling', '=', 'Casa')]}"/>
+                        </group>
+                        <group>
+                            <field name="house_id" attrs="{'invisible': [('type_dwelling', '=', 'Apartamento')]}"/>
                         </group>
                     </sheet>
                 </form>

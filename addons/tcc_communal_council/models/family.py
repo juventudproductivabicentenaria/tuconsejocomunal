@@ -29,9 +29,7 @@ class Family(models.Model):
                 ]
     _type_dwelling_data=[
                 ('Casa', 'Casa'),
-                ('Edificio', 'Edificio'),
-                ('Habitación', 'Habitación'),
-                ('Anexo', 'Anexo'),
+                ('Apartamento', 'Apartamento'),
                 ]
 
     name = fields.Char(
@@ -60,7 +58,7 @@ class Family(models.Model):
                 )
     tenancy = fields.Selection(
                 _tenancy_data, 
-                string='Tenecia de la vivienda', 
+                string='Tenencia de vivienda', 
                 default='Propia',
                 )
     type_dwelling = fields.Selection(

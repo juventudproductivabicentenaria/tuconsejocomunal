@@ -4,3 +4,4 @@ import communal_council
 import home_address
 import dwelling
 import family
+import person

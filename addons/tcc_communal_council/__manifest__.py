@@ -23,6 +23,8 @@ Cada Consejo comunal podrá realizar registros de noticias, tareas y encuentas y
         'views/communal_council_view.xml',          # Vistas Consejos comunales
         'views/dwelling_view.xml',                  # Vistas Vivienda
         'views/family_view.xml',                    # Vistas Familia
+        'views/home_address_view.xml',              # Vistas Dirección
+        'views/persons_view.xml',                   # Vistas Residente
         
         'security/tcc_group_consejo/ir.model.access.csv',
         'security/tcc_group_residente/ir.model.access.csv',

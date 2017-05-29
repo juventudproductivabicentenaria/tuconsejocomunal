@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_tcc_address_sector_form" model="ir.ui.view">
+            <field name="name">tcc.address.sector.form</field>
+            <field name="model">tcc.address.sector</field>
+            <field name="arch" type="xml">
+                <form string="Sector">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box"  >
+                            <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-check">
+                                <field name="active" widget="boolean_button"  options='{"terminology": "active"}' />
+                            </button>
+                        </div>
+                        <group>
+                            <field name="name" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record id="view_tcc_address_street_form" model="ir.ui.view">
+            <field name="name">tcc.address.street.form</field>
+            <field name="model">tcc.address.street</field>
+            <field name="arch" type="xml">
+                <form string="Calle">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box"  >
+                            <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-check">
+                                <field name="active" widget="boolean_button"  options='{"terminology": "active"}' />
+                            </button>
+                        </div>
+                        <group>
+                            <field name="name" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        
+    </data>
+</odoo>

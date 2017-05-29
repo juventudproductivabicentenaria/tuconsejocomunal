@@ -22,7 +22,7 @@ class CommunalCouncil(models.Model):
     
     user_id = fields.Many2one(
                     'res.users', 
-                    string='Usuario',
+                    string='Usuario Consejo Comunal',
                     ondelete="cascade"
                     )
     situr_code = fields.Char(
@@ -46,6 +46,10 @@ class CommunalCouncil(models.Model):
                     'res.country.state.municipality.parish', 
                     string='Parroquia',
                     )
+    sector_id = fields.Many2one(
+                'tcc.address.sector',
+                string='Sector', 
+                )
     active = fields.Boolean(default=True)
     
     
