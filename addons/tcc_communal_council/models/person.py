@@ -1,5 +1,12 @@
 # -*- coding: utf-8 -*-
 
+#~ from Excepciones import * #excepciones predefinidas
+#~ import webkit             #logra hacer que el formato de la fecha sea igual a la conf regional.???
+from datetime import * 
+
+
+import calendar
+
 from datetime import date, datetime
 from dateutil.relativedelta import relativedelta
 
@@ -83,6 +90,38 @@ class TccPersons(models.Model):
                 )
     active = fields.Boolean(default=True)
     
+    
+    def es_bisiesto(self, y):
+        'Devuelve un valor lógico indicando si el año pasado como argumento es bisiesto.'
+        return y % 4 == 0 and y % 100 != 0 or y % 400 == 0
+
+    def dias_mes(self, m, y):
+        'Devuelve la cantidad de días que tiene un mes (m), según el año en que se encuentre (y).'
+        if m == 2: return 29 if self.es_bisiesto(y) else 28
+        return 30 if m in [4, 6, 9, 11] else 31
+
+    def es_fecha(self,d, m, y):
+        'Devuelve un valor lógico indicando si la fecha pasada como argumento es válida.'
+        return not (d < 1 or d > self.dias_mes(m, y) or m < 1 or m > 12 or y < 1)
+
+    def fin_mes(self, d, m, y):
+        'Dada una fecha, devuelve los días que faltan para fin de mes.'
+        dif = self.dias_mes(m, y) - d
+        return dif
+
+    def fin_anio(self, d, m, y):
+        'Dada una fecha, devuelve los días que faltan para fin de año.'
+        dif = 365 - self.dias_transcurridos(d, m, y)
+        if self.es_bisiesto(y): dif += 1
+        return dif
+
+    def dias_transcurridos(self, d, m, y):
+        'Devuelve los días transcurridos desde principio de año hasta el día de la fecha pasada como argumento.'
+        dias = 0
+        for i in range(1, m): dias += self.dias_mes(i, y)
+        dias += d
+        return dias
+    
     @api.onchange('birthdate')
     def to_calculate_age(self):
         #~ datetime.now().date() - datetime.strptime(fecha_nacimiento, '%Y-%m-%d').date()).days
@@ -99,27 +138,44 @@ class TccPersons(models.Model):
                     result['warning'] = warning
                 return result
             else:
-                age_now = (date.today() - datetime.strptime(self.birthdate, DF).date()).days / 365
-                print age_now
-                print age_now
-                print age_now
-                print age_now
-                self.age = age_now
+                y1,m1,d1 = self.birthdate.split('-')
+                y2 = date.today().year
+                m2 = date.today().month
+                d2 = date.today().day
+                yf, mp = 0, 0
+                for h in range(int(m1) + 1, 13):
+                    mp += 1
+                for i in range(1, y2 - int(y1)):
+                    yf += 1
+                    for j in range(1, 13):
+                        mp += 1
+                for k in range(1, m2):
+                    mp += 1
+                    
+                mf = mp % 12
+                df = self.fin_mes(int(d1), int(m1), int(y1)) + d2 - 1
+                if df > self.dias_mes(int(m1), int(y1)):
+                    df -= self.dias_mes(int(m1), int(m1)) - 1
+                    mf += 1
+                
+                ys = '' if yf == 1 else 's'
+                ms = '' if mf == 1 else 'es'
+                ds = '' if df == 1 else 's'
+                #~ if yf == 0:
+                    #~ self.age = '%d mes%s y %d día%s.' % (mf, ms, df, ds)
+                print 'La diferencia entre ambas fechas es de %d año%s, %d mes%s y %d día%s.' % (yf, ys, mf, ms, df, ds)
+                print 'La diferencia entre ambas fechas es de %d año%s, %d mes%s y %d día%s.' % (yf, ys, mf, ms, df, ds)
+                print 'La diferencia entre ambas fechas es de %d año%s, %d mes%s y %d día%s.' % (yf, ys, mf, ms, df, ds)
+                print 'La diferencia entre ambas fechas es de %d año%s, %d mes%s y %d día%s.' % (yf, ys, mf, ms, df, ds)
+                print 'La diferencia entre ambas fechas es de %d año%s, %d mes%s y %d día%s.' % (yf, ys, mf, ms, df, ds)
+                print 'La diferencia entre ambas fechas es de %d año%s, %d mes%s y %d día%s.' % (yf, ys, mf, ms, df, ds)
+                print 'La diferencia entre ambas fechas es de %d año%s, %d mes%s y %d día%s.' % (yf, ys, mf, ms, df, ds)
+                
+                
             return result
-    
-    #~ def _onchange_uom_id(self):
-        #~ warning = {}
-        #~ result = {}
-        #~ if not self.uom_id:
-            #~ self.price_unit = 0.0
-        #~ if self.product_id and self.uom_id:
-            #~ if self.product_id.uom_id.category_id.id != self.uom_id.category_id.id:
-                #~ warning = {
-                    #~ 'title': _('Warning!'),
-                    #~ 'message': _('The selected unit of measure is not compatible with the unit of measure of the product.'),
-                #~ }
-                #~ self.uom_id = self.product_id.uom_id.id
-        #~ if warning:
-            #~ result['warning'] = warning
-        #~ return result
-    
+        
+        
+        
+        
+        
+        

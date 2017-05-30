@@ -5,3 +5,4 @@ import home_address
 import dwelling
 import family
 import person
+import notice
