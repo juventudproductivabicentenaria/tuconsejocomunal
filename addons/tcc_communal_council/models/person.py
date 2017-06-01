@@ -49,7 +49,7 @@ class TccPersons(models.Model):
                 )
     second_name = fields.Char(
                 string='Segundo Nombre',
-                required = True,
+                required = False,
                 )
     first_surname = fields.Char(
                 string='Primer apellido',
@@ -57,13 +57,15 @@ class TccPersons(models.Model):
                 )
     second_surname = fields.Char(
                 string='Segundo apellido',
-                required = True,
+                required = False,
                 )
     birthdate = fields.Date(
                 string='Fecha de nacimiento',
                 index=True,
                 )
+    entry_count = fields.Integer(compute='_entry_count', string='# Asset Entries')
     age = fields.Char(
+                compute='_to_calculate_age',
                 string='Edad',
                 readonly=True,
                 )
@@ -90,41 +92,10 @@ class TccPersons(models.Model):
                 )
     active = fields.Boolean(default=True)
     
-    
-    def es_bisiesto(self, y):
-        'Devuelve un valor lógico indicando si el año pasado como argumento es bisiesto.'
-        return y % 4 == 0 and y % 100 != 0 or y % 400 == 0
-
-    def dias_mes(self, m, y):
-        'Devuelve la cantidad de días que tiene un mes (m), según el año en que se encuentre (y).'
-        if m == 2: return 29 if self.es_bisiesto(y) else 28
-        return 30 if m in [4, 6, 9, 11] else 31
-
-    def es_fecha(self,d, m, y):
-        'Devuelve un valor lógico indicando si la fecha pasada como argumento es válida.'
-        return not (d < 1 or d > self.dias_mes(m, y) or m < 1 or m > 12 or y < 1)
-
-    def fin_mes(self, d, m, y):
-        'Dada una fecha, devuelve los días que faltan para fin de mes.'
-        dif = self.dias_mes(m, y) - d
-        return dif
-
-    def fin_anio(self, d, m, y):
-        'Dada una fecha, devuelve los días que faltan para fin de año.'
-        dif = 365 - self.dias_transcurridos(d, m, y)
-        if self.es_bisiesto(y): dif += 1
-        return dif
-
-    def dias_transcurridos(self, d, m, y):
-        'Devuelve los días transcurridos desde principio de año hasta el día de la fecha pasada como argumento.'
-        dias = 0
-        for i in range(1, m): dias += self.dias_mes(i, y)
-        dias += d
-        return dias
+    _sql_constraints = [('cedula_uniq', 'unique (cedula)', "La Cédula ya Existe, Verifique!")]
     
     @api.onchange('birthdate')
-    def to_calculate_age(self):
-        #~ datetime.now().date() - datetime.strptime(fecha_nacimiento, '%Y-%m-%d').date()).days
+    def to_validate_date(self):
         warning = {}
         result = {}
         if self.birthdate:
@@ -136,46 +107,35 @@ class TccPersons(models.Model):
                 self.birthdate = False
                 if warning:
                     result['warning'] = warning
-                return result
-            else:
-                y1,m1,d1 = self.birthdate.split('-')
-                y2 = date.today().year
-                m2 = date.today().month
-                d2 = date.today().day
-                yf, mp = 0, 0
-                for h in range(int(m1) + 1, 13):
-                    mp += 1
-                for i in range(1, y2 - int(y1)):
-                    yf += 1
-                    for j in range(1, 13):
-                        mp += 1
-                for k in range(1, m2):
-                    mp += 1
-                    
-                mf = mp % 12
-                df = self.fin_mes(int(d1), int(m1), int(y1)) + d2 - 1
-                if df > self.dias_mes(int(m1), int(y1)):
-                    df -= self.dias_mes(int(m1), int(m1)) - 1
-                    mf += 1
-                
-                ys = '' if yf == 1 else 's'
-                ms = '' if mf == 1 else 'es'
-                ds = '' if df == 1 else 's'
-                #~ if yf == 0:
-                    #~ self.age = '%d mes%s y %d día%s.' % (mf, ms, df, ds)
-                print 'La diferencia entre ambas fechas es de %d año%s, %d mes%s y %d día%s.' % (yf, ys, mf, ms, df, ds)
-                print 'La diferencia entre ambas fechas es de %d año%s, %d mes%s y %d día%s.' % (yf, ys, mf, ms, df, ds)
-                print 'La diferencia entre ambas fechas es de %d año%s, %d mes%s y %d día%s.' % (yf, ys, mf, ms, df, ds)
-                print 'La diferencia entre ambas fechas es de %d año%s, %d mes%s y %d día%s.' % (yf, ys, mf, ms, df, ds)
-                print 'La diferencia entre ambas fechas es de %d año%s, %d mes%s y %d día%s.' % (yf, ys, mf, ms, df, ds)
-                print 'La diferencia entre ambas fechas es de %d año%s, %d mes%s y %d día%s.' % (yf, ys, mf, ms, df, ds)
-                print 'La diferencia entre ambas fechas es de %d año%s, %d mes%s y %d día%s.' % (yf, ys, mf, ms, df, ds)
-                
-                
             return result
         
-        
-        
-        
-        
-        
+    
+    @api.multi
+    @api.depends('birthdate')
+    def _to_calculate_age(self):
+        if self.birthdate:
+            date_ncmto = datetime.strptime(self.birthdate, '%Y-%m-%d')
+            month_days = calendar.monthrange(date_ncmto.year, date_ncmto.month)[1]
+            days = month_days - date_ncmto.day + 1
+            age_year = (date.today() - datetime.strptime(self.birthdate, DF).date()).days / 365
+            remaining_days = (date.today() - datetime.strptime(self.birthdate, DF).date()).days % 365
+            age_month = remaining_days / month_days
+            age_days = remaining_days % month_days
+            
+            ys = '' if age_year == 1 else 's'
+            ms = '' if age_month == 1 else 'es'
+            ds = '' if age_days == 1 else 's'
+            if age_year > 0 and age_month > 0 and age_days > 0:
+                self.age = '%d año%s, %d mes%s y %d día%s.' % (age_year, ys, age_month, ms, age_days, ds)
+            elif age_year <= 0 and age_month > 0 and age_days > 0:
+                self.age = '%d mes%s y %d día%s.' % (age_month, ms, age_days, ds)
+            elif age_year > 0 and age_month <= 0 and age_days > 0:
+                self.age = '%d año%s y %d día%s.' % (age_year, ys, age_days, ds)
+            elif age_year > 0 and age_month > 0 and age_days <= 0:
+                self.age = '%d año%s y %d mes%s.' % (age_year, ys, age_month, ms)
+            elif age_year <= 0 and age_month <= 0 and age_days > 0:
+                self.age = '%d día%s.' % (age_days, ds)
+            elif age_year <= 0 and age_month > 0 and age_days <= 0:
+                self.age = '%d mes%s.' % (age_month, ms)
+            elif age_year > 0 and age_month <= 0 and age_days <= 0:
+                self.age = '%d año%s.' % (age_year, ys)

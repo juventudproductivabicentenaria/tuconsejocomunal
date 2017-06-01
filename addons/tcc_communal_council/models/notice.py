@@ -19,6 +19,10 @@ class TccNoticias(models.Model):
                 'tcc.communal.council',
                 string='Consejo comunal', 
                 )
+    category_id = fields.Many2one(
+                'tcc.notice.category',
+                string='Categoría', 
+                )
     name = fields.Char(
                 string='Título',
                 required = True,
@@ -42,7 +46,7 @@ class TccNoticias(models.Model):
 
 class TccNoticiasCategoria(models.Model):
     _name = 'tcc.notice.category'
-    _description = 'Categorías de Noticias'
+    _description = 'Categoria de Noticias'
     _rec_name = 'name'
     
     

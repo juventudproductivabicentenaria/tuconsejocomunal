@@ -1,7 +1,12 @@
 # -*- coding: utf-8 -*-
 
+from datetime import date, datetime
+from dateutil.relativedelta import relativedelta
+
 from odoo import api, fields, models, tools, SUPERUSER_ID, _
 from odoo.exceptions import AccessDenied, AccessError, UserError, ValidationError
+
+from odoo.tools import DEFAULT_SERVER_DATE_FORMAT as DF
 
 class Family(models.Model):
     _name = "tcc.family"
@@ -72,7 +77,46 @@ class Family(models.Model):
                 )
     active = fields.Boolean(default=True)
 
-
+    
+    @api.onchange('arrival_date')
+    def to_validate_date(self):
+        warning = {}
+        result = {}
+        if self.arrival_date:
+            if cmp(datetime.strptime(self.arrival_date, DF).date(), date.today()) == 1:
+                warning = {
+                    'title': _('Warning!'),
+                    'message': _('La fecha seleccionada no debe ser mayor a la fecha de hoy.'),
+                }
+                self.arrival_date = False
+                if warning:
+                    result['warning'] = warning
+            return result
+    
+    @api.multi
+    @api.onchange('house_id')
+    def house_id_change_domain(self):
+        domain = {}
+        list_house_id = []
+        dwelling = self.env['tcc.dwelling'].search([('communal_council_id', '=', int(self.communal_council_id.id))])
+        for dw in dwelling:
+            for house in dw.house_ids:
+                list_house_id.append(house.id)
+        #~ list_house_id = [(2,3)]
+        #~ print list_house_id
+        #~ print list_house_id
+        #~ print list_house_id
+        #~ print list_house_id
+        #~ print list_house_id
+        for list_house in list_house_id:
+            print list_house
+            print list_house
+            print list_house
+            #~ domain['house_id'] = [('house_id','=',list_house)]
+        #~ domain = {'house_id': list_house_id}
+        return {'domain': domain}
+        
+    
 class FamilyApartment(models.Model):
     _name = "tcc.family.apartment"
     _rec_name = 'name'
