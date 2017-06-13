@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 
-#~ from Excepciones import * #excepciones predefinidas
-#~ import webkit             #logra hacer que el formato de la fecha sea igual a la conf regional.???
 from datetime import * 
 
 
@@ -32,20 +30,23 @@ class TccPersons(models.Model):
     
     user_id = fields.Many2one(
                 'res.users', 
+                string='Persona',
+                required = False,
+                #~ ondelete="cascade"
+                )
+    family_id = fields.Many2one(
+                'tcc.family', 
                 string='Usuario Residente',
-                ondelete="cascade"
+                #~ ondelete="cascade",
+                required = False,
                 )
     cedula = fields.Char(
                 string='Cédula',
-                required = True,
+                required = False,
                 )
     communal_council_id = fields.Many2one(
                 'tcc.communal.council',
                 string='Consejo comunal', 
-                )
-    family_id = fields.Many2one(
-                'tcc.family',
-                string='Familia', 
                 )
     second_name = fields.Char(
                 string='Segundo Nombre',
@@ -59,23 +60,42 @@ class TccPersons(models.Model):
                 string='Segundo apellido',
                 required = False,
                 )
+    kinship_id = fields.Many2one(
+                'tcc.persons.kinship', 
+                string='Parentesco',
+                #~ ondelete="cascade",
+                required = False,
+                help="Relación de afinidad con el Jefe de la familia."
+                )
     birthdate = fields.Date(
                 string='Fecha de nacimiento',
                 index=True,
                 )
-    entry_count = fields.Integer(compute='_entry_count', string='# Asset Entries')
     age = fields.Char(
                 compute='_to_calculate_age',
                 string='Edad',
                 readonly=True,
+                store=True,
                 )
     civil_status = fields.Selection([
-                ('Soltero','Soltero'),
-                ('Casado','Casado'),
-                ('Divorciado','Divorciado'),
-                ('Viudo','Viudo'),],
+                ('Soltero','Soltero(a)'),
+                ('Casado','Casado(a)'),
+                ('Divorciado','Divorciado(a)'),
+                ('Comcubino','Comcubino(a)'),
+                ('Viudo','Viudo(a)'),],
                 string='Estado civil',
                 default='Soltero',
+                required = True,
+                )
+    level_instruccion = fields.Selection([
+                ('sin_instruccion','Sin Instrucción'),
+                ('Basica','Básica'),
+                ('Bachiller','Bachiller'),
+                ('tecnico_medio','Técnico Medio'),
+                ('tecnico_superior','Técnico Superior'),
+                ('Universitario','Universitario'),
+                ('post_grado','Post Grado'),],
+                string='Nivel de instrucción',
                 required = True,
                 )
     gender = fields.Selection([
@@ -90,6 +110,36 @@ class TccPersons(models.Model):
                 string='Nacionalidad',
                 required = True,
                 )
+    have_work = fields.Selection([
+                ('Si','Si'),
+                ('No','No'),],
+                string='Posee trabajo',
+                required = True,
+                )
+    type_family_income = fields.Selection([
+                ('Diario','Diario'),
+                ('Semanal','Semanal'),
+                ('Quincenal','Quincenal'),
+                ('Mensual','Mensual'),
+                ('trabajo_realizado','Por Trabajo Realizado'),],
+                string='Tipo ingreso familiar',
+                required = True,
+                )
+    profession_id = fields.Many2one(
+                'tcc.persons.profession',
+                string='Profesión/Oficio',
+                required = False,
+                help="Indique a que se dedica.",
+                )
+    monthly_income = fields.Monetary(
+                string='Ingreso Mensual',
+                required=False,
+                currency_field='communal_council_id',
+                )
+    is_family_boss = fields.Boolean(
+                string='Jefe de familia',
+                )
+    fifteen = fields.Boolean(string='Mayor de quince años', default=False)
     active = fields.Boolean(default=True)
     
     _sql_constraints = [('cedula_uniq', 'unique (cedula)', "La Cédula ya Existe, Verifique!")]
@@ -118,6 +168,10 @@ class TccPersons(models.Model):
             month_days = calendar.monthrange(date_ncmto.year, date_ncmto.month)[1]
             days = month_days - date_ncmto.day + 1
             age_year = (date.today() - datetime.strptime(self.birthdate, DF).date()).days / 365
+            if age_year >= 15:
+                self.fifteen = True
+            else:
+                self.fifteen = False
             remaining_days = (date.today() - datetime.strptime(self.birthdate, DF).date()).days % 365
             age_month = remaining_days / month_days
             age_days = remaining_days % month_days
@@ -139,3 +193,66 @@ class TccPersons(models.Model):
                 self.age = '%d mes%s.' % (age_month, ms)
             elif age_year > 0 and age_month <= 0 and age_days <= 0:
                 self.age = '%d año%s.' % (age_year, ys)
+            
+    @api.onchange('name')
+    def title_string(self):
+        if self.name:
+            self.name = self.name.title()
+    
+    @api.onchange('second_name')
+    def title_string_second_name(self):
+        if self.second_name:
+            self.second_name = self.second_name.title()
+    
+    @api.onchange('login')
+    def lower_string_login(self):
+        if self.login:
+            self.login = self.login.lower()
+            
+    @api.onchange('first_surname')
+    def title_string_first_surname(self):
+        if self.first_surname:
+            self.first_surname = self.first_surname.title()
+            
+    @api.onchange('second_surname')
+    def title_string_second_surname(self):
+        if self.second_surname:
+            self.second_surname = self.second_surname.title()
+        
+    
+class TccPersonsProfession(models.Model):
+    _name = "tcc.persons.profession"
+    _rec_name = 'name'
+    _description = "Profesion de las personas"
+    
+    name = fields.Char(
+                string='Nombre',
+                required = True,
+                )
+    active = fields.Boolean(default=True)
+    
+    _sql_constraints = [('name_uniq', 'unique (name)', "La Profesión ya Existe, Verifique!")]
+    
+    @api.onchange('name')
+    def title_string(self):
+        if self.name:
+            self.name = self.name.title()
+
+
+class TccPersonsKinship(models.Model):
+    _name = "tcc.persons.kinship"
+    _rec_name = 'name'
+    _description = "Parentesco familiar"
+    
+    name = fields.Char(
+                string='Nombre',
+                required = True,
+                )
+    active = fields.Boolean(default=True)
+    
+    _sql_constraints = [('name_uniq', 'unique (name)', "El Parentesco ya Existe. ¡Verifique!")]
+    
+    @api.onchange('name')
+    def title_string(self):
+        if self.name:
+            self.name = self.name.title()

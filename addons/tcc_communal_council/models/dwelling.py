@@ -59,6 +59,10 @@ class DwellingHouse(models.Model):
                 )
     active = fields.Boolean(default=True)
     
+    @api.onchange('name')
+    def title_string(self):
+        if self.name:
+            self.name = self.name.title()
     
 class DwellingEdifice(models.Model):
     _name = "tcc.dwelling.edifice"
@@ -84,3 +88,7 @@ class DwellingEdifice(models.Model):
                 )
     active = fields.Boolean(default=True)
     
+    @api.onchange('name')
+    def title_string(self):
+        if self.name:
+            self.name = self.name.title()

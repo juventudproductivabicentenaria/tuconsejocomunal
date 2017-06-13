@@ -14,12 +14,13 @@
                         </div>
                         <group>
                             <field name="communal_council_id" options='{"no_create": "True"}' />
-                            <field name="login" string="Correo electrónico" /> 
                             <field name="is_vocero"/>
+                            <field name="is_family_boss"/>
+                            <field name="login" />
                         </group>
                         <group col="4">
-                            <field name="family_id" />
-                            <field widget="mask_regex" data-inputmask-regex="[VE]-[0-9]{7,8}"  name="cedula" placeholder="V-12345678"/>
+                            <field widget="mask_regex" data-inputmask-regex="[VE]-[0-9]{7,8}"  name="cedula" placeholder="V-12345678" attrs="{'required': ['|',('is_family_boss', '=', True),('is_vocero', '=', True)]}"/>
+                            <field name="nationality" />
                             <field name="name" />
                             <field name="second_name" />
                             <field name="first_surname" />
@@ -27,8 +28,14 @@
                             <field name="birthdate" />
                             <field name="age" />
                             <field name="civil_status" />
-                            <field name="nationality" />
+                            
                             <field name="gender" />
+                            <field name="level_instruccion" />
+                            <field name="have_work" />
+                            <field name="type_family_income" attrs="{'required': [('have_work', '=', 'Si')]}"/>
+                            <field name="profession_id" />
+                            <field name="monthly_income" />
+                            <field name="kinship_id" attrs="{'invisible': [('is_family_boss', '=', True)]}"/>
                         </group>
                     </sheet>
                 </form>
@@ -41,8 +48,10 @@
             <field name="arch" type="xml">
                 <tree string="Personas">
                     <field name="name"/>
-                    <field name="cedula"/>
-                    <field name="login"/>
+                    <field name="gender"/>
+                    <field name="age"/>
+                    <field name="level_instruccion"/>
+                    <field name="profession_id"/>
                 </tree>
             </field>
         </record>
@@ -54,16 +63,18 @@
             <field name="view_mode">tree,form</field>
         </record>
         
+<!--
         <menuitem id="tcc_persons_menu" 
             name="Personas" 
             parent="tcc_communal_coincil_menutop" 
-            sequence="20"/>
+            sequence="9"/>
         
         <menuitem id="tcc_persons_action" 
             parent="tcc_persons_menu" 
             action="action_tcc_persons_form" 
             name="Personas" 
             sequence="5" />
+-->
         
     </data>
 </odoo>

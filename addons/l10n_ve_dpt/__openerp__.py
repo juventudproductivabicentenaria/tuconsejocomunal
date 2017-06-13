@@ -46,5 +46,5 @@ manera que queden disponibles en todos los campos de dirección en modelos deriv
         'views/l10n_ve_dpt_view.xml',
         'views/res_partner.xml',
     ],
-    "installable": True
+    'auto_install': True,
 }

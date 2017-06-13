@@ -15,6 +15,10 @@ class HomeAddressSector(models.Model):
                 )
     active = fields.Boolean(default=True)
     
+    @api.onchange('name')
+    def title_string(self):
+        if self.name:
+            self.name = self.name.title()
 
 class HomeAddressStreet(models.Model):
     _name = "tcc.address.street"
@@ -28,3 +32,7 @@ class HomeAddressStreet(models.Model):
                 )
     active = fields.Boolean(default=True)
     
+    @api.onchange('name')
+    def title_string(self):
+        if self.name:
+            self.name = self.name.title()

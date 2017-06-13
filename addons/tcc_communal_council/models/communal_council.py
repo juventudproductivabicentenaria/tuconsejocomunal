@@ -30,7 +30,7 @@ class CommunalCouncil(models.Model):
                     ondelete="cascade"
                     )
     situr_code = fields.Char(
-                    string='Código situr',
+                    string='Código SITUR',
                     )
     creation_date = fields.Date(
                     string='Fecha creación',
@@ -42,14 +42,14 @@ class CommunalCouncil(models.Model):
                     'res.country.state', 
                     string='Estado',
                     )
-    municipality_id = fields.Many2one(
-                    'res.country.state.municipality', 
-                    string='Municipio',
-                    )
-    parish_id = fields.Many2one(
-                    'res.country.state.municipality.parish', 
-                    string='Parroquia',
-                    )
+    #~ municipality_id = fields.Many2one(
+                    #~ 'res.country.state.municipality', 
+                    #~ string='Municipio',
+                    #~ )
+    #~ parish_id = fields.Many2one(
+                    #~ 'res.country.state.municipality.parish', 
+                    #~ string='Parroquia',
+                    #~ )
     sector_id = fields.Many2one(
                 'tcc.address.sector',
                 string='Sector', 
@@ -73,6 +73,11 @@ class CommunalCouncil(models.Model):
                 if warning:
                     result['warning'] = warning
             return result
+    
+    @api.onchange('name')
+    def title_string(self):
+        if self.name:
+            self.name = self.name.title()
     
     @api.model
     def create(self, vals):

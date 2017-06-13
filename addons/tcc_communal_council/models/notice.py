@@ -42,7 +42,16 @@ class TccNoticias(models.Model):
                 required=True,
                 )
     active = fields.Boolean(default=True)
+    
+    @api.onchange('name')
+    def upper_string(self):
+        if self.name:
+            self.name = self.name.upper()
 
+    @api.onchange('subtitle')
+    def title_string(self):
+        if self.subtitle:
+            self.subtitle = self.subtitle.title()
 
 class TccNoticiasCategoria(models.Model):
     _name = 'tcc.notice.category'
@@ -55,3 +64,8 @@ class TccNoticiasCategoria(models.Model):
                 required = True,
                 )
     active = fields.Boolean(default=True)
+    
+    @api.onchange('name')
+    def title_string(self):
+        if self.name:
+            self.name = self.name.title()

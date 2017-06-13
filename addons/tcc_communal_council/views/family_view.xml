@@ -14,22 +14,86 @@
                         </div>
                         <group>
                             <field name="communal_council_id" options='{"no_create": True}'/>
+                            <field name="name" attrs="{'invisible': [('name', '=', False)]}" />
+                        </group>
+                        <group col="4">
+                            <field name="arrival_date" /> 
+                            <field name="id" invisible="True"/> 
                         </group>
                         
-                        <group col="4" >
-                            <field name="name" />
-                            <field name="arrival_date" /> 
-                            <field name="tenancy" /> 
-                            <field name="type_dwelling" /> 
-                        </group>
-                        <group col="4" attrs="{'invisible': [('type_dwelling', '=', 'Casa')]}">
-                            <field name="edifice_id" attrs="{'invisible': [('type_dwelling', '=', 'Casa')]}"/>
-                            <field name="apartment_id" attrs="{'invisible': [('type_dwelling', '=', 'Casa')]}"/>
-                            <field name="floor_id" attrs="{'invisible': [('type_dwelling', '=', 'Casa')]}"/>
-                        </group>
-                        <group>
-                            <field name="house_id" attrs="{'invisible': [('type_dwelling', '=', 'Apartamento')]}"/>
-                        </group>
+                        <notebook>
+                            <page string="Grupo Familiar">
+                                <field name="person_ids"/>
+                            </page>
+                            <page string="Situación Económica">
+                                <group col = "4">
+                                    <field name="family_income_id"/>
+                                    <field name="bank_account"/>
+                                    <field name="credit_card"/>
+                                    <field name="cesta_ticket"/>
+                                    <field name="workplace"/>
+                                    <field name="name_workplace" attrs="{'invisible': [('workplace', '!=', 'other')]}" />
+                                    <field name="commercial_activity_hose"/>
+                                    <field name="commercial_activity_ids" widget="many2many_tags" attrs="{'invisible': [('commercial_activity_hose', '!=', 'Si')]}" />
+                                    
+                                </group>
+                            </page>
+                            <page string="Situación de Vivienda">
+                                <group col = "4">
+                                    <field name="type_dwelling"/>
+                                    <field name="tenancy"/>
+                                    <field name="terreno_propio"/>
+                                    <field name="type_walls_ids" widget="many2many_tags"/>
+                                    <field name="type_roof_ids" widget="many2many_tags"/>
+                                    <field name="equipment_dwelling_ids" widget="many2many_tags"/>
+                                    <field name="room_ids" widget="many2many_tags"/>
+                                    <field name="cant_room" />
+                                    <field name="salubrity_id" />
+                                    <field name="pests_dwelling_ids" widget="many2many_tags"/>
+                                    <field name="pets_ids" widget="many2many_tags"/>
+                                </group>
+                                <group col="4" attrs="{'invisible': [('type_dwelling', 'in', ('Casa','Quinta','Barraca','Habitacion','Other','Rancho'))]}">
+                                    <field name="edifice_id" />
+                                    <field name="apartment_id" />
+                                    <field name="floor_id" />
+                                </group>
+                                <group>
+                                    <field name="house_id" attrs="{'invisible': [('type_dwelling', '=', 'Apartamento')]}" />
+                                </group>
+                            </page>
+                            <page string="Salud">
+                                <group col="4">
+                                    <field name="disease_ids" widget="many2many_tags"/>
+                                    <field name="need_help" />
+                                    <field name="name_help" attrs="{'invisible': [('need_help', 'in', ('No',False))]}" />
+                                </group>
+                                <separator string="Situación de Exclusión"/>
+                                <group col="4">
+                                    <field name="children_street" />
+                                    <field name="quantity_children_street" attrs="{'invisible': [('children_street', '=', False)]}"/>
+                                    <field name="indigent" />
+                                    <field name="quantity_indigent" attrs="{'invisible': [('indigent', '=', False)]}"/>
+                                    <field name="terminally_patient" />
+                                    <field name="quantity_terminally_patient" attrs="{'invisible': [('terminally_patient', '=', False)]}"/>
+                                    <field name="handicapped" />
+                                    <field name="quantity_handicapped" attrs="{'invisible': [('handicapped', '=', False)]}"/>
+                                </group>
+                            </page>
+                            <page string="Servicios">
+                                <group col="4">
+                                    <field name="water_white_ids" widget="many2many_tags"/>
+                                    <field name="water_meter"/>
+                                    <field name="wastewater_ids" widget="many2many_tags"/>
+                                    <field name="gas" />
+                                    <field name="electric_system" />
+                                    <field name="light_meter" attrs="{'invisible': ['|',('electric_system', 'in', ('no_posee',False))]}"/>
+                                    <field name="trash_ids" widget="many2many_tags"/>
+                                    <field name="telephony_ids" widget="many2many_tags"/>
+                                    <field name="transport_ids" widget="many2many_tags"/>
+                                    <field name="media_ids" widget="many2many_tags"/>
+                                </group>
+                            </page>
+                        </notebook>
                     </sheet>
                 </form>
             </field>
@@ -48,7 +112,7 @@
         </record>
         
         <record id="action_view_tcc_family_form" model="ir.actions.act_window">
-            <field name="name">Family</field>
+            <field name="name">Familia</field>
             <field name="res_model">tcc.family</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
