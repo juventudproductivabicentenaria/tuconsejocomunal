@@ -6,3 +6,5 @@ import dwelling
 import family
 import person
 import notice
+import committee
+

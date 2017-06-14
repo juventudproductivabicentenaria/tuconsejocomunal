@@ -36,6 +36,7 @@
                             <field name="profession_id" />
                             <field name="monthly_income" />
                             <field name="kinship_id" attrs="{'invisible': [('is_family_boss', '=', True)]}"/>
+                            <field name="registered_cne" />
                         </group>
                     </sheet>
                 </form>

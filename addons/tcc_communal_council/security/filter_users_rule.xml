@@ -17,6 +17,17 @@
             <field name="perm_unlink" eval='False'/>
             <field name="groups" eval="[(4,ref('tcc_group_consejo'))]"/>
         </record>
+        
+        <record id="tcc_committe_rule" model="ir.rule">
+            <field name="name">Comité que puede ver el consejo comunal</field>
+            <field name="model_id" ref="model_tcc_committee"/>
+            <field name="domain_force">[('communal_council_id.user_id','in',[user.id]),]</field>
+            <field name="perm_read" eval='True'/>
+            <field name="perm_write" eval='False'/>
+            <field name="perm_create" eval='False'/>
+            <field name="perm_unlink" eval='False'/>
+            <field name="groups" eval="[(4,ref('tcc_group_consejo'))]"/>
+        </record>
     </data>
     
     <!--

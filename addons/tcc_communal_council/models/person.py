@@ -40,6 +40,12 @@ class TccPersons(models.Model):
                 #~ ondelete="cascade",
                 required = False,
                 )
+    committee_id = fields.Many2one(
+                'tcc.committee', 
+                string='Vocero',
+                #~ ondelete="cascade",
+                required = False,
+                )
     cedula = fields.Char(
                 string='Cédula',
                 required = False,
@@ -123,7 +129,6 @@ class TccPersons(models.Model):
                 ('Mensual','Mensual'),
                 ('trabajo_realizado','Por Trabajo Realizado'),],
                 string='Tipo ingreso familiar',
-                required = True,
                 )
     profession_id = fields.Many2one(
                 'tcc.persons.profession',
@@ -140,6 +145,13 @@ class TccPersons(models.Model):
                 string='Jefe de familia',
                 )
     fifteen = fields.Boolean(string='Mayor de quince años', default=False)
+    registered_cne = fields.Selection([
+                ('Si','Si'),
+                ('No','No'),],
+                string='Registrado en CNE',
+                required = True,
+                )
+    into_committee = fields.Boolean('Pertenece a un comite',default=False)
     active = fields.Boolean(default=True)
     
     _sql_constraints = [('cedula_uniq', 'unique (cedula)', "La Cédula ya Existe, Verifique!")]

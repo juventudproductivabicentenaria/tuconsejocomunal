@@ -385,6 +385,16 @@ class TccFamily(models.Model):
         if self.electric_system == False or self.electric_system == 'no_posee':
             self.light_meter = False
     
+    @api.onchange('name_workplace')
+    def title_string_name_workplace(self):
+        if self.name_workplace:
+            self.name_workplace = self.name_workplace.title()
+    
+    @api.onchange('name_help')
+    def title_string_name_help(self):
+        if self.name_help:
+            self.name_help = self.name_help.title()
+    
     @api.multi
     @api.onchange('house_id')
     def house_id_change_domain(self):
@@ -497,6 +507,7 @@ class TccFamilyIncome(models.Model):
     def title_string(self):
         if self.name:
             self.name = self.name.title()
+    
 
 
 class TccFamilyTypeWalls(models.Model):
