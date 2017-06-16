@@ -1,16 +1,12 @@
 # -*- coding: utf-8 -*-
 
 from datetime import * 
-
-
 import calendar
-
 from datetime import date, datetime
 from dateutil.relativedelta import relativedelta
 
 from odoo import api, fields, models, tools, SUPERUSER_ID, _
 from odoo.exceptions import AccessDenied, AccessError, UserError, ValidationError
-
 from odoo.tools import DEFAULT_SERVER_DATE_FORMAT as DF
 
 class partner(models.Model):
@@ -27,6 +23,18 @@ class TccPersons(models.Model):
     _rec_name = 'name'
     _description = "Personas"
     
+    
+    @api.multi
+    def default_communal_council(self):
+        list_group_name = []
+        for name_goup in self.env.user.groups_id:
+            list_group_name.append(name_goup.name)
+        if 'Consejo Comunal' in list_group_name:
+            return self.env['tcc.communal.council'].search([('user_id', '=', self.env.uid)]).id
+        if 'Vocero' in list_group_name:
+            return self.env['tcc.communal.council'].search([('communal_council_id.user_id', '=', self.env.uid)]).id
+        if 'Residente del Consejo Comunal' in list_group_name:
+            return self.env['tcc.communal.council'].search([('communal_council_id.user_id', '=', self.env.uid)]).id
     
     user_id = fields.Many2one(
                 'res.users', 
@@ -53,6 +61,7 @@ class TccPersons(models.Model):
     communal_council_id = fields.Many2one(
                 'tcc.communal.council',
                 string='Consejo comunal', 
+                default=default_communal_council,
                 )
     second_name = fields.Char(
                 string='Segundo Nombre',
@@ -136,10 +145,9 @@ class TccPersons(models.Model):
                 required = False,
                 help="Indique a que se dedica.",
                 )
-    monthly_income = fields.Monetary(
+    monthly_income = fields.Float(
                 string='Ingreso Mensual',
                 required=False,
-                currency_field='communal_council_id',
                 )
     is_family_boss = fields.Boolean(
                 string='Jefe de familia',

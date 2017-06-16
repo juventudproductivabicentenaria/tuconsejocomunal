@@ -34,3 +34,10 @@ access_tcc_family_services_media_consejo,tcc.family.services.media,model_tcc_fam
 access_res_country_state_municipality_consejo,res.country.state.municipality,l10n_ve_dpt.model_res_country_state_municipality,tcc_group_consejo,1,1,1,0
 access_res_country_state_municipality_parish_consejo,res.country.state.municipality.parish,l10n_ve_dpt.model_res_country_state_municipality_parish,tcc_group_consejo,1,1,1,0
 access_tcc_committee_consejo,tcc.committee,model_tcc_committee,tcc_group_consejo,1,1,1,0
+access_survey_survey_consejo,survey.survey,survey.model_survey_survey,tcc_group_consejo,1,1,1,1
+access_survey_stage_consejo,survey.stage,survey.model_survey_stage,tcc_group_consejo,1,1,1,1
+access_survey_page_consejo,survey.page,survey.model_survey_page,tcc_group_consejo,1,1,1,1
+access_survey_question_consejo,survey.question,survey.model_survey_question,tcc_group_consejo,1,1,1,1
+access_survey_label_consejo,survey.label,survey.model_survey_label,tcc_group_consejo,1,1,1,1
+access_survey_user_input_consejo,survey.user_input,survey.model_survey_user_input,tcc_group_consejo,1,1,1,0
+access_survey_user_input_line_consejo,survey.user_input_line,survey.model_survey_user_input_line,tcc_group_consejo,1,1,1,0

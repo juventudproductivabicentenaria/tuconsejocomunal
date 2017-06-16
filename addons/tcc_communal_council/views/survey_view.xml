@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="tcc_survey_inherit" model="ir.ui.view">
+            <field name="name">survey.survey.inherit</field>
+            <field name="model">survey.survey</field>
+            <field name="inherit_id" ref="survey.survey_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='title']" position="after">
+                    <label for="communal_council_id" class="oe_edit_only"/>
+                    <h3><field name="communal_council_id" /></h3>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

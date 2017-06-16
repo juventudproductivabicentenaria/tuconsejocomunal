@@ -5,8 +5,14 @@
             <field name="name">tcc.family.form</field>
             <field name="model">tcc.family</field>
             <field name="arch" type="xml">
+                
                 <form string="Familia">
                     <sheet>
+                        <button string="Encuestar"
+                            type="object"
+                            name= "send_survey"
+                            class="oe_stat_button" icon="fa-arrows-v"
+                            />
                         <div class="oe_button_box" name="button_box"  >
                             <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-check">
                                 <field name="active" widget="boolean_button"  options='{"terminology": "active"}' />
@@ -105,6 +111,7 @@
             <field name="arch" type="xml">
                 <tree string="Family">
                     <field name="name"/>
+                    <field name="communal_council_id"/>
                     <field name="type_dwelling"/>
                     <field name="arrival_date"/>
                 </tree>

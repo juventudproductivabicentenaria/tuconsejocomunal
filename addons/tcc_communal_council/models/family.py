@@ -8,24 +8,55 @@ from odoo.exceptions import AccessDenied, AccessError, UserError, ValidationErro
 
 from odoo.tools import DEFAULT_SERVER_DATE_FORMAT as DF
 
+
 class TccFamily(models.Model):
     _name = "tcc.family"
     _rec_name = 'name'
     _description = 'Familia'
     
     @api.multi
+    def send_survey(self):
+        """ Open a window to compose an email, pre-filled with the survey message """
+        survey = self.env['survey.survey'].search([('id', '=', 2)])
+        # Ensure that this survey has at least one page with at least one question.
+        if not survey.page_ids or not [page.question_ids for page in survey.page_ids if page.question_ids]:
+            raise UserError(_('You cannot send an invitation for a survey that has no questions.'))
+
+        if survey.stage_id.closed:
+            raise UserError(_("You cannot send invitations for closed surveys."))
+
+        template = survey.env.ref('survey.email_template_survey', raise_if_not_found=False)
+
+        local_context = dict(
+            survey.env.context,
+            default_model='survey.survey',
+            default_res_id=survey.id,
+            default_survey_id=survey.id,
+            default_use_template=bool(template),
+            default_template_id=template and template.id or False,
+            default_composition_mode='comment'
+        )
+        return {
+            'type': 'ir.actions.act_window',
+            'view_type': 'form',
+            'view_mode': 'form',
+            'res_model': 'survey.mail.compose.message',
+            'target': 'new',
+            'context': local_context,
+        }
+        
+        
+    @api.multi
     def default_communal_council(self):
         list_group_name = []
         for name_goup in self.env.user.groups_id:
             list_group_name.append(name_goup.name)
-        print list_group_name
         if 'Consejo Comunal' in list_group_name:
             return self.env['tcc.communal.council'].search([('user_id', '=', self.env.uid)]).id
-        #~ elif 'Vocero' in list_group_name:
-            #~ print 0000
-            #~ print 0000
-            #~ print 0000
-            #~ print 0000
+        if 'Vocero' in list_group_name:
+            return self.env['tcc.communal.council'].search([('communal_council_id.user_id', '=', self.env.uid)]).id
+        if 'Residente del Consejo Comunal' in list_group_name:
+            return self.env['tcc.communal.council'].search([('communal_council_id.user_id', '=', self.env.uid)]).id
                 
                 
     @api.onchange('name')

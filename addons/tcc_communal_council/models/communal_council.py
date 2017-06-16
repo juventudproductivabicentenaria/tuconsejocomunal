@@ -79,6 +79,19 @@ class CommunalCouncil(models.Model):
         if self.name:
             self.name = self.name.title()
     
+    @api.onchange('state_id')
+    def onchangue_state(self):
+        if self.state_id:
+            self.municipality_id = False
+            self.parish_id = False
+            self.sector_id = False
+    
+    @api.onchange('municipality_id')
+    def onchangue_municipality(self):
+        if self.municipality_id:
+            self.parish_id = False
+            self.sector_id = False
+    
     @api.model
     def create(self, vals):
         council = super(CommunalCouncil, self).create(vals)

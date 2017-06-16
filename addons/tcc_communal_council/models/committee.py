@@ -10,12 +10,25 @@ from dateutil.relativedelta import relativedelta
 
 from odoo import api, fields, models, tools, SUPERUSER_ID, _
 from odoo.exceptions import AccessDenied, AccessError, UserError, ValidationError
-
 from odoo.tools import DEFAULT_SERVER_DATE_FORMAT as DF
+
 
 class TccCommittee(models.Model):
     _name = 'tcc.committee'
     _description = "Comites o Unidades"
+    
+    
+    @api.multi
+    def default_communal_council(self):
+        list_group_name = []
+        for name_goup in self.env.user.groups_id:
+            list_group_name.append(name_goup.name)
+        if 'Consejo Comunal' in list_group_name:
+            return self.env['tcc.communal.council'].search([('user_id', '=', self.env.uid)]).id
+        if 'Vocero' in list_group_name:
+            return self.env['tcc.communal.council'].search([('communal_council_id.user_id', '=', self.env.uid)]).id
+        if 'Residente del Consejo Comunal' in list_group_name:
+            return self.env['tcc.communal.council'].search([('communal_council_id.user_id', '=', self.env.uid)]).id
     
     name = fields.Char(
                 string='Nombre',
@@ -24,6 +37,7 @@ class TccCommittee(models.Model):
     communal_council_id = fields.Many2one(
                 'tcc.communal.council',
                 string='Consejo comunal', 
+                default=default_communal_council,
                 )
     person_ids = fields.Many2many(
                 'tcc.persons',
