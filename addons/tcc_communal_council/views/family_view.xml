@@ -8,12 +8,17 @@
                 
                 <form string="Familia">
                     <sheet>
-                        <button string="Encuestar"
-                            type="object"
-                            name= "send_survey"
-                            class="oe_stat_button" icon="fa-arrows-v"
-                            />
-                        <div class="oe_button_box" name="button_box"  >
+                        <div class="oe_button_box" name="button_box">
+                            <button string="Enviar encuesta "
+                                type="object"
+                                name= "send_survey"
+                                class="oe_stat_button" icon="fa-external-link"/>
+                            <button string="Encuestar"
+                                type="object"
+                                name= "action_start_survey"
+                                class="oe_stat_button" icon="fa-pencil-square-o"
+                                />
+                            
                             <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-check">
                                 <field name="active" widget="boolean_button"  options='{"terminology": "active"}' />
                             </button>

@@ -7,23 +7,54 @@ from odoo import api, fields, models, tools, SUPERUSER_ID, _
 from odoo.exceptions import AccessDenied, AccessError, UserError, ValidationError
 
 from odoo.tools import DEFAULT_SERVER_DATE_FORMAT as DF
+from odoo.http import request
 
+import uuid
+import urlparse
 
 class TccFamily(models.Model):
     _name = "tcc.family"
     _rec_name = 'name'
     _description = 'Familia'
     
+    
+    @api.multi
+    def action_start_survey(self):
+        """ Open the website page with the survey form """
+        survey = self.env['survey.survey'].search([('id', '=', 2)])
+        survey.ensure_one()
+        token = survey.env.context.get('survey_token')
+        trail = "/%s" % token if token else ""
+        
+        users = 0
+        for person in self.person_ids:
+            if person.is_family_boss == True:
+                users = person.user_id.partner_id.id
+        tcc = "/%s" % users +"-tcc"
+        return {
+            'type': 'ir.actions.act_url',
+            'name': "Start Survey",
+            'target': 'self',
+            'url': survey.with_context(relative_url=True).public_url + tcc,
+        }
+    
+    
     @api.multi
     def send_survey(self):
+        
         """ Open a window to compose an email, pre-filled with the survey message """
+        users = []
+        for person in self.person_ids:
+            if person.is_family_boss == True:
+                users.append(person.user_id.partner_id.id)
+        
         survey = self.env['survey.survey'].search([('id', '=', 2)])
         # Ensure that this survey has at least one page with at least one question.
         if not survey.page_ids or not [page.question_ids for page in survey.page_ids if page.question_ids]:
-            raise UserError(_('You cannot send an invitation for a survey that has no questions.'))
+            raise UserError(_('No puedes enviar una encuesta sin preguntas..'))
 
         if survey.stage_id.closed:
-            raise UserError(_("You cannot send invitations for closed surveys."))
+            raise UserError(_("No puedes realizar invitaciones de encuentas Cerradas."))
 
         template = survey.env.ref('survey.email_template_survey', raise_if_not_found=False)
 
@@ -34,7 +65,8 @@ class TccFamily(models.Model):
             default_survey_id=survey.id,
             default_use_template=bool(template),
             default_template_id=template and template.id or False,
-            default_composition_mode='comment'
+            default_composition_mode='comment',
+            default_partner_ids = [(6,0,users)],
         )
         return {
             'type': 'ir.actions.act_window',
@@ -44,7 +76,7 @@ class TccFamily(models.Model):
             'target': 'new',
             'context': local_context,
         }
-        
+    
         
     @api.multi
     def default_communal_council(self):
@@ -63,7 +95,6 @@ class TccFamily(models.Model):
     def title_string(self):
         if self.name:
             self.name = self.name.title()
-
     
     
     

@@ -28,6 +28,7 @@ Cada Consejo comunal podrá realizar registros de noticias, tareas y encuentas y
         'views/notice_view.xml',                    # Vistas Noticias
         'views/committee_view.xml',                 # Vistas Comités
         'views/survey_view.xml',                    # Vistas Encuestas
+        'views/product_distribution_view.xml',      # Vistas Distribución
         
         'security/tcc_group_consejo/ir.model.access.csv',
         'security/tcc_group_residente/ir.model.access.csv',

@@ -36,6 +36,42 @@ class TccPersons(models.Model):
         if 'Residente del Consejo Comunal' in list_group_name:
             return self.env['tcc.communal.council'].search([('communal_council_id.user_id', '=', self.env.uid)]).id
     
+    @api.depends('birthdate')
+    def to_calculate_age(self):
+        for line in self:
+            if line.birthdate:
+                date_ncmto = datetime.strptime(line.birthdate, '%Y-%m-%d')
+                month_days = calendar.monthrange(date_ncmto.year, date_ncmto.month)[1]
+                days = month_days - date_ncmto.day + 1
+                age_year = (date.today() - datetime.strptime(line.birthdate, DF).date()).days / 365
+                if age_year >= 15:
+                    line.fifteen = True
+                else:
+                    line.fifteen = False
+                remaining_days = (date.today() - datetime.strptime(line.birthdate, DF).date()).days % 365
+                age_month = remaining_days / month_days
+                age_days = remaining_days % month_days
+                
+                ys = '' if age_year == 1 else 's'
+                ms = '' if age_month == 1 else 'es'
+                ds = '' if age_days == 1 else 's'
+                if age_year > 0 and age_month > 0 and age_days > 0:
+                    line.age = '%d año%s, %d mes%s y %d día%s.' % (age_year, ys, age_month, ms, age_days, ds)
+                elif age_year <= 0 and age_month > 0 and age_days > 0:
+                    line.age = '%d mes%s y %d día%s.' % (age_month, ms, age_days, ds)
+                elif age_year > 0 and age_month <= 0 and age_days > 0:
+                    line.age = '%d año%s y %d día%s.' % (age_year, ys, age_days, ds)
+                elif age_year > 0 and age_month > 0 and age_days <= 0:
+                    line.age = '%d año%s y %d mes%s.' % (age_year, ys, age_month, ms)
+                elif age_year <= 0 and age_month <= 0 and age_days > 0:
+                    line.age = '%d día%s.' % (age_days, ds)
+                elif age_year <= 0 and age_month > 0 and age_days <= 0:
+                    line.age = '%d mes%s.' % (age_month, ms)
+                elif age_year > 0 and age_month <= 0 and age_days <= 0:
+                    line.age = '%d año%s.' % (age_year, ys)
+                
+    
+    
     user_id = fields.Many2one(
                 'res.users', 
                 string='Persona',
@@ -87,10 +123,10 @@ class TccPersons(models.Model):
                 index=True,
                 )
     age = fields.Char(
-                compute='_to_calculate_age',
+                compute='to_calculate_age',
                 string='Edad',
                 readonly=True,
-                store=True,
+                #~ store=True,
                 )
     civil_status = fields.Selection([
                 ('Soltero','Soltero(a)'),
@@ -180,40 +216,7 @@ class TccPersons(models.Model):
             return result
         
     
-    @api.multi
-    @api.depends('birthdate')
-    def _to_calculate_age(self):
-        if self.birthdate:
-            date_ncmto = datetime.strptime(self.birthdate, '%Y-%m-%d')
-            month_days = calendar.monthrange(date_ncmto.year, date_ncmto.month)[1]
-            days = month_days - date_ncmto.day + 1
-            age_year = (date.today() - datetime.strptime(self.birthdate, DF).date()).days / 365
-            if age_year >= 15:
-                self.fifteen = True
-            else:
-                self.fifteen = False
-            remaining_days = (date.today() - datetime.strptime(self.birthdate, DF).date()).days % 365
-            age_month = remaining_days / month_days
-            age_days = remaining_days % month_days
-            
-            ys = '' if age_year == 1 else 's'
-            ms = '' if age_month == 1 else 'es'
-            ds = '' if age_days == 1 else 's'
-            if age_year > 0 and age_month > 0 and age_days > 0:
-                self.age = '%d año%s, %d mes%s y %d día%s.' % (age_year, ys, age_month, ms, age_days, ds)
-            elif age_year <= 0 and age_month > 0 and age_days > 0:
-                self.age = '%d mes%s y %d día%s.' % (age_month, ms, age_days, ds)
-            elif age_year > 0 and age_month <= 0 and age_days > 0:
-                self.age = '%d año%s y %d día%s.' % (age_year, ys, age_days, ds)
-            elif age_year > 0 and age_month > 0 and age_days <= 0:
-                self.age = '%d año%s y %d mes%s.' % (age_year, ys, age_month, ms)
-            elif age_year <= 0 and age_month <= 0 and age_days > 0:
-                self.age = '%d día%s.' % (age_days, ds)
-            elif age_year <= 0 and age_month > 0 and age_days <= 0:
-                self.age = '%d mes%s.' % (age_month, ms)
-            elif age_year > 0 and age_month <= 0 and age_days <= 0:
-                self.age = '%d año%s.' % (age_year, ys)
-            
+    
     @api.onchange('name')
     def title_string(self):
         if self.name:

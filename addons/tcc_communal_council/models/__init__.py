@@ -8,4 +8,5 @@ import person
 import notice
 import committee
 import survey
+import product_distribution
 

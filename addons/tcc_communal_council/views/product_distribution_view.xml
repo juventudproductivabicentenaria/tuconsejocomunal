@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_tcc_product_distribution_form" model="ir.ui.view">
+            <field name="name">tcc.product.distribution.form</field>
+            <field name="model">tcc.product.distribution</field>
+            <field name="arch" type="xml">
+                <form string="Distribución de Productos">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box" groups="base.group_system">
+                            <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-check">
+                                <field name="active" widget="boolean_button" options='{"terminology": "active"}' />
+                            </button>
+                        </div>
+                        <group>
+                            <field name="communal_council_id" options='{"no_create": "True"}' readonly="True"/>
+                            <field name="name"/>
+                        </group>
+                        <group col="4">
+                            <field name="to_deliver"/>
+                            <field name="distribute_by"/>
+                            <field name="age_start" attrs="{'invisible': [('to_deliver', 'in', ('familia',False))], 'required': [('to_deliver', '=', 'persona')]}"/>
+                            <field name="age_end" attrs="{'invisible': [('to_deliver', 'in', ('familia',False))], 'required': [('to_deliver', '=', 'persona')]}"/>
+                            <field widget="mask" data-inputmask="'mask': '99:99'" name="estimated_time" placeholder="01:45"/>
+<!--
+                            <field name="street_ids" options='{"no_create": "True"}' widget="many2many_tags" attrs="{'invisible': [('distribute_by', 'in', ('familia',False))]}"/>
+                            <field name="family_ids" options='{"no_create": "True"}' widget="many2many_tags" attrs="{'invisible': [('distribute_by', 'in', ('calle',False))]}"/>
+-->
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record id="view_tcc_product_distribution_tree" model="ir.ui.view">
+            <field name="name">tcc.product.distribution.tree</field>
+            <field name="model">tcc.product.distribution</field>
+            <field name="arch" type="xml">
+                <tree string="Distribución de Productos">
+                    <field name="name"/>
+                    <field name="street_ids"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="action_tcc_product_distribution_form" model="ir.actions.act_window">
+            <field name="name">Distribución</field>
+            <field name="res_model">tcc.product.distribution</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <menuitem id="tcc_product_distribution_menu_id" 
+            name="Distribución de Productos" 
+            parent="tcc_communal_coincil_menutop" 
+            sequence="50"/>
+        
+        <menuitem id="tcc_product_distribution_action" 
+            parent="tcc_product_distribution_menu_id" 
+            action="action_tcc_product_distribution_form" 
+            name="Distribución" 
+            sequence="5" />
+        
+    </data>
+</odoo>
