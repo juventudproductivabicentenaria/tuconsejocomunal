@@ -277,9 +277,16 @@ class TccFamily(models.Model):
                 string='Tiene cesta ticket', 
                 )
                 
+    priority_level = fields.Selection(
+                [('Normal', 'Normal'),
+                ('Urgente', 'Urgente'),],
+                string='Prioridad', 
+                required=True,
+                )
+                
     arrival_date = fields.Date(
                 string='Fecha de llegada a la comunidad',
-                index=True,
+                required=True,
                 )
     person_ids = fields.One2many(
                 'tcc.persons',

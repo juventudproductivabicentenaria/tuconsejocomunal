@@ -41,4 +41,5 @@ access_survey_question_consejo,survey.question,survey.model_survey_question,tcc_
 access_survey_label_consejo,survey.label,survey.model_survey_label,tcc_group_consejo,1,1,1,1
 access_survey_user_input_consejo,survey.user_input,survey.model_survey_user_input,tcc_group_consejo,1,1,1,0
 access_survey_user_input_line_consejo,survey.user_input_line,survey.model_survey_user_input_line,tcc_group_consejo,1,1,1,0
-access_tcc_product_distribution_consejo,tcc.product.distribution,model_tcc_product_distribution,tcc_group_consejo,1,1,1,0
+access_tcc_product_distribution_consejo, tcc.product.distribution,model_tcc_product_distribution,tcc_group_consejo,1,1,1,0
+access_tcc_product_distribution_line_consejo,tcc.product.distribution.line,model_tcc_product_distribution_line,tcc_group_consejo,1,1,1,1

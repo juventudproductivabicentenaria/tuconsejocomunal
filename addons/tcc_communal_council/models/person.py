@@ -157,7 +157,7 @@ class TccPersons(models.Model):
                 )
     nationality = fields.Selection([
                 ('Venezolano','Venezolano'),
-                ('Extrangero','Extrangero'),],
+                ('Extranjero','Extranjero'),],
                 string='Nacionalidad',
                 required = True,
                 )

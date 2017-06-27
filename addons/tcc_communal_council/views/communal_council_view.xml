@@ -22,7 +22,7 @@
                             <field name="creation_date"/>
                             <field widget="mask" data-inputmask="'mask': '+58-999-9999999'" name="phone" />
                             <field name="state_id" domain="[('country_id','=',240)]" options="{'no_create': True}"/>
-                            <field name="municipality_id" domain="[('state_id','=',state_id)]" options="{'no_create': True}"/>
+                            <field name="municipality_id" string="Municipio" domain="[('state_id','=',state_id)]" options="{'no_create': True}"/>
                             <field name="parish_id" domain="[('municipality_id','=',municipality_id)]" options="{'no_create': True}" string="Parroquia"/>
                             <field name="sector_id" />
                         </group>

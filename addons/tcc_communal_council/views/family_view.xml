@@ -28,8 +28,8 @@
                             <field name="name" attrs="{'invisible': [('name', '=', False)]}" />
                         </group>
                         <group col="4">
+                            <field name="priority_level" /> 
                             <field name="arrival_date" /> 
-                            <field name="id" invisible="True"/> 
                         </group>
                         
                         <notebook>
@@ -116,7 +116,6 @@
             <field name="arch" type="xml">
                 <tree string="Family">
                     <field name="name"/>
-                    <field name="communal_council_id"/>
                     <field name="type_dwelling"/>
                     <field name="arrival_date"/>
                 </tree>
