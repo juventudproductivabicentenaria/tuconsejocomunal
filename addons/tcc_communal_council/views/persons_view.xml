@@ -17,11 +17,13 @@
                             <field name="is_vocero"/>
                             <field name="is_family_boss"/>
                             <field name="login" />
+                            <field name="name" invisible="True"/>
                         </group>
                         <group col="4">
                             <field widget="mask_regex" data-inputmask-regex="[VE]-[0-9]{7,8}"  name="cedula" placeholder="V-12345678" attrs="{'required': ['|',('is_family_boss', '=', True),('is_vocero', '=', True)]}"/>
                             <field name="nationality" />
-                            <field name="name" />
+                            <field name="first_name" />
+                            
                             <field name="second_name" />
                             <field name="first_surname" />
                             <field name="second_surname" />
@@ -43,6 +45,50 @@
             </field>
         </record>
         
+        <record id="view_tcc_persons2_form" model="ir.ui.view">
+            <field name="name">tcc.persons.form</field>
+            <field name="model">tcc.persons</field>
+            <field name="arch" type="xml">
+                <form string="Persona" readonly="True">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box" groups="base.group_system" readonly="True">
+                            <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-check">
+                                <field name="active" widget="boolean_button" options='{"terminology": "active"}' />
+                            </button>
+                        </div>
+                        <group>
+                            <field name="communal_council_id" options='{"no_create": "True"}' readonly="True"/>
+                            <field name="is_vocero" readonly="True"/>
+                            <field name="is_family_boss" readonly="True"/>
+                            <field name="login" readonly="True"/>
+                            <field name="name" invisible="True" readonly="True"/>
+                        </group>
+                        <group col="4">
+                            <field widget="mask_regex" data-inputmask-regex="[VE]-[0-9]{7,8}"  name="cedula" placeholder="V-12345678" attrs="{'required': ['|',('is_family_boss', '=', True),('is_vocero', '=', True)]}" readonly="True"/>
+                            <field name="nationality" readonly="True"/>
+                            <field name="first_name" readonly="True"/>
+                            
+                            <field name="second_name" readonly="True"/>
+                            <field name="first_surname" readonly="True"/>
+                            <field name="second_surname" readonly="True"/>
+                            <field name="birthdate" readonly="True"/>
+                            <field name="age" readonly="True"/>
+                            <field name="civil_status" readonly="True"/>
+                            
+                            <field name="gender" readonly="True"/>
+                            <field name="level_instruccion" readonly="True"/>
+                            <field name="have_work" readonly="True"/>
+                            <field name="type_family_income" attrs="{'required': [('have_work', '=', 'Si')]}" readonly="True"/>
+                            <field name="profession_id" readonly="True"/>
+                            <field name="monthly_income" readonly="True"/>
+                            <field name="kinship_id" attrs="{'invisible': [('is_family_boss', '=', True)], 'required': [('is_family_boss', '=', False)]}" readonly="True"/>
+                            <field name="registered_cne" readonly="True"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
         <record id="view_tcc_persons_tree" model="ir.ui.view">
             <field name="name">tcc.persons.tree</field>
             <field name="model">tcc.persons</field>
@@ -57,6 +103,21 @@
             </field>
         </record>
         
+        <record id="view_tcc_persons2_tree" model="ir.ui.view">
+            <field name="name">tcc.persons.tree</field>
+            <field name="model">tcc.persons</field>
+            <field name="arch" type="xml">
+                <tree string="Personas">
+                    <field name="name"/>
+                    <field name="gender"/>
+                    <field name="age"/>
+                    <field name="level_instruccion"/>
+                    <field name="profession_id"/>
+                    <field name="is_vocero"/>
+                </tree>
+            </field>
+        </record>
+        
         <record id="action_tcc_persons_form" model="ir.actions.act_window">
             <field name="name">Personas</field>
             <field name="res_model">tcc.persons</field>
@@ -64,18 +125,33 @@
             <field name="view_mode">tree,form</field>
         </record>
         
+        
+        <record id="tcc_action_persons_vocero" model="ir.actions.act_window">
+            <field name="name">Voceros</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">tcc.persons</field>
+            <field name="view_type">tree</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcc_persons2_form"/>
 <!--
-        <menuitem id="tcc_persons_menu" 
-            name="Personas" 
+            <field name="act_window_id" ref="view_tcc_persons2_form"/>
+            <field name="search_view_id" ref="view_tcc_persons2_form"/>
+            <field name="search_view_id" ref="view_tcc_persons2_form"/>
+-->
+            <field name="domain">[('is_vocero','=',True)]</field>
+        </record>
+        
+        
+        <menuitem id="tcc_persons_voceros_menu" 
+            name="Voceros" 
             parent="tcc_communal_coincil_menutop" 
             sequence="9"/>
         
-        <menuitem id="tcc_persons_action" 
-            parent="tcc_persons_menu" 
-            action="action_tcc_persons_form" 
-            name="Personas" 
+        <menuitem id="tcc_persons_action_voveros" 
+            parent="tcc_persons_voceros_menu" 
+            action="tcc_action_persons_vocero" 
+            name="Voceros" 
             sequence="5" />
--->
         
     </data>
 </odoo>

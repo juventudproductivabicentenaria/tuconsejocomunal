@@ -16,13 +16,10 @@ class partner(models.Model):
     is_persona = fields.Boolean(string='Persona', default=False)
     is_vocero = fields.Boolean(string='¿Es vocero?', default=False)
         
+class Users(models.Model):
+    _name = 'res.users'
+    _inherit="res.users"
 
-class TccPersons(models.Model):
-    _name = "tcc.persons"
-    _inherits = {'res.users': 'user_id'}
-    _rec_name = 'name'
-    _description = "Personas"
-    
     
     @api.multi
     def default_communal_council(self):
@@ -35,6 +32,33 @@ class TccPersons(models.Model):
             return self.env['tcc.communal.council'].search([('communal_council_id.user_id', '=', self.env.uid)]).id
         if 'Residente del Consejo Comunal' in list_group_name:
             return self.env['tcc.communal.council'].search([('communal_council_id.user_id', '=', self.env.uid)]).id
+    
+    communal_council_id = fields.Many2one(
+                'tcc.communal.council',
+                string='Consejo comunal', 
+                default=default_communal_council,
+                )
+    
+    
+class TccPersons(models.Model):
+    _name = "tcc.persons"
+    _inherits = {'res.users': 'user_id'}
+    _rec_name = 'name'
+    _description = "Personas"
+    
+    
+    
+    #~ @api.multi
+    #~ def default_communal_council(self):
+        #~ list_group_name = []
+        #~ for name_goup in self.env.user.groups_id:
+            #~ list_group_name.append(name_goup.name)
+        #~ if 'Consejo Comunal' in list_group_name:
+            #~ return self.env['tcc.communal.council'].search([('user_id', '=', self.env.uid)]).id
+        #~ if 'Vocero' in list_group_name:
+            #~ return self.env['tcc.communal.council'].search([('communal_council_id.user_id', '=', self.env.uid)]).id
+        #~ if 'Residente del Consejo Comunal' in list_group_name:
+            #~ return self.env['tcc.communal.council'].search([('communal_council_id.user_id', '=', self.env.uid)]).id
     
     @api.depends('birthdate')
     def to_calculate_age(self):
@@ -70,8 +94,6 @@ class TccPersons(models.Model):
                 elif age_year > 0 and age_month <= 0 and age_days <= 0:
                     line.age = '%d año%s.' % (age_year, ys)
                 
-    
-    
     user_id = fields.Many2one(
                 'res.users', 
                 string='Persona',
@@ -84,20 +106,18 @@ class TccPersons(models.Model):
                 #~ ondelete="cascade",
                 required = False,
                 )
-    committee_id = fields.Many2one(
-                'tcc.committee', 
-                string='Vocero',
-                #~ ondelete="cascade",
-                required = False,
-                )
     cedula = fields.Char(
                 string='Cédula',
                 required = False,
                 )
-    communal_council_id = fields.Many2one(
-                'tcc.communal.council',
-                string='Consejo comunal', 
-                default=default_communal_council,
+    #~ communal_council_id = fields.Many2one(
+                #~ 'tcc.communal.council',
+                #~ string='Consejo comunal', 
+                #~ default=default_communal_council,
+                #~ )
+    first_name = fields.Char(
+                string='Primer Nombre',
+                required = True,
                 )
     second_name = fields.Char(
                 string='Segundo Nombre',
@@ -200,6 +220,7 @@ class TccPersons(models.Model):
     
     _sql_constraints = [('cedula_uniq', 'unique (cedula)', "La Cédula ya Existe, Verifique!")]
     
+    
     @api.onchange('birthdate')
     def to_validate_date(self):
         warning = {}
@@ -217,10 +238,10 @@ class TccPersons(models.Model):
         
     
     
-    @api.onchange('name')
-    def title_string(self):
-        if self.name:
-            self.name = self.name.title()
+    @api.onchange('first_name')
+    def title_first_name(self):
+        if self.first_name:
+            self.first_name = self.first_name.title()
     
     @api.onchange('second_name')
     def title_string_second_name(self):
@@ -236,12 +257,14 @@ class TccPersons(models.Model):
     def title_string_first_surname(self):
         if self.first_surname:
             self.first_surname = self.first_surname.title()
+            self.name = self.first_name +' '+ self.first_surname
             
     @api.onchange('second_surname')
     def title_string_second_surname(self):
         if self.second_surname:
             self.second_surname = self.second_surname.title()
         
+    
     
 class TccPersonsProfession(models.Model):
     _name = "tcc.persons.profession"

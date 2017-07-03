@@ -6,6 +6,10 @@
             <field name="model">tcc.product.distribution</field>
             <field name="arch" type="xml">
                 <form string="Distribución de Productos">
+                    <header>
+                        <button name="action_confirm" states="draft" string="Confirmar Distribución" class="o_sale_confirm" type="object" />
+                        <field name="state" widget="statusbar" statusbar_visible="draft,done"/>
+                    </header>
                     <sheet>
                         <div class="oe_button_box" name="button_box" groups="base.group_system">
                             <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-check">
@@ -24,6 +28,7 @@
                                         <field name="response_id"/>
                                         <field name="street_ids"/>
                                         <field name="family_ids"/>
+                                        <field name="person_ids"/>
                                     </tree>
                                 </field>
                             </page>
@@ -39,6 +44,7 @@
             <field name="arch" type="xml">
                 <tree string="Distribución de Productos">
                     <field name="name"/>
+                    <field name="state"/>
                 </tree>
             </field>
         </record>
@@ -68,10 +74,10 @@
                         </group>
                         <notebook>
                             <page string="Familias" attrs="{'invisible': [('to_deliver', 'in', ('persona',False))]}" >
-                                <field name="family_ids" options='{"no_create": "True"}' />
+                                <field name="family_ids" options='{"no_create": "True", "no_open": True}' />
                             </page>
-                            <page string="Personas" options='{"no_create": "True"}' attrs="{'invisible': [('to_deliver', 'in', ('familia', False))]}" >
-                                <field name="family_ids"/>
+                            <page string="Personas" options='{"no_create": "True", "no_open": True}' attrs="{'invisible': [('to_deliver', 'in', ('familia', False))]}" >
+                                <field name="person_ids" options='{"no_create": "True", "no_open": True}' />
                             </page>
                         </notebook>
                     </sheet>
@@ -79,6 +85,48 @@
             </field>
         </record>
         
+        <record id="view_tcc_distribution_delivery_confirmation_form" model="ir.ui.view">
+            <field name="name">tcc.distribution.delivery.confirmation.form</field>
+            <field name="model">tcc.distribution.delivery.confirmation</field>
+            <field name="arch" type="xml">
+                <form string="Confirmar Entrega">
+                    <header>
+                        <button name="action_confirm_delivery" states="por_entregar" string="Confirmar Entrega" class="o_sale_confirm" type="object" />
+                        <field name="state" widget="statusbar" statusbar_visible="por_entregar,entregado"/>
+                    </header>
+                    <sheet>
+                        <group col="4">
+                            <field name="response_id"/>
+                            <field name="date_delivery"/>
+                        </group>
+                        <group>
+                            <field name="person_id" options='{"no_create": "True"}' attrs="{'invisible': [('person_id', '=', False)]}" />
+                            <field name="family_id" options='{"no_create": "True"}' attrs="{'invisible': [('family_id', '=', False)]}" />
+                            <field name="communal_council_id" invisible="True" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record id="view_tcc_distribution_delivery_confirmation_tree" model="ir.ui.view">
+            <field name="name">tcc.distribution.delivery.confirmation.tree</field>
+            <field name="model">tcc.distribution.delivery.confirmation</field>
+            <field name="arch" type="xml">
+                <tree string="Confirmar entregas">
+                    <field name="response_id"/>
+                    <field name="state"/>
+                    <field name="date_delivery"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="action_tcc_distribution_delivery_confirmation_form" model="ir.actions.act_window">
+            <field name="name">Corfirmación</field>
+            <field name="res_model">tcc.distribution.delivery.confirmation</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
         
         <menuitem id="tcc_product_distribution_menu_id" 
             name="Distribución de Productos" 
@@ -89,6 +137,17 @@
             parent="tcc_product_distribution_menu_id" 
             action="action_tcc_product_distribution_form" 
             name="Distribución" 
+            sequence="5" />
+        
+        <menuitem id="tcc_confirm_delevery_menu_id" 
+            name="Confirmación de entrega" 
+            parent="tcc_communal_coincil_menutop" 
+            sequence="70"/>
+        
+        <menuitem id="tcc_confirm_deleveryn_action" 
+            parent="tcc_confirm_delevery_menu_id" 
+            action="action_tcc_distribution_delivery_confirmation_form" 
+            name="Confirmar entrega" 
             sequence="5" />
         
     </data>

@@ -86,7 +86,7 @@ class TccFamily(models.Model):
         if 'Consejo Comunal' in list_group_name:
             return self.env['tcc.communal.council'].search([('user_id', '=', self.env.uid)]).id
         if 'Vocero' in list_group_name:
-            return self.env['tcc.communal.council'].search([('communal_council_id.user_id', '=', self.env.uid)]).id
+            return self.env['tcc.communal.council'].search([('communal_council_id.user_id', '=', self.env.user.communal_council_id.user_id.id)]).id
         if 'Residente del Consejo Comunal' in list_group_name:
             return self.env['tcc.communal.council'].search([('communal_council_id.user_id', '=', self.env.uid)]).id
                 
@@ -127,6 +127,11 @@ class TccFamily(models.Model):
     
     name = fields.Char(
                 string='Nombre de la familia',
+                readonly=True,
+                )
+    code_family = fields.Char(
+                string='Código de la familia',
+                readonly=True,
                 )
     communal_council_id = fields.Many2one(
                 'tcc.communal.council',
@@ -395,10 +400,10 @@ class TccFamily(models.Model):
         name_person = ''
         for person in self.person_ids:
             if person.is_family_boss == True:
-                name_person = person.name +' '+ person.first_surname +' '+ person.cedula
+                name_person = person.name +' '+ person.cedula
                 list_family_boss.append(person.id)
-            if len(list_family_boss) > 1:
-                raise ValidationError(_('Un grupo familiar, debe tener solo un jefe de familia. ¡Verifique!'))
+            if len(list_family_boss) != 1:
+                raise ValidationError(_('Un grupo familiar, debe tener un jefe de familia. ¡Verifique!'))
             else:
                 self.name = name_person
     
@@ -478,21 +483,25 @@ class TccFamily(models.Model):
     
     @api.model
     def create(self, vals):
+        vals['code_family'] = self.env['ir.sequence'].next_by_code('tcc.family')
         family = super(TccFamily, self).create(vals)
         family.get_name_family()
         list_group = []
-        for person in family.person_ids:
-            if person.user_id.is_vocero == True:
-                group_vocero = person.env['res.groups'].sudo().search([('name', '=', 'Vocero')])
-                list_group.append(group_vocero.id)
-            else:
-                group_residente = person.env['res.groups'].sudo().search([('name', '=', 'Residente del Consejo Comunal')])
-                list_group.append(group_residente.id)
-            group_contact = person.env['res.groups'].sudo().search([('name', '=', 'Creación de contactos')])
-            list_group.append(group_contact.id)
-            group_employee = person.env['res.groups'].sudo().search([('name', '=', 'Empleado')])
-            list_group.append(group_employee.id)
-            person.user_id.sudo().write({'is_council': True,'groups_id' : [(6,0,list_group)],'email' : person.user_id.login})
+        if family.person_ids:
+            for person in family.person_ids:
+                if person.user_id.is_vocero == True:
+                    group_vocero = person.env['res.groups'].sudo().search([('name', '=', 'Vocero')])
+                    list_group.append(group_vocero.id)
+                else:
+                    group_residente = person.env['res.groups'].sudo().search([('name', '=', 'Residente del Consejo Comunal')])
+                    list_group.append(group_residente.id)
+                group_contact = person.env['res.groups'].sudo().search([('name', '=', 'Creación de contactos')])
+                list_group.append(group_contact.id)
+                group_employee = person.env['res.groups'].sudo().search([('name', '=', 'Empleado')])
+                list_group.append(group_employee.id)
+                person.user_id.sudo().write({'is_council': True,'groups_id' : [(6,0,list_group)],'email' : person.user_id.login})
+        else:
+            raise UserError(_('Debe agregar pesonas al grupo familiar.'))
         return family 
         
         

@@ -13,6 +13,9 @@
                             </button>
                         </div>
                         <group>
+<!--
+                            <field name="parish_id" domain="[('municipality_id','=',municipality_id)]" options="{'no_create': True}" string="Parroquia"/>
+-->
                             <field name="name" />
                         </group>
                     </sheet>

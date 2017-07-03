@@ -71,3 +71,13 @@ class TccCommittee(models.Model):
         else:
             raise ValidationError(_('Debe seleccionar un vocero para el comité. ¡Verifique!'))
     
+    @api.multi
+    def write(self, values):
+        list_person = []
+        for p_id in self.person_ids:
+            if p_id.id not in values['person_ids'][0][2]:
+                list_person.append(p_id.id)
+        PersonObj = self.env['tcc.persons'].search([('id', '=', list_person)])
+        PersonObj.write({'into_committee': False})
+        return super(TccCommittee, self).write(values)
+    

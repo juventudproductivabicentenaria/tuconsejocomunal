@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Sequences for sale.order -->
+        <record id="seq_tcc_family" model="ir.sequence">
+            <field name="name">Familias</field>
+            <field name="code">tcc.family</field>
+            <field name="prefix">TCC-FLIA-</field>
+            <field name="padding">15</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+    </data>
+</odoo>

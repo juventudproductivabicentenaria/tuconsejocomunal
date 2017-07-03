@@ -12,11 +12,14 @@
                             <button string="Enviar encuesta "
                                 type="object"
                                 name= "send_survey"
-                                class="oe_stat_button" icon="fa-external-link"/>
+                                class="oe_stat_button" icon="fa-external-link"
+                                attrs="{'invisible': [('name', '=', False)]}"
+                                />
                             <button string="Encuestar"
                                 type="object"
                                 name= "action_start_survey"
                                 class="oe_stat_button" icon="fa-pencil-square-o"
+                                attrs="{'invisible': [('name', '=', False)]}" 
                                 />
                             
                             <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-check">
@@ -26,6 +29,7 @@
                         <group>
                             <field name="communal_council_id" options='{"no_create": True}'/>
                             <field name="name" attrs="{'invisible': [('name', '=', False)]}" />
+                            <field name="code_family" attrs="{'invisible': [('name', '=', False)]}" />
                         </group>
                         <group col="4">
                             <field name="priority_level" /> 
@@ -63,13 +67,13 @@
                                     <field name="pests_dwelling_ids" widget="many2many_tags"/>
                                     <field name="pets_ids" widget="many2many_tags"/>
                                 </group>
-                                <group col="4" attrs="{'invisible': [('type_dwelling', 'in', ('Casa','Quinta','Barraca','Habitacion','Other','Rancho'))]}">
-                                    <field name="edifice_id" />
-                                    <field name="apartment_id" />
-                                    <field name="floor_id" />
+                                <group col="4" attrs="{'invisible': [('type_dwelling', 'in', ('Casa','Quinta','Barraca','Habitacion','Other','Rancho'))], 'required': [('type_dwelling', '=', 'casa')]}">
+                                    <field name="edifice_id" attrs="{'required': [('type_dwelling', '=', 'casa')]}" options='{"no_create": True}'/>
+                                    <field name="floor_id" attrs="{'required': [('type_dwelling', '=', 'casa')]}"/>
+                                    <field name="apartment_id" attrs="{'required': [('type_dwelling', '=', 'casa')]}"/>
                                 </group>
                                 <group>
-                                    <field name="house_id" attrs="{'invisible': [('type_dwelling', '=', 'Apartamento')]}" />
+                                    <field name="house_id" attrs="{'invisible': [('type_dwelling', '=', 'Apartamento')],'required': [('type_dwelling', '=', 'Casa')]}" options='{"no_create": True}'/>
                                 </group>
                             </page>
                             <page string="Salud">
@@ -116,7 +120,7 @@
             <field name="arch" type="xml">
                 <tree string="Family">
                     <field name="name"/>
-                    <field name="type_dwelling"/>
+                    <field name="code_family"/>
                     <field name="arrival_date"/>
                 </tree>
             </field>

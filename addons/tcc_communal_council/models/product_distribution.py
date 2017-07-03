@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from datetime import date, datetime
+from datetime import * 
 from dateutil.relativedelta import relativedelta
 
 from odoo import api, fields, models, tools, SUPERUSER_ID, _
@@ -14,13 +15,6 @@ class TccProductDistribution(models.Model):
     _rec_name = 'name'
     _description = 'Distribucion de productos'
     
-    
-    @api.multi
-    def range_edad(self):
-        list_age = []
-        for num in range(0, 150):
-            list_age.append((str(num),str(num)))
-        return list_age
     
     @api.multi
     def default_communal_council(self):
@@ -37,6 +31,7 @@ class TccProductDistribution(models.Model):
     name = fields.Char(
                 string="Nombre",
                 required=True,
+                states={'done': [('readonly', True)]},
                 )
     
     communal_council_id = fields.Many2one(
@@ -45,51 +40,17 @@ class TccProductDistribution(models.Model):
                 default=default_communal_council,
                 )
     
-    #~ distribute_by = fields.Selection(
-                #~ [('familia', 'Familia'),
-                #~ ('casa', 'Casa'),
-                #~ ('calle', 'Calle'),],
-                #~ string='Distribuir por:', 
-                #~ required=True,
-                #~ )
-    #~ age_start = fields.Selection(
-                #~ range_edad,
-                #~ string='Edad inicial', 
-                #~ default = 0
-                #~ )
-    #~ age_end = fields.Selection(
-                #~ range_edad,
-                #~ string='Edad final', 
-                #~ )
-    #~ estimated_time = fields.Char(
-                #~ string="Tipo estimado",
-                #~ required=True,
-                #~ help="Tiempo estimado por entrega, basando en horas."
-                #~ )
-    #~ street_id = fields.Many2one(
-                #~ 'tcc.address.street',
-                #~ string='Calle', 
-                #~ )
-    #~ street_ids = fields.Many2many(
-                #~ 'tcc.address.street',
-                #~ 'tcc_product_distribution_street_rel',
-                #~ 'distribution_id',
-                #~ 'street_id',
-                #~ string='Calles'
-                #~ )
-    #~ family_ids = fields.Many2many(
-                #~ 'tcc.family',
-                #~ 'tcc_product_distribution_family_rel',
-                #~ 'distribution_id',
-                #~ 'family_id',
-                #~ string='Familias'
-                #~ )
     distribution_line_ids = fields.One2many(
                 'tcc.product.distribution.line',
                 'product_distribution_id',
-                string='Familias',
+                string='Lineas de Distribución',
+                states={'done': [('readonly', True)]},
                 )
-                
+    state = fields.Selection([
+                ('draft', 'Borrador'),
+                ('done', 'Confirmado'),
+                ], string='Status', readonly=True, copy=False, index=True,
+                )
     active = fields.Boolean(default=True)
     
     @api.onchange('name')
@@ -97,58 +58,38 @@ class TccProductDistribution(models.Model):
         if self.name:
             self.name = self.name.title()
     
-    #~ @api.onchange('to_deliver')
-    #~ def clean_fields(self):
-        #~ if self.to_deliver == False or 'familia':
-            #~ self.age_start = False
-            #~ self.age_end = False
-    #~ 
-    #~ @api.onchange('age_start')
-    #~ def clean_fields_age_end(self):
-        #~ self.age_end = False
-    #~ 
-    #~ @api.onchange('age_end')
-    #~ def validate_age(self):
-        #~ warning = {}
-        #~ result = {}
-        #~ if self.age_end:
-            #~ print self.age_start
-            #~ print self.age_end
-            #~ if self.age_start:
-                #~ if int(self.age_start) > int(self.age_end):
-                    #~ warning = {
-                        #~ 'title': _('Warning!'),
-                        #~ 'message': _('La edad inicial no debe ser mayor a la edad final.'),
-                    #~ }
-                    #~ self.age_end = False
-                    #~ if warning:
-                        #~ result['warning'] = warning
-                    #~ return result
-            #~ else:
-                #~ warning = {
-                        #~ 'title': _('Warning!'),
-                        #~ 'message': _('Seleccione la inicial. ¡Verifique!'),
-                    #~ }
-                #~ self.age_end = False
-                #~ if warning:
-                    #~ result['warning'] = warning
-                #~ return result
+    @api.multi
+    def action_confirm(self):
+        vals = {}
+        delivery_obj = self.env['tcc.distribution.delivery.confirmation']
+        for distribution in self:
+            vals = {
+                'communal_council_id': distribution.communal_council_id.id,
+                'product_distribution_id': distribution.id,
+            }
+            for line in distribution.distribution_line_ids:
+                vals['response_id'] = line.response_id.id
+                if line.to_deliver == 'familia':
+                    for family in line.family_ids:
+                        vals['family_id'] = family.id
+                        delivery_obj.sudo().create(vals)
+                if line.to_deliver == 'persona':
+                    for person in line.person_ids:
+                        vals['person_id'] = person.id
+                        delivery_obj.sudo().create(vals)
+            distribution.state = 'done'
+        return True
     
-    @api.onchange('estimated_time')
-    def validate_estimated_time(self):
-        if self.estimated_time:
-            warning = {}
-            result = {}
-            if '_' in self.estimated_time:
-                warning = {
-                            'title': _('Warning!'),
-                            'message': _('Completa el formato  del campo tiempo estimado con cero (0) al inicio.'),
-                        }
-                self.estimated_time = False
-                if warning:
-                    result['warning'] = warning
-                return result
-    
+    @api.model
+    def create(self, vals):
+        if not vals['distribution_line_ids']:
+            raise UserError(_('Debe agregar Lineas de Distribución.'))
+        distribution = super(TccProductDistribution, self).create(vals)
+        distribution.update({
+                'state': 'draft',
+            })
+        
+        return distribution
     
 class TccProductDistributionLine(models.Model):
     _name = "tcc.product.distribution.line"
@@ -179,15 +120,9 @@ class TccProductDistributionLine(models.Model):
                 'street_id',
                 string='Calles'
                 )
-    #~ street_id = fields.Many2one(
-                #~ 'tcc.address.street',
-                #~ string='Calles', 
-                #~ required = True,
-                #~ )
     date_start = fields.Datetime(
                 string='Inicio de entrega',
                 required=True,
-                #~ states={'draft': [('readonly', False)]},
                 default=fields.Datetime.now,
                 )
     date_end = fields.Datetime(
@@ -202,14 +137,19 @@ class TccProductDistributionLine(models.Model):
                 'family_id',
                 string='Familias'
                 )
-    family_ids = fields.Many2many(
+    person_ids = fields.Many2many(
                 'tcc.persons',
                 'tcc_distribution_person_rel',
                 'distribution_line_id',
                 'person_id',
-                string='Personas'
+                string='Personas',
                 )
-    
+    @api.model
+    def create(self, vals):
+        if not vals['family_ids'] and not vals['person_ids']:
+            raise UserError(_('Debe Seleccionar las Familias o Personas Beneficiadas.'))
+        DistributionLine = super(TccProductDistributionLine, self).create(vals)
+        return DistributionLine
     
     @api.multi
     @api.onchange('street_ids')
@@ -217,12 +157,88 @@ class TccProductDistributionLine(models.Model):
         domain = {}
         list_street = []
         list_family = []
-        if self.to_deliver == 'familia':
-            for street in self.street_ids:
-                list_street.append(street.id)
-            if self.street_ids:
-                families = self.env['tcc.family'].search([('house_id.street_id.id', 'in', list_street)])
-                for family in families:
-                    list_family.append(family.id)
-            domain = {'family_ids': [('id','in',list_family)]}
+        list_person = []
+        for street in self.street_ids:
+            list_street.append(street.id)
+        families = self.env['tcc.family'].search([('house_id.street_id.id', 'in', list_street)])
+        for family in families:
+            list_family.append(family.id)
+            for person in family.person_ids:
+                list_person.append(person.id)
+        domain = {'family_ids': [('id','in',list_family)], 'person_ids': [('id','in',list_person)]}
         return {'domain': domain}
+    
+    
+    @api.onchange('to_deliver')
+    def onchangue_to_deliver(self):
+        domain = {}
+        list_street = []
+        list_family = []
+        if self.to_deliver == 'familia' or self.to_deliver == False:
+            self.person_ids = False
+        if self.to_deliver == 'persona' or self.to_deliver == False:
+            self.family_ids = False
+    
+    @api.onchange('date_end')
+    def to_validate_date(self):
+        warning = {}
+        result = {}
+        if self.date_end:
+            if cmp(self.date_end, self.date_start) == -1:
+                warning = {
+                    'title': _('Warning!'),
+                    'message': _('La Fecha Final no debe ser menor a la Fecha de Inicio. ¡Verifique!'),
+                }
+                self.date_end = False
+                if warning:
+                    result['warning'] = warning
+            return result
+
+class TccProductDistributionConfirm(models.Model):
+    _name = "tcc.distribution.delivery.confirmation"
+    _rec_name = 'response_id'
+    _description = 'Confirmacion de entrega'
+    
+    
+    communal_council_id = fields.Many2one(
+                'tcc.communal.council',
+                string='Consejo comunal', 
+                readonly=True,
+                )
+    family_id = fields.Many2one(
+                'tcc.family',
+                string='Familia', 
+                readonly=True,
+                )
+    person_id = fields.Many2one(
+                'tcc.persons',
+                string='Persona',
+                readonly=True, 
+                )
+    date_delivery = fields.Datetime(
+                string='Fecha de entrega',
+                readonly=True,
+                #~ states={'draft': [('readonly', False)]},
+                )
+    response_id = fields.Many2one(
+                'tcc.persons',
+                string='Responsable', 
+                domain = [('is_vocero', '=', True)],
+                readonly=True,
+                )
+    product_distribution_id = fields.Many2one(
+                'tcc.product.distribution',
+                string='Distribución', 
+                )
+    state = fields.Selection([
+        ('por_entregar', 'Por Entregar'),
+        ('entregado', 'Entregado'),
+        ], string='Status', readonly=True, copy=False, index=True, default = 'por_entregar'
+        )
+    active = fields.Boolean(default=True)
+    
+    
+    @api.multi
+    def action_confirm_delivery(self):
+        self.sudo().write({'state': 'entregado', 'date_delivery': fields.Datetime.now()})
+        return True
