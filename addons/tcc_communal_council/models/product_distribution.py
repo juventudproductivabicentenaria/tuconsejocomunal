@@ -24,7 +24,7 @@ class TccProductDistribution(models.Model):
         if 'Consejo Comunal' in list_group_name:
             return self.env['tcc.communal.council'].search([('user_id', '=', self.env.uid)]).id
         if 'Vocero' in list_group_name:
-            return self.env['tcc.communal.council'].search([('communal_council_id.user_id', '=', self.env.uid)]).id
+            return self.env['tcc.communal.council'].search([('communal_council_id.user_id', '=', self.env.user.communal_council_id.user_id.id)]).id
         if 'Residente del Consejo Comunal' in list_group_name:
             return self.env['tcc.communal.council'].search([('communal_council_id.user_id', '=', self.env.uid)]).id
     
@@ -38,6 +38,7 @@ class TccProductDistribution(models.Model):
                 'tcc.communal.council',
                 string='Consejo comunal', 
                 default=default_communal_council,
+                readonly=True,
                 )
     
     distribution_line_ids = fields.One2many(
@@ -228,7 +229,7 @@ class TccProductDistributionConfirm(models.Model):
                 )
     product_distribution_id = fields.Many2one(
                 'tcc.product.distribution',
-                string='Distribución', 
+                string='Nombre', 
                 )
     state = fields.Selection([
         ('por_entregar', 'Por Entregar'),

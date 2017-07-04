@@ -38,7 +38,7 @@
                         
                         <notebook>
                             <page string="Grupo Familiar">
-                                <field name="person_ids"/>
+                                <field name="person_ids" mode="tree"/> 
                             </page>
                             <page string="Situación Económica">
                                 <group col = "4">

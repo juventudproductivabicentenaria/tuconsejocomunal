@@ -123,23 +123,34 @@
             <field name="res_model">tcc.persons</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
+<!--
+            <field name="view_id" ref="view_tcc_persons_form"/>
+-->
+            <field eval="1" name="sequence"/>
         </record>
+        
         
         
         <record id="tcc_action_persons_vocero" model="ir.actions.act_window">
+            <field eval="10" name="sequence"/>
             <field name="name">Voceros</field>
-            <field name="type">ir.actions.act_window</field>
             <field name="res_model">tcc.persons</field>
-            <field name="view_type">tree</field>
+            <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
             <field name="view_id" ref="view_tcc_persons2_form"/>
-<!--
-            <field name="act_window_id" ref="view_tcc_persons2_form"/>
-            <field name="search_view_id" ref="view_tcc_persons2_form"/>
-            <field name="search_view_id" ref="view_tcc_persons2_form"/>
--->
+            <field name="domain">[('is_persona','=',True)]</field>
+        </record>
+        
+        <record id="tcc_action_persons_vocero_from2" model="ir.actions.act_window">
+            <field eval="10" name="sequence"/>
+            <field name="name">Voceros</field>
+            <field name="res_model">tcc.persons</field>
+            <field name="view_type">form</field>
+            <field name="act_window_id" ref="tcc_action_persons_vocero"/>
+            <field name="view_mode">tree,form</field>
             <field name="domain">[('is_vocero','=',True)]</field>
         </record>
+        
         
         
         <menuitem id="tcc_persons_voceros_menu" 
@@ -149,9 +160,15 @@
         
         <menuitem id="tcc_persons_action_voveros" 
             parent="tcc_persons_voceros_menu" 
-            action="tcc_action_persons_vocero" 
+            action="action_tcc_persons_form" 
             name="Voceros" 
             sequence="5" />
+            
+        <menuitem id="tcc_persons_action_voveros2" 
+            parent="tcc_persons_voceros_menu" 
+            action="tcc_action_persons_vocero_from2" 
+            name="Lista Voceros" 
+            sequence="10" />
         
     </data>
 </odoo>

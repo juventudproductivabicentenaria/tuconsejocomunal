@@ -23,7 +23,7 @@ class TccNoticias(models.Model):
         if 'Consejo Comunal' in list_group_name:
             return self.env['tcc.communal.council'].search([('user_id', '=', self.env.uid)]).id
         if 'Vocero' in list_group_name:
-            return self.env['tcc.communal.council'].search([('communal_council_id.user_id', '=', self.env.uid)]).id
+            return self.env['tcc.communal.council'].search([('communal_council_id.user_id', '=', self.env.user.communal_council_id.user_id.id)]).id
         if 'Residente del Consejo Comunal' in list_group_name:
             return self.env['tcc.communal.council'].search([('communal_council_id.user_id', '=', self.env.uid)]).id
     

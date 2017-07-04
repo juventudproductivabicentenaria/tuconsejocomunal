@@ -17,7 +17,7 @@
                             </button>
                         </div>
                         <group>
-                            <field name="communal_council_id" options='{"no_create": "True"}' readonly="True"/>
+                            <field name="communal_council_id" options='{"no_create": "True"}' />
                             <field name="name"/>
                         </group>
                         
@@ -70,7 +70,7 @@
                             <field name="to_deliver"/>
                         </group>
                         <group>
-                            <field name="street_ids" widget="many2many_tags" domain="[('create_uid','=',uid)]" options='{"no_create": "True"}'/>
+                            <field name="street_ids" widget="many2many_tags"  options='{"no_create": "True"}'/>
                         </group>
                         <notebook>
                             <page string="Familias" attrs="{'invisible': [('to_deliver', 'in', ('persona',False))]}" >
@@ -96,8 +96,9 @@
                     </header>
                     <sheet>
                         <group col="4">
+                            <field name="product_distribution_id"/>
                             <field name="response_id"/>
-                            <field name="date_delivery"/>
+                            <field name="date_delivery" attrs="{'invisible': [('date_delivery', '=', False)]}"/>/>
                         </group>
                         <group>
                             <field name="person_id" options='{"no_create": "True"}' attrs="{'invisible': [('person_id', '=', False)]}" />
@@ -114,6 +115,7 @@
             <field name="model">tcc.distribution.delivery.confirmation</field>
             <field name="arch" type="xml">
                 <tree string="Confirmar entregas">
+                    <field name="product_distribution_id"/>
                     <field name="response_id"/>
                     <field name="state"/>
                     <field name="date_delivery"/>

@@ -137,6 +137,7 @@ class TccFamily(models.Model):
                 'tcc.communal.council',
                 string='Consejo comunal', 
                 default=default_communal_council,
+                readonly=True,
                 )
     apartment_id = fields.Many2one(
                 'tcc.family.apartment',
@@ -481,6 +482,18 @@ class TccFamily(models.Model):
         domain = {'house_id': [('id','in',list_house_id)]}
         return {'domain': domain}
     
+    @api.multi
+    @api.onchange('edifice_id')
+    def edifice_id_change_domain(self):
+        domain = {}
+        list_house_id = []
+        dwelling = self.env['tcc.dwelling'].search([('communal_council_id', '=', int(self.communal_council_id.id))])
+        for dw in dwelling:
+            for house in dw.edifice_ids:
+                list_house_id.append(house.id)
+        domain = {'edifice_id': [('id','in',list_house_id)]}
+        return {'domain': domain}
+    
     @api.model
     def create(self, vals):
         vals['code_family'] = self.env['ir.sequence'].next_by_code('tcc.family')
@@ -489,17 +502,18 @@ class TccFamily(models.Model):
         list_group = []
         if family.person_ids:
             for person in family.person_ids:
-                if person.user_id.is_vocero == True:
-                    group_vocero = person.env['res.groups'].sudo().search([('name', '=', 'Vocero')])
-                    list_group.append(group_vocero.id)
-                else:
-                    group_residente = person.env['res.groups'].sudo().search([('name', '=', 'Residente del Consejo Comunal')])
-                    list_group.append(group_residente.id)
                 group_contact = person.env['res.groups'].sudo().search([('name', '=', 'Creación de contactos')])
                 list_group.append(group_contact.id)
                 group_employee = person.env['res.groups'].sudo().search([('name', '=', 'Empleado')])
                 list_group.append(group_employee.id)
-                person.user_id.sudo().write({'is_council': True,'groups_id' : [(6,0,list_group)],'email' : person.user_id.login})
+                if person.user_id.is_vocero == True:
+                    group_vocero = person.env['res.groups'].sudo().search([('name', '=', 'Vocero')])
+                    list_group.append(group_vocero.id)
+                    person.user_id.sudo().write({'is_vocero': True, 'groups_id' : [(6,0,list_group)],'email' : person.user_id.login})
+                else:
+                    group_residente = person.env['res.groups'].sudo().search([('name', '=', 'Residente del Consejo Comunal')])
+                    list_group.append(group_residente.id)
+                    person.user_id.sudo().write({'is_persona': True, 'groups_id' : [(6,0,list_group)],'email' : person.user_id.login})
         else:
             raise UserError(_('Debe agregar pesonas al grupo familiar.'))
         return family 

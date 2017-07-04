@@ -18,7 +18,7 @@
             <field name="groups" eval="[(4,ref('tcc_group_consejo'))]"/>
         </record>
         
-        <record id="tcc_communal_council_rule" model="ir.rule">
+        <record id="tcc_communal_council_vocero_rule" model="ir.rule">
             <field name="name">Consejos comunales que puede ver los voceros</field>
             <field name="model_id" ref="model_tcc_communal_council"/>
             <field name="domain_force">[('user_id', '=', user.communal_council_id.user_id.id)]</field>
@@ -28,7 +28,21 @@
             <field name="perm_unlink" eval='False'/>
             <field name="groups" eval="[(4,ref('tcc_group_vocero'))]"/>
         </record>
-        
+
+        <record id="tcc_communal_council_residente_rule" model="ir.rule">
+            <field name="name">Consejos comunales que puede ver los residentes</field>
+            <field name="model_id" ref="model_tcc_communal_council"/>
+            <field name="domain_force">[('user_id', '=', user.communal_council_id.user_id.id)]</field>
+            <field name="perm_read" eval='True'/>
+            <field name="perm_write" eval='False'/>
+            <field name="perm_create" eval='False'/>
+            <field name="perm_unlink" eval='False'/>
+            <field name="groups" eval="[(4,ref('tcc_group_residente'))]"/>
+        </record>
+
+<!--
+        Filtro del registro de comités consejo comunal
+-->
         <record id="tcc_committe_rule" model="ir.rule">
             <field name="name">Comité que puede ver el consejo comunal</field>
             <field name="model_id" ref="model_tcc_committee"/>
@@ -50,12 +64,22 @@
             <field name="perm_unlink" eval='False'/>
             <field name="groups" eval="[(4,ref('tcc_group_vocero'))]"/>
         </record>
+        
+        <record id="tcc_committe_residente_rule" model="ir.rule">
+            <field name="name">Comité que puede ver el residente</field>
+            <field name="model_id" ref="model_tcc_committee"/>
+            <field name="domain_force">[('communal_council_id.user_id', '=', user.communal_council_id.user_id.id)]</field>
+            <field name="perm_read" eval='True'/>
+            <field name="perm_write" eval='False'/>
+            <field name="perm_create" eval='False'/>
+            <field name="perm_unlink" eval='False'/>
+            <field name="groups" eval="[(4,ref('tcc_group_residente'))]"/>
+        </record>
     </data>
     
     <!--
         Filtro del registro viviendas del consejo comunal
     -->
-    <data>
         <record id="tcc_dwelling_rule" model="ir.rule">
             <field name="name">Viviendas que el Consejos comunales puede ver</field>
             <field name="model_id" ref="model_tcc_dwelling"/>
@@ -64,27 +88,34 @@
             <field name="perm_write" eval='False'/>
             <field name="perm_create" eval='False'/>
             <field name="perm_unlink" eval='False'/>
-            <field name="groups" eval="[(4,ref('tcc_group_vocero'))]"/>
+            <field name="groups" eval="[(4,ref('tcc_group_consejo'))]"/>
         </record>
-    </data>
     
-    <data>
-        <record id="tcc_dwelling_rule" model="ir.rule">
-            <field name="name">Viviendas que el Consejos comunales puede ver</field>
+        <record id="tcc_dwelling_vocero_rule" model="ir.rule">
+            <field name="name">Viviendas que los voceron pueden ver</field>
             <field name="model_id" ref="model_tcc_dwelling"/>
             <field name="domain_force">[('communal_council_id.user_id', '=', user.communal_council_id.user_id.id)]</field>
             <field name="perm_read" eval='True'/>
             <field name="perm_write" eval='False'/>
             <field name="perm_create" eval='False'/>
             <field name="perm_unlink" eval='False'/>
-            <field name="groups" eval="[(4,ref('tcc_group_consejo'))]"/>
+            <field name="groups" eval="[(4,ref('tcc_group_vocero'))]"/>
         </record>
-    </data>
+    
+        <record id="tcc_dwelling_residente_rule" model="ir.rule">
+            <field name="name">Viviendas que los residentes pueden ver</field>
+            <field name="model_id" ref="model_tcc_dwelling"/>
+            <field name="domain_force">[('communal_council_id.user_id', '=', user.communal_council_id.user_id.id)]</field>
+            <field name="perm_read" eval='True'/>
+            <field name="perm_write" eval='False'/>
+            <field name="perm_create" eval='False'/>
+            <field name="perm_unlink" eval='False'/>
+            <field name="groups" eval="[(4,ref('tcc_group_residente'))]"/>
+        </record>
     
     <!--
         Filtro del registro familias del consejo comunal
     -->
-    <data>
         <record id="tcc_family_rule" model="ir.rule">
             <field name="name">Familias que el Consejos comunales puede ver</field>
             <field name="model_id" ref="model_tcc_family"/>
@@ -95,12 +126,39 @@
             <field name="perm_unlink" eval='False'/>
             <field name="groups" eval="[(4,ref('tcc_group_consejo'))]"/>
         </record>
-    </data>
+        
+        <record id="tcc_family_vocero_rule" model="ir.rule">
+            <field name="name">Familias que los voceros puede ver</field>
+            <field name="model_id" ref="model_tcc_family"/>
+            <field name="domain_force">[('communal_council_id.user_id', '=', user.communal_council_id.user_id.id)]</field>
+            <field name="perm_read" eval='True'/>
+            <field name="perm_write" eval='False'/>
+            <field name="perm_create" eval='False'/>
+            <field name="perm_unlink" eval='False'/>
+            <field name="groups" eval="[(4,ref('tcc_group_vocero'))]"/>
+        </record>
+    
+        <record id="tcc_family_residente_rule" model="ir.rule">
+            <field name="name">Familias que el residentes pueden ver</field>
+            <field name="model_id" ref="model_tcc_family"/>
+<!--
+            <field name="domain_force">[('communal_council_id.user_id', '=', user.communal_council_id.user_id.id)]</field>
+-->
+<!--
+            <field name="domain_force">[('user_id', 'in', user.id)]</field>
+            
+-->             
+            <field name="domain_force">[('id','=',[self.family_id])]</field>
+            <field name="perm_read" eval='True'/>
+            <field name="perm_write" eval='False'/>
+            <field name="perm_create" eval='False'/>
+            <field name="perm_unlink" eval='False'/>
+            <field name="groups" eval="[(4,ref('tcc_group_residente'))]"/>
+        </record>
     
     <!--
         Filtro del registro Personas del consejo comunal
     -->
-    <data>
         <record id="tcc_persons_rule" model="ir.rule">
             <field name="name">Personas que el Consejo comunal puede ver</field>
             <field name="model_id" ref="model_tcc_persons"/>
@@ -111,12 +169,32 @@
             <field name="perm_unlink" eval='False'/>
             <field name="groups" eval="[(4,ref('tcc_group_consejo'))]"/>
         </record>
-    </data>
+        
+        <record id="tcc_persons_vocero_rule" model="ir.rule">
+            <field name="name">Personas que el Consejo comunal puede ver</field>
+            <field name="model_id" ref="model_tcc_persons"/>
+            <field name="domain_force">[('communal_council_id.user_id', '=', user.communal_council_id.user_id.id)]</field>
+            <field name="perm_read" eval='True'/>
+            <field name="perm_write" eval='False'/>
+            <field name="perm_create" eval='False'/>
+            <field name="perm_unlink" eval='False'/>
+            <field name="groups" eval="[(4,ref('tcc_group_vocero'))]"/>
+        </record>
+    
+        <record id="tcc_persons_residente_rule" model="ir.rule">
+            <field name="name">Personas que el residente puede ver</field>
+            <field name="model_id" ref="model_tcc_persons"/>
+            <field name="domain_force">[('communal_council_id.user_id', '=', user.communal_council_id.user_id.id),('user_id','=',user.id)]</field>
+            <field name="perm_read" eval='True'/>
+            <field name="perm_write" eval='False'/>
+            <field name="perm_create" eval='False'/>
+            <field name="perm_unlink" eval='False'/>
+            <field name="groups" eval="[(4,ref('tcc_group_residente'))]"/>
+        </record>
     
     <!--
-        Filtro del registro Noticias del consejo comunal
+        Filtro del Distribuciones del consejo comunal
     -->
-    <data>
         <record id="tcc_notice_rule" model="ir.rule">
             <field name="name">Noticias que el Consejo comunal puede ver</field>
             <field name="model_id" ref="model_tcc_notice"/>
@@ -127,7 +205,71 @@
             <field name="perm_unlink" eval='False'/>
             <field name="groups" eval="[(4,ref('tcc_group_consejo'))]"/>
         </record>
-    </data>
+    
+        <record id="tcc_distribution_vocero_rule" model="ir.rule">
+            <field name="name">Noticias que el Vocero puede ver</field>
+            <field name="model_id" ref="model_tcc_notice"/>
+            <field name="domain_force">[('communal_council_id.user_id', '=', user.communal_council_id.user_id.id)]</field>
+            <field name="perm_read" eval='True'/>
+            <field name="perm_write" eval='False'/>
+            <field name="perm_create" eval='False'/>
+            <field name="perm_unlink" eval='False'/>
+            <field name="groups" eval="[(4,ref('tcc_group_vocero'))]"/>
+        </record>
+    
+    <!--
+        Filtro lineas de distribución del consejo comunal
+    -->
+    
+        <record id="tcc_distribution_confirm_consejo_rule" model="ir.rule">
+            <field name="name">Distribucion que el Consejo comunal puede ver</field>
+            <field name="model_id" ref="model_tcc_distribution_delivery_confirmation"/>
+            <field name="domain_force">[('communal_council_id.user_id','in',[user.id]),]</field>
+            <field name="perm_read" eval='True'/>
+            <field name="perm_write" eval='False'/>
+            <field name="perm_create" eval='False'/>
+            <field name="perm_unlink" eval='False'/>
+            <field name="groups" eval="[(4,ref('tcc_group_consejo'))]"/>
+        </record>
+    
+        <record id="tcc_distribution_confirm_vocero_rule" model="ir.rule">
+            <field name="name">Noticias que el Vocero puede ver</field>
+            <field name="model_id" ref="model_tcc_distribution_delivery_confirmation"/>
+            <field name="domain_force">[('communal_council_id.user_id', '=', user.communal_council_id.user_id.id),('response_id.user_id', '=', user.id )]</field>
+            <field name="perm_read" eval='True'/>
+            <field name="perm_write" eval='False'/>
+            <field name="perm_create" eval='False'/>
+            <field name="perm_unlink" eval='False'/>
+            <field name="groups" eval="[(4,ref('tcc_group_vocero'))]"/>
+        </record>
+    
+    
+    
+    <!--
+        Filtro de encuentas del consejo comunal
+    -->
+        <record id="tcc_notice_consejo_rule" model="ir.rule">
+            <field name="name">Distribucion que el Consejo comunal puede ver</field>
+            <field name="model_id" ref="model_tcc_product_distribution"/>
+            <field name="domain_force">[('communal_council_id.user_id','in',[user.id]),]</field>
+            <field name="perm_read" eval='True'/>
+            <field name="perm_write" eval='False'/>
+            <field name="perm_create" eval='False'/>
+            <field name="perm_unlink" eval='False'/>
+            <field name="groups" eval="[(4,ref('tcc_group_consejo'))]"/>
+        </record>
+    
+        <record id="tcc_notice_vocero_rule" model="ir.rule">
+            <field name="name">Noticias que el Vocero puede ver</field>
+            <field name="model_id" ref="model_tcc_product_distribution"/>
+            <field name="domain_force">[('communal_council_id.user_id', '=', user.communal_council_id.user_id.id)]</field>
+            <field name="perm_read" eval='True'/>
+            <field name="perm_write" eval='False'/>
+            <field name="perm_create" eval='False'/>
+            <field name="perm_unlink" eval='False'/>
+            <field name="groups" eval="[(4,ref('tcc_group_vocero'))]"/>
+        </record>
+    
     
     <!--
         Filtro de encuentas del consejo comunal
