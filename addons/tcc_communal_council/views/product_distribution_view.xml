@@ -20,15 +20,14 @@
                             <field name="communal_council_id" options='{"no_create": "True"}' />
                             <field name="name"/>
                         </group>
-                        
                         <notebook>
                             <page string="Distribución">
                                 <field name="distribution_line_ids" mode="tree" >
                                     <tree string="Entregas"  >
-                                        <field name="response_id"/>
-                                        <field name="street_ids"/>
-                                        <field name="family_ids"/>
-                                        <field name="person_ids"/>
+                                        <field name="responses_ids" />
+                                        <field name="street_ids" />
+                                        <field name="family_ids" />
+                                        <field name="person_ids" />
                                     </tree>
                                 </field>
                             </page>
@@ -63,14 +62,15 @@
             <field name="arch" type="xml">
                 <form string="Distribución de Productos">
                     <sheet>
+                        <field name="communal_council_id" invisible="True"/>
                         <group col="4">
                             <field name="date_start"/>
                             <field name="date_end"/>
-                            <field name="response_id" options='{"no_create": "True"}'/>
+                            <field name="responses_ids" options='{"no_create": "True"}' widget="many2many_tags" />
                             <field name="to_deliver"/>
                         </group>
                         <group>
-                            <field name="street_ids" widget="many2many_tags"  options='{"no_create": "True"}'/>
+                            <field name="street_ids" widget="many2many_tags"  options='{"no_create": "True"}' domain="[('communal_council_id','=',communal_council_id)]"/>
                         </group>
                         <notebook>
                             <page string="Familias" attrs="{'invisible': [('to_deliver', 'in', ('persona',False))]}" >
@@ -95,10 +95,10 @@
                         <field name="state" widget="statusbar" statusbar_visible="por_entregar,entregado"/>
                     </header>
                     <sheet>
-                        <group col="4">
+                        <group>
                             <field name="product_distribution_id"/>
-                            <field name="response_id"/>
-                            <field name="date_delivery" attrs="{'invisible': [('date_delivery', '=', False)]}"/>/>
+                            <field name="responses_ids" widget="many2many_tags"/>
+                            <field name="date_delivery" attrs="{'invisible': [('date_delivery', '=', False)]}"/>
                         </group>
                         <group>
                             <field name="person_id" options='{"no_create": "True"}' attrs="{'invisible': [('person_id', '=', False)]}" />
@@ -116,9 +116,10 @@
             <field name="arch" type="xml">
                 <tree string="Confirmar entregas">
                     <field name="product_distribution_id"/>
-                    <field name="response_id"/>
+                    <field name="responses_ids"/>
                     <field name="state"/>
-                    <field name="date_delivery"/>
+                    <field name="family_id"/>
+                    <field name="person_id"/>
                 </tree>
             </field>
         </record>

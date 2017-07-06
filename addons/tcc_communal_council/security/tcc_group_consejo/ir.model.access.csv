@@ -5,8 +5,6 @@ access_tcc_dwelling_consejo,tcc.dwelling,model_tcc_dwelling,tcc_group_consejo,1,
 access_tcc_dwelling_house_consejo,tcc.dwelling.house,model_tcc_dwelling_house,tcc_group_consejo,1,1,1,0
 access_tcc_dwelling_edifice,tcc.dwelling.edifice,model_tcc_dwelling_edifice,tcc_group_consejo,1,1,1,0
 access_family_consejo,tcc.family,model_tcc_family,tcc_group_consejo,1,1,1,1
-access_tcc_family_apartment,tcc.family.apartment,model_tcc_family_apartment,tcc_group_consejo,1,1,1,0
-access_tcc_family_apartment_floor,tcc.family.apartment.floor,model_tcc_family_apartment_floor,tcc_group_consejo,1,1,1,0
 access_tcc_address_sector,tcc.address.sector,model_tcc_address_sector,tcc_group_consejo,1,1,1,0
 access_tcc_address_street,tcc.address.street,model_tcc_address_street,tcc_group_consejo,1,1,1,0
 access_tcc_notice,tcc.notice,model_tcc_notice,tcc_group_consejo,1,1,1,0

@@ -47,6 +47,24 @@ class DwellingHouse(models.Model):
     _rec_name = 'name'
     _description = "Casas"
     
+    @api.multi
+    def default_communal_council(self):
+        list_group_name = []
+        for name_goup in self.env.user.groups_id:
+            list_group_name.append(name_goup.name)
+        if 'Consejo Comunal' in list_group_name:
+            return self.env['tcc.communal.council'].search([('user_id', '=', self.env.uid)]).id
+        if 'Vocero' in list_group_name:
+            return self.env['tcc.communal.council'].search([('communal_council_id.user_id', '=', self.env.user.communal_council_id.user_id.id)]).id
+        if 'Residente del Consejo Comunal' in list_group_name:
+            return self.env['tcc.communal.council'].search([('communal_council_id.user_id', '=', self.env.uid)]).id
+    
+    communal_council_id = fields.Many2one(
+                'tcc.communal.council',
+                string='Consejo comunal', 
+                default=default_communal_council,
+                readonly=True,
+                )
     name = fields.Char(
                 string='Nombre o número de la casa',
                 required=True,
@@ -58,10 +76,12 @@ class DwellingHouse(models.Model):
     sector_id = fields.Many2one(
                 'tcc.address.sector',
                 string='Sector', 
+                required=True,
                 )
     street_id = fields.Many2one(
                 'tcc.address.street',
                 string='Calle', 
+                required=True,
                 )
     active = fields.Boolean(default=True)
     
@@ -76,6 +96,25 @@ class DwellingEdifice(models.Model):
     _description = "Edificio"
     
     
+    @api.multi
+    def default_communal_council(self):
+        list_group_name = []
+        for name_goup in self.env.user.groups_id:
+            list_group_name.append(name_goup.name)
+        if 'Consejo Comunal' in list_group_name:
+            return self.env['tcc.communal.council'].search([('user_id', '=', self.env.uid)]).id
+        if 'Vocero' in list_group_name:
+            return self.env['tcc.communal.council'].search([('communal_council_id.user_id', '=', self.env.user.communal_council_id.user_id.id)]).id
+        if 'Residente del Consejo Comunal' in list_group_name:
+            return self.env['tcc.communal.council'].search([('communal_council_id.user_id', '=', self.env.uid)]).id
+    
+    communal_council_id = fields.Many2one(
+                'tcc.communal.council',
+                string='Consejo comunal', 
+                default=default_communal_council,
+                readonly=True,
+                )
+    
     name = fields.Char(
                 string='Nombre o número del edificio',
                 required=True,
@@ -87,10 +126,12 @@ class DwellingEdifice(models.Model):
     sector_id = fields.Many2one(
                 'tcc.address.sector',
                 string='Sector', 
+                required=True,
                 )
     street_id = fields.Many2one(
                 'tcc.address.street',
                 string='Calle', 
+                required=True,
                 )
     active = fields.Boolean(default=True)
     

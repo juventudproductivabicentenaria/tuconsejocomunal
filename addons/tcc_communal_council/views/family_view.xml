@@ -31,8 +31,7 @@
                             <field name="name" attrs="{'invisible': [('name', '=', False)]}" />
                             <field name="code_family" attrs="{'invisible': [('name', '=', False)]}" />
                         </group>
-                        <group col="4">
-                            <field name="priority_level" /> 
+                        <group>
                             <field name="arrival_date" /> 
                         </group>
                         
@@ -43,11 +42,6 @@
                             <page string="Situación Económica">
                                 <group col = "4">
                                     <field name="family_income_id"/>
-                                    <field name="bank_account"/>
-                                    <field name="credit_card"/>
-                                    <field name="cesta_ticket"/>
-                                    <field name="workplace"/>
-                                    <field name="name_workplace" attrs="{'invisible': [('workplace', '!=', 'other')]}" />
                                     <field name="commercial_activity_hose"/>
                                     <field name="commercial_activity_ids" widget="many2many_tags" attrs="{'invisible': [('commercial_activity_hose', '!=', 'Si')]}" />
                                     
@@ -67,13 +61,13 @@
                                     <field name="pests_dwelling_ids" widget="many2many_tags"/>
                                     <field name="pets_ids" widget="many2many_tags"/>
                                 </group>
-                                <group col="4" attrs="{'invisible': [('type_dwelling', 'in', ('Casa','Quinta','Barraca','Habitacion','Other','Rancho'))], 'required': [('type_dwelling', '=', 'casa')]}">
-                                    <field name="edifice_id" attrs="{'required': [('type_dwelling', '=', 'casa')]}" options='{"no_create": True}'/>
-                                    <field name="floor_id" attrs="{'required': [('type_dwelling', '=', 'casa')]}"/>
-                                    <field name="apartment_id" attrs="{'required': [('type_dwelling', '=', 'casa')]}"/>
+                                <group col="4" attrs="{'invisible': [('type_dwelling', 'in', ('Casa','Quinta','Barraca','Habitacion','Other','Rancho',False))]}">
+                                    <field name="edifice_id" attrs="{'required': [('type_dwelling', '=', 'Apartamento')]}" options='{"no_create": True}' domain="[('communal_council_id','=',communal_council_id)]"/>
+                                    <field name="apartment" attrs="{'required': [('type_dwelling', '=', 'Apartamento')]}"/>
+                                    <field name="floor" attrs="{'required': [('type_dwelling', '=', 'Apartamento')]}" />
                                 </group>
                                 <group>
-                                    <field name="house_id" attrs="{'invisible': [('type_dwelling', '=', 'Apartamento')],'required': [('type_dwelling', '=', 'Casa')]}" options='{"no_create": True}'/>
+                                    <field name="house_id" attrs="{'invisible': [('type_dwelling', 'in', ('Apartamento',False))],'required': [('type_dwelling', '!=', 'Apartamento')]}" options='{"no_create": True}' domain="[('communal_council_id','=',communal_council_id)]"/>
                                 </group>
                             </page>
                             <page string="Salud">

@@ -13,18 +13,18 @@
                             </button>
                         </div>
                         <group>
-                            <field name="name" />
-                            <field name="login" string="Correo electrónico" /> 
+                            <field name="name" required="True"/>
+                            <field name="login" string="Correo electrónico" required="True"/> 
                         </group>
                         <group col="4">
                             <field name="situr_code"/>
                             <field widget="mask_regex" data-inputmask-regex="[GJC]-[0-9]{8}-[0-9]{1}" name="rif" placeholder="C-00000000-0"/>
                             <field name="creation_date"/>
                             <field widget="mask" data-inputmask="'mask': '+58-999-9999999'" name="phone" />
-                            <field name="state_id" domain="[('country_id','=',240)]" options="{'no_create': True}"/>
-                            <field name="municipality_id" string="Municipio" domain="[('state_id','=',state_id)]" options="{'no_create': True}"/>
-                            <field name="parish_id" domain="[('municipality_id','=',municipality_id)]" options="{'no_create': True}" string="Parroquia"/>
-                            <field name="sector_id" />
+                            <field name="state_id" domain="[('country_id','=',240)]" options="{'no_create': True}" required="True" />
+                            <field name="municipality_id" string="Municipio" domain="[('state_id','=',state_id)]" options="{'no_create': True}" required="True"/>
+                            <field name="parish_id" domain="[('municipality_id','=',municipality_id)]" options="{'no_create': True}" string="Parroquia" required="True"/>
+                            <field name="sector_id" context="{'default_municipality_id':municipality_id,'default_parish_id':parish_id,'default_communal_council_id':id, }" required="True" domain="[('parish_id','=',parish_id)]" />
                         </group>
                     </sheet>
                 </form>

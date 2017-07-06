@@ -5,8 +5,6 @@ access_tcc_dwelling_residente,tcc.dwelling,model_tcc_dwelling,tcc_group_resident
 access_tcc_dwelling_house_residente,tcc.dwelling.house,model_tcc_dwelling_house,tcc_group_residente,1,0,0,0
 access_tcc_dwelling_edifice_residente,tcc.dwelling.edifice,model_tcc_dwelling_edifice,tcc_group_residente,1,0,0,0
 access_family_residente,tcc.family,model_tcc_family,tcc_group_residente,1,0,0,0
-access_tcc_family_apartment_residente,tcc.family.apartment,model_tcc_family_apartment,tcc_group_residente,1,0,0,0
-access_tcc_family_apartment_floor_residente,tcc.family.apartment.floor,model_tcc_family_apartment_floor,tcc_group_residente,1,0,0,0
 access_tcc_address_sector_residente,tcc.address.sector,model_tcc_address_sector,tcc_group_residente,1,0,0,0
 access_tcc_address_street_residente,tcc.address.street,model_tcc_address_street,tcc_group_residente,1,0,0,0
 access_tcc_notice_residente,tcc.notice,model_tcc_notice,tcc_group_residente,1,0,0,0

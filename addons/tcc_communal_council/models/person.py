@@ -81,7 +81,17 @@ class TccPersons(models.Model):
                     line.age = '%d mes%s.' % (age_month, ms)
                 elif age_year > 0 and age_month <= 0 and age_days <= 0:
                     line.age = '%d año%s.' % (age_year, ys)
-                
+    
+    
+    
+    workplace_data=[
+                ('public_institution', 'Institución pública'),
+                ('private_institution', 'Institución privada'),
+                ('commercial', 'Comercial'),
+                ('own_account', 'Cuenta propia'),
+                ('peddling', 'Buhonería'),
+                ('other', 'Otro'),
+                ]
     user_id = fields.Many2one(
                 'res.users', 
                 string='Persona',
@@ -98,11 +108,6 @@ class TccPersons(models.Model):
                 string='Cédula',
                 required = False,
                 )
-    #~ communal_council_id = fields.Many2one(
-                #~ 'tcc.communal.council',
-                #~ string='Consejo comunal', 
-                #~ default=default_communal_council,
-                #~ )
     first_name = fields.Char(
                 string='Primer Nombre',
                 required = True,
@@ -128,7 +133,7 @@ class TccPersons(models.Model):
                 )
     birthdate = fields.Date(
                 string='Fecha de nacimiento',
-                index=True,
+                required=True,
                 )
     age = fields.Char(
                 compute='to_calculate_age',
@@ -203,12 +208,47 @@ class TccPersons(models.Model):
                 string='Registrado en CNE',
                 required = True,
                 )
-    into_committee = fields.Boolean('Pertenece a un comite',default=False)
+    into_committee = fields.Boolean(
+                'Pertenece a un comite',
+                default=False
+                )
+    bank_account = fields.Selection(
+                [('Si', 'Si'),
+                ('No', 'No'),],
+                string='Tiene cuenta bancaria', 
+                )
+    credit_card = fields.Selection(
+                [('Si', 'Si'),
+                ('No', 'No'),],
+                string='Tiene tarjeta de crédito', 
+                )
+    cesta_ticket = fields.Selection(
+                [('Si', 'Si'),
+                ('No', 'No'),],
+                string='Tiene cesta ticket', 
+                )
+    workplace = fields.Selection(
+                workplace_data, 
+                string='Lugar de trabajo', 
+                )
+    name_workplace = fields.Char(
+                string='Nombre del lugar de trabajo',
+                )
     active = fields.Boolean(default=True)
     
     _sql_constraints = [('cedula_uniq', 'unique (cedula)', "La Cédula ya Existe, Verifique!")]
     
+    @api.onchange('workplace')
+    def no_workplace(self):
+        if self.workplace != 'other':
+            self.name_workplace = False
     
+    
+    @api.onchange('name_workplace')
+    def title_string_name_workplace(self):
+        if self.name_workplace:
+            self.name_workplace = self.name_workplace.title()
+            
     @api.onchange('birthdate')
     def to_validate_date(self):
         warning = {}
@@ -230,6 +270,11 @@ class TccPersons(models.Model):
     def title_first_name(self):
         if self.first_name:
             self.first_name = self.first_name.title()
+    
+    @api.onchange('is_family_boss')
+    def claim_is_family_boss(self):
+        if self.is_family_boss == True:
+            self.kinship_id = False
     
     @api.onchange('second_name')
     def title_string_second_name(self):

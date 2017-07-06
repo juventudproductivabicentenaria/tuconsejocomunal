@@ -13,9 +13,9 @@
                             </button>
                         </div>
                         <group>
-<!--
-                            <field name="parish_id" domain="[('municipality_id','=',municipality_id)]" options="{'no_create': True}" string="Parroquia"/>
--->
+                            <field name="communal_council_id" />
+                            <field name="municipality_id" options="{'no_create': True}" string="Miunicipio" invisible="True"/>
+                            <field name="parish_id" options="{'no_create': True}" domain="[('municipality_id','=', municipality_id)]" string="Parroquia"/>
                             <field name="name" />
                         </group>
                     </sheet>
@@ -35,6 +35,7 @@
                             </button>
                         </div>
                         <group>
+                            <field name="sector_id" readonly="True" />
                             <field name="name" />
                         </group>
                     </sheet>

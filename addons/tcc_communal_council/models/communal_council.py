@@ -103,5 +103,6 @@ class CommunalCouncil(models.Model):
         group_employee = council.env['res.groups'].sudo().search([('name', '=', 'Empleado')])
         list_group.append(group_employee.id)
         council.user_id.sudo().write({'is_council': True,'groups_id' : [(6,0,list_group)],'email' : council.user_id.login})
+        council.sector_id.sudo().write({'communal_council_id': council.id})
         return council
     

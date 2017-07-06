@@ -116,14 +116,7 @@ class TccFamily(models.Model):
                 ('Habitacion', 'Habitación'),
                 ('Other','Otro'),
                 ]
-    workplace_data=[
-                ('public_institution', 'Institución pública'),
-                ('private_institution', 'Institución privada'),
-                ('commercial', 'Comercial'),
-                ('own_account', 'Cuenta propia'),
-                ('peddling', 'Buhonería'),
-                ('other', 'Otro'),
-                ]
+    
     
     name = fields.Char(
                 string='Nombre de la familia',
@@ -139,13 +132,11 @@ class TccFamily(models.Model):
                 default=default_communal_council,
                 readonly=True,
                 )
-    apartment_id = fields.Many2one(
-                'tcc.family.apartment',
-                string='Apartamento', 
+    apartment = fields.Char(
+                string='Apartamento',
                 )
-    floor_id = fields.Many2one(
-                'tcc.family.apartment.floor',
-                string='Piso', 
+    floor = fields.Char(
+                string='Piso',
                 )
     house_id = fields.Many2one(
                 'tcc.dwelling.house',
@@ -238,18 +229,6 @@ class TccFamily(models.Model):
     name_help = fields.Char(
                 string='¿Cuáles ayudas?',
                 )
-    bank_account = fields.Selection(
-                [('Si', 'Si'),
-                ('No', 'No'),],
-                string='Tiene cuenta bancaria', 
-                )
-    workplace = fields.Selection(
-                workplace_data, 
-                string='Lugar de trabajo', 
-                )
-    name_workplace = fields.Char(
-                string='Nombre del lugar de trabajo',
-                )
     commercial_activity_hose = fields.Selection(
                 [('Si', 'Si'),
                 ('No', 'No'),],
@@ -266,30 +245,6 @@ class TccFamily(models.Model):
                 'tcc.family.income',
                 string='Ingreso familiar', 
                 )
-    bank_account = fields.Selection(
-                [('Si', 'Si'),
-                ('No', 'No'),],
-                string='Tiene cuenta bancaria', 
-                )
-    
-    credit_card = fields.Selection(
-                [('Si', 'Si'),
-                ('No', 'No'),],
-                string='Tiene tarjeta de crédito', 
-                )
-    cesta_ticket = fields.Selection(
-                [('Si', 'Si'),
-                ('No', 'No'),],
-                string='Tiene cesta ticket', 
-                )
-                
-    priority_level = fields.Selection(
-                [('Normal', 'Normal'),
-                ('Urgente', 'Urgente'),],
-                string='Prioridad', 
-                required=True,
-                )
-                
     arrival_date = fields.Date(
                 string='Fecha de llegada a la comunidad',
                 required=True,
@@ -425,11 +380,19 @@ class TccFamily(models.Model):
             return result
     
     
-    @api.onchange('workplace')
-    def no_workplace(self):
-        if self.workplace != 'other':
-            self.name_workplace = False
     
+    
+    @api.onchange('type_dwelling')
+    def onchange_type_dwelling(self):
+        if self.type_dwelling == False:
+            self.house_id = False
+        if self.type_dwelling != 'Apartamento':
+            self.edifice_id = False
+            self.apartment = False
+            self.floor = False
+        else:
+            self.house_id = False
+            
     @api.onchange('need_help')
     def no_help(self):
         if self.need_help != 'Si':
@@ -460,39 +423,21 @@ class TccFamily(models.Model):
         if self.electric_system == False or self.electric_system == 'no_posee':
             self.light_meter = False
     
-    @api.onchange('name_workplace')
-    def title_string_name_workplace(self):
-        if self.name_workplace:
-            self.name_workplace = self.name_workplace.title()
     
     @api.onchange('name_help')
     def title_string_name_help(self):
         if self.name_help:
             self.name_help = self.name_help.title()
     
-    @api.multi
-    @api.onchange('house_id')
-    def house_id_change_domain(self):
-        domain = {}
-        list_house_id = []
-        dwelling = self.env['tcc.dwelling'].search([('communal_council_id', '=', int(self.communal_council_id.id))])
-        for dw in dwelling:
-            for house in dw.house_ids:
-                list_house_id.append(house.id)
-        domain = {'house_id': [('id','in',list_house_id)]}
-        return {'domain': domain}
+    @api.onchange('apartment')
+    def apartament_upper(self):
+        if self.apartment:
+            self.apartment = self.apartment.upper()
     
-    @api.multi
-    @api.onchange('edifice_id')
-    def edifice_id_change_domain(self):
-        domain = {}
-        list_house_id = []
-        dwelling = self.env['tcc.dwelling'].search([('communal_council_id', '=', int(self.communal_council_id.id))])
-        for dw in dwelling:
-            for house in dw.edifice_ids:
-                list_house_id.append(house.id)
-        domain = {'edifice_id': [('id','in',list_house_id)]}
-        return {'domain': domain}
+    @api.onchange('floor')
+    def floor_upper(self):
+        if self.floor:
+            self.floor = self.floor.upper()
     
     @api.model
     def create(self, vals):
@@ -529,39 +474,39 @@ class TccFamily(models.Model):
         
         
         
-class FamilyApartment(models.Model):
-    _name = "tcc.family.apartment"
-    _rec_name = 'name'
-    _description = 'Apartamento'
-    
-    
-    name = fields.Char(
-                string='Nombre o número del apartamento',
-                )
-    active = fields.Boolean(default=True)
-    
-    
-    
-    @api.onchange('name')
-    def title_string(self):
-        if self.name:
-            self.name = self.name.title()
+#~ class FamilyApartment(models.Model):
+    #~ _name = "tcc.family.apartment"
+    #~ _rec_name = 'name'
+    #~ _description = 'Apartamento'
+    #~ 
+    #~ 
+    #~ name = fields.Char(
+                #~ string='Nombre o número del apartamento',
+                #~ )
+    #~ active = fields.Boolean(default=True)
+    #~ 
+    #~ 
+    #~ 
+    #~ @api.onchange('name')
+    #~ def title_string(self):
+        #~ if self.name:
+            #~ self.name = self.name.title()
 
-class FamilyApartmentFloor(models.Model):
-    _name = "tcc.family.apartment.floor"
-    _rec_name = 'name'
-    _description = 'Piso del apartamento'
-    
-    
-    name = fields.Char(
-                string='Nombre o número del Piso',
-                )
-    active = fields.Boolean(default=True)
-    
-    @api.onchange('name')
-    def title_string(self):
-        if self.name:
-            self.name = self.name.title()
+#~ class FamilyApartmentFloor(models.Model):
+    #~ _name = "tcc.family.apartment.floor"
+    #~ _rec_name = 'name'
+    #~ _description = 'Piso del apartamento'
+    #~ 
+    #~ 
+    #~ name = fields.Char(
+                #~ string='Nombre o número del Piso',
+                #~ )
+    #~ active = fields.Boolean(default=True)
+    #~ 
+    #~ @api.onchange('name')
+    #~ def title_string(self):
+        #~ if self.name:
+            #~ self.name = self.name.title()
 
 
 class FamilyCommercialActivity(models.Model):

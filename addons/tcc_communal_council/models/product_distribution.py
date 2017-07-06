@@ -68,8 +68,11 @@ class TccProductDistribution(models.Model):
                 'communal_council_id': distribution.communal_council_id.id,
                 'product_distribution_id': distribution.id,
             }
+            list_responses = []
             for line in distribution.distribution_line_ids:
-                vals['response_id'] = line.response_id.id
+                for resp in line.responses_ids:
+                    list_responses.append(resp.id)
+                vals['responses_ids'] = [(6,0,list_responses)]
                 if line.to_deliver == 'familia':
                     for family in line.family_ids:
                         vals['family_id'] = family.id
@@ -89,7 +92,6 @@ class TccProductDistribution(models.Model):
         distribution.update({
                 'state': 'draft',
             })
-        
         return distribution
     
 class TccProductDistributionLine(models.Model):
@@ -97,16 +99,35 @@ class TccProductDistributionLine(models.Model):
     _rec_name = 'product_distribution_id'
     _description = 'Lineas de distribucion'
     
+    @api.multi
+    def default_communal_council(self):
+        list_group_name = []
+        for name_goup in self.env.user.groups_id:
+            list_group_name.append(name_goup.name)
+        if 'Consejo Comunal' in list_group_name:
+            return self.env['tcc.communal.council'].search([('user_id', '=', self.env.uid)]).id
+        if 'Vocero' in list_group_name:
+            return self.env['tcc.communal.council'].search([('communal_council_id.user_id', '=', self.env.user.communal_council_id.user_id.id)]).id
+        if 'Residente del Consejo Comunal' in list_group_name:
+            return self.env['tcc.communal.council'].search([('communal_council_id.user_id', '=', self.env.uid)]).id
+    
+    communal_council_id = fields.Many2one(
+                'tcc.communal.council',
+                string='Consejo comunal', 
+                default=default_communal_council,
+                readonly=True,
+                )
     
     product_distribution_id = fields.Many2one(
                 'tcc.product.distribution',
                 string='Distribución', 
                 )
-    response_id = fields.Many2one(
+    responses_ids = fields.Many2many(
                 'tcc.persons',
-                string='Responsable', 
-                domain = [('is_vocero', '=', True)],
-                required = True,
+                'tcc_distribution_responses_rel',
+                'distribution_line_id',
+                'response_id',
+                string='Responsables',
                 )
     to_deliver = fields.Selection(
                 [('familia', 'Familias'),
@@ -145,12 +166,6 @@ class TccProductDistributionLine(models.Model):
                 'person_id',
                 string='Personas',
                 )
-    @api.model
-    def create(self, vals):
-        if not vals['family_ids'] and not vals['person_ids']:
-            raise UserError(_('Debe Seleccionar las Familias o Personas Beneficiadas.'))
-        DistributionLine = super(TccProductDistributionLine, self).create(vals)
-        return DistributionLine
     
     @api.multi
     @api.onchange('street_ids')
@@ -194,10 +209,17 @@ class TccProductDistributionLine(models.Model):
                 if warning:
                     result['warning'] = warning
             return result
-
+    
+    @api.model
+    def create(self, vals):
+        if not vals['family_ids'] and not vals['person_ids']:
+            raise UserError(_('Debe Seleccionar las Familias o Personas Beneficiadas.'))
+        DistributionLine = super(TccProductDistributionLine, self).create(vals)
+        return DistributionLine
+    
 class TccProductDistributionConfirm(models.Model):
     _name = "tcc.distribution.delivery.confirmation"
-    _rec_name = 'response_id'
+    _rec_name = 'id'
     _description = 'Confirmacion de entrega'
     
     
@@ -219,17 +241,17 @@ class TccProductDistributionConfirm(models.Model):
     date_delivery = fields.Datetime(
                 string='Fecha de entrega',
                 readonly=True,
-                #~ states={'draft': [('readonly', False)]},
                 )
-    response_id = fields.Many2one(
+    responses_ids = fields.Many2many(
                 'tcc.persons',
-                string='Responsable', 
-                domain = [('is_vocero', '=', True)],
-                readonly=True,
+                'tcc_distribution_delivery_confirmation_responses_rel',
+                'delivery_confirmation_id',
+                'response_id',
+                string='Responsables',
                 )
     product_distribution_id = fields.Many2one(
                 'tcc.product.distribution',
-                string='Nombre', 
+                string='Entrega de:', 
                 )
     state = fields.Selection([
         ('por_entregar', 'Por Entregar'),
