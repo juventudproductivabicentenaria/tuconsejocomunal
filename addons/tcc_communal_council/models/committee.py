@@ -70,7 +70,8 @@ class TccCommittee(models.Model):
                 vocero_lines = self.env['tcc.persons'].search([('id', '=', list_vocero)])
                 vocero_lines.write({'into_committee': True})
         else:
-            raise ValidationError(_('Debe seleccionar un vocero para el comité. ¡Verifique!'))
+            raise ValidationError(_('El comité (%s), No puede estar sin voceros. ¡Verifique!') % (self.name))
+    
     
     @api.multi
     def write(self, values):

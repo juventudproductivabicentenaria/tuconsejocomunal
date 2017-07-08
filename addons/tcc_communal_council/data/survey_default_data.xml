@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        
+        <record id="tcc_survey_default" model="survey.survey">
+            <field name="title">Participación Comunitaria</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="tcc_survey_default_page_1" model="survey.page">
+            <field name="title">Participación Comunitaria</field>
+            <field name="description">Por favor lea y responda las siguientes preguntas según sus observaciones con respecto a la comunidad.</field>
+            <field name="survey_id" ref="tcc_survey_default"/>
+        </record>
+        
+        <record id="tcc_survey_default_question_1" model="survey.question">
+            <field name="question">¿Existen Organizaciones Comunitarias en la Comunidad?</field>
+            <field name="constr_mandatory" eval="True"/>
+            <field name="type">simple_choice</field>
+            <field name="page_id" ref="tcc_survey_default_page_1"/>
+        </record>
+        
+        <record id="tcc_survey_default_question_1_label_1" model="survey.label">
+            <field name="question_id" ref="tcc_survey_default_question_1"/>
+            <field name="value">Si</field>
+        </record>
+        
+        <record id="tcc_survey_default_question_1_label_2" model="survey.label">
+            <field name="question_id" ref="tcc_survey_default_question_1"/>
+            <field name="value">No</field>
+        </record>
+        
+        <record id="tcc_survey_default_question_2" model="survey.question">
+            <field name="question">¿Participa usted en algunas de ellas?</field>
+            <field name="constr_mandatory" eval="True"/>
+            <field name="type">simple_choice</field>
+            <field name="page_id" ref="tcc_survey_default_page_1"/>
+        </record>
+        
+        <record id="tcc_survey_default_question_2_label_1" model="survey.label">
+            <field name="question_id" ref="tcc_survey_default_question_2"/>
+            <field name="value">Si</field>
+        </record>
+        
+        <record id="tcc_survey_default_question_2_label_2" model="survey.label">
+            <field name="question_id" ref="tcc_survey_default_question_2"/>
+            <field name="value">No</field>
+        </record>
+        
+        <record id="tcc_survey_default_question_3" model="survey.question">
+            <field name="question">¿Participa algún miembro de su familia?</field>
+            <field name="constr_mandatory" eval="True"/>
+            <field name="type">simple_choice</field>
+            <field name="page_id" ref="tcc_survey_default_page_1"/>
+        </record>
+        
+        <record id="tcc_survey_default_question_3_label_1" model="survey.label">
+            <field name="question_id" ref="tcc_survey_default_question_3"/>
+            <field name="value">Si</field>
+        </record>
+        
+        <record id="tcc_survey_default_question_3_label_2" model="survey.label">
+            <field name="question_id" ref="tcc_survey_default_question_3"/>
+            <field name="value">No</field>
+        </record>
+        
+        <record id="tcc_survey_default_question_4" model="survey.question">
+            <field name="question">¿Cuáles misiones se están implementando en la comunidad?</field>
+            <field name="constr_mandatory" eval="True"/>
+            <field name="type">multiple_choice</field>
+            <field name="page_id" ref="tcc_survey_default_page_1"/>
+        </record>
+        
+        <record id="tcc_survey_default_question_4_label_1" model="survey.label">
+            <field name="question_id" ref="tcc_survey_default_question_4"/>
+            <field name="value">Misión Ribas</field>
+        </record>
+        
+        <record id="tcc_survey_default_question_4_label_2" model="survey.label">
+            <field name="question_id" ref="tcc_survey_default_question_4"/>
+            <field name="value">Misión Sucre</field>
+        </record>
+        
+        <record id="tcc_survey_default_question_4_label_3" model="survey.label">
+            <field name="question_id" ref="tcc_survey_default_question_4"/>
+            <field name="value">Misión Vuelvan Caras</field>
+        </record>
+        
+        <record id="tcc_survey_default_question_4_label_4" model="survey.label">
+            <field name="question_id" ref="tcc_survey_default_question_4"/>
+            <field name="value">Misión Identidad</field>
+        </record>
+        
+        <record id="tcc_survey_default_question_4_label_5" model="survey.label">
+            <field name="question_id" ref="tcc_survey_default_question_4"/>
+            <field name="value">Misión Barrio Adentro</field>
+        </record>
+        
+        <record id="tcc_survey_default_question_4_label_6" model="survey.label">
+            <field name="question_id" ref="tcc_survey_default_question_4"/>
+            <field name="value">Misión Mercal</field>
+        </record>
+        
+        <record id="tcc_survey_default_question_4_label_7" model="survey.label">
+            <field name="question_id" ref="tcc_survey_default_question_4"/>
+            <field name="value">Misión Ezequiel Zamora</field>
+        </record>
+        
+        <record id="tcc_survey_default_question_5" model="survey.question">
+            <field name="question">¿Cree Usted que en la actualidad el pueblo el pueblo está interviniendo en las decisiones sobre como deben gastarse los recursos de su comunidad?</field>
+            <field name="constr_mandatory" eval="True"/>
+            <field name="type">simple_choice</field>
+            <field name="page_id" ref="tcc_survey_default_page_1"/>
+        </record>
+        
+        <record id="tcc_survey_default_question_5_label_1" model="survey.label">
+            <field name="question_id" ref="tcc_survey_default_question_5"/>
+            <field name="value">Si</field>
+        </record>
+        
+        <record id="tcc_survey_default_question_5_label_2" model="survey.label">
+            <field name="question_id" ref="tcc_survey_default_question_5"/>
+            <field name="value">No</field>
+        </record>
+        
+        <record id="tcc_survey_default_question_6" model="survey.question">
+            <field name="question">¿Está de acuerdo que según la Constitución, es ahora el Pueblo organizado quien debe tener el protagonismo y el Poder para decidir de como invertir el presupuesto en su comunidad?</field>
+            <field name="constr_mandatory" eval="True"/>
+            <field name="type">simple_choice</field>
+            <field name="page_id" ref="tcc_survey_default_page_1"/>
+        </record>
+        
+        <record id="tcc_survey_default_question_6_label_1" model="survey.label">
+            <field name="question_id" ref="tcc_survey_default_question_6"/>
+            <field name="value">Si</field>
+        </record>
+        
+        <record id="tcc_survey_default_question_6_label_2" model="survey.label">
+            <field name="question_id" ref="tcc_survey_default_question_6"/>
+            <field name="value">No</field>
+        </record>
+        
+        <record id="tcc_survey_default_question_7" model="survey.question">
+            <field name="question">¿Está de acuerdo que según la Constitución, es ahora el Pueblo organizado quien debe tener el protagonismo y el Poder para decidir de como invertir el presupuesto en su comunidad?</field>
+            <field name="constr_mandatory" eval="True"/>
+            <field name="type">simple_choice</field>
+            <field name="page_id" ref="tcc_survey_default_page_1"/>
+        </record>
+        
+        <record id="tcc_survey_default_question_7_label_1" model="survey.label">
+            <field name="question_id" ref="tcc_survey_default_question_7"/>
+            <field name="value">Si</field>
+        </record>
+        
+        <record id="tcc_survey_default_question_7_label_2" model="survey.label">
+            <field name="question_id" ref="tcc_survey_default_question_7"/>
+            <field name="value">No</field>
+        </record>
+        
+        <record id="tcc_survey_default_question_8" model="survey.question">
+            <field name="question">¿Tiene información sobre la propuesta de creación de Consejos Comunales?</field>
+            <field name="constr_mandatory" eval="True"/>
+            <field name="type">simple_choice</field>
+            <field name="page_id" ref="tcc_survey_default_page_1"/>
+        </record>
+        
+        <record id="tcc_survey_default_question_8_label_1" model="survey.label">
+            <field name="question_id" ref="tcc_survey_default_question_8"/>
+            <field name="value">Si</field>
+        </record>
+        
+        <record id="tcc_survey_default_question_8_label_2" model="survey.label">
+            <field name="question_id" ref="tcc_survey_default_question_8"/>
+            <field name="value">No</field>
+        </record>
+        
+        <record id="tcc_survey_default_question_9" model="survey.question">
+            <field name="question">¿Estaría dispuesto(a) a apoyar y participar en la creación de un Consejo Comunal en su comunidad?</field>
+            <field name="constr_mandatory" eval="True"/>
+            <field name="type">simple_choice</field>
+            <field name="page_id" ref="tcc_survey_default_page_1"/>
+        </record>
+        
+        <record id="tcc_survey_default_question_9_label_1" model="survey.label">
+            <field name="question_id" ref="tcc_survey_default_question_9"/>
+            <field name="value">Si</field>
+        </record>
+        
+        <record id="tcc_survey_default_question_9_label_2" model="survey.label">
+            <field name="question_id" ref="tcc_survey_default_question_9"/>
+            <field name="value">No</field>
+        </record>
+        
+    </data>
+</odoo>

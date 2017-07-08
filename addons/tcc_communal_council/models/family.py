@@ -355,6 +355,27 @@ class TccFamily(models.Model):
         list_family_boss = []
         name_person = ''
         for person in self.person_ids:
+            list_group = []
+            #~ if family.person_ids:
+                #~ for person in family.person_ids:
+            group_contact = self.env['res.groups'].sudo().search([('name', '=', 'Creación de contactos')])
+            list_group.append(group_contact.id)
+            group_employee = self.env['res.groups'].sudo().search([('name', '=', 'Empleado')])
+            list_group.append(group_employee.id)
+            if person.user_id.is_vocero == True:
+                group_vocero = person.env['res.groups'].sudo().search([('name', '=', 'Vocero')])
+                list_group.append(group_vocero.id)
+                person.user_id.sudo().write({'is_vocero': True, 'is_persona': False,'groups_id' : [(6,0,list_group)],'email' : person.user_id.login})
+            else:
+                group_residente = person.env['res.groups'].sudo().search([('name', '=', 'Residente del Consejo Comunal')])
+                list_group.append(group_residente.id)
+                person.user_id.sudo().write({'is_persona': True, 'is_vocero': False, 'groups_id' : [(6,0,list_group)],'email' : person.user_id.login})
+            #~ else:
+                #~ raise UserE
+            
+            
+            
+            
             if person.is_family_boss == True:
                 name_person = person.name +' '+ person.cedula
                 list_family_boss.append(person.id)
@@ -362,7 +383,10 @@ class TccFamily(models.Model):
                 raise ValidationError(_('Un grupo familiar, debe tener un jefe de familia. ¡Verifique!'))
             else:
                 self.name = name_person
-    
+            
+            
+            
+            
     
     @api.onchange('arrival_date')
     def to_validate_date(self):
@@ -444,70 +468,27 @@ class TccFamily(models.Model):
         vals['code_family'] = self.env['ir.sequence'].next_by_code('tcc.family')
         family = super(TccFamily, self).create(vals)
         family.get_name_family()
-        list_group = []
-        if family.person_ids:
-            for person in family.person_ids:
-                group_contact = person.env['res.groups'].sudo().search([('name', '=', 'Creación de contactos')])
-                list_group.append(group_contact.id)
-                group_employee = person.env['res.groups'].sudo().search([('name', '=', 'Empleado')])
-                list_group.append(group_employee.id)
-                if person.user_id.is_vocero == True:
-                    group_vocero = person.env['res.groups'].sudo().search([('name', '=', 'Vocero')])
-                    list_group.append(group_vocero.id)
-                    person.user_id.sudo().write({'is_vocero': True, 'groups_id' : [(6,0,list_group)],'email' : person.user_id.login})
-                else:
-                    group_residente = person.env['res.groups'].sudo().search([('name', '=', 'Residente del Consejo Comunal')])
-                    list_group.append(group_residente.id)
-                    person.user_id.sudo().write({'is_persona': True, 'groups_id' : [(6,0,list_group)],'email' : person.user_id.login})
-        else:
-            raise UserError(_('Debe agregar pesonas al grupo familiar.'))
+        #~ list_group = []
+        #~ if family.person_ids:
+            #~ for person in family.person_ids:
+                #~ group_contact = person.env['res.groups'].sudo().search([('name', '=', 'Creación de contactos')])
+                #~ list_group.append(group_contact.id)
+                #~ group_employee = person.env['res.groups'].sudo().search([('name', '=', 'Empleado')])
+                #~ list_group.append(group_employee.id)
+                #~ if person.user_id.is_vocero == True:
+                    #~ group_vocero = person.env['res.groups'].sudo().search([('name', '=', 'Vocero')])
+                    #~ list_group.append(group_vocero.id)
+                    #~ person.user_id.sudo().write({'is_vocero': True, 'groups_id' : [(6,0,list_group)],'email' : person.user_id.login})
+                #~ else:
+                    #~ group_residente = person.env['res.groups'].sudo().search([('name', '=', 'Residente del Consejo Comunal')])
+                    #~ list_group.append(group_residente.id)
+                    #~ person.user_id.sudo().write({'is_persona': True, 'groups_id' : [(6,0,list_group)],'email' : person.user_id.login})
+        #~ else:
+            #~ raise UserError(_('Debe agregar pesonas al grupo familiar.'))
         return family 
         
         
-        
-        
     
-        
-        
-        
-        
-        
-        
-        
-#~ class FamilyApartment(models.Model):
-    #~ _name = "tcc.family.apartment"
-    #~ _rec_name = 'name'
-    #~ _description = 'Apartamento'
-    #~ 
-    #~ 
-    #~ name = fields.Char(
-                #~ string='Nombre o número del apartamento',
-                #~ )
-    #~ active = fields.Boolean(default=True)
-    #~ 
-    #~ 
-    #~ 
-    #~ @api.onchange('name')
-    #~ def title_string(self):
-        #~ if self.name:
-            #~ self.name = self.name.title()
-
-#~ class FamilyApartmentFloor(models.Model):
-    #~ _name = "tcc.family.apartment.floor"
-    #~ _rec_name = 'name'
-    #~ _description = 'Piso del apartamento'
-    #~ 
-    #~ 
-    #~ name = fields.Char(
-                #~ string='Nombre o número del Piso',
-                #~ )
-    #~ active = fields.Boolean(default=True)
-    #~ 
-    #~ @api.onchange('name')
-    #~ def title_string(self):
-        #~ if self.name:
-            #~ self.name = self.name.title()
-
 
 class FamilyCommercialActivity(models.Model):
     _name = "tcc.family.commercial.activity"

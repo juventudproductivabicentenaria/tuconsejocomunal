@@ -14,15 +14,17 @@
                                 name= "send_survey"
                                 class="oe_stat_button" icon="fa-external-link"
                                 attrs="{'invisible': [('name', '=', False)]}"
+                                groups="base.group_system,tcc_communal_council.tcc_group_consejo,tcc_communal_council.tcc_group_vocero"
                                 />
                             <button string="Encuestar"
                                 type="object"
                                 name= "action_start_survey"
                                 class="oe_stat_button" icon="fa-pencil-square-o"
                                 attrs="{'invisible': [('name', '=', False)]}" 
+                                groups="base.group_system,tcc_communal_council.tcc_group_consejo,tcc_communal_council.tcc_group_vocero"
                                 />
                             
-                            <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-check">
+                            <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-check" groups="base.group_system,tcc_communal_council.tcc_group_consejo,tcc_communal_council.tcc_group_vocero">
                                 <field name="active" widget="boolean_button"  options='{"terminology": "active"}' />
                             </button>
                         </div>
@@ -130,7 +132,7 @@
         <menuitem id="tcc_family_menu" 
             name="Familias" 
             parent="tcc_communal_coincil_menutop" 
-            sequence="10"/>
+            sequence="9"/>
         
         <menuitem id="tcc_family_action" 
             parent="tcc_family_menu" 

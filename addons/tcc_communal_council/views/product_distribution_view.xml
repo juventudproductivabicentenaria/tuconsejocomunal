@@ -7,7 +7,7 @@
             <field name="arch" type="xml">
                 <form string="Distribución de Productos">
                     <header>
-                        <button name="action_confirm" states="draft" string="Confirmar Distribución" class="o_sale_confirm" type="object" />
+                        <button name="action_confirm" states="draft" string="Confirmar Distribución" class="btn-primary" type="object" groups="base.group_system,tcc_communal_council.tcc_group_consejo,tcc_communal_council.tcc_group_vocero" />
                         <field name="state" widget="statusbar" statusbar_visible="draft,done"/>
                     </header>
                     <sheet>
@@ -91,7 +91,7 @@
             <field name="arch" type="xml">
                 <form string="Confirmar Entrega">
                     <header>
-                        <button name="action_confirm_delivery" states="por_entregar" string="Confirmar Entrega" class="o_sale_confirm" type="object" />
+                        <button name="action_confirm_delivery" states="por_entregar" string="Confirmar Entrega" class="btn-primary" type="object" groups="base.group_system,tcc_communal_council.tcc_group_consejo,tcc_communal_council.tcc_group_vocero" />
                         <field name="state" widget="statusbar" statusbar_visible="por_entregar,entregado"/>
                     </header>
                     <sheet>

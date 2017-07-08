@@ -243,7 +243,7 @@ class TccPersons(models.Model):
         if self.workplace != 'other':
             self.name_workplace = False
     
-    
+        
     @api.onchange('name_workplace')
     def title_string_name_workplace(self):
         if self.name_workplace:
@@ -264,8 +264,44 @@ class TccPersons(models.Model):
                     result['warning'] = warning
             return result
         
-    
-    
+    @api.multi
+    def changue_rol_vocero_to_persons(self):
+        self.is_vocero = False
+        self.is_persona = True
+        self.into_committee = False
+        group_vocero = self.env['res.groups'].sudo().search([('name', '=', 'Vocero')])
+        group_residente = self.env['res.groups'].sudo().search([('name', '=', 'Residente del Consejo Comunal')])
+        list_group = []
+        for group in self.user_id.groups_id:
+            list_group.append(group.id)
+        if group_vocero.id in list_group:
+            list_group.remove(group_vocero.id)
+        list_group.append(group_residente.id)
+        self.user_id.sudo().write({'groups_id': [(6,0,list_group)]})
+        committe = self.env['tcc.committee'].sudo().search([('communal_council_id', '=', self.communal_council_id.id),('active','=',True)])
+        list_person = []
+        for com in committe:
+            for person in com.person_ids:
+                list_person.append(person.id)
+            if self.id in list_person:
+                list_person.remove(self.id)
+            committe.sudo().write({'person_ids': [(6,0,list_person)]})
+
+    @api.multi
+    def changue_rol_person_to_vocero(self):
+        self.is_vocero = True
+        self.is_persona = False
+        self.into_committee = False
+        group_vocero = self.env['res.groups'].sudo().search([('name', '=', 'Vocero')])
+        group_residente = self.env['res.groups'].sudo().search([('name', '=', 'Residente del Consejo Comunal')])
+        list_group = []
+        for group in self.user_id.groups_id:
+            list_group.append(group.id)
+        if group_residente.id in list_group:
+            list_group.remove(group_residente.id)
+        list_group.append(group_vocero.id)
+        self.user_id.sudo().write({'groups_id': [(6,0,list_group)]})
+
     @api.onchange('first_name')
     def title_first_name(self):
         if self.first_name:

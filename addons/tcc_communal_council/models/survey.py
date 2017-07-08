@@ -24,5 +24,6 @@ class TccSurvey(models.Model):
                 string='Consejo comunal', 
                 default = default_communal_council,
                 )
+    tcc_survey = fields.Boolean('Default Survey', default = False)
     
     
