@@ -1,0 +1,51 @@
+<openerp>
+    <data>
+       <record model="ir.ui.view" id="view_tcc_viviendas_form">
+            <field name="name">Viviendas</field>
+            <field name="model">tcc.viviendas</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Registro">
+                    <group>             
+                            <field name="consejocomunal_id" style="width:80%"/>
+                            <field name="casas_ids" style="width:80%"/>
+                            <field name="edificios_ids" style="width:80%"/>
+                            <field name="active"/>
+                        
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_tcc_viviendas_tree">
+            <field name="name">Viviendas</field>
+            <field name="model">tcc.viviendas</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Vivienda">
+                    <field name="consejocomunal_id"/>
+                    <field name="casas_ids"/>
+                    <field name="edificios_ids"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_tcc_viviendas">
+            <field name="name">Gestion de registro de Vivienda</field>
+            <field name="res_model">tcc.viviendas</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+             <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Dale click para crear el registro de las viviendas.
+                </p>
+            </field>
+        </record>
+
+        <menuitem name="Gestion de Viviendas" parent="tcc_consejocomunales.tcc_consejocomunal_horizontal_menu" 
+           id="tcc_viviendas_horizontal_menu" 
+           sequence="5" 
+           />
+        <menuitem name="Viviendas" parent="tcc_viviendas_horizontal_menu" action="action_tcc_viviendas" id="menu_registro" sequence="10"/>
+    </data>
+</openerp>

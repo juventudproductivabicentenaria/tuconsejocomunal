@@ -71,7 +71,11 @@ información en tiempo real y oportuna.
 
 ## Instalación ##
 
+<<<<<<< HEAD
 Para intalación requiere la versión [odoo-10.0](https://github.com/odoo/odoo/tree/10.0)
+=======
+Para intalación requiere la versión [odoo-9.0](https://github.com/odoo/odoo/tree/9.0)
+>>>>>>> ec1147abd2b40a850fb77eef2a2854e9f96a1b31
 y seguir éste orden de intalación de los módulos:
 
     1.- Gestión de los Consejos Comunales (1)

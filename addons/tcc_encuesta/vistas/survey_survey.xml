@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- VISTA QUE HEREDA A PADRE SURVEY-->
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="vistas_tcc_survey_form">
+        <field name="name">Encuestas</field>
+        <field name="model">survey.survey</field>
+        <!-- SE REFERENCIA A LA VISTA SURVEY EN EL ID SURVEY_FORM -->
+        <field name="inherit_id" ref="survey.survey_form"/> 
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+
+<!-- SE MODIFICA EL TITULO DE LA ENCUESTA -->
+            <xpath expr="/form/sheet/div/label" position="attributes">
+                <attribute name="string">Nombre de la Encuesta al Consejo Comunal</attribute>
+            </xpath>
+
+<!-- SE MODIFICA EL PLACEHOLDER DEL TITULO -->
+            <xpath expr="/form/sheet/div/h1/field[@name='title']" position="attributes">
+                <attribute name="placeholder">Titulo de la Encuesta del Consejo Comunal</attribute>
+            </xpath>
+
+<!-- SE AÑADE EL CAMPO PARA LOS CONSEJOS COMUNALES DEL MODELO MODIFICADO -->
+            <xpath expr="/form/sheet/div/h1" position="after">
+                <h2>
+                    <field name="consejocomunal_id" class="oe_inline" placeholder="Consejo Comunal" />
+
+                    <!-- hacer domain con los parther de los consejos comunales -->
+
+                </h2>
+            </xpath>
+        </field>
+        </record>      
+    </data>
+</openerp>
