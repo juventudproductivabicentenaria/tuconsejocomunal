@@ -67,7 +67,7 @@
                             <field name="name" />
                         </group>
                         <group col="4">
-                            <field name="sector_id" domain="[('create_uid','=',communal_council_id)]" />
+                            <field name="sector_id" domain="[('communal_council_id','=',communal_council_id)]" />
                             <field name="street_id" domain="[('communal_council_id','=',communal_council_id),('sector_id','=', sector_id)]" context="{'default_sector_id':sector_id}"/>
                         </group>
                     </sheet>

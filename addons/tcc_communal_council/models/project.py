@@ -4,8 +4,8 @@ from odoo import api, fields, models, tools, SUPERUSER_ID, _
 from odoo.exceptions import AccessDenied, AccessError, UserError, ValidationError
 
 
-class TccSurvey(models.Model):
-    _inherit = 'survey.survey'
+class TccProject(models.Model):
+    _inherit = 'project.project'
     
     @api.multi
     def default_communal_council(self):
@@ -23,8 +23,7 @@ class TccSurvey(models.Model):
                 'tcc.communal.council',
                 string='Consejo comunal', 
                 default = default_communal_council,
-                #~ readonly = True,
+                readonly = True,
                 )
-    tcc_survey = fields.Boolean('Default Survey', default = False)
     
     

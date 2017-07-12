@@ -42,3 +42,8 @@ access_survey_user_input_line_consejo,survey.user_input_line,survey.model_survey
 access_tcc_product_distribution_consejo, tcc.product.distribution,model_tcc_product_distribution,tcc_group_consejo,1,1,1,0
 access_tcc_product_distribution_line_consejo,tcc.product.distribution.line,model_tcc_product_distribution_line,tcc_group_consejo,1,1,1,1
 access_tcc_distribution_delivery_confirmation_consejo,tcc.distribution.delivery.confirmation,model_tcc_distribution_delivery_confirmation,tcc_group_consejo,1,0,0,0
+access_tcc_project_task_type_consejo,project.task.type,project.model_project_task_type,tcc_group_consejo,1,1,1,0
+access_tcc_project_project_consejo,project.project,project.model_project_project,tcc_group_consejo,1,1,1,0
+access_tcc_project_task_consejo,project.task,project.model_project_task,tcc_group_consejo,1,1,1,0
+access_project_tags_consejo,project.tags,project.model_project_tags,tcc_group_consejo,1,1,1,0
+access_account_analytic_account_consejo,account.analytic.account,analytic.model_account_analytic_account,tcc_group_consejo,1,1,1,0

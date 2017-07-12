@@ -4,6 +4,7 @@
         
         <record id="tcc_survey_default" model="survey.survey">
             <field name="title">Participación Comunitaria</field>
+            <field name="tcc_survey" eval="True"/>
             <field name="active" eval="True"/>
         </record>
 

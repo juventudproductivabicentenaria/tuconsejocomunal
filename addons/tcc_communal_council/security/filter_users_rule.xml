@@ -248,34 +248,23 @@
     <!--
         Filtro de encuentas del consejo comunal
     -->
-        <record id="tcc_notice_consejo_rule" model="ir.rule">
-            <field name="name">Distribucion que el Consejo comunal puede ver</field>
-            <field name="model_id" ref="model_tcc_product_distribution"/>
-            <field name="domain_force">[('communal_council_id.user_id','in',[user.id]),]</field>
+<!--
+    <data>
+        <record id="tcc_survey_survey_page_rule" model="ir.rule">
+            <field name="name">Páginas de las Encuestas del Consejo comunal</field>
+            <field name="model_id" ref="survey.model_survey_page"/>
+            <field name="domain_force">[('survey_id.communal_council_id.user_id','=',user.id),]</field>
             <field name="perm_read" eval='True'/>
             <field name="perm_write" eval='False'/>
             <field name="perm_create" eval='False'/>
             <field name="perm_unlink" eval='False'/>
             <field name="groups" eval="[(4,ref('tcc_group_consejo'))]"/>
         </record>
-    
-        <record id="tcc_notice_vocero_rule" model="ir.rule">
-            <field name="name">Noticias que el Vocero puede ver</field>
-            <field name="model_id" ref="model_tcc_product_distribution"/>
-            <field name="domain_force">[('communal_council_id.user_id', '=', user.communal_council_id.user_id.id)]</field>
-            <field name="perm_read" eval='True'/>
-            <field name="perm_write" eval='False'/>
-            <field name="perm_create" eval='False'/>
-            <field name="perm_unlink" eval='False'/>
-            <field name="groups" eval="[(4,ref('tcc_group_vocero'))]"/>
-        </record>
-    
-    
-    <!--
-        Filtro de encuentas del consejo comunal
-    -->
+    </data>
+-->
+
     <data>
-        <record id="tcc_survey_survey_rule" model="ir.rule">
+        <record id="tcc_survey_survey_survey_rule" model="ir.rule">
             <field name="name">Encuestas del Consejo comunal</field>
             <field name="model_id" ref="survey.model_survey_survey"/>
             <field name="domain_force">[('communal_council_id.user_id','=',user.id),]</field>
@@ -286,6 +275,35 @@
             <field name="groups" eval="[(4,ref('tcc_group_consejo'))]"/>
         </record>
     </data>
+
+    
+    <data>
+        <record id="tcc_project_project_rule" model="ir.rule">
+            <field name="name">Proyectos del Consejo comunal</field>
+            <field name="model_id" ref="project.model_project_project"/>
+            <field name="domain_force">[('communal_council_id.user_id','=',user.id),]</field>
+            <field name="perm_read" eval='True'/>
+            <field name="perm_write" eval='False'/>
+            <field name="perm_create" eval='False'/>
+            <field name="perm_unlink" eval='False'/>
+            <field name="groups" eval="[(4,ref('tcc_group_consejo'))]"/>
+        </record>
+    </data>
+    
+<!--
+    <data>
+        <record id="tcc_res_users_rule" model="ir.rule">
+            <field name="name">Usuarios Consejo comunal</field>
+            <field name="model_id" ref="base.model_res_users"/>
+            <field name="domain_force">[('communal_council_id','=',user.communal_council_id),]</field>
+            <field name="perm_read" eval='True'/>
+            <field name="perm_write" eval='False'/>
+            <field name="perm_create" eval='False'/>
+            <field name="perm_unlink" eval='False'/>
+            <field name="groups" eval="[(4,ref('tcc_group_consejo'))]"/>
+        </record>
+    </data>
+-->
 
     
 </openerp>

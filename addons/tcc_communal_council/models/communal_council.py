@@ -92,6 +92,23 @@ class CommunalCouncil(models.Model):
             self.parish_id = False
             self.sector_id = False
     
+    #~ @api.model
+    #~ def create_default_survey(self):
+        #~ self.ensure_one()
+        #~ survey = self.env['survey.survey']
+        #~ 
+        #~ question = self.env['survey.question']
+        #~ label = self.env['survey.label']
+        #~ survey_data = {
+            #~ 'title': 'Paricipación Comunitaria',
+            #~ 'auth_required': True,
+            #~ 'page_ids': [0, False, {'title': 'Paricipación Comunitaria',}]
+        #~ }
+        #~ 
+        #~ survey.create(survey_data)
+        #~ return True
+    
+        
     @api.model
     def create(self, vals):
         council = super(CommunalCouncil, self).create(vals)
@@ -102,7 +119,11 @@ class CommunalCouncil(models.Model):
         list_group.append(group_contact.id)
         group_employee = council.env['res.groups'].sudo().search([('name', '=', 'Empleado')])
         list_group.append(group_employee.id)
-        council.user_id.sudo().write({'is_council': True,'groups_id' : [(6,0,list_group)],'email' : council.user_id.login})
         council.sector_id.sudo().write({'communal_council_id': council.id})
+        council.user_id.sudo().write({'is_council': True,'groups_id' : [(6,0,list_group)],'email' : council.user_id.login,'communal_council_id': council.id})
+        users = council.env['res.users'].sudo().search([('id', '=', council.user_id.id)])
+        #~ users = council.env['res.users'].sudo().search([('id', '=', council.user_id.id)])
+        users.sudo().write({'communal_council_id': council.id})
+        #~ council.create_default_survey()
         return council
     

@@ -128,6 +128,7 @@ class TccProductDistributionLine(models.Model):
                 'distribution_line_id',
                 'response_id',
                 string='Responsables',
+                required=True,
                 )
     to_deliver = fields.Selection(
                 [('familia', 'Familias'),
@@ -140,7 +141,8 @@ class TccProductDistributionLine(models.Model):
                 'tcc_product_distribution_line_street_rel',
                 'distribution_id',
                 'street_id',
-                string='Calles'
+                string='Calles',
+                required=True,
                 )
     date_start = fields.Datetime(
                 string='Inicio de entrega',
@@ -177,11 +179,20 @@ class TccProductDistributionLine(models.Model):
         for street in self.street_ids:
             list_street.append(street.id)
         families = self.env['tcc.family'].search([('house_id.street_id.id', 'in', list_street)])
+        families2 = self.env['tcc.family'].search([('edifice_id.street_id.id', 'in', list_street)])
         for family in families:
             list_family.append(family.id)
             for person in family.person_ids:
                 list_person.append(person.id)
-        domain = {'family_ids': [('id','in',list_family)], 'person_ids': [('id','in',list_person)]}
+        for family2 in families2:
+            list_family.append(family2.id)
+            for person in family2.person_ids:
+                list_person.append(person.id)
+        
+        list_family_filt = list(set(list_family))
+        list_person_filt = list(set(list_person))
+        #~ print list_person
+        domain = {'family_ids': [('id','in',list_family_filt)], 'person_ids': [('id','in',list_person_filt)]}
         return {'domain': domain}
     
     

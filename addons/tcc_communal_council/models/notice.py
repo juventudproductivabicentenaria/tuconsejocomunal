@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+import re
 import calendar
 from datetime import date, datetime
 from dateutil.relativedelta import relativedelta
@@ -31,6 +32,7 @@ class TccNoticias(models.Model):
                 'tcc.communal.council',
                 string='Consejo comunal', 
                 default=default_communal_council,
+                readonly=True,
                 )
     category_id = fields.Many2one(
                 'tcc.notice.category',
@@ -54,6 +56,11 @@ class TccNoticias(models.Model):
                 'Descripción',
                 required=True,
                 )
+    state = fields.Selection([
+                ('draft', 'Borrador'),
+                ('done', 'Publicado'),
+                ], string='Status', readonly=True, copy=False, index=True,default=False
+                )
     active = fields.Boolean(default=True)
     
     @api.onchange('name')
@@ -65,7 +72,22 @@ class TccNoticias(models.Model):
     def title_string(self):
         if self.subtitle:
             self.subtitle = self.subtitle.title()
-
+    
+    @api.multi
+    def publish_notice(self):
+        self.state = 'done'
+    @api.multi
+    def strip_tags(self,value):
+        return re.sub(r'<[^>]*?>', '', value)
+    
+    @api.model
+    def create(self,vals):
+        vals.update({'state': 'draft'})
+        sumary=self.strip_tags(vals['sumary'])
+        if not sumary:
+            raise UserError(_('Debe redactar el cuerpo de la noticia.'))
+        return super(TccNoticias, self).create(vals)
+    
 class TccNoticiasCategoria(models.Model):
     _name = 'tcc.notice.category'
     _description = 'Categoria de Noticias'
@@ -82,3 +104,5 @@ class TccNoticiasCategoria(models.Model):
     def title_string(self):
         if self.name:
             self.name = self.name.title()
+            
+    

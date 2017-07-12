@@ -124,6 +124,22 @@
             </field>
         </record>
         
+        <record id="view_delivery_search" model="ir.ui.view">
+                <field name="model">tcc.distribution.delivery.confirmation</field>
+                <field name="arch" type="xml">
+                    <search string="Entrega">
+                        <field name="product_distribution_id" string="Nombre de entrega" />
+                        <field name="family_id" string="Familia" />
+                        <field name="person_id" string="Persona" />
+                        <group expand="0" string="Buscar por">
+                            <filter domain="[]" context="{'group_by':'product_distribution_id'}"/>
+                            <filter  domain="[]" context="{'group_by':'family_id'}"/>
+                            <filter  domain="[]" context="{'group_by':'person_id'}"/>
+                        </group>
+                    </search>
+                </field>
+            </record>
+        
         <record id="action_tcc_distribution_delivery_confirmation_form" model="ir.actions.act_window">
             <field name="name">Corfirmación</field>
             <field name="res_model">tcc.distribution.delivery.confirmation</field>

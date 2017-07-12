@@ -21,8 +21,9 @@ class TccFamily(models.Model):
     @api.multi
     def action_start_survey(self):
         """ Open the website page with the survey form """
-        survey = self.env['survey.survey'].search([('id', '=', 2)])
+        survey = self.env['survey.survey'].search([('tcc_survey', '=', True)])
         survey.ensure_one()
+        self.survey_defaul = True
         token = survey.env.context.get('survey_token')
         trail = "/%s" % token if token else ""
         
@@ -44,11 +45,12 @@ class TccFamily(models.Model):
         
         """ Open a window to compose an email, pre-filled with the survey message """
         users = []
+        self.survey_defaul = True
         for person in self.person_ids:
             if person.is_family_boss == True:
                 users.append(person.user_id.partner_id.id)
         
-        survey = self.env['survey.survey'].search([('id', '=', 2)])
+        survey = self.env['survey.survey'].search([('tcc_survey', '=', True)])
         # Ensure that this survey has at least one page with at least one question.
         if not survey.page_ids or not [page.question_ids for page in survey.page_ids if page.question_ids]:
             raise UserError(_('No puedes enviar una encuesta sin preguntas..'))
@@ -345,6 +347,7 @@ class TccFamily(models.Model):
                 'media_id',
                 string='Medios de información'
                 )
+    survey_defaul = fields.Boolean(default=False,string="Encuestado")
     active = fields.Boolean(default=True)
     
     _sql_constraints = [('name_uniq', 'unique (name)', "El jefe de familia ya se encuentra registrado. ¡Verifique!")]

@@ -6,6 +6,10 @@
             <field name="model">tcc.notice</field>
             <field name="arch" type="xml">
                 <form string="Persona">
+                    <header>
+                        <button name="publish_notice" states="draft" string="Publicar" class="btn-primary" type="object" groups="base.group_system,tcc_communal_council.tcc_group_consejo,tcc_communal_council.tcc_group_vocero" />
+                        <field name="state" widget="statusbar" statusbar_visible="draft,done"/>
+                    </header>
                     <sheet>
                         <div class="oe_button_box" name="button_box" groups="base.group_system">
                             <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-check">
@@ -22,7 +26,7 @@
                             <field name="start_date" />
                             <field name="end_date" />
                         </group>
-                            <field name="sumary" />
+                            <field name="sumary" required="True"/>
                     </sheet>
                 </form>
             </field>

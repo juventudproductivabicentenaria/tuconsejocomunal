@@ -24,7 +24,7 @@
                             <field name="state_id" domain="[('country_id','=',240)]" options="{'no_create': True}" required="True" />
                             <field name="municipality_id" string="Municipio" domain="[('state_id','=',state_id)]" options="{'no_create': True}" required="True"/>
                             <field name="parish_id" domain="[('municipality_id','=',municipality_id)]" options="{'no_create': True}" string="Parroquia" required="True"/>
-                            <field name="sector_id" context="{'default_municipality_id':municipality_id,'default_parish_id':parish_id,'default_communal_council_id':id, }" required="True" domain="[('parish_id','=',parish_id)]" />
+                            <field name="sector_id" context="{'default_municipality_id':municipality_id,'default_parish_id':parish_id,'default_communal_council_id':id, }" required="True" domain="[('parish_id','=',parish_id),('communal_council_id','=',id)]" />
                         </group>
                     </sheet>
                 </form>
