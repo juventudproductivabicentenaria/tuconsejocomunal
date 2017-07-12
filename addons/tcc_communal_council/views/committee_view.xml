@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_tcc_committee_form" model="ir.ui.view">
+            <field name="name">tcc.committee.form</field>
+            <field name="model">tcc.committee</field>
+            <field name="arch" type="xml">
+                <form string="Comité">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box" groups="base.group_system, tcc_communal_council.tcc_group_consejo">
+                            <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-check">
+                                <field name="active" widget="boolean_button" options='{"terminology": "active"}' />
+                            </button>
+                        </div>
+                        <group>
+                            <field name="communal_council_id" options='{"no_create": "True"}' />
+                            <field name="name"  /> 
+                        </group>
+                        <notebook>
+                            <page string="Voceros" >
+                                <field name="person_ids" domain="[('into_committee','=',False),('is_vocero','=',True)]" options='{"no_create": True}'/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record id="view_tcc_committee_tree" model="ir.ui.view">
+            <field name="name">tcc.committee.tree</field>
+            <field name="model">tcc.committee</field>
+            <field name="arch" type="xml">
+                <tree string="Comités">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="action_tcc_committee_form" model="ir.actions.act_window">
+            <field name="name">Comités</field>
+            <field name="res_model">tcc.committee</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click para crear los comités.
+              </p><p>
+                  Para crear un comité se debe haber registrado 
+                  los voceros que pertenecen a ese comité, en la sección;
+                   Familias > Grupo Familiar.
+              </p>
+            </field>
+        </record>
+        
+        <menuitem id="tcc_committee_menu_action" 
+            parent="tcc_communal_coincil_menu" 
+            action="action_tcc_committee_form" 
+            name="Comités o Unidades" 
+            sequence="10" />
+        
+    </data>
+</odoo>

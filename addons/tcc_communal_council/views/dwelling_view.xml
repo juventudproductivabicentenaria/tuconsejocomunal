@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+<!--
+        Vista vivienda
+-->
+        <record id="view_tcc_dwelling_form" model="ir.ui.view">
+            <field name="name">tcc.dwelling.form</field>
+            <field name="model">tcc.dwelling</field>
+            <field name="arch" type="xml">
+                <form string="Vivienda">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-check">
+                                <field name="active" widget="boolean_button"  options='{"terminology": "active"}' />
+                            </button>
+                        </div>
+                        <group>
+                            <field name="communal_council_id" options="{'no_create': True}"/>
+                        </group>
+                        <notebook>
+                            <page string="Casas">
+                                <field name="house_ids"/>
+                            </page>
+                            <page name="edifice_ids" string="Edificios">
+                                <field name="edifice_ids"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record id="view_tcc_dwelling_tree" model="ir.ui.view">
+            <field name="name">tcc.dwelling.tree</field>
+            <field name="model">tcc.dwelling</field>
+            <field name="arch" type="xml">
+                <tree string="Vivienda">
+                    <field name="communal_council_id"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="action_tcc_dwelling_form" model="ir.actions.act_window">
+            <field name="name">Vivienda</field>
+            <field name="res_model">tcc.dwelling</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+<!--
+        vista casas
+-->
+        <record id="view_tcc_dwelling_house_form" model="ir.ui.view">
+            <field name="name">tcc.dwelling.house.form</field>
+            <field name="model">tcc.dwelling.house</field>
+            <field name="arch" type="xml">
+                <form string="Casa">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-check">
+                                <field name="active" widget="boolean_button"  options='{"terminology": "active"}' />
+                            </button>
+                        </div>
+                        <group>
+                            <field name="communal_council_id" />
+                            <field name="name" />
+                        </group>
+                        <group col="4">
+                            <field name="sector_id" domain="[('communal_council_id','=',communal_council_id)]" />
+                            <field name="street_id" domain="[('communal_council_id','=',communal_council_id),('sector_id','=', sector_id)]" context="{'default_sector_id':sector_id}"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+<!--
+        vista edificios
+-->
+        <record id="view_tcc_dwelling_edifice_form" model="ir.ui.view">
+            <field name="name">tcc.dwelling.edifice.form</field>
+            <field name="model">tcc.dwelling.edifice</field>
+            <field name="arch" type="xml">
+                <form string="Casa">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-check">
+                                <field name="active" widget="boolean_button"  options='{"terminology": "active"}' />
+                            </button>
+                        </div>
+                        <group>
+                            <field name="communal_council_id" />
+                            <field name="name" />
+                        </group>
+                        <group col="4">
+                            <field name="sector_id" domain="[('communal_council_id','=',communal_council_id)]" />
+                            <field name="street_id" domain="[('communal_council_id','=',communal_council_id)]" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+<!--
+        Menú viviendas
+-->
+        <menuitem id="tcc_dwelling_menu" 
+            name="Viviendas" 
+            parent="tcc_communal_coincil_menutop" 
+            sequence="5"/>
+        
+        <menuitem id="tcc_dwelling_menu_action" 
+            parent="tcc_dwelling_menu" 
+            action="action_tcc_dwelling_form" 
+            name="Viviendas" 
+            sequence="5" />
+        
+    </data>
+</odoo>

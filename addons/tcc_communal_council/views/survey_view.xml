@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="tcc_survey_inherit" model="ir.ui.view">
+            <field name="name">survey.survey.inherit</field>
+            <field name="model">survey.survey</field>
+            <field name="inherit_id" ref="survey.survey_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='title']" position="after">
+                    <label for="communal_council_id" class="oe_edit_only"/>
+                    <h3><field name="communal_council_id" /></h3>
+                </xpath>
+            </field>
+        </record>
+        
+        <record id="tcc_survey_kanban_inherit" model="ir.ui.view">
+            <field name="name">survey.survey.inherit</field>
+            <field name="model">survey.survey</field>
+            <field name="inherit_id" ref="survey.survey_kanban"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@class='oe_kanban_content']" position="inside">
+                    <h5><field name="communal_council_id" /></h5>
+                </xpath>
+            </field>
+        </record>
+        
+        <menuitem name="Encuestas" id="tcc_menu_surveys" sequence="70" groups="tcc_group_consejo"  web_icon="survey,static/description/icon.png"/>
+        
+        <!-- Left menu elements: Survey -->
+        <menuitem name="Encuestas" id="tcc_menu_survey_form" action="survey.action_survey_form" parent="tcc_menu_surveys" sequence="1"/>
+        <menuitem name="Respuestas" id="tcc_menu_survey_type_form1" action="survey.action_survey_user_input" parent="tcc_menu_surveys" sequence="1"/>
+
+
+        <!-- Left menu elements: Technical Configuration -->
+        <menuitem name="Configuración" id="tcc_menu_surveys_configuration" parent="tcc_menu_surveys" sequence="100" />
+        <menuitem name="Páginas" id="tcc_menu_survey_page_form1" action="survey.action_survey_page_form" parent="tcc_menu_surveys_configuration" sequence="1"/>
+        <menuitem name="Preguntas" id="tcc_menu_survey_question_form1" action="survey.action_survey_question_form" parent="tcc_menu_surveys_configuration" sequence="2"/>
+        <menuitem name="Preguntas" id="tcc_menu_survey_label_form1" action="survey.action_survey_label_form" parent="tcc_menu_surveys_configuration" sequence="3"/>
+        <menuitem name="Respuestas Residentes" id="tcc_menu_survey_response_line_form" action="survey.action_survey_user_input_line" parent="tcc_menu_surveys_configuration" sequence="4"/>
+    </data>
+</odoo>
