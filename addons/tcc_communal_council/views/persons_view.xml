@@ -11,27 +11,27 @@
                                 string="Ya No es vocero" 
                                 type="object" 
                                 class="btn-primary" 
-                                attrs="{'invisible': [('is_vocero', '=', False)]}"
+                                attrs="{'invisible': ['|',('is_vocero', '=', False),('id','=',False)]}"
                                 groups="base.group_system,tcc_communal_council.tcc_group_consejo" 
                                 />
                         <button name="changue_rol_person_to_vocero" 
                                 string="Pasar a vocero" 
                                 type="object" 
                                 class="btn-primary" 
-                                attrs="{'invisible': [('is_vocero', '=', True)]}"
+                                attrs="{'invisible': ['|',('is_vocero', '=', True),('id','=',False)]}"
                                 groups="base.group_system,tcc_communal_council.tcc_group_consejo"  />
                         <button string="Enviar encuesta "
                                 type="object"
                                 name= "send_survey"
                                 class="btn-primary"
-                                attrs="{'invisible': [('survey_default', '=', True)]}" 
+                                attrs="{'invisible': ['|',('survey_default', '=', True),('id','=',False)]}" 
                                 groups="base.group_system,tcc_communal_council.tcc_group_consejo,tcc_communal_council.tcc_group_vocero"
                                 />
                         <button string="Encuestar"
                                 type="object"
                                 name= "action_start_survey"
                                 class="btn-primary"
-                                attrs="{'invisible': [('survey_default', '=', True)]}" 
+                                attrs="{'invisible': ['|',('survey_default', '=', True),('id','=',False)]}" 
                                 groups="base.group_system,tcc_communal_council.tcc_group_consejo,tcc_communal_council.tcc_group_vocero"
                                 />
                     </header>
@@ -43,6 +43,7 @@
                         </div>
                         <group>
                             <field name="survey_default" invisible="True"/>
+                            <field name="id" invisible="True"/>
                             <field name="communal_council_id" options='{"no_create": "True"}' />
                             <field name="is_vocero" readonly="context.get('read_users')"/>
                             <field name="is_family_boss" readonly="context.get('read_users')"/>
