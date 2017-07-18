@@ -234,9 +234,74 @@ class TccPersons(models.Model):
     name_workplace = fields.Char(
                 string='Nombre del lugar de trabajo',
                 )
+    survey_default = fields.Boolean(default=False,string="Encuestado")
     active = fields.Boolean(default=True)
     
     _sql_constraints = [('cedula_uniq', 'unique (cedula)', "La Cédula ya Existe, Verifique!")]
+    
+    
+    @api.multi
+    def action_start_survey(self):
+        """ Open the website page with the survey form """
+        survey = self.env['survey.survey'].search([('tcc_survey', '=', True),('communal_council_id', '=', self.user_id.communal_council_id.id)])
+        survey.ensure_one()
+        self.survey_default = True
+        token = survey.env.context.get('survey_token')
+        trail = "/%s" % token if token else ""
+        
+        #~ users = 0
+        #~ for person in self.person_ids:
+            #~ if person.is_family_boss == True:
+        users = self.user_id.partner_id.id
+        tcc = "/%s" % users +"-tcc"
+        return {
+            'type': 'ir.actions.act_url',
+            'name': "Start Survey",
+            'target': 'self',
+            'url': survey.with_context(relative_url=True).public_url + tcc,
+        }
+    
+    
+    @api.multi
+    def send_survey(self):
+        
+        """ Open a window to compose an email, pre-filled with the survey message """
+        users = []
+        self.survey_default = True
+        #~ for person in self.person_ids:
+            #~ if person.is_family_boss == True:
+        users.append(self.user_id.partner_id.id)
+        
+        survey = self.env['survey.survey'].search([('tcc_survey', '=', True)])
+        # Ensure that this survey has at least one page with at least one question.
+        if not survey.page_ids or not [page.question_ids for page in survey.page_ids if page.question_ids]:
+            raise UserError(_('No puedes enviar una encuesta sin preguntas..'))
+
+        if survey.stage_id.closed:
+            raise UserError(_("No puedes realizar invitaciones de encuentas Cerradas."))
+
+        template = survey.env.ref('survey.email_template_survey', raise_if_not_found=False)
+
+        local_context = dict(
+            survey.env.context,
+            default_model='survey.survey',
+            default_res_id=survey.id,
+            default_survey_id=survey.id,
+            default_use_template=bool(template),
+            default_template_id=template and template.id or False,
+            default_composition_mode='comment',
+            default_partner_ids = [(6,0,users)],
+        )
+        return {
+            'type': 'ir.actions.act_window',
+            'view_type': 'form',
+            'view_mode': 'form',
+            'res_model': 'survey.mail.compose.message',
+            'target': 'new',
+            'context': local_context,
+        }
+    
+    
     
     @api.onchange('workplace')
     def no_workplace(self):
