@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Ingresos totales de la familia -->
+        <record id="tcc_fam_income_menos_200" model="tcc.family.income">
+            <field name="name">Menos de 200.000,00</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="tcc_fam_income_200_600" model="tcc.family.income">
+            <field name="name">200.001,00 A 600.000,00</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="tcc_fam_income_600_2k" model="tcc.family.income">
+            <field name="name">600.001,00 A 2.000.000,00 </field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="tcc_fam_income_mas_2k" model="tcc.family.income">
+            <field name="name">2.000.001,00 y Más</field>
+            <field name="active" eval="True"/>
+        </record>
+        
+        
+        <!-- Tipos de paredes de la Vivienda -->
+        <record id="tcc_fam_walls_frisadas" model="tcc.family.type.walls">
+            <field name="name">Frisadas</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="tcc_fam_walls_sin_frisar" model="tcc.family.type.walls">
+            <field name="name">Sin Frisar</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="tcc_fam_walls_tablas" model="tcc.family.type.walls">
+            <field name="name">Tablas</field>
+            <field name="active" eval="True"/>
+        </record>
+        
+        <record id="tcc_fam_walls_bahareque" model="tcc.family.type.walls">
+            <field name="name">Bahareque o Adobe</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="tcc_fam_walls_zinc" model="tcc.family.type.walls">
+            <field name="name">Zinc</field>
+            <field name="active" eval="True"/>
+        </record>
+        
+        <record id="tcc_fam_walls_carton" model="tcc.family.type.walls">
+            <field name="name">Cartón Piedra</field>
+            <field name="active" eval="True"/>
+        </record>
+        
+        <!-- Tipos de techos de la Vivienda -->
+        <record id="tcc_fam_roof_platabanda" model="tcc.family.type.roof">
+            <field name="name">Platabanda</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="tcc_fam_roof_asbesto" model="tcc.family.type.roof">
+            <field name="name">Asbesto</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="tcc_fam_roof_tejas" model="tcc.family.type.roof">
+            <field name="name">Tejas</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="tcc_fam_roof_madera" model="tcc.family.type.roof">
+            <field name="name">Madera</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="tcc_fam_roof_zinc" model="tcc.family.type.roof">
+            <field name="name">Zinc</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="tcc_fam_roof_machihembrado" model="tcc.family.type.roof">
+            <field name="name">Machihembrado</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="tcc_fam_roof_raso" model="tcc.family.type.roof">
+            <field name="name">Raso</field>
+            <field name="active" eval="True"/>
+        </record>
+        
+        <!-- Tipos de enseres de la Vivienda -->
+        <record id="tcc_fam_equipment_nevera" model="tcc.family.dwelling.equipment">
+            <field name="name">Nevera</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="tcc_fam_equipment_cocina" model="tcc.family.dwelling.equipment">
+            <field name="name">Cocina</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="tcc_fam_equipment_gabinete" model="tcc.family.dwelling.equipment">
+            <field name="name">Gabinete</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="tcc_fam_equipment_camas" model="tcc.family.dwelling.equipment">
+            <field name="name">Camas</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="tcc_fam_equipment_aire" model="tcc.family.dwelling.equipment">
+            <field name="name">Aire Acondicionado</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="tcc_fam_equipment_ventilador" model="tcc.family.dwelling.equipment">
+            <field name="name">Ventilador</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="tcc_fam_equipment_comedor" model="tcc.family.dwelling.equipment">
+            <field name="name">Juego de Comedor</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="tcc_fam_equipment_muebles" model="tcc.family.dwelling.equipment">
+            <field name="name">Muebles de Sala</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="tcc_fam_equipment_utenselios" model="tcc.family.dwelling.equipment">
+            <field name="name">Utenselios de Cocina</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="tcc_fam_equipment_televisor" model="tcc.family.dwelling.equipment">
+            <field name="name">Televisor</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="tcc_fam_equipment_computadora" model="tcc.family.dwelling.equipment">
+            <field name="name">Computadora</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="tcc_fam_equipment_microondas" model="tcc.family.dwelling.equipment">
+            <field name="name">Microondas</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="tcc_fam_equipment_lavadora" model="tcc.family.dwelling.equipment">
+            <field name="name">Lavadora</field>
+            <field name="active" eval="True"/>
+        </record>
+        
+        
+        <!-- Salubridad de la Vivienda -->
+        <record id="tcc_fam_salubrity_limpia" model="tcc.family.dwelling.salubrity">
+            <field name="name">Limpia</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="tcc_fam_salubrity_sucia" model="tcc.family.dwelling.salubrity">
+            <field name="name">Sucia</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="tcc_fam_salubrity_medianamente_limpia" model="tcc.family.dwelling.salubrity">
+            <field name="name">Medianamente Limpia</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="tcc_fam_salubrity_medianamente_sucia" model="tcc.family.dwelling.salubrity">
+            <field name="name">Medianamente Sucia</field>
+            <field name="active" eval="True"/>
+        </record>
+        
+        <!-- Salubridad de la Vivienda -->
+        <record id="tcc_fam_pests_moscas" model="tcc.family.dwelling.pests">
+            <field name="name">Mocas</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="tcc_fam_pests_hormigas" model="tcc.family.dwelling.pests">
+            <field name="name">Hormigas</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="tcc_fam_pests_cucarachas" model="tcc.family.dwelling.pests">
+            <field name="name">Cucarachas</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="tcc_fam_pests_ciempies" model="tcc.family.dwelling.pests">
+            <field name="name">Ciempiés</field>
+            <field name="active" eval="True"/>
+        </record>
+        
+        <!-- Mascotas en la Vivienda -->
+        <record id="tcc_fam_pets_perro" model="tcc.family.dwelling.pets">
+            <field name="name">Perro</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="tcc_fam_pets_gatos" model="tcc.family.dwelling.pets">
+            <field name="name">Gatos</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="tcc_fam_pets_pajaros" model="tcc.family.dwelling.pets">
+            <field name="name">Pájaros</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="tcc_fam_pets_gallinas" model="tcc.family.dwelling.pets">
+            <field name="name">Gallinas</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="tcc_fam_pets_patos" model="tcc.family.dwelling.pets">
+            <field name="name">Patos</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="tcc_fam_pets_cochinos" model="tcc.family.dwelling.pets">
+            <field name="name">Cochinos</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="tcc_fam_pets_hamsters" model="tcc.family.dwelling.pets">
+            <field name="name">Hámsters</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="tcc_fam_pets_peces" model="tcc.family.dwelling.pets">
+            <field name="name">Peces</field>
+            <field name="active" eval="True"/>
+        </record>
+        
+        <!-- Tipos de habitaciones en la Vivienda -->
+        <record id="tcc_fam_room_sala" model="tcc.family.dwelling.room">
+            <field name="name">Sala</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="tcc_fam_room_comedor" model="tcc.family.dwelling.room">
+            <field name="name">Comedor</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="tcc_fam_room_cocina" model="tcc.family.dwelling.room">
+            <field name="name">Cocina</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="tcc_fam_room_bano" model="tcc.family.dwelling.room">
+            <field name="name">Baño</field>
+            <field name="active" eval="True"/>
+        </record>
+        
+        <!-- Enfermedades en la Familia -->
+        <record id="tcc_fam_disease_cancer" model="tcc.family.disease">
+            <field name="name">Cáncer</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="tcc_fam_disease_diabetes" model="tcc.family.disease">
+            <field name="name">Diabetes</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="tcc_fam_disease_sida" model="tcc.family.disease">
+            <field name="name">SIDA</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="tcc_fam_disease_corazon" model="tcc.family.disease">
+            <field name="name">Corazón</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="tcc_fam_disease_hepatitis" model="tcc.family.disease">
+            <field name="name">Hepatitis</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="tcc_fam_disease_tuberculosis" model="tcc.family.disease">
+            <field name="name">Tuberculosis</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="tcc_fam_disease_hipertension" model="tcc.family.disease">
+            <field name="name">Hipertensión</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="tcc_fam_disease_asma" model="tcc.family.disease">
+            <field name="name">Asma</field>
+            <field name="active" eval="True"/>
+        </record>
+        
+        <!-- Distribución de Agua en la Vivienda -->
+        <record id="tcc_fam_disease_acueducto" model="tcc.family.white.water">
+            <field name="name">Por Acueducto</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="tcc_fam_disease_camion" model="tcc.family.white.water">
+            <field name="name">Por Camión Cinterna</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="tcc_fam_disease_pila" model="tcc.family.white.water">
+            <field name="name">De Pila Pública</field>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="tcc_fam_disease_rio" model="tcc.family.white.water">
+            <field name="name">Del Río</field>
+            <field name="active" eval="True"/>
+        </record>
+        
+        <!-- Servicio Aguas Servidas en la Vivienda -->
+        <record id="tcc_fam_disease_cloacas" model="tcc.family.waste.water">
+            <field name="name">Cloacas</field>
+            <field name="active" eval="True"/>
+        </record>
+        
+        <record id="tcc_fam_disease_pozo_septico" model="tcc.family.waste.water">
+            <field name="name">Pozo Séptico</field>
+            <field name="active" eval="True"/>
+        </record>
+        
+        <record id="tcc_fam_disease_pozo_letrina" model="tcc.family.waste.water">
+            <field name="name">Letrina</field>
+            <field name="active" eval="True"/>
+        </record>
+        
+        <record id="tcc_fam_disease_aire_libre" model="tcc.family.waste.water">
+            <field name="name">Al Aire Libre</field>
+            <field name="active" eval="True"/>
+        </record>
+        
+        <record id="tcc_fam_disease_bolsas" model="tcc.family.waste.water">
+            <field name="name">Depositadas en Bolsas</field>
+            <field name="active" eval="True"/>
+        </record>
+        
+        <!-- Servicio de Recolección de Basura en la Vivienda -->
+        <record id="tcc_fam_trash_aseo_urbano" model="tcc.family.collect.trash">
+            <field name="name">Aseo Urbano</field>
+            <field name="active" eval="True"/>
+        </record>
+        
+        <record id="tcc_fam_trash_aseo_container" model="tcc.family.collect.trash">
+            <field name="name">Container</field>
+            <field name="active" eval="True"/>
+        </record>
+        
+        <record id="tcc_fam_trash_aseo_bajante" model="tcc.family.collect.trash">
+            <field name="name">Bajante</field>
+            <field name="active" eval="True"/>
+        </record>
+        
+        <record id="tcc_fam_trash_aseo_camion" model="tcc.family.collect.trash">
+            <field name="name">Camión</field>
+            <field name="active" eval="True"/>
+        </record>
+        
+        <record id="tcc_fam_trash_aseo_camion" model="tcc.family.collect.trash">
+            <field name="name">Camión</field>
+            <field name="active" eval="True"/>
+        </record>
+        
+        <record id="tcc_fam_trash_aseo_aire_libre" model="tcc.family.collect.trash">
+            <field name="name">Al Aire Libre</field>
+            <field name="active" eval="True"/>
+        </record>
+        
+        <record id="tcc_fam_trash_aseo_quemada" model="tcc.family.collect.trash">
+            <field name="name">Quemada</field>
+            <field name="active" eval="True"/>
+        </record>
+        
+        <!-- Servicio de Telefonía de la familia -->
+        <record id="tcc_fam_telephony_domiciliaria" model="tcc.family.services.telephony">
+            <field name="name">Domiciliaria</field>
+            <field name="active" eval="True"/>
+        </record>
+        
+        <record id="tcc_fam_telephony_celular" model="tcc.family.services.telephony">
+            <field name="name">Celular</field>
+            <field name="active" eval="True"/>
+        </record>
+        
+        <record id="tcc_fam_telephony_prepago" model="tcc.family.services.telephony">
+            <field name="name">Prepago</field>
+            <field name="active" eval="True"/>
+        </record>
+        
+        <record id="tcc_fam_telephony_centro_conexion" model="tcc.family.services.telephony">
+            <field name="name">Centro de Conexión</field>
+            <field name="active" eval="True"/>
+        </record>
+        
+        <record id="tcc_fam_telephony_no_posee" model="tcc.family.services.telephony">
+            <field name="name">No Posee</field>
+            <field name="active" eval="True"/>
+        </record>
+        
+        <!-- Servicio de Transporte Familia -->
+        <record id="tcc_fam_transport_propio" model="tcc.family.services.transport">
+            <field name="name">Propio</field>
+            <field name="active" eval="True"/>
+        </record>
+        
+        <record id="tcc_fam_transport_publico" model="tcc.family.services.transport">
+            <field name="name">Público</field>
+            <field name="active" eval="True"/>
+        </record>
+        
+        <record id="tcc_fam_transport_privado" model="tcc.family.services.transport">
+            <field name="name">Privado (Taxi)</field>
+            <field name="active" eval="True"/>
+        </record>
+        
+        <!-- Servicio de Comunicación de la familia -->
+        <record id="tcc_fam_media_television" model="tcc.family.services.media">
+            <field name="name">Televisión</field>
+            <field name="active" eval="True"/>
+        </record>
+        
+        <record id="tcc_fam_media_television" model="tcc.family.services.media">
+            <field name="name">Televisión</field>
+            <field name="active" eval="True"/>
+        </record>
+        
+        <record id="tcc_fam_media_prensa" model="tcc.family.services.media">
+            <field name="name">Prensa</field>
+            <field name="active" eval="True"/>
+        </record>
+        
+        <record id="tcc_fam_media_internet" model="tcc.family.services.media">
+            <field name="name">Internet</field>
+            <field name="active" eval="True"/>
+        </record>
+        
+        <record id="tcc_fam_media_comunitarios" model="tcc.family.services.media">
+            <field name="name">Medios de Comunicación Comunatarios</field>
+            <field name="active" eval="True"/>
+        </record>
+        
+        
+    </data>
+</odoo>

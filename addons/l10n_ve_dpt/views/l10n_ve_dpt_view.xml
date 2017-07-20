@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<odoo>
+        <record id="view_state_filter" model="ir.ui.view">
+            <field name="name">res.country.state.filter</field>
+            <field name="model">res.country.state</field>
+            <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="code"/>
+                <filter name="Venezuela" domain="[('country_id.name','=','Venezuela')]"/>
+            </search>
+            </field>
+        </record>
+
+        <record id="action_state" model="ir.actions.act_window">
+            <field name="name">State</field>
+            <field name="res_model">res.country.state</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{"search_default_Venezuela":1}</field>
+        </record>
+
+        <record id="view_municipality_form" model="ir.ui.view">
+            <field name="name">res.country.state.municipality.form</field>
+            <field name="model">res.country.state.municipality</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Municipality">
+                <group col="4" colspan="2">
+                    <field name="code" select="1"/>
+                    <field name="name" select="2"/>
+                    <field name="parish_id" select="3"/>
+                </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_municipality_tree" model="ir.ui.view">
+            <field name="name">res.country.state.municipality.tree</field>
+            <field name="model">res.country.state.municipality</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Municipality">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="state_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_municipality" model="ir.actions.act_window">
+            <field name="name">Municipality</field>
+            <field name="res_model">res.country.state.municipality</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <record id="view_parish_form" model="ir.ui.view">
+            <field name="name">res.country.state.municipality.parish.form</field>
+            <field name="model">res.country.state.municipality.parish</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Parish">
+                <group col="4" colspan="2">
+                    <field name="code" select="1"/>
+                    <field name="name" select="2"/>
+                    <field name="municipality_id" select="0"/>
+                </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_parish_tree" model="ir.ui.view">
+            <field name="name">res.country.state.municipality.parish.tree</field>
+            <field name="model">res.country.state.municipality.parish</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Parish">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="municipality_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_parish" model="ir.actions.act_window">
+            <field name="name">Parish</field>
+            <field name="res_model">res.country.state.municipality.parish</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Submenu for Venezuela Political Territorial Division -->
+        <menuitem id="main_menu_l10n_ve_ptd" name="PTD Venezuela"  parent="base.menu_administration"/>
+        <!-- Entrada de menu para el modelo de res.country.state -->
+        <menuitem id="item_states" name="States" parent="main_menu_l10n_ve_ptd" action="action_state"/>
+        <!-- Entrada de menu para el modelo de res.country.state.municipality -->
+        <menuitem id="item_municipalities" name="Municipalities" parent="main_menu_l10n_ve_ptd" action="action_municipality"/>
+        <!-- Entrada de menu para el modelo de res.country.state.municipality.parish -->
+        <menuitem id="item_parishes" name="Parishes" parent="main_menu_l10n_ve_ptd" action="action_parish"/>
+</odoo>

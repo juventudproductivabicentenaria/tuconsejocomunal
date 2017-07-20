@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_tcc_family_form" model="ir.ui.view">
+            <field name="name">tcc.family.form</field>
+            <field name="model">tcc.family</field>
+            <field name="arch" type="xml">
+                
+                <form string="Familia">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-check" groups="base.group_system,tcc_communal_council.tcc_group_consejo,tcc_communal_council.tcc_group_vocero">
+                                <field name="active" widget="boolean_button"  options='{"terminology": "active"}' />
+                            </button>
+                        </div>
+                        <group>
+                            <field name="communal_council_id" options='{"no_create": True}'/>
+                            <field name="name" attrs="{'invisible': [('name', '=', False)]}" />
+                            <field name="code_family" attrs="{'invisible': [('name', '=', False)]}" />
+                        </group>
+                        <group>
+                            <field name="arrival_date" /> 
+                        </group>
+                        
+                        <notebook>
+                            <page string="Grupo Familiar">
+                                <field name="person_ids" mode="tree"/> 
+                            </page>
+                            <page string="Situación Económica">
+                                <group col = "4">
+                                    <field name="family_income_id"/>
+                                    <field name="commercial_activity_hose"/>
+                                    <field name="commercial_activity_ids" widget="many2many_tags" attrs="{'invisible': [('commercial_activity_hose', '!=', 'Si')]}" />
+                                    
+                                </group>
+                            </page>
+                            <page string="Situación de Vivienda">
+                                <group col = "4">
+                                    <field name="type_dwelling"/>
+                                    <field name="tenancy"/>
+                                    <field name="terreno_propio"/>
+                                    <field name="type_walls_ids" widget="many2many_tags"/>
+                                    <field name="type_roof_ids" widget="many2many_tags"/>
+                                    <field name="equipment_dwelling_ids" widget="many2many_tags"/>
+                                    <field name="room_ids" widget="many2many_tags"/>
+                                    <field name="cant_room" />
+                                    <field name="salubrity_id" />
+                                    <field name="pests_dwelling_ids" widget="many2many_tags"/>
+                                    <field name="pets_ids" widget="many2many_tags"/>
+                                </group>
+                                <group col="4" attrs="{'invisible': [('type_dwelling', 'in', ('Casa','Quinta','Barraca','Habitacion','Other','Rancho',False))]}">
+                                    <field name="edifice_id" attrs="{'required': [('type_dwelling', '=', 'Apartamento')]}" options='{"no_create": True}' domain="[('communal_council_id','=',communal_council_id)]"/>
+                                    <field name="apartment" attrs="{'required': [('type_dwelling', '=', 'Apartamento')]}"/>
+                                    <field name="floor" attrs="{'required': [('type_dwelling', '=', 'Apartamento')]}" />
+                                </group>
+                                <group>
+                                    <field name="house_id" attrs="{'invisible': [('type_dwelling', 'in', ('Apartamento',False))],'required': [('type_dwelling', '!=', 'Apartamento')]}" options='{"no_create": True}' domain="[('communal_council_id','=',communal_council_id)]"/>
+                                </group>
+                            </page>
+                            <page string="Salud">
+                                <group col="4">
+                                    <field name="disease_ids" widget="many2many_tags"/>
+                                    <field name="need_help" />
+                                    <field name="name_help" attrs="{'invisible': [('need_help', 'in', ('No',False))]}" />
+                                </group>
+                                <separator string="Situación de Exclusión"/>
+                                <group col="4">
+                                    <field name="children_street" />
+                                    <field name="quantity_children_street" attrs="{'invisible': [('children_street', '=', False)]}"/>
+                                    <field name="indigent" />
+                                    <field name="quantity_indigent" attrs="{'invisible': [('indigent', '=', False)]}"/>
+                                    <field name="terminally_patient" />
+                                    <field name="quantity_terminally_patient" attrs="{'invisible': [('terminally_patient', '=', False)]}"/>
+                                    <field name="handicapped" />
+                                    <field name="quantity_handicapped" attrs="{'invisible': [('handicapped', '=', False)]}"/>
+                                </group>
+                            </page>
+                            <page string="Servicios">
+                                <group col="4">
+                                    <field name="water_white_ids" widget="many2many_tags"/>
+                                    <field name="water_meter"/>
+                                    <field name="wastewater_ids" widget="many2many_tags"/>
+                                    <field name="gas" />
+                                    <field name="electric_system" />
+                                    <field name="light_meter" attrs="{'invisible': ['|',('electric_system', 'in', ('no_posee',False))]}"/>
+                                    <field name="trash_ids" widget="many2many_tags"/>
+                                    <field name="telephony_ids" widget="many2many_tags"/>
+                                    <field name="transport_ids" widget="many2many_tags"/>
+                                    <field name="media_ids" widget="many2many_tags"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record id="view_tcc_family_tree" model="ir.ui.view">
+            <field name="name">tcc.family.tree</field>
+            <field name="model">tcc.family</field>
+            <field name="arch" type="xml">
+                <tree string="Family">
+                    <field name="name"/>
+                    <field name="code_family"/>
+                    <field name="arrival_date"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="action_view_tcc_family_form" model="ir.actions.act_window">
+            <field name="name">Familia</field>
+            <field name="res_model">tcc.family</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <menuitem id="tcc_family_menu" 
+            name="Familias" 
+            parent="tcc_communal_coincil_menutop" 
+            sequence="9"/>
+        
+        <menuitem id="tcc_family_action" 
+            parent="tcc_family_menu" 
+            action="action_view_tcc_family_form" 
+            name="Familia" 
+            sequence="5" />
+        
+    </data>
+</odoo>

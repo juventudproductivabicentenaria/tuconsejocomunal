@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <record id="tcc_group_consejo" model="res.groups">
+            <field name="name">Consejo Comunal</field>
+        </record>
+        <record id="tcc_group_vocero" model="res.groups">
+            <field name="name">Vocero</field>
+        </record>
+        <record id="tcc_group_residente" model="res.groups">
+            <field name="name">Residente del Consejo Comunal</field>
+        </record>
+    
+    </data>
+</odoo>
+

@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Profesiones u Oficios -->
+        <record id="tcc_persons_profession_ingeniero" model="tcc.persons.profession">
+            <field name="name">Ingeniero</field>
+            <field name="active" eval="True"/>
+        </record>
+    
+        <record id="tcc_persons_profession_licenciado" model="tcc.persons.profession">
+            <field name="name">Licenciado</field>
+            <field name="active" eval="True"/>
+        </record>
+    
+        <record id="tcc_persons_profession_arquitecto" model="tcc.persons.profession">
+            <field name="name">Arquitecto</field>
+            <field name="active" eval="True"/>
+        </record>
+    
+        <record id="tcc_persons_profession_astronomo" model="tcc.persons.profession">
+            <field name="name">Astrónomo</field>
+            <field name="active" eval="True"/>
+        </record>
+    
+        <record id="tcc_persons_profession_escritor" model="tcc.persons.profession">
+            <field name="name">Escritor</field>
+            <field name="active" eval="True"/>
+        </record>
+    
+        <record id="tcc_persons_profession_bombero" model="tcc.persons.profession">
+            <field name="name">Bombero</field>
+            <field name="active" eval="True"/>
+        </record>
+    
+        <record id="tcc_persons_profession_carnicero" model="tcc.persons.profession">
+            <field name="name">Carnicero</field>
+            <field name="active" eval="True"/>
+        </record>
+    
+        <record id="tcc_persons_profession_cirujano" model="tcc.persons.profession">
+            <field name="name">Cirujano</field>
+            <field name="active" eval="True"/>
+        </record>
+    
+        <record id="tcc_persons_profession_contador" model="tcc.persons.profession">
+            <field name="name">Contador</field>
+            <field name="active" eval="True"/>
+        </record>
+    
+        <record id="tcc_persons_profession_odontologo" model="tcc.persons.profession">
+            <field name="name">Odontologo</field>
+            <field name="active" eval="True"/>
+        </record>
+    
+        <record id="tcc_persons_profession_medico" model="tcc.persons.profession">
+            <field name="name">Médico</field>
+            <field name="active" eval="True"/>
+        </record>
+    
+        <record id="tcc_persons_profession_enfermera" model="tcc.persons.profession">
+            <field name="name">Enfermera</field>
+            <field name="active" eval="True"/>
+        </record>
+    
+        <record id="tcc_persons_profession_ama_casa" model="tcc.persons.profession">
+            <field name="name">Ama de Casa</field>
+            <field name="active" eval="True"/>
+        </record>
+    
+        <record id="tcc_persons_profession_albanil" model="tcc.persons.profession">
+            <field name="name">Albañil</field>
+            <field name="active" eval="True"/>
+        </record>
+    
+        <record id="tcc_persons_profession_plomero" model="tcc.persons.profession">
+            <field name="name">Plomero</field>
+            <field name="active" eval="True"/>
+        </record>
+    
+        <record id="tcc_persons_profession_mecanico" model="tcc.persons.profession">
+            <field name="name">Mecánico</field>
+            <field name="active" eval="True"/>
+        </record>
+    
+        <record id="tcc_persons_profession_panadero" model="tcc.persons.profession">
+            <field name="name">Panadero</field>
+            <field name="active" eval="True"/>
+        </record>
+    
+        <record id="tcc_persons_profession_piloto" model="tcc.persons.profession">
+            <field name="name">Piloto</field>
+            <field name="active" eval="True"/>
+        </record>
+    
+        <record id="tcc_persons_profession_mecanico" model="tcc.persons.profession">
+            <field name="name">Mecánico</field>
+            <field name="active" eval="True"/>
+        </record>
+    
+        <record id="tcc_persons_profession_siquiatra" model="tcc.persons.profession">
+            <field name="name">Squiatra</field>
+            <field name="active" eval="True"/>
+        </record>
+    
+        <record id="tcc_persons_profession_profesor" model="tcc.persons.profession">
+            <field name="name">Profesor</field>
+            <field name="active" eval="True"/>
+        </record>
+    
+        <record id="tcc_persons_profession_chofer" model="tcc.persons.profession">
+            <field name="name">Chofer</field>
+            <field name="active" eval="True"/>
+        </record>
+    
+        <record id="tcc_persons_profession_herrero" model="tcc.persons.profession">
+            <field name="name">Herrero</field>
+            <field name="active" eval="True"/>
+        </record>
+    
+        <record id="tcc_persons_profession_periodista" model="tcc.persons.profession">
+            <field name="name">Periodista</field>
+            <field name="active" eval="True"/>
+        </record>
+    
+        <record id="tcc_persons_profession_pescador" model="tcc.persons.profession">
+            <field name="name">Pescador</field>
+            <field name="active" eval="True"/>
+        </record>
+    
+        <record id="tcc_persons_profession_politico" model="tcc.persons.profession">
+            <field name="name">Político</field>
+            <field name="active" eval="True"/>
+        </record>
+    
+        <record id="tcc_persons_profession_recepcionista" model="tcc.persons.profession">
+            <field name="name">Recepcionista</field>
+            <field name="active" eval="True"/>
+        </record>
+    
+        <record id="tcc_persons_profession_salvavidas" model="tcc.persons.profession">
+            <field name="name">Salvavidas</field>
+            <field name="active" eval="True"/>
+        </record>
+    
+        <record id="tcc_persons_profession_sastre" model="tcc.persons.profession">
+            <field name="name">Sastre</field>
+            <field name="active" eval="True"/>
+        </record>
+    
+        <record id="tcc_persons_profession_costurero" model="tcc.persons.profession">
+            <field name="name">Costurero</field>
+            <field name="active" eval="True"/>
+        </record>
+    
+        <record id="tcc_persons_profession_secretario" model="tcc.persons.profession">
+            <field name="name">Secretario</field>
+            <field name="active" eval="True"/>
+        </record>
+    
+        <record id="tcc_persons_profession_soldado" model="tcc.persons.profession">
+            <field name="name">Soldado</field>
+            <field name="active" eval="True"/>
+        </record>
+    
+        <record id="tcc_persons_profession_vendedor" model="tcc.persons.profession">
+            <field name="name">Vendedor</field>
+            <field name="active" eval="True"/>
+        </record>
+    
+        <record id="tcc_persons_profession_veterinario" model="tcc.persons.profession">
+            <field name="name">Veterinario</field>
+            <field name="active" eval="True"/>
+        </record>
+    
+        <record id="tcc_persons_profession_abogado" model="tcc.persons.profession">
+            <field name="name">Abogado</field>
+            <field name="active" eval="True"/>
+        </record>
+        
+        <!-- Parentescos Familiares -->
+        <record id="tcc_persons_kinship_padre" model="tcc.persons.kinship">
+            <field name="name">Padre</field>
+            <field name="active" eval="True"/>
+        </record>
+        
+        <record id="tcc_persons_kinship_madre" model="tcc.persons.kinship">
+            <field name="name">Madre</field>
+            <field name="active" eval="True"/>
+        </record>
+        
+        <record id="tcc_persons_kinship_esposo" model="tcc.persons.kinship">
+            <field name="name">Esposo</field>
+            <field name="active" eval="True"/>
+        </record>
+        
+        <record id="tcc_persons_kinship_esposa" model="tcc.persons.kinship">
+            <field name="name">Esposa</field>
+            <field name="active" eval="True"/>
+        </record>
+        
+        <record id="tcc_persons_kinship_hijo" model="tcc.persons.kinship">
+            <field name="name">Hijo/a</field>
+            <field name="active" eval="True"/>
+        </record>
+        
+        <record id="tcc_persons_kinship_abuelo" model="tcc.persons.kinship">
+            <field name="name">Abuelo/a</field>
+            <field name="active" eval="True"/>
+        </record>
+        
+        <record id="tcc_persons_kinship_hermano" model="tcc.persons.kinship">
+            <field name="name">Hermano/a</field>
+            <field name="active" eval="True"/>
+        </record>
+        
+        <record id="tcc_persons_kinship_suegro" model="tcc.persons.kinship">
+            <field name="name">Suegro/a</field>
+            <field name="active" eval="True"/>
+        </record>
+        
+        <record id="tcc_persons_kinship_yerno" model="tcc.persons.kinship">
+            <field name="name">Yerno/Nuera</field>
+            <field name="active" eval="True"/>
+        </record>
+        
+        <record id="tcc_persons_kinship_nieto" model="tcc.persons.kinship">
+            <field name="name">Nieto/a</field>
+            <field name="active" eval="True"/>
+        </record>
+        
+        <record id="tcc_persons_kinship_cunado" model="tcc.persons.kinship">
+            <field name="name">Cuñado/a</field>
+            <field name="active" eval="True"/>
+        </record>
+        
+        <record id="tcc_persons_kinship_tio" model="tcc.persons.kinship">
+            <field name="name">Tío/a</field>
+            <field name="active" eval="True"/>
+        </record>
+        
+        <record id="tcc_persons_kinship_sobrino" model="tcc.persons.kinship">
+            <field name="name">Sobrino/a</field>
+            <field name="active" eval="True"/>
+        </record>
+        
+        <record id="tcc_persons_kinship_bisabuelo" model="tcc.persons.kinship">
+            <field name="name">Bisabulo/a</field>
+            <field name="active" eval="True"/>
+        </record>
+        
+        <record id="tcc_persons_kinship_tatarabuelo" model="tcc.persons.kinship">
+            <field name="name">Tatarabuelo/a</field>
+            <field name="active" eval="True"/>
+        </record>
+        
+        <record id="tcc_persons_kinship_biznieto" model="tcc.persons.kinship">
+            <field name="name">Bisnieto/a</field>
+            <field name="active" eval="True"/>
+        </record>
+        
+        <record id="tcc_persons_kinship_primo" model="tcc.persons.kinship">
+            <field name="name">Primo/a</field>
+            <field name="active" eval="True"/>
+        </record>
+        
+    </data>
+</odoo>

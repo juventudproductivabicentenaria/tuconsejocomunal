@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_tcc_persons_form" model="ir.ui.view">
+            <field name="name">tcc.persons.form</field>
+            <field name="model">tcc.persons</field>
+            <field name="arch" type="xml">
+                <form string="Persona">
+                    <header>
+                        <button name="changue_rol_vocero_to_persons" 
+                                string="Ya No es vocero" 
+                                type="object" 
+                                class="btn-primary" 
+                                attrs="{'invisible': ['|',('is_vocero', '=', False),('id','=',False)]}"
+                                groups="base.group_system,tcc_communal_council.tcc_group_consejo" 
+                                />
+                        <button name="changue_rol_person_to_vocero" 
+                                string="Pasar a vocero" 
+                                type="object" 
+                                class="btn-primary" 
+                                attrs="{'invisible': ['|',('is_vocero', '=', True),('id','=',False)]}"
+                                groups="base.group_system,tcc_communal_council.tcc_group_consejo"  />
+                        <button string="Enviar encuesta "
+                                type="object"
+                                name= "send_survey"
+                                class="btn-primary"
+                                attrs="{'invisible': ['|',('survey_default', '=', True),('id','=',False)]}" 
+                                groups="base.group_system,tcc_communal_council.tcc_group_consejo,tcc_communal_council.tcc_group_vocero"
+                                />
+                        <button string="Encuestar"
+                                type="object"
+                                name= "action_start_survey"
+                                class="btn-primary"
+                                attrs="{'invisible': ['|',('survey_default', '=', True),('id','=',False)]}" 
+                                groups="base.group_system,tcc_communal_council.tcc_group_consejo,tcc_communal_council.tcc_group_vocero"
+                                />
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box" groups="base.group_system">
+                            <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-check">
+                                <field name="active" widget="boolean_button" options='{"terminology": "active"}' />
+                            </button>
+                        </div>
+                        <group>
+                            <field name="survey_default" invisible="True"/>
+                            <field name="id" invisible="True"/>
+                            <field name="communal_council_id" options='{"no_create": "True"}' />
+                            <field name="is_vocero" readonly="context.get('read_users')"/>
+                            <field name="is_family_boss" readonly="context.get('read_users')"/>
+                            <field name="login" readonly="context.get('read_users')"/>
+                            <field name="name" invisible="True"/>
+                        </group>
+                        <group col="4">
+                            <field widget="mask_regex" data-inputmask-regex="[VE]-[0-9]{7,8}"  name="cedula" placeholder="V-12345678" attrs="{'required': ['|',('is_family_boss', '=', True),('is_vocero', '=', True)]}" readonly="context.get('read_users')"/>
+                            <field name="nationality" readonly="context.get('read_users')"/>
+                            <field name="first_name" readonly="context.get('read_users')"/>
+                            <field name="second_name" readonly="context.get('read_users')"/>
+                            <field name="first_surname" readonly="context.get('read_users')"/>
+                            <field name="second_surname" readonly="context.get('read_users')"/>
+                            <field name="birthdate" readonly="context.get('read_users')"/>
+                            <field name="age" readonly="context.get('read_users')"/>
+                            <field name="civil_status" readonly="context.get('read_users')"/>
+                            <field name="gender" readonly="context.get('read_users')"/>
+                            <field name="level_instruccion" readonly="context.get('read_users')"/>
+                            <field name="have_work" readonly="context.get('read_users')"/>
+                            <field name="type_family_income" attrs="{'required': [('have_work', '=', 'Si')]}" readonly="context.get('read_users')" />
+                            <field name="profession_id" readonly="context.get('read_users')" />
+                            <field name="monthly_income" readonly="context.get('read_users')" />
+                            
+                            <field name="bank_account" readonly="context.get('read_users')" />
+                            <field name="credit_card" readonly="context.get('read_users')" />
+                            <field name="cesta_ticket" readonly="context.get('read_users')" />
+                            <field name="registered_cne" readonly="context.get('read_users')" />
+                            <field name="workplace" readonly="context.get('read_users')" />
+                            <field name="kinship_id" attrs="{'invisible': [('is_family_boss', '=', True)], 'required': [('is_family_boss', '=', False)]}" readonly="context.get('read_users')" />
+                            <field name="name_workplace" attrs="{'invisible': [('workplace', '!=', 'other')]}" readonly="context.get('read_users')" />
+                            
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        
+        <record id="view_tcc_persons_tree" model="ir.ui.view">
+            <field name="name">tcc.persons.tree</field>
+            <field name="model">tcc.persons</field>
+            <field name="arch" type="xml">
+                <tree string="Personas">
+                    <field name="name"/>
+                    <field name="gender"/>
+                    <field name="age"/>
+                    <field name="level_instruccion"/>
+                    <field name="profession_id"/>
+                </tree>
+            </field>
+        </record>
+        
+        
+        <record id="tcc_action_persons_vocero" model="ir.actions.act_window">
+            <field eval="10" name="sequence"/>
+            <field name="name">Voceros</field>
+            <field name="res_model">tcc.persons</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tcc_persons_form"/>
+        </record>
+        
+        <record id="tcc_action_persons_vocero_from2" model="ir.actions.act_window">
+            <field eval="10" name="sequence"/>
+            <field name="name">Voceros</field>
+            <field name="res_model">tcc.persons</field>
+            <field name="view_type">form</field>
+            <field name="act_window_id" ref="tcc_action_persons_vocero"/>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('is_vocero','=',True)]</field>
+            <field name="context">{'read_users': True}</field>
+        </record>
+        
+        <record id="tcc_action_persons_residente_from" model="ir.actions.act_window">
+            <field eval="10" name="sequence"/>
+            <field name="name">Voceros</field>
+            <field name="res_model">tcc.persons</field>
+            <field name="view_type">form</field>
+            <field name="act_window_id" ref="tcc_action_persons_vocero"/>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('is_persona','=',True)]</field>
+            <field name="context">{'read_users': True}</field>
+        </record>
+        
+        
+        
+        <menuitem id="tcc_persons_usuarios" 
+            name="Lista de Usuarios" 
+            parent="tcc_communal_coincil_menutop" 
+            sequence="10"/>
+        
+            
+        <menuitem id="tcc_persons_action_voveros2" 
+            parent="tcc_persons_usuarios" 
+            action="tcc_action_persons_vocero_from2" 
+            name="Voceros" 
+            sequence="5" />
+        
+        <menuitem id="tcc_persons_action_residentes" 
+            parent="tcc_persons_usuarios" 
+            action="tcc_action_persons_residente_from" 
+            name="Residentes" 
+            sequence="10" />
+        
+    </data>
+</odoo>
