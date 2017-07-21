@@ -2,7 +2,7 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 {
     'name' : 'Consejo Comunal',
-    'author' : 'A.C. JUVENTUD PRODUCTIVA VENEZOLANA R.S.',
+    'author' : 'A.C. JUVENTUD PRODUCTIVA VENEZOLANA R.S., UNEFA y Fundación ATTA',
     'version' : '1.1',
     'summary': 'Registro de la estructura de los consejo comunal',
     'sequence': 10,
