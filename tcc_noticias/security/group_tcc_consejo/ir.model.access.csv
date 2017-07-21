@@ -1,3 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_tcc_noticias_tcc_noticias_group_tcc_consejo,tcc.noticias,tcc_noticias.model_tcc_noticias,tcc_noticias.group_tcc_consejo,1,1,1,0
-access_tcc_noticias_tcc_noticias_group_tcc_consejo,tcc.noticias_categoria,tcc_noticias.model_tcc_noticias_categoria,tcc_noticias.group_tcc_consejo,1,0,0,0

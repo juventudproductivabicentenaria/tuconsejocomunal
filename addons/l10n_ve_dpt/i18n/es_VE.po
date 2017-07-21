@@ -1,0 +1,142 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_ve_dpt
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-10-01 02:55+0000\n"
+"PO-Revision-Date: 2015-09-30 22:53-0400\n"
+"Last-Translator: Francisco Palm <francisco.palm@sani.org.ve>\n"
+"Language-Team: Coop Saní <info@sani.org.ve>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"Language: es_VE\n"
+
+#. module: l10n_ve_dpt
+#: field:res.country.state.municipality,code:0
+msgid "Code"
+msgstr "Código"
+
+#. module: l10n_ve_dpt
+#: field:res.country.state.municipality,create_uid:0
+#: field:res.country.state.municipality.parish,create_uid:0
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: l10n_ve_dpt
+#: field:res.country.state.municipality,create_date:0
+#: field:res.country.state.municipality.parish,create_date:0
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: l10n_ve_dpt
+#: field:res.country.state.municipality,id:0
+#: field:res.country.state.municipality.parish,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: l10n_ve_dpt
+#: field:res.country.state.municipality,write_uid:0
+#: field:res.country.state.municipality.parish,write_uid:0
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: l10n_ve_dpt
+#: field:res.country.state.municipality,write_date:0
+#: field:res.country.state.municipality.parish,write_date:0
+msgid "Last Updated on"
+msgstr "Última actualización en"
+
+#. module: l10n_ve_dpt
+#: model:ir.ui.menu,name:l10n_ve_dpt.item_municipalities
+msgid "Municipalities"
+msgstr "Municipios"
+
+#. module: l10n_ve_dpt
+#: model:ir.actions.act_window,name:l10n_ve_dpt.action_municipality
+#: view:res.country.state.municipality:l10n_ve_dpt.view_municipality_form
+#: view:res.country.state.municipality:l10n_ve_dpt.view_municipality_tree
+#: field:res.country.state.municipality,name:0
+#: field:res.country.state.municipality.parish,municipality_id:0
+msgid "Municipality"
+msgstr "Municipio"
+
+#. module: l10n_ve_dpt
+#: help:res.country.state.municipality,code:0
+msgid "Municipality code in max. three chars."
+msgstr "Código del municipio en 3 caractéres máximo"
+
+#. module: l10n_ve_dpt
+#: help:res.country.state.municipality,name:0
+msgid "Municipality name"
+msgstr "Nombre del municipio"
+
+#. module: l10n_ve_dpt
+#: model:ir.model,name:l10n_ve_dpt.model_res_country_state_municipality_parish
+msgid "Municipality parishes"
+msgstr "Parroquias por municipio"
+
+#. module: l10n_ve_dpt
+#: field:res.country.state.municipality.parish,code:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: l10n_ve_dpt
+#: help:res.country.state.municipality.parish,municipality_id:0
+msgid "Name of the Municipality to which the parish belongs"
+msgstr "Nombre del Municipio al que pertenece la parroquia"
+
+#. module: l10n_ve_dpt
+#: help:res.country.state.municipality,state_id:0
+msgid "Name of the State to which the municipality belongs"
+msgstr "Nombre del Estado al que pertenece el municipio"
+
+#. module: l10n_ve_dpt
+#: model:ir.ui.menu,name:l10n_ve_dpt.main_menu_l10n_ve_ptd
+msgid "PTD Venezuela"
+msgstr "Venezuela DPT"
+
+#. module: l10n_ve_dpt
+#: model:ir.actions.act_window,name:l10n_ve_dpt.action_parish
+#: view:res.country.state.municipality.parish:l10n_ve_dpt.view_parish_form
+#: view:res.country.state.municipality.parish:l10n_ve_dpt.view_parish_tree
+#: field:res.country.state.municipality.parish,name:0
+msgid "Parish"
+msgstr "Parroquia"
+
+#. module: l10n_ve_dpt
+#: help:res.country.state.municipality.parish,code:0
+msgid "Parish Code in max. three chars."
+msgstr "Código de la parroquia en 3 caractéres máximo"
+
+#. module: l10n_ve_dpt
+#: help:res.country.state.municipality.parish,name:0
+msgid "Parish name"
+msgstr "Nombre de la parroquia"
+
+#. module: l10n_ve_dpt
+#: model:ir.ui.menu,name:l10n_ve_dpt.item_parishes
+msgid "Parishes"
+msgstr "Parroquias"
+
+#. module: l10n_ve_dpt
+#: model:ir.actions.act_window,name:l10n_ve_dpt.action_state
+#: view:res.country.state:l10n_ve_dpt.view_state_form
+#: view:res.country.state:l10n_ve_dpt.view_state_tree
+#: field:res.country.state.municipality,state_id:0
+msgid "State"
+msgstr "Estado"
+
+#. module: l10n_ve_dpt
+#: model:ir.model,name:l10n_ve_dpt.model_res_country_state_municipality
+msgid "State municipalities"
+msgstr "Municipios por estado"
+
+#. module: l10n_ve_dpt
+#: model:ir.ui.menu,name:l10n_ve_dpt.item_states
+msgid "States"
+msgstr "Estados"

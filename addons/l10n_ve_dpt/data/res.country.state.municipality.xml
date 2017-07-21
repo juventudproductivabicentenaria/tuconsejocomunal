@@ -1,0 +1,2017 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data noupdate="0">
+	  
+	<!-- Municipios -->
+	<record id="mun_ve_AMA_ATA" model="res.country.state.municipality">
+		<field name="code">ATA</field>
+		<field name="name">Autónomo Atabapo</field>
+		<field name="state_id" ref="est_ve_AMA"/>
+	</record>
+
+	<record id="mun_ve_AMA_ATU" model="res.country.state.municipality">
+		<field name="code">ATU</field>
+		<field name="name">Autónomo Atures</field>
+		<field name="state_id" ref="est_ve_AMA"/>
+	</record>
+
+	<record id="mun_ve_AMA_AUT" model="res.country.state.municipality">
+		<field name="code">AUT</field>
+		<field name="name">Autónomo Autana</field>
+		<field name="state_id" ref="est_ve_AMA"/>
+	</record>
+
+	<record id="mun_ve_AMA_MAR" model="res.country.state.municipality">
+		<field name="code">MAR</field>
+		<field name="name">Autónomo Maroa</field>
+		<field name="state_id" ref="est_ve_AMA"/>
+	</record>
+
+	<record id="mun_ve_AMA_MAN" model="res.country.state.municipality">
+		<field name="code">MAN</field>
+		<field name="name">Autónomo Manapiare</field>
+		<field name="state_id" ref="est_ve_AMA"/>
+	</record>
+
+	<record id="mun_ve_AMA_RIO" model="res.country.state.municipality">
+		<field name="code">RIO</field>
+		<field name="name">Autónomo Río Negro</field>
+		<field name="state_id" ref="est_ve_AMA"/>
+	</record>
+
+	<record id="mun_ve_AMA_AOR" model="res.country.state.municipality">
+		<field name="code">AOR</field>
+		<field name="name">Alto Orinoco</field>
+		<field name="state_id" ref="est_ve_AMA"/>
+	</record>
+
+	<record id="mun_ve_ANZ_ANA" model="res.country.state.municipality">
+		<field name="code">ANA</field>
+		<field name="name">Anaco</field>
+		<field name="state_id" ref="est_ve_ANZ"/>
+	</record>
+
+	<record id="mun_ve_ANZ_ARA" model="res.country.state.municipality">
+		<field name="code">ARA</field>
+		<field name="name">Aragua</field>
+		<field name="state_id" ref="est_ve_ANZ"/>
+	</record>
+
+	<record id="mun_ve_ANZ_FER" model="res.country.state.municipality">
+		<field name="code">FER</field>
+		<field name="name">Fernando De Peñalver</field>
+		<field name="state_id" ref="est_ve_ANZ"/>
+	</record>
+
+	<record id="mun_ve_ANZ_FCC" model="res.country.state.municipality">
+		<field name="code">FCC</field>
+		<field name="name">Francisco Del Carmen Carvajal</field>
+		<field name="state_id" ref="est_ve_ANZ"/>
+	</record>
+
+	<record id="mun_ve_ANZ_FMI" model="res.country.state.municipality">
+		<field name="code">FMI</field>
+		<field name="name">Francisco De Miranda</field>
+		<field name="state_id" ref="est_ve_ANZ"/>
+	</record>
+
+	<record id="mun_ve_ANZ_GUA" model="res.country.state.municipality">
+		<field name="code">GUA</field>
+		<field name="name">Guanta</field>
+		<field name="state_id" ref="est_ve_ANZ"/>
+	</record>
+
+	<record id="mun_ve_ANZ_IND" model="res.country.state.municipality">
+		<field name="code">IND</field>
+		<field name="name">Independencia</field>
+		<field name="state_id" ref="est_ve_ANZ"/>
+	</record>
+
+	<record id="mun_ve_ANZ_JAS" model="res.country.state.municipality">
+		<field name="code">JAS</field>
+		<field name="name">Juan Antonio Sotillo</field>
+		<field name="state_id" ref="est_ve_ANZ"/>
+	</record>
+
+	<record id="mun_ve_ANZ_JMC" model="res.country.state.municipality">
+		<field name="code">JMC</field>
+		<field name="name">Juan Manuel Cajigal</field>
+		<field name="state_id" ref="est_ve_ANZ"/>
+	</record>
+
+	<record id="mun_ve_ANZ_JGM" model="res.country.state.municipality">
+		<field name="code">JGM</field>
+		<field name="name">José Gregorio Monagas</field>
+		<field name="state_id" ref="est_ve_ANZ"/>
+	</record>
+
+	<record id="mun_ve_ANZ_LIB" model="res.country.state.municipality">
+		<field name="code">LIB</field>
+		<field name="name">Libertad</field>
+		<field name="state_id" ref="est_ve_ANZ"/>
+	</record>
+
+	<record id="mun_ve_ANZ_MEB" model="res.country.state.municipality">
+		<field name="code">MEB</field>
+		<field name="name">Manuel Ezequiel Bruzual</field>
+		<field name="state_id" ref="est_ve_ANZ"/>
+	</record>
+
+	<record id="mun_ve_ANZ_PMF" model="res.country.state.municipality">
+		<field name="code">PMF</field>
+		<field name="name">Pedro María Freites</field>
+		<field name="state_id" ref="est_ve_ANZ"/>
+	</record>
+
+	<record id="mun_ve_ANZ_PIR" model="res.country.state.municipality">
+		<field name="code">PIR</field>
+		<field name="name">Píritu</field>
+		<field name="state_id" ref="est_ve_ANZ"/>
+	</record>
+
+	<record id="mun_ve_ANZ_SJG" model="res.country.state.municipality">
+		<field name="code">SJG</field>
+		<field name="name">San José De Guanipa</field>
+		<field name="state_id" ref="est_ve_ANZ"/>
+	</record>
+
+	<record id="mun_ve_ANZ_SJC" model="res.country.state.municipality">
+		<field name="code">SJC</field>
+		<field name="name">San Juan De Capistrano</field>
+		<field name="state_id" ref="est_ve_ANZ"/>
+	</record>
+
+	<record id="mun_ve_ANZ_STA" model="res.country.state.municipality">
+		<field name="code">STA</field>
+		<field name="name">Santa Ana</field>
+		<field name="state_id" ref="est_ve_ANZ"/>
+	</record>
+
+	<record id="mun_ve_ANZ_SBO" model="res.country.state.municipality">
+		<field name="code">SBO</field>
+		<field name="name">Simón Bolívar</field>
+		<field name="state_id" ref="est_ve_ANZ"/>
+	</record>
+
+	<record id="mun_ve_ANZ_SRO" model="res.country.state.municipality">
+		<field name="code">SRO</field>
+		<field name="name">Simón Rodríguez</field>
+		<field name="state_id" ref="est_ve_ANZ"/>
+	</record>
+
+	<record id="mun_ve_ANZ_SAM" model="res.country.state.municipality">
+		<field name="code">SAM</field>
+		<field name="name">Sir Arthur Mc Gregor</field>
+		<field name="state_id" ref="est_ve_ANZ"/>
+	</record>
+
+	<record id="mun_ve_ANZ_DBU" model="res.country.state.municipality">
+		<field name="code">DBU</field>
+		<field name="name">Diego Bautista Urbaneja</field>
+		<field name="state_id" ref="est_ve_ANZ"/>
+	</record>
+
+	<record id="mun_ve_APU_ACH" model="res.country.state.municipality">
+		<field name="code">ACH</field>
+		<field name="name">Achaguas</field>
+		<field name="state_id" ref="est_ve_APU"/>
+	</record>
+
+	<record id="mun_ve_APU_BIR" model="res.country.state.municipality">
+		<field name="code">BIR</field>
+		<field name="name">Biruaca</field>
+		<field name="state_id" ref="est_ve_APU"/>
+	</record>
+
+	<record id="mun_ve_APU_MUN" model="res.country.state.municipality">
+		<field name="code">MUN</field>
+		<field name="name">Muñoz</field>
+		<field name="state_id" ref="est_ve_APU"/>
+	</record>
+
+	<record id="mun_ve_APU_PAE" model="res.country.state.municipality">
+		<field name="code">PAE</field>
+		<field name="name">Páez</field>
+		<field name="state_id" ref="est_ve_APU"/>
+	</record>
+
+	<record id="mun_ve_APU_PCA" model="res.country.state.municipality">
+		<field name="code">PCA</field>
+		<field name="name">Pedro Camejo</field>
+		<field name="state_id" ref="est_ve_APU"/>
+	</record>
+
+	<record id="mun_ve_APU_RGA" model="res.country.state.municipality">
+		<field name="code">RGA</field>
+		<field name="name">Rómulo Gallegos</field>
+		<field name="state_id" ref="est_ve_APU"/>
+	</record>
+
+	<record id="mun_ve_APU_SFE" model="res.country.state.municipality">
+		<field name="code">SFE</field>
+		<field name="name">San Fernando</field>
+		<field name="state_id" ref="est_ve_APU"/>
+	</record>
+
+	<record id="mun_ve_ARA_BOL" model="res.country.state.municipality">
+		<field name="code">BOL</field>
+		<field name="name">Bolívar</field>
+		<field name="state_id" ref="est_ve_ARA"/>
+	</record>
+
+	<record id="mun_ve_ARA_CAM" model="res.country.state.municipality">
+		<field name="code">CAM</field>
+		<field name="name">Camatagua</field>
+		<field name="state_id" ref="est_ve_ARA"/>
+	</record>
+
+	<record id="mun_ve_ARA_GIR" model="res.country.state.municipality">
+		<field name="code">GIR</field>
+		<field name="name">Girardot</field>
+		<field name="state_id" ref="est_ve_ARA"/>
+	</record>
+
+	<record id="mun_ve_ARA_JAL" model="res.country.state.municipality">
+		<field name="code">JAL</field>
+		<field name="name">José Angel Lamas</field>
+		<field name="state_id" ref="est_ve_ARA"/>
+	</record>
+
+	<record id="mun_ve_ARA_JFR" model="res.country.state.municipality">
+		<field name="code">JFR</field>
+		<field name="name">José Félix Ribas</field>
+		<field name="state_id" ref="est_ve_ARA"/>
+	</record>
+
+	<record id="mun_ve_ARA_JRR" model="res.country.state.municipality">
+		<field name="code">JRR</field>
+		<field name="name">José Rafael Revenga</field>
+		<field name="state_id" ref="est_ve_ARA"/>
+	</record>
+
+	<record id="mun_ve_ARA_LIB" model="res.country.state.municipality">
+		<field name="code">LIB</field>
+		<field name="name">Libertador</field>
+		<field name="state_id" ref="est_ve_ARA"/>
+	</record>
+
+	<record id="mun_ve_ARA_MBI" model="res.country.state.municipality">
+		<field name="code">MBI</field>
+		<field name="name">Mario Briceño Iragorry</field>
+		<field name="state_id" ref="est_ve_ARA"/>
+	</record>
+
+	<record id="mun_ve_ARA_SCA" model="res.country.state.municipality">
+		<field name="code">SCA</field>
+		<field name="name">San Casimiro</field>
+		<field name="state_id" ref="est_ve_ARA"/>
+	</record>
+
+	<record id="mun_ve_ARA_SSE" model="res.country.state.municipality">
+		<field name="code">SSE</field>
+		<field name="name">San Sebastián</field>
+		<field name="state_id" ref="est_ve_ARA"/>
+	</record>
+
+	<record id="mun_ve_ARA_SMA" model="res.country.state.municipality">
+		<field name="code">SMA</field>
+		<field name="name">Santiago Mariño</field>
+		<field name="state_id" ref="est_ve_ARA"/>
+	</record>
+
+	<record id="mun_ve_ARA_SMI" model="res.country.state.municipality">
+		<field name="code">SMI</field>
+		<field name="name">Santos Michelena</field>
+		<field name="state_id" ref="est_ve_ARA"/>
+	</record>
+
+	<record id="mun_ve_ARA_SUC" model="res.country.state.municipality">
+		<field name="code">SUC</field>
+		<field name="name">Sucre</field>
+		<field name="state_id" ref="est_ve_ARA"/>
+	</record>
+
+	<record id="mun_ve_ARA_TOV" model="res.country.state.municipality">
+		<field name="code">TOV</field>
+		<field name="name">Tovar</field>
+		<field name="state_id" ref="est_ve_ARA"/>
+	</record>
+
+	<record id="mun_ve_ARA_URD" model="res.country.state.municipality">
+		<field name="code">URD</field>
+		<field name="name">Urdaneta</field>
+		<field name="state_id" ref="est_ve_ARA"/>
+	</record>
+
+	<record id="mun_ve_ARA_ZAM" model="res.country.state.municipality">
+		<field name="code">ZAM</field>
+		<field name="name">Zamora</field>
+		<field name="state_id" ref="est_ve_ARA"/>
+	</record>
+
+	<record id="mun_ve_ARA_FLA" model="res.country.state.municipality">
+		<field name="code">FLA</field>
+		<field name="name">Francisco Linares Alcántara</field>
+		<field name="state_id" ref="est_ve_ARA"/>
+	</record>
+
+	<record id="mun_ve_ARA_OCU" model="res.country.state.municipality">
+		<field name="code">OCU</field>
+		<field name="name">Ocumare De La Costa De Oro</field>
+		<field name="state_id" ref="est_ve_ARA"/>
+	</record>
+
+	<record id="mun_ve_BAR_AAT" model="res.country.state.municipality">
+		<field name="code">AAT</field>
+		<field name="name">Alberto Arvelo Torrealba</field>
+		<field name="state_id" ref="est_ve_BAR"/>
+	</record>
+
+	<record id="mun_ve_BAR_AJS" model="res.country.state.municipality">
+		<field name="code">AJS</field>
+		<field name="name">Antonio José De Sucre</field>
+		<field name="state_id" ref="est_ve_BAR"/>
+	</record>
+
+	<record id="mun_ve_BAR_ARI" model="res.country.state.municipality">
+		<field name="code">ARI</field>
+		<field name="name">Arismendi</field>
+		<field name="state_id" ref="est_ve_BAR"/>
+	</record>
+
+	<record id="mun_ve_BAR_BAR" model="res.country.state.municipality">
+		<field name="code">BAR</field>
+		<field name="name">Barinas</field>
+		<field name="state_id" ref="est_ve_BAR"/>
+	</record>
+
+	<record id="mun_ve_BAR_BOL" model="res.country.state.municipality">
+		<field name="code">BOL</field>
+		<field name="name">Bolívar</field>
+		<field name="state_id" ref="est_ve_BAR"/>
+	</record>
+
+	<record id="mun_ve_BAR_CPA" model="res.country.state.municipality">
+		<field name="code">CPA</field>
+		<field name="name">Cruz Paredes</field>
+		<field name="state_id" ref="est_ve_BAR"/>
+	</record>
+
+	<record id="mun_ve_BAR_EZM" model="res.country.state.municipality">
+		<field name="code">EZM</field>
+		<field name="name">Ezequiel Zamora</field>
+		<field name="state_id" ref="est_ve_BAR"/>
+	</record>
+
+	<record id="mun_ve_BAR_OBI" model="res.country.state.municipality">
+		<field name="code">OBI</field>
+		<field name="name">Obispos</field>
+		<field name="state_id" ref="est_ve_BAR"/>
+	</record>
+
+	<record id="mun_ve_BAR_PED" model="res.country.state.municipality">
+		<field name="code">PED</field>
+		<field name="name">Pedraza</field>
+		<field name="state_id" ref="est_ve_BAR"/>
+	</record>
+
+	<record id="mun_ve_BAR_ROJ" model="res.country.state.municipality">
+		<field name="code">ROJ</field>
+		<field name="name">Rojas</field>
+		<field name="state_id" ref="est_ve_BAR"/>
+	</record>
+
+	<record id="mun_ve_BAR_SOS" model="res.country.state.municipality">
+		<field name="code">SOS</field>
+		<field name="name">Sosa</field>
+		<field name="state_id" ref="est_ve_BAR"/>
+	</record>
+
+	<record id="mun_ve_BAR_AEB" model="res.country.state.municipality">
+		<field name="code">AEB</field>
+		<field name="name">Andrés Eloy Blanco</field>
+		<field name="state_id" ref="est_ve_BAR"/>
+	</record>
+
+	<record id="mun_ve_BOL_CAR" model="res.country.state.municipality">
+		<field name="code">CAR</field>
+		<field name="name">Caroní</field>
+		<field name="state_id" ref="est_ve_BOL"/>
+	</record>
+
+	<record id="mun_ve_BOL_CED" model="res.country.state.municipality">
+		<field name="code">CED</field>
+		<field name="name">Cedeño</field>
+		<field name="state_id" ref="est_ve_BOL"/>
+	</record>
+
+	<record id="mun_ve_BOL_ECA" model="res.country.state.municipality">
+		<field name="code">ECA</field>
+		<field name="name">El Callao</field>
+		<field name="state_id" ref="est_ve_BOL"/>
+	</record>
+
+	<record id="mun_ve_BOL_GSA" model="res.country.state.municipality">
+		<field name="code">GSA</field>
+		<field name="name">Gran Sabana</field>
+		<field name="state_id" ref="est_ve_BOL"/>
+	</record>
+
+	<record id="mun_ve_BOL_HER" model="res.country.state.municipality">
+		<field name="code">HER</field>
+		<field name="name">Heres</field>
+		<field name="state_id" ref="est_ve_BOL"/>
+	</record>
+
+	<record id="mun_ve_BOL_PIA" model="res.country.state.municipality">
+		<field name="code">PIA</field>
+		<field name="name">Piar</field>
+		<field name="state_id" ref="est_ve_BOL"/>
+	</record>
+
+	<record id="mun_ve_BOL_ANG" model="res.country.state.municipality">
+		<field name="code">ANG</field>
+		<field name="name">Angostura</field>
+		<field name="state_id" ref="est_ve_BOL"/>
+	</record>
+
+	<record id="mun_ve_BOL_ROS" model="res.country.state.municipality">
+		<field name="code">ROS</field>
+		<field name="name">Roscio</field>
+		<field name="state_id" ref="est_ve_BOL"/>
+	</record>
+
+	<record id="mun_ve_BOL_SIF" model="res.country.state.municipality">
+		<field name="code">SIF</field>
+		<field name="name">Sifontes</field>
+		<field name="state_id" ref="est_ve_BOL"/>
+	</record>
+
+	<record id="mun_ve_BOL_SUC" model="res.country.state.municipality">
+		<field name="code">SUC</field>
+		<field name="name">Sucre</field>
+		<field name="state_id" ref="est_ve_BOL"/>
+	</record>
+
+	<record id="mun_ve_BOL_PPC" model="res.country.state.municipality">
+		<field name="code">PPC</field>
+		<field name="name">Padre Pedro Chien</field>
+		<field name="state_id" ref="est_ve_BOL"/>
+	</record>
+
+	<record id="mun_ve_CAR_BEJ" model="res.country.state.municipality">
+		<field name="code">BEJ</field>
+		<field name="name">Bejuma</field>
+		<field name="state_id" ref="est_ve_CAR"/>
+	</record>
+
+	<record id="mun_ve_CAR_CAA" model="res.country.state.municipality">
+		<field name="code">CAA</field>
+		<field name="name">Carlos Arvelo</field>
+		<field name="state_id" ref="est_ve_CAR"/>
+	</record>
+
+	<record id="mun_ve_CAR_DII" model="res.country.state.municipality">
+		<field name="code">DII</field>
+		<field name="name">Diego Ibarra</field>
+		<field name="state_id" ref="est_ve_CAR"/>
+	</record>
+
+	<record id="mun_ve_CAR_GUA" model="res.country.state.municipality">
+		<field name="code">GUA</field>
+		<field name="name">Guacara</field>
+		<field name="state_id" ref="est_ve_CAR"/>
+	</record>
+
+	<record id="mun_ve_CAR_JJM" model="res.country.state.municipality">
+		<field name="code">JJM</field>
+		<field name="name">Juan José Mora</field>
+		<field name="state_id" ref="est_ve_CAR"/>
+	</record>
+
+	<record id="mun_ve_CAR_LIB" model="res.country.state.municipality">
+		<field name="code">LIB</field>
+		<field name="name">Libertador</field>
+		<field name="state_id" ref="est_ve_CAR"/>
+	</record>
+
+	<record id="mun_ve_CAR_LOG" model="res.country.state.municipality">
+		<field name="code">LOG</field>
+		<field name="name">Los Guayos</field>
+		<field name="state_id" ref="est_ve_CAR"/>
+	</record>
+
+	<record id="mun_ve_CAR_MIR" model="res.country.state.municipality">
+		<field name="code">MIR</field>
+		<field name="name">Miranda</field>
+		<field name="state_id" ref="est_ve_CAR"/>
+	</record>
+
+	<record id="mun_ve_CAR_MON" model="res.country.state.municipality">
+		<field name="code">MON</field>
+		<field name="name">Montalbán</field>
+		<field name="state_id" ref="est_ve_CAR"/>
+	</record>
+
+	<record id="mun_ve_CAR_NAG" model="res.country.state.municipality">
+		<field name="code">NAG</field>
+		<field name="name">Naguanagua</field>
+		<field name="state_id" ref="est_ve_CAR"/>
+	</record>
+
+	<record id="mun_ve_CAR_PUE" model="res.country.state.municipality">
+		<field name="code">PUE</field>
+		<field name="name">Puerto Cabello</field>
+		<field name="state_id" ref="est_ve_CAR"/>
+	</record>
+
+	<record id="mun_ve_CAR_SAD" model="res.country.state.municipality">
+		<field name="code">SAD</field>
+		<field name="name">San Diego</field>
+		<field name="state_id" ref="est_ve_CAR"/>
+	</record>
+
+	<record id="mun_ve_CAR_SAJ" model="res.country.state.municipality">
+		<field name="code">SAJ</field>
+		<field name="name">San Joaquín</field>
+		<field name="state_id" ref="est_ve_CAR"/>
+	</record>
+
+	<record id="mun_ve_CAR_VAL" model="res.country.state.municipality">
+		<field name="code">VAL</field>
+		<field name="name">Valencia</field>
+		<field name="state_id" ref="est_ve_CAR"/>
+	</record>
+
+	<record id="mun_ve_COJ_ANZ" model="res.country.state.municipality">
+		<field name="code">ANZ</field>
+		<field name="name">Anzoátegui</field>
+		<field name="state_id" ref="est_ve_COJ"/>
+	</record>
+
+	<record id="mun_ve_COJ_GIR" model="res.country.state.municipality">
+		<field name="code">GIR</field>
+		<field name="name">Girardot</field>
+		<field name="state_id" ref="est_ve_COJ"/>
+	</record>
+
+	<record id="mun_ve_COJ_LBL" model="res.country.state.municipality">
+		<field name="code">LBL</field>
+		<field name="name">Lima Blanco</field>
+		<field name="state_id" ref="est_ve_COJ"/>
+	</record>
+
+	<record id="mun_ve_COJ_PDS" model="res.country.state.municipality">
+		<field name="code">PDS</field>
+		<field name="name">Pao De San Juan Bautista</field>
+		<field name="state_id" ref="est_ve_COJ"/>
+	</record>
+
+	<record id="mun_ve_COJ_RIC" model="res.country.state.municipality">
+		<field name="code">RIC</field>
+		<field name="name">Ricaurte</field>
+		<field name="state_id" ref="est_ve_COJ"/>
+	</record>
+
+	<record id="mun_ve_COJ_ROM" model="res.country.state.municipality">
+		<field name="code">ROM</field>
+		<field name="name">Rómulo Gallegos</field>
+		<field name="state_id" ref="est_ve_COJ"/>
+	</record>
+
+	<record id="mun_ve_COJ_EZZ" model="res.country.state.municipality">
+		<field name="code">EZZ</field>
+		<field name="name">Ezequiel Zamora</field>
+		<field name="state_id" ref="est_ve_COJ"/>
+	</record>
+
+	<record id="mun_ve_COJ_TIN" model="res.country.state.municipality">
+		<field name="code">TIN</field>
+		<field name="name">Tinaco</field>
+		<field name="state_id" ref="est_ve_COJ"/>
+	</record>
+
+	<record id="mun_ve_COJ_TIQ" model="res.country.state.municipality">
+		<field name="code">TIQ</field>
+		<field name="name">Tinaquillo</field>
+		<field name="state_id" ref="est_ve_COJ"/>
+	</record>
+
+	<record id="mun_ve_DEA_AND" model="res.country.state.municipality">
+		<field name="code">AND</field>
+		<field name="name">Antonio Díaz</field>
+		<field name="state_id" ref="est_ve_DEA"/>
+	</record>
+
+	<record id="mun_ve_DEA_CAS" model="res.country.state.municipality">
+		<field name="code">CAS</field>
+		<field name="name">Casacoima</field>
+		<field name="state_id" ref="est_ve_DEA"/>
+	</record>
+
+	<record id="mun_ve_DEA_PED" model="res.country.state.municipality">
+		<field name="code">PED</field>
+		<field name="name">Pedernales</field>
+		<field name="state_id" ref="est_ve_DEA"/>
+	</record>
+
+	<record id="mun_ve_DEA_TUC" model="res.country.state.municipality">
+		<field name="code">TUC</field>
+		<field name="name">Tucupita</field>
+		<field name="state_id" ref="est_ve_DEA"/>
+	</record>
+
+	<record id="mun_ve_DTO_LIB" model="res.country.state.municipality">
+		<field name="code">LIB</field>
+		<field name="name">Libertador</field>
+		<field name="state_id" ref="est_ve_DTC"/>
+	</record>
+
+	<record id="mun_ve_FAL_ACO" model="res.country.state.municipality">
+		<field name="code">ACO</field>
+		<field name="name">Acosta</field>
+		<field name="state_id" ref="est_ve_FAL"/>
+	</record>
+
+	<record id="mun_ve_FAL_BOL" model="res.country.state.municipality">
+		<field name="code">BOL</field>
+		<field name="name">Bolívar</field>
+		<field name="state_id" ref="est_ve_FAL"/>
+	</record>
+
+	<record id="mun_ve_FAL_BUC" model="res.country.state.municipality">
+		<field name="code">BUC</field>
+		<field name="name">Buchivacoa</field>
+		<field name="state_id" ref="est_ve_FAL"/>
+	</record>
+
+	<record id="mun_ve_FAL_CAC" model="res.country.state.municipality">
+		<field name="code">CAC</field>
+		<field name="name">Cacique Manaure</field>
+		<field name="state_id" ref="est_ve_FAL"/>
+	</record>
+
+	<record id="mun_ve_FAL_CAR" model="res.country.state.municipality">
+		<field name="code">CAR</field>
+		<field name="name">Carirubana</field>
+		<field name="state_id" ref="est_ve_FAL"/>
+	</record>
+
+	<record id="mun_ve_FAL_COL" model="res.country.state.municipality">
+		<field name="code">COL</field>
+		<field name="name">Colina</field>
+		<field name="state_id" ref="est_ve_FAL"/>
+	</record>
+
+	<record id="mun_ve_FAL_DAB" model="res.country.state.municipality">
+		<field name="code">DAB</field>
+		<field name="name">Dabajuro</field>
+		<field name="state_id" ref="est_ve_FAL"/>
+	</record>
+
+	<record id="mun_ve_FAL_DEM" model="res.country.state.municipality">
+		<field name="code">DEM</field>
+		<field name="name">Democracia</field>
+		<field name="state_id" ref="est_ve_FAL"/>
+	</record>
+
+	<record id="mun_ve_FAL_FAL" model="res.country.state.municipality">
+		<field name="code">FAL</field>
+		<field name="name">Falcón</field>
+		<field name="state_id" ref="est_ve_FAL"/>
+	</record>
+
+	<record id="mun_ve_FAL_FED" model="res.country.state.municipality">
+		<field name="code">FED</field>
+		<field name="name">Federación</field>
+		<field name="state_id" ref="est_ve_FAL"/>
+	</record>
+
+	<record id="mun_ve_FAL_JAC" model="res.country.state.municipality">
+		<field name="code">JAC</field>
+		<field name="name">Jacura</field>
+		<field name="state_id" ref="est_ve_FAL"/>
+	</record>
+
+	<record id="mun_ve_FAL_LTA" model="res.country.state.municipality">
+		<field name="code">LTA</field>
+		<field name="name">Los Taques</field>
+		<field name="state_id" ref="est_ve_FAL"/>
+	</record>
+
+	<record id="mun_ve_FAL_MAU" model="res.country.state.municipality">
+		<field name="code">MAU</field>
+		<field name="name">Mauroa</field>
+		<field name="state_id" ref="est_ve_FAL"/>
+	</record>
+
+	<record id="mun_ve_FAL_MIR" model="res.country.state.municipality">
+		<field name="code">MIR</field>
+		<field name="name">Miranda</field>
+		<field name="state_id" ref="est_ve_FAL"/>
+	</record>
+
+	<record id="mun_ve_FAL_MIT" model="res.country.state.municipality">
+		<field name="code">MIT</field>
+		<field name="name">Monseñor Iturriza</field>
+		<field name="state_id" ref="est_ve_FAL"/>
+	</record>
+
+	<record id="mun_ve_FAL_PAL" model="res.country.state.municipality">
+		<field name="code">PAL</field>
+		<field name="name">Palmasola</field>
+		<field name="state_id" ref="est_ve_FAL"/>
+	</record>
+
+	<record id="mun_ve_FAL_PET" model="res.country.state.municipality">
+		<field name="code">PET</field>
+		<field name="name">Petit</field>
+		<field name="state_id" ref="est_ve_FAL"/>
+	</record>
+
+	<record id="mun_ve_FAL_PIR" model="res.country.state.municipality">
+		<field name="code">PIR</field>
+		<field name="name">Píritu</field>
+		<field name="state_id" ref="est_ve_FAL"/>
+	</record>
+
+	<record id="mun_ve_FAL_JLS" model="res.country.state.municipality">
+		<field name="code">JLS</field>
+		<field name="name">José Laurencio Silva</field>
+		<field name="state_id" ref="est_ve_FAL"/>
+	</record>
+
+	<record id="mun_ve_FAL_SFR" model="res.country.state.municipality">
+		<field name="code">SFR</field>
+		<field name="name">San Francisco</field>
+		<field name="state_id" ref="est_ve_FAL"/>
+	</record>
+
+	<record id="mun_ve_FAL_SUC" model="res.country.state.municipality">
+		<field name="code">SUC</field>
+		<field name="name">Sucre</field>
+		<field name="state_id" ref="est_ve_FAL"/>
+	</record>
+
+	<record id="mun_ve_FAL_TOC" model="res.country.state.municipality">
+		<field name="code">TOC</field>
+		<field name="name">Tocópero</field>
+		<field name="state_id" ref="est_ve_FAL"/>
+	</record>
+
+	<record id="mun_ve_FAL_UNI" model="res.country.state.municipality">
+		<field name="code">UNI</field>
+		<field name="name">Unión</field>
+		<field name="state_id" ref="est_ve_FAL"/>
+	</record>
+
+	<record id="mun_ve_FAL_URU" model="res.country.state.municipality">
+		<field name="code">URU</field>
+		<field name="name">Urumaco</field>
+		<field name="state_id" ref="est_ve_FAL"/>
+	</record>
+
+	<record id="mun_ve_FAL_ZAM" model="res.country.state.municipality">
+		<field name="code">ZAM</field>
+		<field name="name">Zamora</field>
+		<field name="state_id" ref="est_ve_FAL"/>
+	</record>
+
+	<record id="mun_ve_GUA_CAM" model="res.country.state.municipality">
+		<field name="code">CAM</field>
+		<field name="name">Camaguán</field>
+		<field name="state_id" ref="est_ve_GUA"/>
+	</record>
+
+	<record id="mun_ve_GUA_CHA" model="res.country.state.municipality">
+		<field name="code">CHA</field>
+		<field name="name">Chaguaramas</field>
+		<field name="state_id" ref="est_ve_GUA"/>
+	</record>
+
+	<record id="mun_ve_GUA_ESO" model="res.country.state.municipality">
+		<field name="code">ESO</field>
+		<field name="name">El Socorro</field>
+		<field name="state_id" ref="est_ve_GUA"/>
+	</record>
+
+	<record id="mun_ve_GUA_SGG" model="res.country.state.municipality">
+		<field name="code">SGG</field>
+		<field name="name">San Gerónimo De Guayabal</field>
+		<field name="state_id" ref="est_ve_GUA"/>
+	</record>
+
+	<record id="mun_ve_GUA_LIN" model="res.country.state.municipality">
+		<field name="code">LIN</field>
+		<field name="name">Leonardo Infante</field>
+		<field name="state_id" ref="est_ve_GUA"/>
+	</record>
+
+	<record id="mun_ve_GUA_LME" model="res.country.state.municipality">
+		<field name="code">LME</field>
+		<field name="name">Las Mercedes</field>
+		<field name="state_id" ref="est_ve_GUA"/>
+	</record>
+
+	<record id="mun_ve_GUA_JML" model="res.country.state.municipality">
+		<field name="code">JML</field>
+		<field name="name">Julián Mellado</field>
+		<field name="state_id" ref="est_ve_GUA"/>
+	</record>
+
+	<record id="mun_ve_GUA_FMI" model="res.country.state.municipality">
+		<field name="code">FMI</field>
+		<field name="name">Francisco De Miranda</field>
+		<field name="state_id" ref="est_ve_GUA"/>
+	</record>
+
+	<record id="mun_ve_GUA_JTM" model="res.country.state.municipality">
+		<field name="code">JTM</field>
+		<field name="name">José Tadeo Monagas</field>
+		<field name="state_id" ref="est_ve_GUA"/>
+	</record>
+
+	<record id="mun_ve_GUA_ORT" model="res.country.state.municipality">
+		<field name="code">ORT</field>
+		<field name="name">Ortiz</field>
+		<field name="state_id" ref="est_ve_GUA"/>
+	</record>
+
+	<record id="mun_ve_GUA_JFR" model="res.country.state.municipality">
+		<field name="code">JFR</field>
+		<field name="name">José Félix Ribas</field>
+		<field name="state_id" ref="est_ve_GUA"/>
+	</record>
+
+	<record id="mun_ve_GUA_JGR" model="res.country.state.municipality">
+		<field name="code">JGR</field>
+		<field name="name">Juan Germán Roscio</field>
+		<field name="state_id" ref="est_ve_GUA"/>
+	</record>
+
+	<record id="mun_ve_GUA_SJG" model="res.country.state.municipality">
+		<field name="code">SJG</field>
+		<field name="name">San José De Guaribe</field>
+		<field name="state_id" ref="est_ve_GUA"/>
+	</record>
+
+	<record id="mun_ve_GUA_SMI" model="res.country.state.municipality">
+		<field name="code">SMI</field>
+		<field name="name">Santa María De Ipire</field>
+		<field name="state_id" ref="est_ve_GUA"/>
+	</record>
+
+	<record id="mun_ve_GUA_PZA" model="res.country.state.municipality">
+		<field name="code">PZA</field>
+		<field name="name">Pedro Zaraza</field>
+		<field name="state_id" ref="est_ve_GUA"/>
+	</record>
+
+	<record id="mun_ve_LAR_AEB" model="res.country.state.municipality">
+		<field name="code">AEB</field>
+		<field name="name">Andrés Eloy Blanco</field>
+		<field name="state_id" ref="est_ve_LAR"/>
+	</record>
+
+	<record id="mun_ve_LAR_CRE" model="res.country.state.municipality">
+		<field name="code">CRE</field>
+		<field name="name">Crespo</field>
+		<field name="state_id" ref="est_ve_LAR"/>
+	</record>
+
+	<record id="mun_ve_LAR_IRI" model="res.country.state.municipality">
+		<field name="code">IRI</field>
+		<field name="name">Iribarren</field>
+		<field name="state_id" ref="est_ve_LAR"/>
+	</record>
+
+	<record id="mun_ve_LAR_JIM" model="res.country.state.municipality">
+		<field name="code">JIM</field>
+		<field name="name">Jiménez</field>
+		<field name="state_id" ref="est_ve_LAR"/>
+	</record>
+
+	<record id="mun_ve_LAR_MOR" model="res.country.state.municipality">
+		<field name="code">MOR</field>
+		<field name="name">Morán</field>
+		<field name="state_id" ref="est_ve_LAR"/>
+	</record>
+
+	<record id="mun_ve_LAR_PAL" model="res.country.state.municipality">
+		<field name="code">PAL</field>
+		<field name="name">Palavecino</field>
+		<field name="state_id" ref="est_ve_LAR"/>
+	</record>
+
+	<record id="mun_ve_LAR_SPL" model="res.country.state.municipality">
+		<field name="code">SPL</field>
+		<field name="name">Simón Planas</field>
+		<field name="state_id" ref="est_ve_LAR"/>
+	</record>
+
+	<record id="mun_ve_LAR_TOR" model="res.country.state.municipality">
+		<field name="code">TOR</field>
+		<field name="name">Torres</field>
+		<field name="state_id" ref="est_ve_LAR"/>
+	</record>
+
+	<record id="mun_ve_LAR_URD" model="res.country.state.municipality">
+		<field name="code">URD</field>
+		<field name="name">Urdaneta</field>
+		<field name="state_id" ref="est_ve_LAR"/>
+	</record>
+
+	<record id="mun_ve_MER_AAD" model="res.country.state.municipality">
+		<field name="code">AAD</field>
+		<field name="name">Alberto Adriani</field>
+		<field name="state_id" ref="est_ve_MER"/>
+	</record>
+
+	<record id="mun_ve_MER_ABE" model="res.country.state.municipality">
+		<field name="code">ABE</field>
+		<field name="name">Andrés Bello</field>
+		<field name="state_id" ref="est_ve_MER"/>
+	</record>
+
+	<record id="mun_ve_MER_APS" model="res.country.state.municipality">
+		<field name="code">APS</field>
+		<field name="name">Antonio Pinto Salinas</field>
+		<field name="state_id" ref="est_ve_MER"/>
+	</record>
+
+	<record id="mun_ve_MER_ARI" model="res.country.state.municipality">
+		<field name="code">ARI</field>
+		<field name="name">Aricagua</field>
+		<field name="state_id" ref="est_ve_MER"/>
+	</record>
+
+	<record id="mun_ve_MER_ACH" model="res.country.state.municipality">
+		<field name="code">ACH</field>
+		<field name="name">Arzobispo Chacón</field>
+		<field name="state_id" ref="est_ve_MER"/>
+	</record>
+
+	<record id="mun_ve_MER_CEL" model="res.country.state.municipality">
+		<field name="code">CEL</field>
+		<field name="name">Campo Elías</field>
+		<field name="state_id" ref="est_ve_MER"/>
+	</record>
+
+	<record id="mun_ve_MER_CPO" model="res.country.state.municipality">
+		<field name="code">CPO</field>
+		<field name="name">Caracciolo Parra Olmedo</field>
+		<field name="state_id" ref="est_ve_MER"/>
+	</record>
+
+	<record id="mun_ve_MER_CQU" model="res.country.state.municipality">
+		<field name="code">CQU</field>
+		<field name="name">Cardenal Quintero</field>
+		<field name="state_id" ref="est_ve_MER"/>
+	</record>
+
+	<record id="mun_ve_MER_GUA" model="res.country.state.municipality">
+		<field name="code">GUA</field>
+		<field name="name">Guaraque</field>
+		<field name="state_id" ref="est_ve_MER"/>
+	</record>
+
+	<record id="mun_ve_MER_JCS" model="res.country.state.municipality">
+		<field name="code">JCS</field>
+		<field name="name">Julio César Salas</field>
+		<field name="state_id" ref="est_ve_MER"/>
+	</record>
+
+	<record id="mun_ve_MER_JBR" model="res.country.state.municipality">
+		<field name="code">JBR</field>
+		<field name="name">Justo Briceño</field>
+		<field name="state_id" ref="est_ve_MER"/>
+	</record>
+
+	<record id="mun_ve_MER_LIB" model="res.country.state.municipality">
+		<field name="code">LIB</field>
+		<field name="name">Libertador</field>
+		<field name="state_id" ref="est_ve_MER"/>
+	</record>
+
+	<record id="mun_ve_MER_MIR" model="res.country.state.municipality">
+		<field name="code">MIR</field>
+		<field name="name">Miranda</field>
+		<field name="state_id" ref="est_ve_MER"/>
+	</record>
+
+	<record id="mun_ve_MER_ORL" model="res.country.state.municipality">
+		<field name="code">ORL</field>
+		<field name="name">Obispo Ramos De Lora</field>
+		<field name="state_id" ref="est_ve_MER"/>
+	</record>
+
+	<record id="mun_ve_MER_PNO" model="res.country.state.municipality">
+		<field name="code">PNO</field>
+		<field name="name">Padre Noguera</field>
+		<field name="state_id" ref="est_ve_MER"/>
+	</record>
+
+	<record id="mun_ve_MER_PLL" model="res.country.state.municipality">
+		<field name="code">PLL</field>
+		<field name="name">Pueblo Llano</field>
+		<field name="state_id" ref="est_ve_MER"/>
+	</record>
+
+	<record id="mun_ve_MER_RAN" model="res.country.state.municipality">
+		<field name="code">RAN</field>
+		<field name="name">Rangel</field>
+		<field name="state_id" ref="est_ve_MER"/>
+	</record>
+
+	<record id="mun_ve_MER_RDA" model="res.country.state.municipality">
+		<field name="code">RDA</field>
+		<field name="name">Rivas Dávila</field>
+		<field name="state_id" ref="est_ve_MER"/>
+	</record>
+
+	<record id="mun_ve_MER_SMA" model="res.country.state.municipality">
+		<field name="code">SMA</field>
+		<field name="name">Santos Marquina</field>
+		<field name="state_id" ref="est_ve_MER"/>
+	</record>
+
+	<record id="mun_ve_MER_SUC" model="res.country.state.municipality">
+		<field name="code">SUC</field>
+		<field name="name">Sucre</field>
+		<field name="state_id" ref="est_ve_MER"/>
+	</record>
+
+	<record id="mun_ve_MER_TOV" model="res.country.state.municipality">
+		<field name="code">TOV</field>
+		<field name="name">Tovar</field>
+		<field name="state_id" ref="est_ve_MER"/>
+	</record>
+
+	<record id="mun_ve_MER_TFC" model="res.country.state.municipality">
+		<field name="code">TFC</field>
+		<field name="name">Tulio Febres Cordero</field>
+		<field name="state_id" ref="est_ve_MER"/>
+	</record>
+
+	<record id="mun_ve_MER_ZEA" model="res.country.state.municipality">
+		<field name="code">ZEA</field>
+		<field name="name">Zea</field>
+		<field name="state_id" ref="est_ve_MER"/>
+	</record>
+
+	<record id="mun_ve_MIR_ACE" model="res.country.state.municipality">
+		<field name="code">ACE</field>
+		<field name="name">Acevedo</field>
+		<field name="state_id" ref="est_ve_MIR"/>
+	</record>
+
+	<record id="mun_ve_MIR_ABE" model="res.country.state.municipality">
+		<field name="code">ABE</field>
+		<field name="name">Andrés Bello</field>
+		<field name="state_id" ref="est_ve_MIR"/>
+	</record>
+
+	<record id="mun_ve_MIR_BAR" model="res.country.state.municipality">
+		<field name="code">BAR</field>
+		<field name="name">Baruta</field>
+		<field name="state_id" ref="est_ve_MIR"/>
+	</record>
+
+	<record id="mun_ve_MIR_BRI" model="res.country.state.municipality">
+		<field name="code">BRI</field>
+		<field name="name">Brión</field>
+		<field name="state_id" ref="est_ve_MIR"/>
+	</record>
+
+	<record id="mun_ve_MIR_BUR" model="res.country.state.municipality">
+		<field name="code">BUR</field>
+		<field name="name">Buroz</field>
+		<field name="state_id" ref="est_ve_MIR"/>
+	</record>
+
+	<record id="mun_ve_MIR_CAR" model="res.country.state.municipality">
+		<field name="code">CAR</field>
+		<field name="name">Carrizal</field>
+		<field name="state_id" ref="est_ve_MIR"/>
+	</record>
+
+	<record id="mun_ve_MIR_CHA" model="res.country.state.municipality">
+		<field name="code">CHA</field>
+		<field name="name">Chacao</field>
+		<field name="state_id" ref="est_ve_MIR"/>
+	</record>
+
+	<record id="mun_ve_MIR_CRO" model="res.country.state.municipality">
+		<field name="code">CRO</field>
+		<field name="name">Cristóbal Rojas</field>
+		<field name="state_id" ref="est_ve_MIR"/>
+	</record>
+
+	<record id="mun_ve_MIR_EHA" model="res.country.state.municipality">
+		<field name="code">EHA</field>
+		<field name="name">El Hatillo</field>
+		<field name="state_id" ref="est_ve_MIR"/>
+	</record>
+
+	<record id="mun_ve_MIR_GUA" model="res.country.state.municipality">
+		<field name="code">GUA</field>
+		<field name="name">Guaicaipuro</field>
+		<field name="state_id" ref="est_ve_MIR"/>
+	</record>
+
+	<record id="mun_ve_MIR_IND" model="res.country.state.municipality">
+		<field name="code">IND</field>
+		<field name="name">Independencia</field>
+		<field name="state_id" ref="est_ve_MIR"/>
+	</record>
+
+	<record id="mun_ve_MIR_TLA" model="res.country.state.municipality">
+		<field name="code">TLA</field>
+		<field name="name">Tomas Lander</field>
+		<field name="state_id" ref="est_ve_MIR"/>
+	</record>
+
+	<record id="mun_ve_MIR_LSA" model="res.country.state.municipality">
+		<field name="code">LSA</field>
+		<field name="name">Los Salias</field>
+		<field name="state_id" ref="est_ve_MIR"/>
+	</record>
+
+	<record id="mun_ve_MIR_PAE" model="res.country.state.municipality">
+		<field name="code">PAE</field>
+		<field name="name">Páez</field>
+		<field name="state_id" ref="est_ve_MIR"/>
+	</record>
+
+	<record id="mun_ve_MIR_PCA" model="res.country.state.municipality">
+		<field name="code">PCA</field>
+		<field name="name">Paz Castillo</field>
+		<field name="state_id" ref="est_ve_MIR"/>
+	</record>
+
+	<record id="mun_ve_MIR_PGU" model="res.country.state.municipality">
+		<field name="code">PGU</field>
+		<field name="name">Pedro Gual</field>
+		<field name="state_id" ref="est_ve_MIR"/>
+	</record>
+
+	<record id="mun_ve_MIR_PLA" model="res.country.state.municipality">
+		<field name="code">PLA</field>
+		<field name="name">Plaza</field>
+		<field name="state_id" ref="est_ve_MIR"/>
+	</record>
+
+	<record id="mun_ve_MIR_SBO" model="res.country.state.municipality">
+		<field name="code">SBO</field>
+		<field name="name">Simón Bolívar</field>
+		<field name="state_id" ref="est_ve_MIR"/>
+	</record>
+
+	<record id="mun_ve_MIR_SUC" model="res.country.state.municipality">
+		<field name="code">SUC</field>
+		<field name="name">Sucre</field>
+		<field name="state_id" ref="est_ve_MIR"/>
+	</record>
+
+	<record id="mun_ve_MIR_URD" model="res.country.state.municipality">
+		<field name="code">URD</field>
+		<field name="name">Urdaneta</field>
+		<field name="state_id" ref="est_ve_MIR"/>
+	</record>
+
+	<record id="mun_ve_MIR_ZAM" model="res.country.state.municipality">
+		<field name="code">ZAM</field>
+		<field name="name">Zamora</field>
+		<field name="state_id" ref="est_ve_MIR"/>
+	</record>
+
+	<record id="mun_ve_MON_ACO" model="res.country.state.municipality">
+		<field name="code">ACO</field>
+		<field name="name">Acosta</field>
+		<field name="state_id" ref="est_ve_MON"/>
+	</record>
+
+	<record id="mun_ve_MON_AGU" model="res.country.state.municipality">
+		<field name="code">AGU</field>
+		<field name="name">Aguasay</field>
+		<field name="state_id" ref="est_ve_MON"/>
+	</record>
+
+	<record id="mun_ve_MON_BOL" model="res.country.state.municipality">
+		<field name="code">BOL</field>
+		<field name="name">Bolívar</field>
+		<field name="state_id" ref="est_ve_MON"/>
+	</record>
+
+	<record id="mun_ve_MON_CAR" model="res.country.state.municipality">
+		<field name="code">CAR</field>
+		<field name="name">Caripe</field>
+		<field name="state_id" ref="est_ve_MON"/>
+	</record>
+
+	<record id="mun_ve_MON_CED" model="res.country.state.municipality">
+		<field name="code">CED</field>
+		<field name="name">Cedeño</field>
+		<field name="state_id" ref="est_ve_MON"/>
+	</record>
+
+	<record id="mun_ve_MON_EZA" model="res.country.state.municipality">
+		<field name="code">EZA</field>
+		<field name="name">Ezequiel Zamora</field>
+		<field name="state_id" ref="est_ve_MON"/>
+	</record>
+
+	<record id="mun_ve_MON_LIB" model="res.country.state.municipality">
+		<field name="code">LIB</field>
+		<field name="name">Libertador</field>
+		<field name="state_id" ref="est_ve_MON"/>
+	</record>
+
+	<record id="mun_ve_MON_MAT" model="res.country.state.municipality">
+		<field name="code">MAT</field>
+		<field name="name">Maturín</field>
+		<field name="state_id" ref="est_ve_MON"/>
+	</record>
+
+	<record id="mun_ve_MON_PIA" model="res.country.state.municipality">
+		<field name="code">PIA</field>
+		<field name="name">Piar</field>
+		<field name="state_id" ref="est_ve_MON"/>
+	</record>
+
+	<record id="mun_ve_MON_PUN" model="res.country.state.municipality">
+		<field name="code">PUN</field>
+		<field name="name">Punceres</field>
+		<field name="state_id" ref="est_ve_MON"/>
+	</record>
+
+	<record id="mun_ve_MON_SBA" model="res.country.state.municipality">
+		<field name="code">SBA</field>
+		<field name="name">Santa Bárbara</field>
+		<field name="state_id" ref="est_ve_MON"/>
+	</record>
+
+	<record id="mun_ve_MON_SOT" model="res.country.state.municipality">
+		<field name="code">SOT</field>
+		<field name="name">Sotillo</field>
+		<field name="state_id" ref="est_ve_MON"/>
+	</record>
+
+	<record id="mun_ve_MON_URA" model="res.country.state.municipality">
+		<field name="code">URA</field>
+		<field name="name">Uracoa</field>
+		<field name="state_id" ref="est_ve_MON"/>
+	</record>
+
+	<record id="mun_ve_NVA_ADC" model="res.country.state.municipality">
+		<field name="code">ADC</field>
+		<field name="name">Antolín Del Campo</field>
+		<field name="state_id" ref="est_ve_NVE"/>
+	</record>
+
+	<record id="mun_ve_NVA_ARI" model="res.country.state.municipality">
+		<field name="code">ARI</field>
+		<field name="name">Arismendi</field>
+		<field name="state_id" ref="est_ve_NVE"/>
+	</record>
+
+	<record id="mun_ve_NVA_DIA" model="res.country.state.municipality">
+		<field name="code">DIA</field>
+		<field name="name">Díaz</field>
+		<field name="state_id" ref="est_ve_NVE"/>
+	</record>
+
+	<record id="mun_ve_NVA_GAR" model="res.country.state.municipality">
+		<field name="code">GAR</field>
+		<field name="name">García</field>
+		<field name="state_id" ref="est_ve_NVE"/>
+	</record>
+
+	<record id="mun_ve_NVA_GOM" model="res.country.state.municipality">
+		<field name="code">GOM</field>
+		<field name="name">Gómez</field>
+		<field name="state_id" ref="est_ve_NVE"/>
+	</record>
+
+	<record id="mun_ve_NVA_MAN" model="res.country.state.municipality">
+		<field name="code">MAN</field>
+		<field name="name">Maneiro</field>
+		<field name="state_id" ref="est_ve_NVE"/>
+	</record>
+
+	<record id="mun_ve_NVA_MAR" model="res.country.state.municipality">
+		<field name="code">MAR</field>
+		<field name="name">Marcano</field>
+		<field name="state_id" ref="est_ve_NVE"/>
+	</record>
+
+	<record id="mun_ve_NVA_SMA" model="res.country.state.municipality">
+		<field name="code">SMA</field>
+		<field name="name">Santiago Mariño</field>
+		<field name="state_id" ref="est_ve_NVE"/>
+	</record>
+
+	<record id="mun_ve_NVA_PDM" model="res.country.state.municipality">
+		<field name="code">PDM</field>
+		<field name="name">Península De Macanao</field>
+		<field name="state_id" ref="est_ve_NVE"/>
+	</record>
+
+	<record id="mun_ve_NVA_TUB" model="res.country.state.municipality">
+		<field name="code">TUB</field>
+		<field name="name">Tubores</field>
+		<field name="state_id" ref="est_ve_NVE"/>
+	</record>
+
+	<record id="mun_ve_NVA_VIL" model="res.country.state.municipality">
+		<field name="code">VIL</field>
+		<field name="name">Villalba</field>
+		<field name="state_id" ref="est_ve_NVE"/>
+	</record>
+
+	<record id="mun_ve_POR_ABL" model="res.country.state.municipality">
+		<field name="code">ABL</field>
+		<field name="name">Agua Blanca</field>
+		<field name="state_id" ref="est_ve_POR"/>
+	</record>
+
+	<record id="mun_ve_POR_ARA" model="res.country.state.municipality">
+		<field name="code">ARA</field>
+		<field name="name">Araure</field>
+		<field name="state_id" ref="est_ve_POR"/>
+	</record>
+
+	<record id="mun_ve_POR_EST" model="res.country.state.municipality">
+		<field name="code">EST</field>
+		<field name="name">Esteller</field>
+		<field name="state_id" ref="est_ve_POR"/>
+	</record>
+
+	<record id="mun_ve_POR_GUA" model="res.country.state.municipality">
+		<field name="code">GUA</field>
+		<field name="name">Guanare</field>
+		<field name="state_id" ref="est_ve_POR"/>
+	</record>
+
+	<record id="mun_ve_POR_GTO" model="res.country.state.municipality">
+		<field name="code">GTO</field>
+		<field name="name">Guanarito</field>
+		<field name="state_id" ref="est_ve_POR"/>
+	</record>
+
+	<record id="mun_ve_POR_MJV" model="res.country.state.municipality">
+		<field name="code">MJV</field>
+		<field name="name">Monseñor José Vicente De Unda</field>
+		<field name="state_id" ref="est_ve_POR"/>
+	</record>
+
+	<record id="mun_ve_POR_OSP" model="res.country.state.municipality">
+		<field name="code">OSP</field>
+		<field name="name">Ospino</field>
+		<field name="state_id" ref="est_ve_POR"/>
+	</record>
+
+	<record id="mun_ve_POR_PAE" model="res.country.state.municipality">
+		<field name="code">PAE</field>
+		<field name="name">Páez</field>
+		<field name="state_id" ref="est_ve_POR"/>
+	</record>
+
+	<record id="mun_ve_POR_PAP" model="res.country.state.municipality">
+		<field name="code">PAP</field>
+		<field name="name">Papelón</field>
+		<field name="state_id" ref="est_ve_POR"/>
+	</record>
+
+	<record id="mun_ve_POR_SGB" model="res.country.state.municipality">
+		<field name="code">SGB</field>
+		<field name="name">San Genaro De Boconoito</field>
+		<field name="state_id" ref="est_ve_POR"/>
+	</record>
+
+	<record id="mun_ve_POR_SRO" model="res.country.state.municipality">
+		<field name="code">SRO</field>
+		<field name="name">San Rafael De Onoto</field>
+		<field name="state_id" ref="est_ve_POR"/>
+	</record>
+
+	<record id="mun_ve_POR_SRO" model="res.country.state.municipality">
+		<field name="code">SRO</field>
+		<field name="name">Santa Rosalía</field>
+		<field name="state_id" ref="est_ve_POR"/>
+	</record>
+
+	<record id="mun_ve_POR_SUC" model="res.country.state.municipality">
+		<field name="code">SUC</field>
+		<field name="name">Sucre</field>
+		<field name="state_id" ref="est_ve_POR"/>
+	</record>
+
+	<record id="mun_ve_POR_TUR" model="res.country.state.municipality">
+		<field name="code">TUR</field>
+		<field name="name">Turín</field>
+		<field name="state_id" ref="est_ve_POR"/>
+	</record>
+
+	<record id="mun_ve_SUC_AEB" model="res.country.state.municipality">
+		<field name="code">AEB</field>
+		<field name="name">Andrés Eloy Blanco</field>
+		<field name="state_id" ref="est_ve_SUC"/>
+	</record>
+
+	<record id="mun_ve_SUC_AMA" model="res.country.state.municipality">
+		<field name="code">AMA</field>
+		<field name="name">Andrés Mata</field>
+		<field name="state_id" ref="est_ve_SUC"/>
+	</record>
+
+	<record id="mun_ve_SUC_ARI" model="res.country.state.municipality">
+		<field name="code">ARI</field>
+		<field name="name">Arismendi</field>
+		<field name="state_id" ref="est_ve_SUC"/>
+	</record>
+
+	<record id="mun_ve_SUC_BEN" model="res.country.state.municipality">
+		<field name="code">BEN</field>
+		<field name="name">Benítez</field>
+		<field name="state_id" ref="est_ve_SUC"/>
+	</record>
+
+	<record id="mun_ve_SUC_BER" model="res.country.state.municipality">
+		<field name="code">BER</field>
+		<field name="name">Bermúdez</field>
+		<field name="state_id" ref="est_ve_SUC"/>
+	</record>
+
+	<record id="mun_ve_SUC_BOL" model="res.country.state.municipality">
+		<field name="code">BOL</field>
+		<field name="name">Bolívar</field>
+		<field name="state_id" ref="est_ve_SUC"/>
+	</record>
+
+	<record id="mun_ve_SUC_CAJ" model="res.country.state.municipality">
+		<field name="code">CAJ</field>
+		<field name="name">Cajigal</field>
+		<field name="state_id" ref="est_ve_SUC"/>
+	</record>
+
+	<record id="mun_ve_SUC_CSA" model="res.country.state.municipality">
+		<field name="code">CSA</field>
+		<field name="name">Cruz Salmerón Acosta</field>
+		<field name="state_id" ref="est_ve_SUC"/>
+	</record>
+
+	<record id="mun_ve_SUC_LIB" model="res.country.state.municipality">
+		<field name="code">LIB</field>
+		<field name="name">Libertador</field>
+		<field name="state_id" ref="est_ve_SUC"/>
+	</record>
+
+	<record id="mun_ve_SUC_MAR" model="res.country.state.municipality">
+		<field name="code">MAR</field>
+		<field name="name">Mariño</field>
+		<field name="state_id" ref="est_ve_SUC"/>
+	</record>
+
+	<record id="mun_ve_SUC_MEJ" model="res.country.state.municipality">
+		<field name="code">MEJ</field>
+		<field name="name">Mejía</field>
+		<field name="state_id" ref="est_ve_SUC"/>
+	</record>
+
+	<record id="mun_ve_SUC_MON" model="res.country.state.municipality">
+		<field name="code">MON</field>
+		<field name="name">Montes</field>
+		<field name="state_id" ref="est_ve_SUC"/>
+	</record>
+
+	<record id="mun_ve_SUC_RIB" model="res.country.state.municipality">
+		<field name="code">RIB</field>
+		<field name="name">Ribero</field>
+		<field name="state_id" ref="est_ve_SUC"/>
+	</record>
+
+	<record id="mun_ve_SUC_SUC" model="res.country.state.municipality">
+		<field name="code">SUC</field>
+		<field name="name">Sucre</field>
+		<field name="state_id" ref="est_ve_SUC"/>
+	</record>
+
+	<record id="mun_ve_SUC_VAL" model="res.country.state.municipality">
+		<field name="code">VAL</field>
+		<field name="name">Valdez</field>
+		<field name="state_id" ref="est_ve_SUC"/>
+	</record>
+
+	<record id="mun_ve_TAC_ABE" model="res.country.state.municipality">
+		<field name="code">ABE</field>
+		<field name="name">Andrés Bello</field>
+		<field name="state_id" ref="est_ve_TAC"/>
+	</record>
+
+	<record id="mun_ve_TAC_ARC" model="res.country.state.municipality">
+		<field name="code">ARC</field>
+		<field name="name">Antonio Rómulo Costa</field>
+		<field name="state_id" ref="est_ve_TAC"/>
+	</record>
+
+	<record id="mun_ve_TAC_AYA" model="res.country.state.municipality">
+		<field name="code">AYA</field>
+		<field name="name">Ayacucho</field>
+		<field name="state_id" ref="est_ve_TAC"/>
+	</record>
+
+	<record id="mun_ve_TAC_BOL" model="res.country.state.municipality">
+		<field name="code">BOL</field>
+		<field name="name">Bolívar</field>
+		<field name="state_id" ref="est_ve_TAC"/>
+	</record>
+
+	<record id="mun_ve_TAC_CAR" model="res.country.state.municipality">
+		<field name="code">CAR</field>
+		<field name="name">Cárdenas</field>
+		<field name="state_id" ref="est_ve_TAC"/>
+	</record>
+
+	<record id="mun_ve_TAC_COR" model="res.country.state.municipality">
+		<field name="code">COR</field>
+		<field name="name">Córdoba</field>
+		<field name="state_id" ref="est_ve_TAC"/>
+	</record>
+
+	<record id="mun_ve_TAC_FFE" model="res.country.state.municipality">
+		<field name="code">FFE</field>
+		<field name="name">Fernández Feo</field>
+		<field name="state_id" ref="est_ve_TAC"/>
+	</record>
+
+	<record id="mun_ve_TAC_FDM" model="res.country.state.municipality">
+		<field name="code">FDM</field>
+		<field name="name">Francisco De Miranda</field>
+		<field name="state_id" ref="est_ve_TAC"/>
+	</record>
+
+	<record id="mun_ve_TAC_GDH" model="res.country.state.municipality">
+		<field name="code">GDH</field>
+		<field name="name">García De Hevia</field>
+		<field name="state_id" ref="est_ve_TAC"/>
+	</record>
+
+	<record id="mun_ve_TAC_GUA" model="res.country.state.municipality">
+		<field name="code">GUA</field>
+		<field name="name">Guásimos</field>
+		<field name="state_id" ref="est_ve_TAC"/>
+	</record>
+
+	<record id="mun_ve_TAC_IND" model="res.country.state.municipality">
+		<field name="code">IND</field>
+		<field name="name">Independencia</field>
+		<field name="state_id" ref="est_ve_TAC"/>
+	</record>
+
+	<record id="mun_ve_TAC_JAU" model="res.country.state.municipality">
+		<field name="code">JAU</field>
+		<field name="name">Jáuregui</field>
+		<field name="state_id" ref="est_ve_TAC"/>
+	</record>
+
+	<record id="mun_ve_TAC_JMV" model="res.country.state.municipality">
+		<field name="code">JMV</field>
+		<field name="name">José María Vargas</field>
+		<field name="state_id" ref="est_ve_TAC"/>
+	</record>
+
+	<record id="mun_ve_TAC_JUN" model="res.country.state.municipality">
+		<field name="code">JUN</field>
+		<field name="name">Junín</field>
+		<field name="state_id" ref="est_ve_TAC"/>
+	</record>
+
+	<record id="mun_ve_TAC_LIB" model="res.country.state.municipality">
+		<field name="code">LIB</field>
+		<field name="name">Libertad</field>
+		<field name="state_id" ref="est_ve_TAC"/>
+	</record>
+
+	<record id="mun_ve_TAC_LBD" model="res.country.state.municipality">
+		<field name="code">LBD</field>
+		<field name="name">Libertador</field>
+		<field name="state_id" ref="est_ve_TAC"/>
+	</record>
+
+	<record id="mun_ve_TAC_LOB" model="res.country.state.municipality">
+		<field name="code">LOB</field>
+		<field name="name">Lobatera</field>
+		<field name="state_id" ref="est_ve_TAC"/>
+	</record>
+
+	<record id="mun_ve_TAC_MIC" model="res.country.state.municipality">
+		<field name="code">MIC</field>
+		<field name="name">Michelena</field>
+		<field name="state_id" ref="est_ve_TAC"/>
+	</record>
+
+	<record id="mun_ve_TAC_PAN" model="res.country.state.municipality">
+		<field name="code">PAN</field>
+		<field name="name">Panamericano</field>
+		<field name="state_id" ref="est_ve_TAC"/>
+	</record>
+
+	<record id="mun_ve_TAC_PMU" model="res.country.state.municipality">
+		<field name="code">PMU</field>
+		<field name="name">Pedro María Ureña</field>
+		<field name="state_id" ref="est_ve_TAC"/>
+	</record>
+
+	<record id="mun_ve_TAC_RUR" model="res.country.state.municipality">
+		<field name="code">RUR</field>
+		<field name="name">Rafael Urdaneta</field>
+		<field name="state_id" ref="est_ve_TAC"/>
+	</record>
+
+	<record id="mun_ve_TAC_SDM" model="res.country.state.municipality">
+		<field name="code">SDM</field>
+		<field name="name">Samuel Darío Maldonado</field>
+		<field name="state_id" ref="est_ve_TAC"/>
+	</record>
+
+	<record id="mun_ve_TAC_SCR" model="res.country.state.municipality">
+		<field name="code">SCR</field>
+		<field name="name">San Cristóbal</field>
+		<field name="state_id" ref="est_ve_TAC"/>
+	</record>
+
+	<record id="mun_ve_TAC_SEB" model="res.country.state.municipality">
+		<field name="code">SEB</field>
+		<field name="name">Seboruco</field>
+		<field name="state_id" ref="est_ve_TAC"/>
+	</record>
+
+	<record id="mun_ve_TAC_SRO" model="res.country.state.municipality">
+		<field name="code">SRO</field>
+		<field name="name">Simón Rodríguez</field>
+		<field name="state_id" ref="est_ve_TAC"/>
+	</record>
+
+	<record id="mun_ve_TAC_SUC" model="res.country.state.municipality">
+		<field name="code">SUC</field>
+		<field name="name">Sucre</field>
+		<field name="state_id" ref="est_ve_TAC"/>
+	</record>
+
+	<record id="mun_ve_TAC_TOR" model="res.country.state.municipality">
+		<field name="code">TOR</field>
+		<field name="name">Torbes</field>
+		<field name="state_id" ref="est_ve_TAC"/>
+	</record>
+
+	<record id="mun_ve_TAC_URI" model="res.country.state.municipality">
+		<field name="code">URI</field>
+		<field name="name">Uribante</field>
+		<field name="state_id" ref="est_ve_TAC"/>
+	</record>
+
+	<record id="mun_ve_TAC_SJT" model="res.country.state.municipality">
+		<field name="code">SJT</field>
+		<field name="name">San Judas Tadeo</field>
+		<field name="state_id" ref="est_ve_TAC"/>
+	</record>
+
+	<record id="mun_ve_TRU_ABE" model="res.country.state.municipality">
+		<field name="code">ABE</field>
+		<field name="name">Andrés Bello</field>
+		<field name="state_id" ref="est_ve_TRU"/>
+	</record>
+
+	<record id="mun_ve_TRU_BOC" model="res.country.state.municipality">
+		<field name="code">BOC</field>
+		<field name="name">Boconó</field>
+		<field name="state_id" ref="est_ve_TRU"/>
+	</record>
+
+	<record id="mun_ve_TRU_BOL" model="res.country.state.municipality">
+		<field name="code">BOL</field>
+		<field name="name">Bolívar</field>
+		<field name="state_id" ref="est_ve_TRU"/>
+	</record>
+
+	<record id="mun_ve_TRU_CAN" model="res.country.state.municipality">
+		<field name="code">CAN</field>
+		<field name="name">Candelaria</field>
+		<field name="state_id" ref="est_ve_TRU"/>
+	</record>
+
+	<record id="mun_ve_TRU_CAR" model="res.country.state.municipality">
+		<field name="code">CAR</field>
+		<field name="name">Carache</field>
+		<field name="state_id" ref="est_ve_TRU"/>
+	</record>
+
+	<record id="mun_ve_TRU_ESC" model="res.country.state.municipality">
+		<field name="code">ESC</field>
+		<field name="name">Escuque</field>
+		<field name="state_id" ref="est_ve_TRU"/>
+	</record>
+
+	<record id="mun_ve_TRU_JFM" model="res.country.state.municipality">
+		<field name="code">JFM</field>
+		<field name="name">José Felipe Márquez Cañizales</field>
+		<field name="state_id" ref="est_ve_TRU"/>
+	</record>
+
+	<record id="mun_ve_TRU_JVC" model="res.country.state.municipality">
+		<field name="code">JVC</field>
+		<field name="name">Juan Vicente Campo Elías</field>
+		<field name="state_id" ref="est_ve_TRU"/>
+	</record>
+
+	<record id="mun_ve_TRU_LCE" model="res.country.state.municipality">
+		<field name="code">LCE</field>
+		<field name="name">La Ceiba</field>
+		<field name="state_id" ref="est_ve_TRU"/>
+	</record>
+
+	<record id="mun_ve_TRU_MIR" model="res.country.state.municipality">
+		<field name="code">MIR</field>
+		<field name="name">Miranda</field>
+		<field name="state_id" ref="est_ve_TRU"/>
+	</record>
+
+	<record id="mun_ve_TRU_MCA" model="res.country.state.municipality">
+		<field name="code">MCA</field>
+		<field name="name">Monte Carmelo</field>
+		<field name="state_id" ref="est_ve_TRU"/>
+	</record>
+
+	<record id="mun_ve_TRU_MOT" model="res.country.state.municipality">
+		<field name="code">MOT</field>
+		<field name="name">Motatán</field>
+		<field name="state_id" ref="est_ve_TRU"/>
+	</record>
+
+	<record id="mun_ve_TRU_PAM" model="res.country.state.municipality">
+		<field name="code">PAM</field>
+		<field name="name">Pampán</field>
+		<field name="state_id" ref="est_ve_TRU"/>
+	</record>
+
+	<record id="mun_ve_TRU_PPA" model="res.country.state.municipality">
+		<field name="code">PPA</field>
+		<field name="name">Pampanito</field>
+		<field name="state_id" ref="est_ve_TRU"/>
+	</record>
+
+	<record id="mun_ve_TRU_RRA" model="res.country.state.municipality">
+		<field name="code">RRA</field>
+		<field name="name">Rafael Rangel</field>
+		<field name="state_id" ref="est_ve_TRU"/>
+	</record>
+
+	<record id="mun_ve_TRU_SRC" model="res.country.state.municipality">
+		<field name="code">SRC</field>
+		<field name="name">San Rafael De Carvajal</field>
+		<field name="state_id" ref="est_ve_TRU"/>
+	</record>
+
+	<record id="mun_ve_TRU_SUC" model="res.country.state.municipality">
+		<field name="code">SUC</field>
+		<field name="name">Sucre</field>
+		<field name="state_id" ref="est_ve_TRU"/>
+	</record>
+
+	<record id="mun_ve_TRU_TRU" model="res.country.state.municipality">
+		<field name="code">TRU</field>
+		<field name="name">Trujillo</field>
+		<field name="state_id" ref="est_ve_TRU"/>
+	</record>
+
+	<record id="mun_ve_TRU_URD" model="res.country.state.municipality">
+		<field name="code">URD</field>
+		<field name="name">Urdaneta</field>
+		<field name="state_id" ref="est_ve_TRU"/>
+	</record>
+
+	<record id="mun_ve_TRU_VAL" model="res.country.state.municipality">
+		<field name="code">VAL</field>
+		<field name="name">Valera</field>
+		<field name="state_id" ref="est_ve_TRU"/>
+	</record>
+
+	<record id="mun_ve_VAR_VAR" model="res.country.state.municipality">
+		<field name="code">VAR</field>
+		<field name="name">Vargas</field>
+		<field name="state_id" ref="est_ve_VAR"/>
+	</record>
+
+	<record id="mun_ve_YAR_ABA" model="res.country.state.municipality">
+		<field name="code">ABA</field>
+		<field name="name">Arístides Bastidas</field>
+		<field name="state_id" ref="est_ve_YAR"/>
+	</record>
+
+	<record id="mun_ve_YAR_BOL" model="res.country.state.municipality">
+		<field name="code">BOL</field>
+		<field name="name">Bolívar</field>
+		<field name="state_id" ref="est_ve_YAR"/>
+	</record>
+
+	<record id="mun_ve_YAR_BRU" model="res.country.state.municipality">
+		<field name="code">BRU</field>
+		<field name="name">Bruzual</field>
+		<field name="state_id" ref="est_ve_YAR"/>
+	</record>
+
+	<record id="mun_ve_YAR_COC" model="res.country.state.municipality">
+		<field name="code">COC</field>
+		<field name="name">Cocorote</field>
+		<field name="state_id" ref="est_ve_YAR"/>
+	</record>
+
+	<record id="mun_ve_YAR_IND" model="res.country.state.municipality">
+		<field name="code">IND</field>
+		<field name="name">Independencia</field>
+		<field name="state_id" ref="est_ve_YAR"/>
+	</record>
+
+	<record id="mun_ve_YAR_JAP" model="res.country.state.municipality">
+		<field name="code">JAP</field>
+		<field name="name">José Antonio Páez</field>
+		<field name="state_id" ref="est_ve_YAR"/>
+	</record>
+
+	<record id="mun_ve_YAR_LTR" model="res.country.state.municipality">
+		<field name="code">LTR</field>
+		<field name="name">La Trinidad</field>
+		<field name="state_id" ref="est_ve_YAR"/>
+	</record>
+
+	<record id="mun_ve_YAR_MMO" model="res.country.state.municipality">
+		<field name="code">MMO</field>
+		<field name="name">Manuel Monge</field>
+		<field name="state_id" ref="est_ve_YAR"/>
+	</record>
+
+	<record id="mun_ve_YAR_NIR" model="res.country.state.municipality">
+		<field name="code">NIR</field>
+		<field name="name">Nirgua</field>
+		<field name="state_id" ref="est_ve_YAR"/>
+	</record>
+
+	<record id="mun_ve_YAR_PEN" model="res.country.state.municipality">
+		<field name="code">PEN</field>
+		<field name="name">Peña</field>
+		<field name="state_id" ref="est_ve_YAR"/>
+	</record>
+
+	<record id="mun_ve_YAR_SFE" model="res.country.state.municipality">
+		<field name="code">SFE</field>
+		<field name="name">San Felipe</field>
+		<field name="state_id" ref="est_ve_YAR"/>
+	</record>
+
+	<record id="mun_ve_YAR_SUC" model="res.country.state.municipality">
+		<field name="code">SUC</field>
+		<field name="name">Sucre</field>
+		<field name="state_id" ref="est_ve_YAR"/>
+	</record>
+
+	<record id="mun_ve_YAR_URA" model="res.country.state.municipality">
+		<field name="code">URA</field>
+		<field name="name">Urachiche</field>
+		<field name="state_id" ref="est_ve_YAR"/>
+	</record>
+
+	<record id="mun_ve_YAR_JJV" model="res.country.state.municipality">
+		<field name="code">JJV</field>
+		<field name="name">José Juaquín Veroes</field>
+		<field name="state_id" ref="est_ve_YAR"/>
+	</record>
+
+	<record id="mun_ve_ZUL_APA" model="res.country.state.municipality">
+		<field name="code">APA</field>
+		<field name="name">Almirante Padilla</field>
+		<field name="state_id" ref="est_ve_ZUL"/>
+	</record>
+
+	<record id="mun_ve_ZUL_BAR" model="res.country.state.municipality">
+		<field name="code">BAR</field>
+		<field name="name">Baralt</field>
+		<field name="state_id" ref="est_ve_ZUL"/>
+	</record>
+
+	<record id="mun_ve_ZUL_CAB" model="res.country.state.municipality">
+		<field name="code">CAB</field>
+		<field name="name">Cabimas</field>
+		<field name="state_id" ref="est_ve_ZUL"/>
+	</record>
+
+	<record id="mun_ve_ZUL_CAT" model="res.country.state.municipality">
+		<field name="code">CAT</field>
+		<field name="name">Catatumbo</field>
+		<field name="state_id" ref="est_ve_ZUL"/>
+	</record>
+
+	<record id="mun_ve_ZUL_COL" model="res.country.state.municipality">
+		<field name="code">COL</field>
+		<field name="name">Colón</field>
+		<field name="state_id" ref="est_ve_ZUL"/>
+	</record>
+
+	<record id="mun_ve_ZUL_FJP" model="res.country.state.municipality">
+		<field name="code">FJP</field>
+		<field name="name">Francisco Javier Pulgar</field>
+		<field name="state_id" ref="est_ve_ZUL"/>
+	</record>
+
+	<record id="mun_ve_ZUL_JEL" model="res.country.state.municipality">
+		<field name="code">JEL</field>
+		<field name="name">Jesús Enrique Lossada</field>
+		<field name="state_id" ref="est_ve_ZUL"/>
+	</record>
+
+	<record id="mun_ve_ZUL_JMS" model="res.country.state.municipality">
+		<field name="code">JMS</field>
+		<field name="name">Jesús María Semprún</field>
+		<field name="state_id" ref="est_ve_ZUL"/>
+	</record>
+
+	<record id="mun_ve_ZUL_LCU" model="res.country.state.municipality">
+		<field name="code">LCU</field>
+		<field name="name">La Cañada De Urdaneta</field>
+		<field name="state_id" ref="est_ve_ZUL"/>
+	</record>
+
+	<record id="mun_ve_ZUL_LAG" model="res.country.state.municipality">
+		<field name="code">LAG</field>
+		<field name="name">Lagunillas</field>
+		<field name="state_id" ref="est_ve_ZUL"/>
+	</record>
+
+	<record id="mun_ve_ZUL_MDP" model="res.country.state.municipality">
+		<field name="code">MDP</field>
+		<field name="name">Machiques De Perijá</field>
+		<field name="state_id" ref="est_ve_ZUL"/>
+	</record>
+
+	<record id="mun_ve_ZUL_MAR" model="res.country.state.municipality">
+		<field name="code">MAR</field>
+		<field name="name">Mara</field>
+		<field name="state_id" ref="est_ve_ZUL"/>
+	</record>
+
+	<record id="mun_ve_ZUL_MBO" model="res.country.state.municipality">
+		<field name="code">MBO</field>
+		<field name="name">Maracaibo</field>
+		<field name="state_id" ref="est_ve_ZUL"/>
+	</record>
+
+	<record id="mun_ve_ZUL_MIR" model="res.country.state.municipality">
+		<field name="code">MIR</field>
+		<field name="name">Miranda</field>
+		<field name="state_id" ref="est_ve_ZUL"/>
+	</record>
+
+	<record id="mun_ve_ZUL_PAE" model="res.country.state.municipality">
+		<field name="code">PAE</field>
+		<field name="name">Páez</field>
+		<field name="state_id" ref="est_ve_ZUL"/>
+	</record>
+
+	<record id="mun_ve_ZUL_RDP" model="res.country.state.municipality">
+		<field name="code">RDP</field>
+		<field name="name">Rosario De Perijá</field>
+		<field name="state_id" ref="est_ve_ZUL"/>
+	</record>
+
+	<record id="mun_ve_ZUL_SFR" model="res.country.state.municipality">
+		<field name="code">SFR</field>
+		<field name="name">San Francisco</field>
+		<field name="state_id" ref="est_ve_ZUL"/>
+	</record>
+
+	<record id="mun_ve_ZUL_SRI" model="res.country.state.municipality">
+		<field name="code">SRI</field>
+		<field name="name">Santa Rita</field>
+		<field name="state_id" ref="est_ve_ZUL"/>
+	</record>
+
+	<record id="mun_ve_ZUL_SBO" model="res.country.state.municipality">
+		<field name="code">SBO</field>
+		<field name="name">Simón Bolívar</field>
+		<field name="state_id" ref="est_ve_ZUL"/>
+	</record>
+
+	<record id="mun_ve_ZUL_SUC" model="res.country.state.municipality">
+		<field name="code">SUC</field>
+		<field name="name">Sucre</field>
+		<field name="state_id" ref="est_ve_ZUL"/>
+	</record>
+
+	<record id="mun_ve_ZUL_VRO" model="res.country.state.municipality">
+		<field name="code">VRO</field>
+		<field name="name">Valmore Rodríguez</field>
+		<field name="state_id" ref="est_ve_ZUL"/>
+	</record>
+
+	</data>
+</openerp>
