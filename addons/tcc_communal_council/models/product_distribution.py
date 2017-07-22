@@ -52,6 +52,16 @@ class TccProductDistribution(models.Model):
                 ('done', 'Confirmado'),
                 ], string='Status', readonly=True, copy=False, index=True,
                 )
+    description = fields.Text(string='Descripción')
+    date_start = fields.Datetime(
+                string='Inicio de entrega',
+                required=True,
+                default=fields.Datetime.now,
+                )
+    date_end = fields.Datetime(
+                string='Fin de entrega',
+                required=True,
+                )
     active = fields.Boolean(default=True)
     
     @api.onchange('name')
@@ -152,7 +162,6 @@ class TccProductDistributionLine(models.Model):
     date_end = fields.Datetime(
                 string='Fin de entrega',
                 required=True,
-                #~ states={'draft': [('readonly', False)]},
                 )
     family_ids = fields.Many2many(
                 'tcc.family',

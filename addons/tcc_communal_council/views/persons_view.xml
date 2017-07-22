@@ -47,7 +47,7 @@
                             <field name="communal_council_id" options='{"no_create": "True"}' />
                             <field name="is_vocero" readonly="context.get('read_users')"/>
                             <field name="is_family_boss" readonly="context.get('read_users')"/>
-                            <field name="login" readonly="context.get('read_users')"/>
+                            <field name="login" string="Correo" help="Si no tiene correo, lo que coloque sera usado como usuario para ingresar al sistema."  readonly="context.get('read_users')"/>
                             <field name="name" invisible="True"/>
                         </group>
                         <group col="4">
