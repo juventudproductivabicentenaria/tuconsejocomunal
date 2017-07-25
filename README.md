@@ -30,21 +30,19 @@ los procesos activos de los consejos comunales. Tales como:
 
 ## Código de ejemplo ##
 
-`
-class Partner(models.Model):
+`class Partner(models.Model):
     _inherit = 'res.partner'
     
     is_council = fields.Boolean(
                     string='Es consejo', 
                     help="Indica sí el partner es un consejo comunal.",
                     )
-
 class CommunalCouncil(models.Model):
     _name = "tcc.communal.council"
     _description = "Consejo Comunal"
     _inherits = {'res.users': 'user_id'}
     _rec_name = 'name'
-    
+
     
     user_id = fields.Many2one(
                     'res.users', 
@@ -69,9 +67,7 @@ class CommunalCouncil(models.Model):
                 'tcc.address.sector',
                 string='Sector', 
                 )
-    active = fields.Boolean(default=True)
-    
-    `
+    active = fields.Boolean(default=True)`
     
 ## Motivación ##
 
