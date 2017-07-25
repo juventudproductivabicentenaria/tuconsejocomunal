@@ -28,6 +28,7 @@ los procesos activos de los consejos comunales. Tales como:
 * Ayuda a la gestión de la Distribución de los benefición tanto del Consejo Comunal como los del Estado.
 * Descargar formatos de documentos con información que ayude la relación rapida y oportuna con del Estado y otros Organismos.
 
+
 ## Código de ejemplo ##
 
 `class Partner(models.Model):
@@ -68,11 +69,12 @@ class CommunalCouncil(models.Model):
                 string='Sector', 
                 )
     active = fields.Boolean(default=True)`
+
     
 ## Motivación ##
 
 Insentivar a los Consejos Comunales a actuar de forma organizada
-y sistematizada, donde las familias integrantes puedan contar con
+y sistematizada, donde las familias e integrantes puedan contar con
 información en tiempo real y oportuna.
 
 ## Instalación ##
@@ -80,7 +82,7 @@ información en tiempo real y oportuna.
 Para intalación requiere la versión [odoo-10.0](https://github.com/odoo/odoo/tree/10.0)
 
 Una vez Instalado Odoo 10, se ubica en el archivo de configuración y en el parametro addons_path del archivo odoo.conf adicionalerle: /tu_ruta/tuconsejocomunal/addons
-reinicias el serviccio odoo, actualizas la lista de los modulos como admin y finalmente lo buscas e instalas.   
+reinicias el serviccio odoo, actualizas la lista de los modulos como admin y finalmente buscas tcc_communal_council e instalas.   
 
 ## Documentación ##
 
