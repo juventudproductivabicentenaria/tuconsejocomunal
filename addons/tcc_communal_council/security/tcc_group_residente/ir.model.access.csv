@@ -22,7 +22,7 @@ access_tcc_family_salubrity_dwelling_residente,tcc.family.dwelling.salubrity,mod
 access_tcc_family_dwelling_pests_residente,tcc.family.dwelling.pests,model_tcc_family_dwelling_pests,tcc_group_residente,1,0,0,0
 access_tcc_family_dwelling_pets_residente,tcc.family.dwelling.pets,model_tcc_family_dwelling_pets,tcc_group_residente,1,0,0,0
 access_tcc_family_dwelling_room_residente,tcc.family.dwelling.room,model_tcc_family_dwelling_room,tcc_group_residente,1,0,0,0
-access_tcc_family_disease_residente,tcc.family.disease,model_tcc_family_disease,tcc_group_residente,1,0,0,0
+access_tcc_persons_disease_vocero,tcc.persons.disease,model_tcc_persons_disease,tcc_group_residente,1,0,0,0
 access_tcc_family_white_water_residente,tcc.family.white.water,model_tcc_family_white_water,tcc_group_residente,1,0,0,0
 access_tcc_family_waste_water_residente,tcc.family.waste.water,model_tcc_family_waste_water,tcc_group_residente,1,0,0,0
 access_tcc_family_collect_trash_residente,tcc.family.collect.trash,model_tcc_family_collect_trash,tcc_group_residente,1,0,0,0

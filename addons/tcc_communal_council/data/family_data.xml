@@ -3,6 +3,7 @@
     <data noupdate="1">
 
         <!-- Ingresos totales de la familia -->
+<!--
         <record id="tcc_fam_income_menos_200" model="tcc.family.income">
             <field name="name">Menos de 200.000,00</field>
             <field name="active" eval="True"/>
@@ -22,6 +23,7 @@
             <field name="name">2.000.001,00 y Más</field>
             <field name="active" eval="True"/>
         </record>
+-->
         
         
         <!-- Tipos de paredes de la Vivienda -->
@@ -263,42 +265,42 @@
         </record>
         
         <!-- Enfermedades en la Familia -->
-        <record id="tcc_fam_disease_cancer" model="tcc.family.disease">
+        <record id="tcc_fam_disease_cancer" model="tcc.persons.disease">
             <field name="name">Cáncer</field>
             <field name="active" eval="True"/>
         </record>
 
-        <record id="tcc_fam_disease_diabetes" model="tcc.family.disease">
+        <record id="tcc_fam_disease_diabetes" model="tcc.persons.disease">
             <field name="name">Diabetes</field>
             <field name="active" eval="True"/>
         </record>
 
-        <record id="tcc_fam_disease_sida" model="tcc.family.disease">
+        <record id="tcc_fam_disease_sida" model="tcc.persons.disease">
             <field name="name">SIDA</field>
             <field name="active" eval="True"/>
         </record>
 
-        <record id="tcc_fam_disease_corazon" model="tcc.family.disease">
+        <record id="tcc_fam_disease_corazon" model="tcc.persons.disease">
             <field name="name">Corazón</field>
             <field name="active" eval="True"/>
         </record>
 
-        <record id="tcc_fam_disease_hepatitis" model="tcc.family.disease">
+        <record id="tcc_fam_disease_hepatitis" model="tcc.persons.disease">
             <field name="name">Hepatitis</field>
             <field name="active" eval="True"/>
         </record>
 
-        <record id="tcc_fam_disease_tuberculosis" model="tcc.family.disease">
+        <record id="tcc_fam_disease_tuberculosis" model="tcc.persons.disease">
             <field name="name">Tuberculosis</field>
             <field name="active" eval="True"/>
         </record>
 
-        <record id="tcc_fam_disease_hipertension" model="tcc.family.disease">
+        <record id="tcc_fam_disease_hipertension" model="tcc.persons.disease">
             <field name="name">Hipertensión</field>
             <field name="active" eval="True"/>
         </record>
 
-        <record id="tcc_fam_disease_asma" model="tcc.family.disease">
+        <record id="tcc_fam_disease_asma" model="tcc.persons.disease">
             <field name="name">Asma</field>
             <field name="active" eval="True"/>
         </record>

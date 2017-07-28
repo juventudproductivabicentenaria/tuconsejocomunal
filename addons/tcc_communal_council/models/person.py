@@ -234,6 +234,13 @@ class TccPersons(models.Model):
     name_workplace = fields.Char(
                 string='Nombre del lugar de trabajo',
                 )
+    disease_ids = fields.Many2many(
+                'tcc.persons.disease',
+                'tcc_persons_disease_rel',
+                'person_id',
+                'disease_id',
+                string='Presenta enfermedades'
+                )
     survey_default = fields.Boolean(default=False,string="Encuestado")
     active = fields.Boolean(default=True)
     
@@ -431,6 +438,23 @@ class TccPersonsKinship(models.Model):
     active = fields.Boolean(default=True)
     
     _sql_constraints = [('name_uniq', 'unique (name)', "El Parentesco ya Existe. ¡Verifique!")]
+    
+    @api.onchange('name')
+    def title_string(self):
+        if self.name:
+            self.name = self.name.title()
+
+class TccPersonsDisease(models.Model):
+    _name = "tcc.persons.disease"
+    _rec_name = 'name'
+    _description = 'Enfermedades en la persona'
+    
+    name = fields.Char(
+                string='Nombre',
+                )
+    active = fields.Boolean(default=True)
+    
+    _sql_constraints = [('name_uniq', 'unique (name)', "El nombre ya se encuentra registrado. ¡Verifique!")]
     
     @api.onchange('name')
     def title_string(self):

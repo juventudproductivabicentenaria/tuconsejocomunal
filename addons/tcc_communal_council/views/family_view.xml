@@ -28,7 +28,10 @@
                             </page>
                             <page string="Situación Económica">
                                 <group col = "4">
+                                    <field name="family_income"/>
+<!--
                                     <field name="family_income_id"/>
+-->
                                     <field name="commercial_activity_hose"/>
                                     <field name="commercial_activity_ids" widget="many2many_tags" attrs="{'invisible': [('commercial_activity_hose', '!=', 'Si')]}" />
                                     
@@ -59,7 +62,9 @@
                             </page>
                             <page string="Salud">
                                 <group col="4">
+<!--
                                     <field name="disease_ids" widget="many2many_tags"/>
+-->
                                     <field name="need_help" />
                                     <field name="name_help" attrs="{'invisible': [('need_help', 'in', ('No',False))]}" />
                                 </group>

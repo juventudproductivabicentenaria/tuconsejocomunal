@@ -71,6 +71,7 @@
                             <field name="credit_card" readonly="context.get('read_users')" />
                             <field name="cesta_ticket" readonly="context.get('read_users')" />
                             <field name="registered_cne" readonly="context.get('read_users')" />
+                            <field name="disease_ids" widget="many2many_tags" readonly="context.get('read_users')" />
                             <field name="workplace" readonly="context.get('read_users')" />
                             <field name="kinship_id" attrs="{'invisible': [('is_family_boss', '=', True)], 'required': [('is_family_boss', '=', False)]}" readonly="context.get('read_users')" />
                             <field name="name_workplace" attrs="{'invisible': [('workplace', '!=', 'other')]}" readonly="context.get('read_users')" />
