@@ -20,10 +20,22 @@
                         </group>
                         <notebook>
                             <page string="Casas">
-                                <field name="house_ids"/>
+                                <field name="house_ids">
+                                    <tree>
+                                        <field name="name" />
+                                        <field name="sector_id" />
+                                        <field name="street_id" />
+                                    </tree>
+                                </field>
                             </page>
                             <page name="edifice_ids" string="Edificios">
-                                <field name="edifice_ids"/>
+                                <field name="edifice_ids">
+                                    <tree>
+                                        <field name="name" />
+                                        <field name="sector_id" />
+                                        <field name="street_id" />
+                                    </tree>
+                                </field>
                             </page>
                         </notebook>
                     </sheet>

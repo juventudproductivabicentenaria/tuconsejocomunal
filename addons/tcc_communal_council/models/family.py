@@ -158,7 +158,7 @@ class TccFamily(models.Model):
                 'tcc_family_dwelling_room_rel',
                 'family_id',
                 'room_id',
-                string='Habitaciones en la vivienda'
+                string='Áreas de la vivienda'
                 )
     cant_room = fields.Integer(string='cantidad de habitaciones', )
     #~ disease_ids = fields.Many2many(
