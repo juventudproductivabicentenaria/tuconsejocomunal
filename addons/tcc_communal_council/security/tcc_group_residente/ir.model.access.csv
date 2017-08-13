@@ -13,7 +13,6 @@ access_tcc_persons_residente,tcc.persons,model_tcc_persons,tcc_group_residente,1
 access_res_users_residente,res.users,base.model_res_users,tcc_group_residente,1,0,0,0
 access_tcc_persons_profession_residente,tcc.persons.profession,model_tcc_persons_profession,tcc_group_residente,1,0,0,0
 access_tcc_persons_kinship_residente,tcc.persons.kinship,model_tcc_persons_kinship,tcc_group_residente,1,0,0,0
-access_tcc_family_income_residente,tcc.family.income,model_tcc_family_income,tcc_group_residente,1,0,0,0
 access_tcc_family_commercial_activity_residente,tcc.family.commercial.activity,model_tcc_family_commercial_activity,tcc_group_residente,1,0,0,0
 access_tcc_family_type_walls_residente,tcc.family.type.walls,model_tcc_family_type_walls,tcc_group_residente,1,0,0,0
 access_tcc_family_type_roof_residente,tcc.family.type.roof,model_tcc_family_type_roof,tcc_group_residente,1,0,0,0

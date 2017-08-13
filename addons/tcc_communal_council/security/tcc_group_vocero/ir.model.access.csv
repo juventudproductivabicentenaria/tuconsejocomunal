@@ -13,7 +13,6 @@ access_tcc_persons_vocero,tcc.persons,model_tcc_persons,tcc_group_vocero,1,1,1,1
 access_res_users_vocero,res.users,base.model_res_users,tcc_group_vocero,1,1,1,0
 access_tcc_persons_profession_vocero,tcc.persons.profession,model_tcc_persons_profession,tcc_group_vocero,1,1,1,0
 access_tcc_persons_kinship_vocero,tcc.persons.kinship,model_tcc_persons_kinship,tcc_group_vocero,1,1,1,0
-access_tcc_family_income_vocero,tcc.family.income,model_tcc_family_income,tcc_group_vocero,1,1,1,0
 access_tcc_family_commercial_activity_vocero,tcc.family.commercial.activity,model_tcc_family_commercial_activity,tcc_group_vocero,1,1,1,0
 access_tcc_family_type_walls_vocero,tcc.family.type.walls,model_tcc_family_type_walls,tcc_group_vocero,1,1,1,0
 access_tcc_family_type_roof_vocero,tcc.family.type.roof,model_tcc_family_type_roof,tcc_group_vocero,1,1,1,0
