@@ -24,7 +24,18 @@
             </field>
         </record>
         
-        <menuitem name="Encuestas" id="tcc_menu_surveys" sequence="70" groups="tcc_group_consejo"  web_icon="survey,static/description/icon.png"/>
+        <record id="tcc_survey_mail_compose_message" model="ir.ui.view">
+            <field name="name">survey.mail.compose.message.inherit</field>
+            <field name="model">survey.mail.compose.message</field>
+            <field name="inherit_id" ref="survey.survey_email_compose_message"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='partner_ids']" position="attributes">
+                    <attribute name="options">{'no_create': True}</attribute>
+                </xpath>
+            </field>
+        </record>
+        
+        <menuitem name="Encuestas" id="tcc_menu_surveys" sequence="70" groups="tcc_group_consejo,tcc_group_vocero"  web_icon="survey,static/description/icon.png"/>
         
         <!-- Left menu elements: Survey -->
         <menuitem name="Encuestas" id="tcc_menu_survey_form" action="survey.action_survey_form" parent="tcc_menu_surveys" sequence="1"/>

@@ -36,6 +36,14 @@ class TccFamily(models.Model):
         if self.name:
             self.name = self.name.title()
     
+    @api.depends('person_ids')
+    def _get_family_income(self):
+        total = 0.00
+        if self.person_ids:
+            for family in self:
+                for person in family.person_ids:
+                    total = total + person.monthly_income
+        self.family_income = total
     
     
     tenancy_data=[
@@ -153,17 +161,17 @@ class TccFamily(models.Model):
                 string='Áreas de la vivienda'
                 )
     cant_room = fields.Integer(string='cantidad de habitaciones', )
-    disease_ids = fields.Many2many(
-                'tcc.family.disease',
-                'tcc_family_disease_rel',
-                'family_id',
-                'disease_id',
-                string='Enfermedades en la familia'
-                )
+    #~ disease_ids = fields.Many2many(
+                #~ 'tcc.family.disease',
+                #~ 'tcc_family_disease_rel',
+                #~ 'family_id',
+                #~ 'disease_id',
+                #~ string='Enfermedades en la familia'
+                #~ )
     need_help = fields.Selection(
                 [('Si', 'Si'),
                 ('No', 'No'),],
-                string='Necesita ayuda', 
+                string='Necesita ayuda para enfermedades', 
                 help="Necesita ayuda para familiares enfermos"
                 )
     name_help = fields.Char(
@@ -181,10 +189,16 @@ class TccFamily(models.Model):
                 'commercial_activity_id',
                 string='Venta de:'
                 )
-    family_income_id = fields.Many2one(
-                'tcc.family.income',
-                string='Ingreso familiar', 
+    family_income = fields.Float(
+                string='Ingreso familiar',
+                compute='_get_family_income',
+                readonly=True,
+                store=True,
                 )
+    #~ family_income_id = fields.Many2one(
+                #~ 'tcc.family.income',
+                #~ string='Ingreso familiar', 
+                #~ )
     arrival_date = fields.Date(
                 string='Fecha de llegada a la comunidad',
                 required=True,
@@ -450,24 +464,24 @@ class FamilyCommercialActivity(models.Model):
             self.name = self.name.title()
 
 
-class TccFamilyIncome(models.Model):
-    _name = "tcc.family.income"
-    _rec_name = 'name'
-    _description = 'Ingreso familiar'
-    
-    name = fields.Char(
-                string='Ingreso familiar',
-                )
-    active = fields.Boolean(default=True)
-    
-    _sql_constraints = [('name_uniq', 'unique (name)', "El Ingreso familiar ya se encuentra registrado. ¡Verifique!")]
-    
-    @api.onchange('name')
-    def title_string(self):
-        if self.name:
-            self.name = self.name.title()
-    
-
+#~ class TccFamilyIncome(models.Model):
+    #~ _name = "tcc.family.income"
+    #~ _rec_name = 'name'
+    #~ _description = 'Ingreso familiar'
+    #~ 
+    #~ name = fields.Char(
+                #~ string='Ingreso familiar',
+                #~ )
+    #~ active = fields.Boolean(default=True)
+    #~ 
+    #~ _sql_constraints = [('name_uniq', 'unique (name)', "El Ingreso familiar ya se encuentra registrado. ¡Verifique!")]
+    #~ 
+    #~ @api.onchange('name')
+    #~ def title_string(self):
+        #~ if self.name:
+            #~ self.name = self.name.title()
+    #~ 
+#~ 
 
 class TccFamilyTypeWalls(models.Model):
     _name = "tcc.family.type.walls"
@@ -595,22 +609,22 @@ class TccFamilyDwellingRoom(models.Model):
             self.name = self.name.title()
 
 
-class TccFamilyDisease(models.Model):
-    _name = "tcc.family.disease"
-    _rec_name = 'name'
-    _description = 'Enfermedades en la familia'
-    
-    name = fields.Char(
-                string='Nombre',
-                )
-    active = fields.Boolean(default=True)
-    
-    _sql_constraints = [('name_uniq', 'unique (name)', "El nombre ya se encuentra registrado. ¡Verifique!")]
-    
-    @api.onchange('name')
-    def title_string(self):
-        if self.name:
-            self.name = self.name.title()
+#~ class TccFamilyDisease(models.Model):
+    #~ _name = "tcc.family.disease"
+    #~ _rec_name = 'name'
+    #~ _description = 'Enfermedades en la familia'
+    #~ 
+    #~ name = fields.Char(
+                #~ string='Nombre',
+                #~ )
+    #~ active = fields.Boolean(default=True)
+    #~ 
+    #~ _sql_constraints = [('name_uniq', 'unique (name)', "El nombre ya se encuentra registrado. ¡Verifique!")]
+    #~ 
+    #~ @api.onchange('name')
+    #~ def title_string(self):
+        #~ if self.name:
+            #~ self.name = self.name.title()
 
 
 class TccFamilyWhiteWater(models.Model):

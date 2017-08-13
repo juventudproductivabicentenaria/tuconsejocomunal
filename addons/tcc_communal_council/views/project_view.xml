@@ -24,6 +24,17 @@
             </field>
         </record>
         
+        <record id="tcc_project_task_form" model="ir.ui.view">
+            <field name="name">project.task.inherit</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_form2"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='user_id']" position="attributes">
+                    <attribute name="options">{'no_create': True}</attribute>
+                </xpath>
+            </field>
+        </record>
+        
         <menuitem name="Proyectos"
             id="tcc_menu_main_pm"
             sequence="50"/>
@@ -34,7 +45,7 @@
             sequence="2" />
 
         <menuitem id="tcc_menu_project_config" name="Configuración" parent="tcc_menu_main_pm"
-            sequence="100" groups="tcc_group_consejo"/>
+            sequence="100" groups="tcc_group_consejo,tcc_group_vocero"/>
         
         <menuitem name="Tareas" action="project.action_view_task" id="tcc_menu_action_view_task" parent="tcc_menu_project_management" sequence="5"/>
         
