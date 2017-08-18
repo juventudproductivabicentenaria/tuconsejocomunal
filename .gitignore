@@ -7,7 +7,9 @@ __pycache__/
 
 # C extensions
 *.so
-
+# Odoo app external module
+addons/backend_theme_v10/
+addons/inputmask_widget/
 # Distribution / packaging
 .Python
 env/
