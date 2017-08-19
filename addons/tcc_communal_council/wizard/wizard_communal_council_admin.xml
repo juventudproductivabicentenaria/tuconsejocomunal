@@ -28,7 +28,7 @@
     </record>
 
     <record id="action_wizard_communal_council_admin" model="ir.actions.act_window">
-        <field name="name">Wizard Communal Council Admin</field>
+        <field name="name">Communal Council Admin Wizard Report</field>
         <field name="res_model">tcc.wizard.communal.council.admin</field>
         <field name="type">ir.actions.act_window</field>
         <field name="view_type">form</field>

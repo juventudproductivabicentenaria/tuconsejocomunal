@@ -5,11 +5,11 @@ from odoo import api, fields, models
 
 class WizardReportCommunalCouncilAdmin(models.TransientModel):
     _name = "tcc.wizard.communal.council.admin"
-    _description = "Areport_communal_council_admin Wizard"
+    _description = "Communal Council Admin Wizard Report"
 
     title=fields.Char('Titulo',required=True)
     description=fields.Text('Descripción',required=True)
-    date_init=fields.Date('Fecha',required=True)
+    date_init=fields.Date('Fecha')
 
     @api.multi
     def action_report(self):
