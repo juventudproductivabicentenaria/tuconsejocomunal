@@ -24,70 +24,65 @@ y brindar apoyo en la organización y esparcimiento de la información y agiliza
 los procesos activos de los consejos comunales. Tales como:
 
 * Ofrecer registro de familias que conforman el Consejo Comunal y estructura organizacional del mismo.
-* Publicar información en la plataforma y notificar a todos los miembros de la comunaidad registrados.
-* Descargar formatos de documentos solicitados por los entes del Estado reguladores de los Consejos Comunales.
+* Publicar información en la plataforma y notificar a todos los miembros de la comunidad registrados.
+* Ayuda a la gestión de la Distribución de los benefición tanto del Consejo Comunal como los del Estado.
+* Descargar formatos de documentos con información que ayude la relación rapida y oportuna con del Estado y otros Organismos.
+
 
 ## Código de ejemplo ##
 
-    class partner(osv.osv):
-        _name = 'res.partner'
-        _inherit="res.partner"
-        _columns = {
-            'is_consejo': fields.boolean(
-                    'Consejo Comunal'),
-            'rif': fields.char(
-                    'RIF',
-                    size=15,
-                    required=True,
-                    help='Número del R.I.F. de la Entidad'),
-            'estado_id':fields.many2one('res.estados','Estado',required=True),
-            'municipio_id':fields.many2one('res.municipios','Municipio',required=True),
-            'parroquia_id':fields.many2one('res.parroquias','Parroquia',required=True)
-        }
-    _defaults={
-        'is_consejo':False
-        }
-        
-    class tcc_consejocomunales(osv.osv):
-     _name = 'tcc.consejocomunales'
-     _inherits = {'res.partner': 'parent_id'}
-     _rec_name='parent_id'
-     _columns={
-        'parent_id':fields.many2one(
-                    'res.partner',
-                    'Registro de los consejos Comunales',
-                    required=True,
-                    ondelete='cascade'
-                    ),
-        'cd_situr':fields.char('Código situr',help='Nombre del Consejo Comunal'),
-        'fecha':fields.date('Fecha',size=20,help='Nombre del Consejo Comunal'),
-        'active':fields.boolean('Activo',help='Si esta activo el motor lo incluira en la vista...'),
-        }
+`class Partner(models.Model):
+    _inherit = 'res.partner'
+    
+    is_council = fields.Boolean(
+                    string='Es consejo', 
+                    help="Indica sí el partner es un consejo comunal.",
+                    )
+class CommunalCouncil(models.Model):
+    _name = "tcc.communal.council"
+    _description = "Consejo Comunal"
+    _inherits = {'res.users': 'user_id'}
+    _rec_name = 'name'
+
+    
+    user_id = fields.Many2one(
+                    'res.users', 
+                    string='Usuario Consejo Comunal',
+                    ondelete="cascade"
+                    )
+    situr_code = fields.Char(
+                    string='Código SITUR',
+                    )
+    creation_date = fields.Date(
+                    string='Fecha creación',
+                    )
+    rif = fields.Char(
+                    string='RIF',
+                    )
+    state_id = fields.Many2one(
+                    'res.country.state', 
+                    string='Estado',
+                    )
+
+    sector_id = fields.Many2one(
+                'tcc.address.sector',
+                string='Sector', 
+                )
+    active = fields.Boolean(default=True)`
+
+    
 ## Motivación ##
 
 Insentivar a los Consejos Comunales a actuar de forma organizada
-y sistematizada, donde las familias integrantes puedan contar con
+y sistematizada, donde las familias e integrantes puedan contar con
 información en tiempo real y oportuna.
 
 ## Instalación ##
 
 Para intalación requiere la versión [odoo-10.0](https://github.com/odoo/odoo/tree/10.0)
 
-y seguir éste orden de intalación de los módulos:
-
-    1.- Gestión de los Consejos Comunales (1)
-
-    2.- Gestion de Vivienda (2)
-
-    3.- Gestion de Familia (3)
-
-    4.- Personas (4)
-
-    5.- tcc_noticias (5)
-
-    6.- Encuestas de Consejos Comunales (5)
-
-    7.- Gestion de proyecto (6)
+Una vez Instalado Odoo 10, se ubica en el archivo de configuración y en el parametro addons_path del archivo odoo.conf adicionalerle: /tu_ruta/tuconsejocomunal/addons
+reinicias el serviccio odoo, actualizas la lista de los modulos como admin y finalmente buscas tcc_communal_council e instalas.   
 
 ## Documentación ##
 
