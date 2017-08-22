@@ -92,21 +92,76 @@ class CommunalCouncil(models.Model):
             self.parish_id = False
             self.sector_id = False
     
-    #~ @api.model
-    #~ def create_default_survey(self):
-        #~ self.ensure_one()
-        #~ survey = self.env['survey.survey']
-        #~ 
-        #~ question = self.env['survey.question']
-        #~ label = self.env['survey.label']
-        #~ survey_data = {
-            #~ 'title': 'Paricipación Comunitaria',
-            #~ 'auth_required': True,
-            #~ 'page_ids': [0, False, {'title': 'Paricipación Comunitaria',}]
-        #~ }
-        #~ 
-        #~ survey.create(survey_data)
-        #~ return True
+    @api.model
+    def create_default_survey(self):
+        survey_model = self.env['survey.survey']
+        survey_page_model = self.env['survey.page']
+        survey_question_model = self.env['survey.question']
+        survey_label_model = self.env['survey.label']
+        
+        survey_data = {
+            'title': 'Paricipación Comunitaria',
+            'auth_required': True,
+            'tcc_survey': True,
+            'communal_council_id': self.id,
+        }
+        survey = survey_model.create(survey_data)
+        
+        page_data = {
+            'title': 'Paricipación Comunitaria',
+            'description': 'Por favor, lea y responda las siguientes preguntas según sus observaciones respecto a su comunidad.',
+            'survey_id': survey.id
+            }
+        survey_page = survey_page_model.create(page_data)
+        quention_list = ['¿Conoce las Organizaciones Comunitarias que existen en su Comunidad?',
+                        '¿Participa usted en algunas de ellas?',
+                        '¿Participa algún miembro de su familia?',
+                        '¿Cree Usted que en la actualidad el pueblo el pueblo está interviniendo en las decisiones sobre como deben gastarse los recursos de su comunidad?',
+                        '¿Está de acuerdo que según la Constitución, es ahora el Pueblo organizado quien debe tener el protagonismo y el Poder para decidir de como invertir el presupuesto en su comunidad?',
+                        '¿Tiene información sobre la propuesta de creación de Consejos Comunales?',
+                        '¿Estaría dispuesto(a) a apoyar y participar en la creación de un Consejo Comunal en su comunidad?',
+                        ]
+        
+        for sq in quention_list:
+            question_data = {
+                'question': sq,
+                'constr_mandatory': True,
+                'type': 'simple_choice',
+                'page_id': survey_page.id
+                }
+            survey_question = survey_question_model.create(question_data)
+        
+            label_list = ['Si',
+                          'No',
+                         ]
+            for sl in label_list:
+                label_data = {
+                    'question_id': survey_question.id,
+                    'value': sl,
+                    }
+                survey_label = survey_label_model.create(label_data)
+        question_data2 = {
+                'question': '¿Cuáles misiones se están implementando en su comunidad?',
+                'constr_mandatory': True,
+                'type': 'multiple_choice',
+                'page_id': survey_page.id
+                }
+        survey_question2 = survey_question_model.create(question_data2)
+        label_list2 = ['Misión Ribas',
+                       'Misión Sucre',
+                       'Misión Vuelvan Caras',
+                       'Misión Identidad',
+                       'Misión Barrio Adentro',
+                       'Misión Mercal',
+                       'Misión Ezequiel Zamora',
+                         ]
+        for sl2 in label_list2:
+            label_data2 = {
+                'question_id': survey_question2.id,
+                'value': sl2,
+                }
+            survey_label = survey_label_model.create(label_data2)
+        return True
     
         
     @api.model
@@ -124,6 +179,6 @@ class CommunalCouncil(models.Model):
         users = council.env['res.users'].sudo().search([('id', '=', council.user_id.id)])
         #~ users = council.env['res.users'].sudo().search([('id', '=', council.user_id.id)])
         users.sudo().write({'communal_council_id': council.id})
-        #~ council.create_default_survey()
+        council.create_default_survey()
         return council
     

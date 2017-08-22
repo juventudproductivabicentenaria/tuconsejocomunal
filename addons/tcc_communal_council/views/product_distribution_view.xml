@@ -16,10 +16,16 @@
                                 <field name="active" widget="boolean_button" options='{"terminology": "active"}' />
                             </button>
                         </div>
-                        <group>
+                        <group >
                             <field name="communal_council_id" options='{"no_create": "True"}' />
                             <field name="name"/>
+                            <field name="description"/>
                         </group>
+                         <group col="6">
+                            <field name="date_start"/>
+                            <field name="date_end"/>
+                        </group>
+                        
                         <notebook>
                             <page string="Distribución">
                                 <field name="distribution_line_ids" mode="tree" >
@@ -43,6 +49,8 @@
             <field name="arch" type="xml">
                 <tree string="Distribución de Productos">
                     <field name="name"/>
+                    <field name="description"/>
+                    <field name="date_start"/>
                     <field name="state"/>
                 </tree>
             </field>
