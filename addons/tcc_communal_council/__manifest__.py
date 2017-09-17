@@ -34,6 +34,8 @@ Cada Consejo comunal podrá realizar registros de noticias, tareas y encuentas y
         'data/family_data.xml',                     # Data de familia
         'data/persons_data.xml',                    # Data de Personas
         'wizard/wizard_communal_council_admin.xml', # Wizard Communal Council Admin
+        'report/communal_council_admin_template.xml', # Wizard Communal Council Admin
+        'report/communal_council_admin.xml', # Wizard Communal Council Admin
         'security/tcc_group_consejo/ir.model.access.csv',
         'security/tcc_group_residente/ir.model.access.csv',
         'security/tcc_group_vocero/ir.model.access.csv',

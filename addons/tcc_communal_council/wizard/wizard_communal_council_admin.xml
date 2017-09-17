@@ -2,34 +2,35 @@
 <odoo>
 
     <record id="wizard_communal_council_admin_form" model="ir.ui.view">
-        <field name="name">Wizard Communal Council Admin</field>
-        <field name="model">tcc.wizard.communal.council.admin</field>
+        <field name="name" >Wizard Communal Council Admin</field>
+        <field name="model" >tcc.wizard_communal_council_admin</field>
         <field name="arch" type="xml">
-            <form string="Wizard Communal Council Admin">
-                    <sheet>
-                        <group>
-                            <field name="title"></field>
-                            <field name="description"></field>
-                            <field name="date_init"></field>
-                        </group>
-                        
-                    </sheet>
+            <form>
+                <sheet>
+                <group>
+                    <field name="title"></field>
+                    <field name="description"></field>
+                    <field name="date_init"></field>
+                </group>
+                
+                <footer>
+                      <button name='action_report' string='Generar'
+                                class='oe_highlight'
+                                type='object'
+                                 />
+                     
+                      <span class="or_cancel" > or
+                                <button special="cancel" string="Cancel" type="object" class="oe_link oe_inline"/>
+                     </span>
+               </footer>
+               </sheet>
             </form>
-           <footer>
-                  <button name='action_report' string='Generar'
-                            class='oe_highlight'
-                            type='object'
-                             />
-                  <span class="or_cancel" > or
-                            <button special="cancel" string="Cancel" type="object" class="oe_link oe_inline"/>
-                 </span>
-           </footer>
         </field>
     </record>
 
     <record id="action_wizard_communal_council_admin" model="ir.actions.act_window">
         <field name="name">Communal Council Admin Wizard Report</field>
-        <field name="res_model">tcc.wizard.communal.council.admin</field>
+        <field name="res_model">tcc.wizard_communal_council_admin</field>
         <field name="type">ir.actions.act_window</field>
         <field name="view_type">form</field>
         <field name="view_mode">form</field>
