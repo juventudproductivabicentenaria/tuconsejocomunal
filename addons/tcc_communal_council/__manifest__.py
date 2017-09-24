@@ -30,6 +30,7 @@ Cada Consejo comunal podrá realizar registros de noticias, tareas y encuentas y
         'views/survey_view.xml',                    # Vistas Encuestas
         'views/project_view.xml',                   # Vistas Proyectos
         'views/product_distribution_view.xml',      # Vistas Distribución
+        'views/index.xml',                          # Vistas inicial
         'data/ir_sequence_data.xml',                # Sequencia codigo de familia
         'data/family_data.xml',                     # Data de familia
         'data/persons_data.xml',                    # Data de Personas

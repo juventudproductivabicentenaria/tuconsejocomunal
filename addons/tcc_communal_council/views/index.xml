@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <template id="index">
+             <t t-call="website.layout">
+                <div id="wrap">
+                    <div class="oe_structure"/>
+                    <section class="container">
+                        <title>Hola mundo</title>
+                        <h1>Hola Mundo</h1>
+                    </section>
+                 <div class="oe_structure"/>
+            </div>
+        </t>
+        </template>
+    </data>
+</odoo>
+
