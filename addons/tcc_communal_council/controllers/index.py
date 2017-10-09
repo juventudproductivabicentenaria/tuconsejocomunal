@@ -11,5 +11,6 @@ class Website(Home):
 
     @http.route('/', type='http', auth="public", website=True)
     def index(self, **kw):
+        
         return request.render('tcc_communal_council.index',
-                                        {})
+                                        {'teachers': ["Diana Padilla", "Jody Caroll", "Lester Vaughn"]})

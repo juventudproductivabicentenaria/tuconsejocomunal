@@ -8,6 +8,9 @@
                     <section class="container">
                         <title>Hola mundo</title>
                         <h1>Hola Mundo</h1>
+                        <t t-foreach="teachers" t-as="teacher">
+                              <p><t t-esc="teacher"/></p>
+                        </t>
                     </section>
                  <div class="oe_structure"/>
             </div>
