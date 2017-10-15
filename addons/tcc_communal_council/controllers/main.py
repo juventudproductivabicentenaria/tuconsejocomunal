@@ -14,6 +14,7 @@ from odoo.tools import ustr
 from odoo.addons.survey.controllers.main import WebsiteSurvey
 
 
+
 _logger = logging.getLogger(__name__)
 
 

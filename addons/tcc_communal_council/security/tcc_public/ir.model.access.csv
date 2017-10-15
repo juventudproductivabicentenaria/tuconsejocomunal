@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_tcc_address_state_public,res.country.state,l10n_ve_dpt.model_res_country_state,,1,0,0,0
+access_tcc_address_municipality_public,res.country.state_municipality,l10n_ve_dpt.model_res_country_state_municipality,,1,0,0,0
+

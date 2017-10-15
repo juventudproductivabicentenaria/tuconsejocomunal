@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <template id="tcc_assets_frontend" inherit_id="website.assets_frontend" name="Communal council">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/tcc_communal_council/static/src/js/signup_address.js"></script>
+        </xpath>
+    </template>    
+
+
+        
+        <template id="tcc_communal_council.fields" inherit_id="auth_signup.fields" name="field register community council">
+            <xpath expr="//div[@class='form-group field-name']" position="after">
+                <div class="s_website_form"  >
+<!--
+                código situr
+-->
+                <div class="form-group field-situr_code">
+                    <label for="situr_code" class="control-label">Código SITUR</label>
+                    <input type="text" name="situr_code" t-att-value="situr_code" id="situr_code" class="form-control" 
+                        autocapitalize="off" t-att-readonly="'readonly' if only_passwords else None"/>
+                </div>
+<!--
+            RIF
+-->
+            <div class="form-group field-rif">
+                    <label for="rif" class="control-label">RIF</label>
+                    <input type="text" name="rif" t-att-value="rif" id="rif" class="form-control" 
+                        autocapitalize="off" t-att-readonly="'readonly' if only_passwords else None"/>
+            </div>
+<!--
+            Fecha de creación
+-->
+            <div class="form-group field-creation_date ">
+                    <label for="creation_date" class="control-label">Fecha de Creación</label>
+                    <input type="text"  name="creation_date" t-att-value="creation_date" id="creation_date" class="form-control o_website_form_date" 
+                        />
+            </div>
+<!--
+            Estado
+-->
+            <div class="form-group field-state_id ">
+                    <label for="creation_date" class="control-label">Estado</label>
+                    <select class="form_field_state_id form-control" name="state_id" id="state_id" >
+                        <t t-foreach="state_data" t-as="state">
+                            <option t-att-value="state[0]"><t t-esc="state[1]"/></option>
+                        </t>
+                    </select>
+                    
+            </div>
+<!--
+            Municipio
+-->
+            <div class="form-group field-municipality_id ">
+                    <label for="creation_date" class="control-label">Municipio</label>
+                    <select class="form_field_municipality_id form-control" data-initvalue="true" name="municipality_id"  id="municipality_id" >
+
+                    </select>
+                    
+            </div>
+            </div>
+            
+            </xpath>
+        </template>
+    </data>
+</odoo>
+
