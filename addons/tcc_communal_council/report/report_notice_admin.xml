@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report 
+            id="action_report_notice_admin5" 
+            string="Reporte de Noticias" 
+            model="tcc.notice" 
+            report_type="qweb-html"
+            name="tcc_communal_council.notice_admin_template" 
+            file="tcc_communal_council.notice_admin_template"
+            attachment_use="True"
+            attachment="(object.state == 'done') and
+                ('NOT-'+(object.name or '').replace('/','')+'.pdf')"
+            menu="True"/>
+    </data>
+</odoo>
+

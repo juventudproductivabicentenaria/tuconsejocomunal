@@ -17,6 +17,10 @@ class TccNoticias(models.Model):
     _rec_name = 'name'
     
     @api.multi
+    def metodo_ejemplo(self):
+        return self.search_count([('state','=','done')])
+    
+    @api.multi
     def default_communal_council(self):
         list_group_name = []
         for name_goup in self.env.user.groups_id:

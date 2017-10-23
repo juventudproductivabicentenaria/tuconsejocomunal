@@ -33,7 +33,8 @@ Cada Consejo comunal podrá realizar registros de noticias, tareas y encuentas y
         'data/ir_sequence_data.xml',                # Sequencia codigo de familia
         'data/family_data.xml',                     # Data de familia
         'data/persons_data.xml',                    # Data de Personas
-        
+        'report/notice_admin_template.xml',
+        'report/report_notice_admin.xml',
         'security/tcc_group_consejo/ir.model.access.csv',
         'security/tcc_group_residente/ir.model.access.csv',
         'security/tcc_group_vocero/ir.model.access.csv',
