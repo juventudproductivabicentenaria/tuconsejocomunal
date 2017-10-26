@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="consejo_admin_template">
+        <t t-call="report.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="report.internal_layout">
+                    <div class="page">
+                        <center><h1><strong>Ficha del Consejo Comunal</strong></h1></center>
+                        <br/>
+                        <br/>
+                        <center><h3><strong>Nombre: </strong><span t-field='o.name' /></h3></center>
+                        <center><h4>Codigo: <span t-field='o.situr_code' /></h4></center>
+                        <br/>
+                        <br/>
+                        <h4><strong>Fecha de creacion: </strong><span t-field='o.creation_date' /></h4>
+                        <br/>
+                        <br/>
+                        <strong><h4>Ubicacion</h4></strong>
+                        <br/>
+                        <table>
+							<tr>
+								<td>Estado </td>
+								<td></td>
+								<td><span t-field='o.state_id' /> </td>
+								<td> </td>
+								<td>Cantidad de Casas</td>
+								<td> </td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>Municipio </td>
+								<td> </td>
+								<td><span t-field='o.municipality_id' /> </td>
+								<td> </td>
+								<td>Cantidad de Edificios</td>
+								<td> </td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>Parroquia </td>
+								<td> </td>
+								<td><span t-field='o.parish_id' /></td>
+								<td> </td>
+								<td>Cantidad de Familias</td>
+								<td> </td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>Sector </td>
+								<td> </td>
+								<td><span t-field='o.sector_id' /> </td>
+								<td> </td>
+								<td>Distribucioness</td>
+								<td> </td>
+								<td></td>
+							</tr>
+                        </table>
+                        <br/>
+                        <br/>
+                   </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
+

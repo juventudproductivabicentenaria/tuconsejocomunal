@@ -42,14 +42,14 @@ class CommunalCouncil(models.Model):
                     'res.country.state', 
                     string='Estado',
                     )
-    #~ municipality_id = fields.Many2one(
-                    #~ 'res.country.state.municipality', 
-                    #~ string='Municipio',
-                    #~ )
-    #~ parish_id = fields.Many2one(
-                    #~ 'res.country.state.municipality.parish', 
-                    #~ string='Parroquia',
-                    #~ )
+    municipality_id = fields.Many2one(
+                     'res.country.state.municipality', 
+                    string='Municipio',
+                    )
+    parish_id = fields.Many2one(
+                    'res.country.state.municipality.parish', 
+                    string='Parroquia',
+                    )
     sector_id = fields.Many2one(
                 'tcc.address.sector',
                 string='Sector', 

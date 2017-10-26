@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report 
+            id="action_report_consejo_admin" 
+            string="Ficha de Consejo Comunal" 
+            model="tcc.communal.council" 
+            report_type="qweb-html"
+            name="tcc_communal_council.consejo_admin_template" 
+            file="tcc_communal_council.consejo_admin_template"
+            menu="True"/>
+    </data>
+</odoo>
+
