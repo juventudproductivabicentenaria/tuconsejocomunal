@@ -5,27 +5,36 @@
             <xpath expr="." position="inside">
                 <link type="text/less" rel="stylesheet" href="/tcc_communal_council/static/less/style.less"/>
             </xpath>
-             <title>Noticias</title>
-             <t t-call="website.layout">
+            <style>
+            .padding-left {padding-left:15px}
+            .padding-right {padding-right:15px}
+            .padding {padding:15px}
+            .mb-40 {margin-bottom:40px}
+            .mb-12 {margin-bottom:12px}
+            </style>
+            <title>Noticias</title>
+            <t t-call="website.layout">
                 <div id="wrap">
                     <div class="oe_structure">
                         <section class="container">
                             <t t-foreach="data_noticia" t-as="noticia">
                                 <div class="notice">
                                     <div class="col-md-12">
-                                    <h3 class="title"><t t-esc="noticia.name"/></h3>
+                                        <h3 class="text-info"><t t-esc="noticia.name"/></h3>
                                     </div>
-                                    <div class="col-md-12">
-                                        <h4 class="subtitle"><t t-esc="noticia.subtitle"/></h4>
+                                    <div class="col-md-12 mb-12">
+                                        <h4 class="text-muted padding-left"><t t-esc="noticia.subtitle"/></h4>
                                     </div>
                                     <div class="col-md-6 col-sm-6">
-                                        <h6 class=""><t t-esc="noticia.communal_council_id.name"/></h6>
+                                        <h5 class="text-muted padding-left"><t t-esc="noticia.communal_council_id.name"/></h5>
                                     </div>
                                     <div class="col-md-6 col-sm-6 text-right">
-                                        <h6 class="date"><t t-esc="noticia.end_date"/></h6>
+                                        <h5 class="text-muted padding-right"><t t-esc="noticia.end_date"/></h5>
                                     </div>
                                     <div class="col-md-12 col-sm-12">
-                                        <div t-raw="noticia.sumary"></div>
+                                        <div class="bg-info padding mb-40">
+                                            <div t-raw="noticia.sumary"></div>
+                                        </div>
                                     </div>
                                 </div>
                             </t>
