@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <template id="index">
+            <xpath expr="." position="inside">
+                <link type="text/less" rel="stylesheet" href="/tcc_communal_council/static/less/style.less"/>
+            </xpath>
+             <title>Noticias</title>
+             <t t-call="website.layout">
+                <div id="wrap">
+                    <div class="oe_structure">
+                        <section class="container">
+                            <t t-foreach="data_noticia" t-as="noticia">
+                                <div class="notice">
+                                    <div class="col-md-12">
+                                    <h3 class="title"><t t-esc="noticia.name"/></h3>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <h4 class="subtitle"><t t-esc="noticia.subtitle"/></h4>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6">
+                                        <h6 class=""><t t-esc="noticia.communal_council_id.name"/></h6>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 text-right">
+                                        <h6 class="date"><t t-esc="noticia.end_date"/></h6>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12">
+                                        <div t-raw="noticia.sumary"></div>
+                                    </div>
+                                </div>
+                            </t>
+                        </section>
+                    </div>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>
