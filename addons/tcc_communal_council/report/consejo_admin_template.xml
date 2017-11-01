@@ -9,50 +9,41 @@
                         <br/>
                         <br/>
                         <center><h3><strong>Nombre: </strong><span t-field='o.name' /></h3></center>
-                        <center><h4>Codigo: <span t-field='o.situr_code' /></h4></center>
+                        <center><h4>Codigo SITUR: <span t-field='o.situr_code' /></h4></center>
                         <br/>
                         <br/>
+                        <h4><strong>RIF: </strong><span t-field='o.rif' /></h4>
+                        <h4><strong>Telefono: </strong><span t-field='o.phone' /></h4>
+                        <h4><strong>Correo: </strong><span t-field='o.login' /></h4>
                         <h4><strong>Fecha de creacion: </strong><span t-field='o.creation_date' /></h4>
                         <br/>
                         <br/>
-                        <strong><h4>Ubicacion</h4></strong>
+                        <h4><strong>Ubicacion</strong></h4>
                         <br/>
-                        <table>
+                        <table width='500'>
 							<tr>
-								<td>Estado </td>
-								<td></td>
+								<td><strong>Estado </strong></td>
 								<td><span t-field='o.state_id' /> </td>
-								<td> </td>
-								<td>Cantidad de Casas</td>
-								<td> </td>
-								<td></td>
+								<td><strong>Cantidad de Casas</strong></td>
+								<td>XX</td>
 							</tr>
 							<tr>
-								<td>Municipio </td>
-								<td> </td>
+								<td><strong>Municipio </strong></td>
 								<td><span t-field='o.municipality_id' /> </td>
-								<td> </td>
-								<td>Cantidad de Edificios</td>
-								<td> </td>
-								<td></td>
+								<td><strong>Cantidad de Edificios</strong></td>
+								<td>XX</td>
 							</tr>
 							<tr>
-								<td>Parroquia </td>
-								<td> </td>
+								<td><strong>Parroquia </strong></td>
 								<td><span t-field='o.parish_id' /></td>
-								<td> </td>
-								<td>Cantidad de Familias</td>
-								<td> </td>
-								<td></td>
+								<td><strong>Cantidad de Familias</strong></td>
+								<td>XX</td>
 							</tr>
 							<tr>
-								<td>Sector </td>
-								<td> </td>
+								<td><strong>Sector </strong></td>
 								<td><span t-field='o.sector_id' /> </td>
-								<td> </td>
-								<td>Distribucioness</td>
-								<td> </td>
-								<td></td>
+								<td><strong>Distribuciones</strong></td>
+								<td>XX</td>
 							</tr>
                         </table>
                         <br/>
