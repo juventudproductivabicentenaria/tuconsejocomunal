@@ -21,6 +21,7 @@ Cada Consejo comunal podrá realizar registros de noticias, tareas y encuentas y
         'security/communal_council_security.xml',   # Grupos y roles
         'security/filter_users_rule.xml',           # Filtros 
         'views/communal_council_view.xml',          # Vistas Consejos comunales
+        'views/index.xml',                      # Vistas Registro Consejos comunales
         'views/dwelling_view.xml',                  # Vistas Vivienda
         'views/family_view.xml',                    # Vistas Familia
         'views/home_address_view.xml',              # Vistas Dirección
