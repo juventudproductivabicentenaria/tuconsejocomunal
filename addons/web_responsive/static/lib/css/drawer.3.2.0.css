@@ -66,6 +66,15 @@
 .drawer-open .drawer-overlay {
   display: block;
 }
+
+/* XXX: local patch waiting for:
+   https://github.com/blivesta/drawer/pull/36
+*/
+.drawer-open {
+  overflow: hidden;
+}
+/* end local patch */
+
 /*!------------------------------------*\
     Top
 \*!------------------------------------*/
@@ -92,9 +101,8 @@
 \*!------------------------------------*/
 .drawer--left .drawer-nav {
   left: -16.25rem;
-  -webkit-transition: left .1ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
-  transition: left .1ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
-  
+  -webkit-transition: left .6s cubic-bezier(0.190, 1.000, 0.220, 1.000);
+  transition: left .6s cubic-bezier(0.190, 1.000, 0.220, 1.000);
 }
 
 .drawer--left.drawer-open .drawer-nav,

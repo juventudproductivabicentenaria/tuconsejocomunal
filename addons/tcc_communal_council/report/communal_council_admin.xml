@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    
+        <report 
+            id="action_report_communal_council_admin" 
+            string="Reporte del Administrador" 
+            model="tcc.communal.council" 
+            report_type="qweb-pdf" 
+            name="tcc_communal_council.council_admin" 
+            file="tcc_communal_council.council_admin_template"
+	    menu="False"/>
+    </data>
+</odoo>

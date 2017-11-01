@@ -40,12 +40,14 @@
 
                         <div class="navbar-header">
 
-                            <a href="#"
-                               class="drawer-toggle navbar-collapse collapse btn btn-default app-drawer-toggle"
+                            <a class="drawer-toggle navbar-collapse collapse btn btn-default app-drawer-toggle"
                                accesskey="A"
                                >
                                 <span class="sr-only">Toggle App Drawer</span>
-                                <i class="fa fa-th fa-lg app-drawer-icon-open" />
+                                <i class="fa fa-th fa-lg app-drawer-icon-open"
+                                   t-translation="off"
+                                   aria-hidden="true"
+                                   />
                             </a>
 
                             <button type="button"
@@ -62,12 +64,15 @@
                                     data-target="#odooMenuBarNav"
                                     >
                                 <span class="sr-only">Toggle Navigation</span>
-                                <i class="fa fa-bars fa-lg" />
+                                <i class="fa fa-bars fa-lg"
+                                   t-translation="off"
+                                   aria-hidden="true"
+                                   />
                             </button>
 
                         </div>
 
-                        <div class="collapse navbar-collapse text-center"
+                        <div class="collapse navbar-collapse"
                              id="odooMenuBarNav"
                              data-parent="#odooMenuBarToggle"
                              aria-expanded="false"
@@ -77,15 +82,11 @@
                                  >
                                 <t t-call="web.menu_secondary" />
                             </div>
-                            <div class="nav navbar-nav navbar-right">
-                                <ul class="nav navbar-nav navbar-right oe_user_menu_placeholder"
-                                    style="display: none;"
-                                    />
-                                <ul class="nav navbar-nav navbar-right oe_systray"
-                                    style="display: none;"
-                                    />
-                            </div>
                         </div>
+                    </div>
+                    <div class="nav navbar-nav navbar-right navbar-systray o_menu_systray">
+                        <ul class="nav navbar-nav navbar-right navbar-systray-item oe_user_menu_placeholder"/>
+                        <ul class="nav navbar-nav navbar-right navbar-systray-item oe_systray"/>
                     </div>
                 </nav>
 
@@ -100,22 +101,20 @@
               name="App Drawer - Secondary Menu"
               >
 
-        <xpath expr="//a[@class='o_sub_menu_logo']" position="replace" />
-
-        <xpath expr="//div[@class='o_sub_menu_footer']" position="replace" />
-
         <xpath expr="//div[@class='o_sub_menu_content']/t" position="replace">
 
             <t t-foreach="menu_data['children']" t-as="menu">
-			    <ul style="display: none" class="oe_secondary_menu nav navbar-nav" t-att-data-menu-parent="menu['id']">
-				<li class="app-name">
-					<span class="oe_menu_text">
-						<t t-esc="menu['name']"/> 
-					</span>
-				</li>
-				<li>
-                    <t t-call="web.menu_secondary_submenu" />
-				</li>
+                <ul style="display: none"
+                    class="oe_secondary_menu nav navbar-nav"
+                    t-att-data-menu-parent="menu['id']">
+                    <li class="app-name">
+                        <span class="oe_menu_text">
+                            <t t-esc="menu['name']"/>
+                        </span>
+                    </li>
+                    <li>
+                        <t t-call="web.menu_secondary_submenu" />
+                    </li>
                 </ul>
             </t>
 
@@ -140,8 +139,7 @@
                             </t>
                         </t>
                         <t t-if="not submenu">
-                            <a href="#"
-                               class="dropdown-toggle"
+                            <a class="dropdown-toggle"
                                data-toggle="dropdown"
                                role="button"
                                aria-haspopup="true"
@@ -213,12 +211,26 @@
 
             <div class="panel-default app-drawer-app-panel" id="appDrawerAppMenu">
                 <div class="panel-heading" id="appDrawerAppPanelHead">
-                    <h4 class="app-drawer-panel-title">
-                        <a href="#" class="app-drawer-icon-close drawer-toggle">
-                            <i class="fa fa-lg fa-chevron-left" />
-                            Apps
+                    <div class="col-xs-6">
+                        <h4 class="app-drawer-panel-title pull-left">
+                            <a class="app-drawer-icon-close drawer-toggle">
+                                <i class="fa fa-lg fa-chevron-left"
+                                   t-translation="off"
+                                   aria-hidden="true"
+                                   />
+                                Apps
+                            </a>
+                        </h4>
+                    </div>
+                    <div class="col-xs-6">
+                        <a class="oe_logo pull-right" t-attf-href="/web?{{ keep_query() }}">
+                            <i class="fa fa-pencil-square-o oe_logo_edit"
+                               aria-hidden="true"
+                               t-translation="off"
+                               />
+                            <img src='/web/binary/company_logo'/>
                         </a>
-                    </h4>
+                    </div>
                 </div>
                 <div class="panel-body" id="appDrawerAppPanelBody">
                     <ul class="row list-unstyled oe_application_menu_placeholder"
@@ -230,7 +242,7 @@
                             </t>
                         </li>
                         <li id="menu_more_container" class="dropdown" style="display: none;">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
+                            <a class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
                             <ul id="menu_more" class="dropdown-menu"></ul>
                         </li>
                     </ul>

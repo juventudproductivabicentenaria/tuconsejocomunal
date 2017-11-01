@@ -4,15 +4,39 @@
 .app-drawer-nav {
     border-color: @dropdown-border;
     background-color: @dropdown-bg;
-    border: 0px solid @dropdown-fallback-border; // IE8 fallback
-    border: 0px solid @dropdown-border;
-	border-radius: 0px !important;
-//    -webkit-border-radius: @border-radius-base;
-//    -moz-border-radius: @border-radius-base;
-   border-radius: @border-radius-base;
-//    .box-shadow(0 6px 12px rgba(0, 0, 0, .175));
+    border: 1px solid @dropdown-fallback-border; // IE8 fallback
+    border: 1px solid @dropdown-border;
+    -webkit-border-radius: @border-radius-base;
+    -moz-border-radius: @border-radius-base;
+    border-radius: @border-radius-base;
+    .box-shadow(0 6px 12px rgba(0, 0, 0, .175));
     background-clip: padding-box;
-
+    z-index: 10000;
+    
+    .o_tooltip {
+        z-index: 1051;
+    }
+    
+    .oe_logo {
+        margin-top: -11px;
+        position: relative;
+        img {
+            height: @app-drawer-title-height;
+        }
+        .oe_logo_edit {
+            position: absolute;
+            bottom: 0px;
+            width: 100%;
+            padding: 4px;
+            display: none;
+            color: @odoo-list-footer-bg-color;
+            background: rgba(37,37,37,0.9);
+        }
+        &:hover .oe_logo_edit_admin {
+            display: block;
+        }
+    }
+    
     .navbar-left {
         width: 100%;
 
@@ -23,10 +47,16 @@
 
     .app-drawer-title {
         float: none;
+        font-weight: bold; // Bold titles for apps in the app-drawer
     }
 
     .app-drawer-panel-title {
-        margin-top: 4px;
+        line-height: 16px;
+        > .drawer-toggle {
+            padding-top: 17px;
+            padding-bottom: 17px;
+            cursor: pointer;
+        }
     }
 
     .app-drawer-icon-app {
@@ -46,14 +76,12 @@
         position: absolute;
         height: @app-drawer-title-height;
         width: 100%;
-        z-index: 9999;
     }
 
 }
 
 .drawer-nav {
     width: @app-drawer-width;
-    z-index: 9999;
 }
 
 .drawer--left .drawer-nav {
@@ -80,33 +108,8 @@
 
 .app-drawer-toggle {
     background-color: transparent;
-	border: none;
 }
 
 .app-drawer-toggle.navbar-toggle {
-	background-color: #ee3366;
     margin-left: 1em;
-}
-
-// Add background image
-.drawer-nav{
-	background: transparent url('/backend_theme_v10/static/src/img/material-background.jpg') no-repeat scroll center center / cover;
-}
-
-.app-drawer-nav .app-drawer-title {
-    color: #fff;
-	font-size: 14px;
-	font-weight: 600;
-        margin-top: 8px;
-        overflow: hidden;
-	text-overflow: ellipsis;
-        white-space: nowrap;
-}
-
-// Center app icons
-.app-drawer-nav .panel-body {
-    margin: auto;
-    max-width: 768px;
-    padding-top: 80px;
-    width: 90%;
 }

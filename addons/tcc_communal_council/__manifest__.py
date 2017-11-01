@@ -16,7 +16,7 @@ Cada Consejo comunal podrá realizar registros de noticias, tareas y encuentas y
     'category': 'Consejo Comunal',
     'website': 'http://juventudproductivabicentenaria.blogspot.com/',
     #~ 'images' : ['images/accounts.jpeg','images/bank_statement.jpeg','images/cash_register.jpeg','images/chart_of_accounts.jpeg','images/customer_invoice.jpeg','images/journal_entries.jpeg'],
-    'depends' : ['base_setup','survey','project'],
+    'depends' : ['base_setup','survey','project','l10n_ve_dpt','inputmask_widget','backend_theme_v10'],
     'data': [
         'security/communal_council_security.xml',   # Grupos y roles
         'security/filter_users_rule.xml',           # Filtros 

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="product_distribution_template">
+        <t t-call="report.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="report.internal_layout">
+                    <div class="page">
+                        <div class="oe_structure"/>
+                        <div class="row">
+                            <h4>Consejo Comunal <span t-field="o.communal_council_id.name"/>
+                            </h4>
+                        </div>
+                        <div class="row mt32 mb32">
+                            <div class="col-xs-3">
+                                <strong>Inicio de entrega:</strong><br/>
+                                <span t-field="o.date_start"/>
+                            </div>
+                            <div class="col-xs-3">
+                                <strong>Fin de entrega:</strong><br/>
+                                <span t-field="o.date_end"/>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
