@@ -18,6 +18,7 @@ class Partner(models.Model):
     
     
 class CommunalCouncil(models.Model):
+	
     _name = "tcc.communal.council"
     _description = "Consejo Comunal"
     _inherits = {'res.users': 'user_id'}
@@ -91,6 +92,26 @@ class CommunalCouncil(models.Model):
         if self.municipality_id:
             self.parish_id = False
             self.sector_id = False
+            
+    @api.multi
+    def totalEdf(self):
+		edificios = self.env['tcc.dwelling.edifice'].search_count([('communal_council_id','=','id')])
+		return edificios
+		
+    @api.multi
+    def totalCas(self):
+		casas = self.env['tcc.dwelling.house'].search_count([('communal_council_id','=','id')])
+		return casas
+		
+    @api.multi
+    def totalFam(self):
+		familias = self.env['tcc.family'].search_count([('communal_council_id','=','id')])
+		return familias
+		
+    @api.multi
+    def totalDis(self):
+		distribuciones = self.env['tcc.distribution.delivery.confirmation'].search_count([('communal_council_id','=','id')])
+		return distribuciones
     
     @api.model
     def create_default_survey(self):
@@ -100,7 +121,7 @@ class CommunalCouncil(models.Model):
         survey_label_model = self.env['survey.label']
         
         survey_data = {
-            'title': 'Paricipación Comunitaria',
+            'title': 'Participación Comunitaria',
             'auth_required': True,
             'tcc_survey': True,
             'communal_council_id': self.id,
@@ -108,7 +129,7 @@ class CommunalCouncil(models.Model):
         survey = survey_model.create(survey_data)
         
         page_data = {
-            'title': 'Paricipación Comunitaria',
+            'title': 'Participación Comunitaria',
             'description': 'Por favor, lea y responda las siguientes preguntas según sus observaciones respecto a su comunidad.',
             'survey_id': survey.id
             }

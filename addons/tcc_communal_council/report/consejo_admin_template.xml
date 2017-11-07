@@ -20,30 +20,30 @@
                         <br/>
                         <h4><strong>Ubicacion</strong></h4>
                         <br/>
-                        <table width='500'>
+                        <table width='900'>
 							<tr>
 								<td><strong>Estado </strong></td>
 								<td><span t-field='o.state_id' /> </td>
 								<td><strong>Cantidad de Casas</strong></td>
-								<td>XX</td>
+								<td><span t-esc='o.totalCas()' /></td>
 							</tr>
 							<tr>
 								<td><strong>Municipio </strong></td>
 								<td><span t-field='o.municipality_id' /> </td>
 								<td><strong>Cantidad de Edificios</strong></td>
-								<td>XX</td>
+								<td><span t-esc='o.totalEdf()' /></td>
 							</tr>
 							<tr>
 								<td><strong>Parroquia </strong></td>
 								<td><span t-field='o.parish_id' /></td>
 								<td><strong>Cantidad de Familias</strong></td>
-								<td>XX</td>
+								<td><span t-esc='o.totalFam()' /></td>
 							</tr>
 							<tr>
 								<td><strong>Sector </strong></td>
 								<td><span t-field='o.sector_id' /> </td>
 								<td><strong>Distribuciones</strong></td>
-								<td>XX</td>
+								<td><span t-esc='o.totalDis()' /></td>
 							</tr>
                         </table>
                         <br/>
