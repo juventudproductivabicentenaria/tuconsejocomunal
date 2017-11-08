@@ -76,7 +76,7 @@ class DwellingHouse(models.Model):
     sector_id = fields.Many2one(
                 'tcc.address.sector',
                 string='Sector', 
-                required=True,
+                required=False,
                 )
     street_id = fields.Many2one(
                 'tcc.address.street',
@@ -126,7 +126,7 @@ class DwellingEdifice(models.Model):
     sector_id = fields.Many2one(
                 'tcc.address.sector',
                 string='Sector', 
-                required=True,
+                required=False,
                 )
     street_id = fields.Many2one(
                 'tcc.address.street',

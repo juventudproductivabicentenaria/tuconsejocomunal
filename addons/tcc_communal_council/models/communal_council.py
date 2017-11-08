@@ -95,23 +95,19 @@ class CommunalCouncil(models.Model):
             
     @api.multi
     def totalEdf(self):
-		edificios = self.env['tcc.dwelling.edifice'].search_count([('communal_council_id','=','id')])
-		return edificios
+		return self.env['tcc.dwelling.edifice'].search_count([('communal_council_id','=',self.id)])
 		
     @api.multi
     def totalCas(self):
-		casas = self.env['tcc.dwelling.house'].search_count([('communal_council_id','=','id')])
-		return casas
+		return self.env['tcc.dwelling.house'].search_count([('communal_council_id','=',self.id)])
 		
     @api.multi
     def totalFam(self):
-		familias = self.env['tcc.family'].search_count([('communal_council_id','=','id')])
-		return familias
+		return self.env['tcc.family'].search_count([('communal_council_id','=',self.id)])
 		
     @api.multi
     def totalDis(self):
-		distribuciones = self.env['tcc.distribution.delivery.confirmation'].search_count([('communal_council_id','=','id')])
-		return distribuciones
+		return self.env['tcc.distribution.delivery.confirmation'].search_count([('communal_council_id','=',self.id)])
     
     @api.model
     def create_default_survey(self):
