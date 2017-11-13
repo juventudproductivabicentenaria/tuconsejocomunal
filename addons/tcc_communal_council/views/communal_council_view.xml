@@ -52,7 +52,7 @@
         
         <menuitem name="Consejo Comunal"
             id="tcc_communal_council_menutop"
-            web_icon="tcc_communal_council,static/description/icon.png"
+            web_icon="tcc_communal_council,static/description/logo.png"
             groups="base.group_system,tcc_group_consejo,tcc_group_vocero,tcc_group_residente"
             />
         <menuitem id="tcc_communal_council_menu" 
