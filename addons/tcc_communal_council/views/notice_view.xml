@@ -55,7 +55,7 @@
         
         <menuitem id="tcc_notice_menu_top" 
             name="Noticias" 
-            web_icon="tcc_communal_council,static/description/news-icon.png"
+            web_icon="tcc_communal_council,static/description/news.png"
             sequence="20"/>
         
         <menuitem id="tcc_notice_menu" 
