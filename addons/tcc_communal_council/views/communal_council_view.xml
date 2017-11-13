@@ -51,17 +51,17 @@
         </record>
         
         <menuitem name="Consejo Comunal"
-            id="tcc_communal_coincil_menutop"
+            id="tcc_communal_council_menutop"
             web_icon="tcc_communal_council,static/description/icon.png"
             groups="base.group_system,tcc_group_consejo,tcc_group_vocero,tcc_group_residente"
             />
-        <menuitem id="tcc_communal_coincil_menu" 
+        <menuitem id="tcc_communal_council_menu" 
             name="Consejo Comunal" 
-            parent="tcc_communal_coincil_menutop" 
+            parent="tcc_communal_council_menutop" 
             sequence="2"/>
         
-        <menuitem id="tcc_communal_coincil_action" 
-            parent="tcc_communal_coincil_menu" 
+        <menuitem id="tcc_communal_council_action" 
+            parent="tcc_communal_council_menu" 
             action="action_tcc_communal_council_form" 
             name="Consejo comunal" 
             sequence="5" />

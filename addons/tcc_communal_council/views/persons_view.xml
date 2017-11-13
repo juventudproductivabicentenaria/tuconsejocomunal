@@ -132,7 +132,7 @@
         
         <menuitem id="tcc_persons_usuarios" 
             name="Lista de Usuarios" 
-            parent="tcc_communal_coincil_menutop" 
+            parent="tcc_communal_council_menutop" 
             sequence="10"/>
         
             

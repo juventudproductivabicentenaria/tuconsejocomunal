@@ -119,7 +119,7 @@
 -->
         <menuitem id="tcc_dwelling_menu" 
             name="Viviendas" 
-            parent="tcc_communal_coincil_menutop" 
+            parent="tcc_communal_council_menutop" 
             sequence="5"/>
         
         <menuitem id="tcc_dwelling_menu_action" 

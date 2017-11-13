@@ -116,7 +116,7 @@
         
         <menuitem id="tcc_family_menu" 
             name="Familias" 
-            parent="tcc_communal_coincil_menutop" 
+            parent="tcc_communal_council_menutop" 
             sequence="9"/>
         
         <menuitem id="tcc_family_action" 

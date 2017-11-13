@@ -53,7 +53,7 @@
         </record>
         
         <menuitem id="tcc_committee_menu_action" 
-            parent="tcc_communal_coincil_menu" 
+            parent="tcc_communal_council_menu" 
             action="action_tcc_committee_form" 
             name="Comités o Unidades" 
             sequence="10" />

@@ -157,7 +157,7 @@
         
         <menuitem id="tcc_product_distribution_menu_id" 
             name="Distribución de Productos" 
-            parent="tcc_communal_coincil_menutop" 
+            parent="tcc_communal_council_menutop" 
             sequence="50"/>
         
         <menuitem id="tcc_product_distribution_action" 
@@ -168,7 +168,7 @@
         
         <menuitem id="tcc_confirm_delevery_menu_id" 
             name="Confirmación de entrega" 
-            parent="tcc_communal_coincil_menutop" 
+            parent="tcc_communal_council_menutop" 
             sequence="70"/>
         
         <menuitem id="tcc_confirm_deleveryn_action" 
