@@ -26,6 +26,7 @@
         
         <menuitem name="Proyectos"
             id="tcc_menu_main_pm"
+            web_icon="tcc_communal_council,static/description/projects.png"
             sequence="50"/>
 
         <menuitem name="Buscar"
