@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="wizard_communal_council_admin_form" model="ir.ui.view">
+        <field name="name" >Wizard Communal Council Admin</field>
+        <field name="model" >tcc.wizard_communal_council_admin</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet name ="ocultar">
+                <group>
+                    <field name="title"></field>
+                    <field name="description"></field>
+                    <field name="date_init"></field>
+                    <field name=""></field>
+                </group>
+                <footer>
+                      <button name='next' string='ocultar'
+                                class='oe_highlight'
+                                type='object'
+                                 />
+                     
+                      <span class="or_cancel" > o
+                                <button special="cancel" string="Cancel" type="object" class="oe_link oe_inline"/>
+                     </span>
+               </footer>
+             </form>
+        </field>
+    </record>
+   
+    <record id="action_wizard_communal_council_admin" model="ir.actions.act_window">
+        <field name="name">Communal Council Admin Wizard Report</field>
+        <field name="res_model">tcc.wizard_communal_council_admin</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="wizard_communal_council_admin_form"/>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem
+            id="menu_wizard_communal_council_admin"
+            name="Reporte de consejo comunal"
+            action="action_wizard_communal_council_admin"
+            parent="tcc_communal_coincil_menu"/>
+
+
+</odoo>
