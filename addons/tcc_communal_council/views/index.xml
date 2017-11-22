@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-         <template id="index">
-            <xpath expr="." position="inside">
-                <link type="text/less" rel="stylesheet" href="/tcc_communal_council/static/less/style.less"/>
+        <template id="index_noticias" inherit_id="website.assets_frontend" name="Index Noticias js">
+            <xpath expr="/t" position="inside">
+                <script type="text/javascript" src="/tcc_communal_council/static/src/js/data.js"></script>
             </xpath>
             <style>
             .padding-left {padding-left:15px} .padding-right {padding-right:15px} .padding {padding:15px} .mb-40 {margin-bottom:40px} .mb-12 {margin-bottom:12px}

@@ -23,3 +23,6 @@ class Website(Home):
         return request.render('tcc_communal_council.index',{
         'data_noticia':notice_data,
         })
+    @http.route('/notice', type='json',method="post", auth="public", website=True)
+    def respuesta(self,**post):
+        return notice_data
