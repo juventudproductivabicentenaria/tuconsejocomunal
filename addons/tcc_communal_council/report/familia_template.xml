@@ -9,10 +9,76 @@
 						<br/>
                         <center><strong>Nombre de Consejo Comunal: </strong><h2><span t-field="o.communal_council_id.name"/></h2></center>
                         <center><strong>Nombre del Jefe Familia: </strong><h2><span t-field="o.name"/></h2></center>
-                        <br></br>
-                        <table class="table table-condensed">
+                        <br/>
+                       
+                        <table class="table table-condensed'">
+                        <tr>
+								<caption>SITUACION ECONOMICA FAMILIAR</caption>
+								<td><strong>Ingresos de la Familia: </strong></td>
+								<td><span t-field='o.family_income_id' /> </td><br/>
+								<td><strong>Actividad comercial dentro de la Vivienda: </strong></td>
+								<td><span t-field='o.commercial_activity_hose' /> </td>
+						</tr>
 						</table>
-						
+						<table class="table table-condensed'">
+						<caption>SITUACION DE LA VIVIENDA</caption><br/>
+						<tr>
+							
+								<td><strong>Tipo de Vivienda: </strong></td>
+								<td><span t-field='o.type_dwelling' /> </td>
+								<td><strong>Forma de Tenencia: </strong></td>
+								<td><span t-field='o.tenancy' /> </td>
+								<br/>
+								<td><strong>Terreno Propio: </strong></td>
+								<td><span t-field='o.terreno_propio' /> </td>
+								<td><strong>Salud de la Vivienda: </strong></td>
+								<td><span t-field='o.salubrity_id' /> </td>
+								<br/>
+								<td><strong>Cantidad de habitaciones: </strong></td>
+								<td><span t-field='o.cant_room' /> </td>
+						</tr>
+						</table>
+						<table class="table table-condensed'">
+						<tr>
+							 <caption>SALUD</caption><br/>
+								<td><strong>Enfermedades en la Familia: </strong></td>
+								<td><span t-field='o.disease_ids'/> </td>
+								<td><strong>Necesita Ayuda: </strong></td>
+								<td><span t-field='o.need_help' /> </td>
+								<br/>
+								<br/>
+								<td><strong>Niños en la calle: </strong></td>
+								<td><span t-field='o.children_street' /> </td>
+								<td><strong>Cuantos niños: </strong></td>
+								<td><span t-field='o.quantity_children_street' /> </td>
+								<br/>
+								<td><strong>Indigentes: </strong></td>
+								<td><span t-field='o.indigent' /> </td>
+								<td><strong>Cuantos indigentes: </strong></td>
+								<td><span t-field='o.quantity_indigent' /> </td>
+								<br/>
+								<td><strong>Enfermos terminales: </strong></td>
+								<td><span t-field='o.terminally_patient' /> </td>
+								<td><strong>Cuantos: </strong></td>
+								<td><span t-field='o.quantity_terminally_patient' /> </td>
+								<br/>
+								<td><strong>Discpacitados: </strong></td>
+								<td><span t-field='o.handicapped' /> </td>
+								<td><strong>Cuantos discapacitados: </strong></td>
+								<td><span t-field='o.quantity_handicapped' /> </td>
+						</tr>
+						</table>
+						<table class="table table-condensed'">
+						<caption>SERVICIOS</caption><br/>
+						<tr>
+							
+								<td><strong>Medidor de agua: </strong></td>
+								<td><span t-field='o.water_meter' /> </td>
+								<td><strong>Medidor de luz: </strong></td>
+								<td><span t-field='o.light_meter' /> </td>
+								<br/>
+						</tr>
+						</table>
                     </div>
                 </t>
             </t>
