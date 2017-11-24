@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <template id="index_noticias" inherit_id="website.assets_frontend" name="Index Noticias js">
+        <template id="index" name="index">
             <xpath expr="/t" position="inside">
+                <script type="text/javascript" src="/tcc_communal_council/static/lib/jquery.js"></script>
                 <script type="text/javascript" src="/tcc_communal_council/static/src/js/data.js"></script>
             </xpath>
             <style>
