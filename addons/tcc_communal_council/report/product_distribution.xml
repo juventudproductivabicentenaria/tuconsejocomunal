@@ -6,7 +6,8 @@
             id="action_report_product_distribution"            
             model="tcc.product.distribution" 
             name="tcc_communal_council.product_distribution" 
-            file="tcc_communal_council.report.product_distribution_template"
+            file="tcc_communal_council.product_distribution_template"
             report_type="qweb-html"
+        />
     </data>
 </odoo>
