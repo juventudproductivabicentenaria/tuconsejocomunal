@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="assets_frontend_svg" inherit_id="website.assets_frontend" name="Svg ejemplo Front-end assets">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/svg_ejemplo/static/src/lib/snap_svg_min.js"/>
+            </xpath>
+        </template>
+        
+        <template id="assets_component_vue_svg" inherit_id="tcc_communal_council.index5" name="Componenete Svg ejemplo Front-end assets">
+            <xpath expr='//div[@id="refvuejs"]' position="after">
+                <script type="text/javascript" src="/svg_ejemplo/static/src/js/componente_svg.js"/>
+            </xpath>
+        </template>
+        
+        
+         <template id="svg_ejemplo.listing2" >
+            <t t-call="website.layout">
+            <div id="wrap">
+                <div class="oe_structure"/>
+                <section class="container">
+                   <ul> 
+                     <li>Hola mundo 
+                       
+                     </li> 
+                   </ul> 
+                </section>
+                     <div class="oe_structure"/>
+                </div>
+            </t>
+         </template> 
+    </data>
+</odoo>

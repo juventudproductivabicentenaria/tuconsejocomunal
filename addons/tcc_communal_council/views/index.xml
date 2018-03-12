@@ -1,21 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-         <template id="index">
+        <template id="assets_frontend_tcc" inherit_id="website.assets_frontend" name="Tcc Front-end assets">
+            <xpath expr="." position="inside">
+                <link type="text/less" rel="stylesheet" href="/tcc_communal_council/static/src/less/vuemenu.less"/>
+            </xpath>
+        </template>
+        
+         <template id="index5">
              <t t-call="website.layout">
                 <div id="wrap">
                     <div class="oe_structure"/>
                     <section class="container">
-                        <title>Hola mundo</title>
-                        <h1>Hola Mundo</h1>
-                        <t t-foreach="teachers" t-as="teacher">
-                              <p><t t-esc="teacher"/></p>
-                        </t>
+                        <div id="app"></div>
+                        <script type="text/javascript" src="/tcc_communal_council/static/src/lib/vue.js"/>
+                        <script type="text/javascript" src="/tcc_communal_council/static/src/js/componetes.js"/>
+                        <div id="refvuejs"></div>
+                        <script type="text/javascript" src="/tcc_communal_council/static/src/js/vue_contact.js"/>
+                        <script type="text/javascript" src="/tcc_communal_council/static/src/js/vuemenu.js"/>
                     </section>
                  <div class="oe_structure"/>
             </div>
         </t>
         </template>
+        
+
     </data>
 </odoo>
 
