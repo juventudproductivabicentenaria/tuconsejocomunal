@@ -36,7 +36,7 @@ var templateSvg= `<div class="jumbotron">
                     </div>
                     </div>`;
 
-Componente.extend.c8=Vue.component('pruebasvg', {
+Componente.extend.c10=Vue.component('pruebasvg', {
 template: templateSvg,
 data: function(){
     this.fetchLoadSvg();
