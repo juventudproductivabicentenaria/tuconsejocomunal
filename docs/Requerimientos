@@ -1,0 +1,3 @@
+1. Filtrar en Familia y Personas las personas que pertenecen a la familia del usuario residente logueado.
+2. El campo Age del registro familia debe ser sólo lectura (solucionado).
+3. Logueado como Consejo Comunal Paraíso De Miraflores, se duplica el sub-menu Survey. 

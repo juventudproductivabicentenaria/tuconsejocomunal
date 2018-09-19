@@ -58,7 +58,7 @@
                             <field name="first_surname" readonly="context.get('read_users')"/>
                             <field name="second_surname" readonly="context.get('read_users')"/>
                             <field name="birthdate" readonly="context.get('read_users')"/>
-                            <field name="age" readonly="context.get('read_users')"/>
+                            <field name="age" readonly="context.get('read_users'), 1"/>
                             <field name="civil_status" readonly="context.get('read_users')"/>
                             <field name="gender" readonly="context.get('read_users')"/>
                             <field name="level_instruccion" readonly="context.get('read_users')"/>

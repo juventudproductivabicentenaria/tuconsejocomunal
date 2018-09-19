@@ -10,6 +10,7 @@ __pycache__/
 # Odoo app external module
 addons/backend_theme_v10/
 addons/inputmask_widget/
+addons/web_responsive/
 # Distribution / packaging
 .Python
 env/

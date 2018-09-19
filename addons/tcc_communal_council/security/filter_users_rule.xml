@@ -148,7 +148,7 @@
             <field name="domain_force">[('user_id', 'in', user.id)]</field>
             
 -->             
-            <field name="domain_force">[('id','=',[self.family_id])]</field>
+            <field name="domain_force">[('communal_council_id.user_id','=',user.communal_council_id.user_id.id)]</field>
             <field name="perm_read" eval='True'/>
             <field name="perm_write" eval='False'/>
             <field name="perm_create" eval='False'/>
@@ -235,7 +235,7 @@
         <record id="tcc_distribution_confirm_vocero_rule" model="ir.rule">
             <field name="name">Noticias que el Vocero puede ver</field>
             <field name="model_id" ref="model_tcc_distribution_delivery_confirmation"/>
-            <field name="domain_force">[('communal_council_id.user_id', '=', user.communal_council_id.user_id.id),('response_id.user_id', '=', user.id )]</field>
+            <field name="domain_force">[('communal_council_id.user_id', '=', user.communal_council_id.user_id.id),('responses_ids.user_id', '=', user.id )]</field>
             <field name="perm_read" eval='True'/>
             <field name="perm_write" eval='False'/>
             <field name="perm_create" eval='False'/>

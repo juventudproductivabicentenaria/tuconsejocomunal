@@ -7,7 +7,7 @@
             model="tcc.product.distribution" 
             name="tcc_communal_council.product_distribution" 
             file="tcc_communal_council.product_distribution_template"
-            report_type="qweb-html"
+            report_type="qweb-pdf"
         />
     </data>
 </odoo>
