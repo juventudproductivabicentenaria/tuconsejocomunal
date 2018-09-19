@@ -170,11 +170,20 @@ class CommunalCouncil(models.Model):
         list_group = []
         group_council = council.env['res.groups'].sudo().search([('name', '=', 'Consejo Comunal')])
         list_group.append(group_council.id)
-        group_contact = council.env['res.groups'].sudo().search([('name', '=', 'Creación de contactos')])
+        domain=['|',('name', '=', 'Creación de contactos'),('name', '=', 'Contact Creation')]
+        group_contact = council.env['res.groups'].sudo().search(domain)
         list_group.append(group_contact.id)
-        group_employee = council.env['res.groups'].sudo().search([('name', '=', 'Empleado')])
+        domain=['|',('name', '=', 'Empleado'),('name', '=', 'Employee')]
+        group_employee = council.env['res.groups'].sudo().search(domain)
         list_group.append(group_employee.id)
         council.sector_id.sudo().write({'communal_council_id': council.id})
+        print list_group
+        print list_group
+        print list_group
+        print list_group
+        print list_group
+        print list_group
+        print list_group
         council.user_id.sudo().write({'is_council': True,'groups_id' : [(6,0,list_group)],'email' : council.user_id.login,'communal_council_id': council.id})
         users = council.env['res.users'].sudo().search([('id', '=', council.user_id.id)])
         #~ users = council.env['res.users'].sudo().search([('id', '=', council.user_id.id)])
