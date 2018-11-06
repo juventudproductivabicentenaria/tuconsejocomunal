@@ -181,10 +181,29 @@ class TccFamily(models.Model):
                 'commercial_activity_id',
                 string='Venta de:'
                 )
-    family_income_id = fields.Many2one(
-                'tcc.family.income',
-                string='Ingreso familiar', 
+    
+     #se cambio el campo relacional por un campo monetary.
+    family_income_id = fields.Monetary(
+                compute='ingreso_total',
+                string='Ingreso familiar',
+                readonly=True
                 )
+                
+     # se declaro el campo de la modena.  
+    currency_id = fields.Many2one(
+                'res.currency',
+                 string='Currency',
+                 default=lambda self: self.env.user.currency_id
+                 )
+
+     #metodo para hacer el calculo del ingreso mensual de las familias.
+    @api.depends('person_ids')
+    def ingreso_total(self):
+        total = 0
+        for ing in self.person_ids:
+            total = total + ing.monthly_income
+        self.family_income_id = total
+    
     arrival_date = fields.Date(
                 string='Fecha de llegada a la comunidad',
                 required=True,
@@ -449,24 +468,6 @@ class FamilyCommercialActivity(models.Model):
         if self.name:
             self.name = self.name.title()
 
-
-class TccFamilyIncome(models.Model):
-    _name = "tcc.family.income"
-    _rec_name = 'name'
-    _description = 'Ingreso familiar'
-    
-    name = fields.Char(
-                string='Ingreso familiar',
-                )
-    active = fields.Boolean(default=True)
-    
-    _sql_constraints = [('name_uniq', 'unique (name)', "El Ingreso familiar ya se encuentra registrado. ¡Verifique!")]
-    
-    @api.onchange('name')
-    def title_string(self):
-        if self.name:
-            self.name = self.name.title()
-    
 
 
 class TccFamilyTypeWalls(models.Model):

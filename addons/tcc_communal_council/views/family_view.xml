@@ -28,10 +28,10 @@
                             </page>
                             <page string="Situación Económica">
                                 <group col = "4">
-                                    <field name="family_income_id"/>
+                                    <field name="family_income_id"  widget='monetary' options="{'currency_field': 'currency_id'}"/>
                                     <field name="commercial_activity_hose"/>
                                     <field name="commercial_activity_ids" widget="many2many_tags" attrs="{'invisible': [('commercial_activity_hose', '!=', 'Si')]}" />
-                                    
+                                    <field name="currency_id"  invisible="1"/>
                                 </group>
                             </page>
                             <page string="Situación de Vivienda">
