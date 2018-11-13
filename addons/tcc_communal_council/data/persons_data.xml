@@ -99,7 +99,7 @@
         </record>
     
         <record id="tcc_persons_profession_siquiatra" model="tcc.persons.profession">
-            <field name="name">Squiatra</field>
+            <field name="name">Psiquiatra</field>
             <field name="active" eval="True"/>
         </record>
     
@@ -162,7 +162,74 @@
             <field name="name">Soldado</field>
             <field name="active" eval="True"/>
         </record>
-    
+	<!-- Nuevas profesiones añadidas -->
+	<record id="tcc_persons_profession_musico" model="tcc.persons.profession">
+            <field name="name">Musico</field>
+            <field name="active" eval="True"/>
+        </record>
+
+	<record id="tcc_persons_profession_deportista" model="tcc.persons.profession">
+            <field name="name">Deportista</field>
+            <field name="active" eval="True"/>
+        </record>
+
+	        <record id="tcc_persons_profession_bailarin" model="tcc.persons.profession">
+            <field name="name">Bailarin</field>
+            <field name="active" eval="True"/>
+        </record>
+	
+	<record id="tcc_persons_profession_pintor" model="tcc.persons.profession">
+            <field name="name">Pintor</field>
+            <field name="active" eval="True"/>
+        </record>
+
+	<record id="tcc_persons_profession_pediatra" model="tcc.persons.profession">
+            <field name="name">Pediatra</field>
+            <field name="active" eval="True"/>
+        </record>
+	
+	<record id="tcc_persons_profession_juez" model="tcc.persons.profession">
+            <field name="name">Juez</field>
+            <field name="active" eval="True"/>
+        </record>
+
+	<record id="tcc_persons_profession_actor" model="tcc.persons.profession">
+            <field name="name">Actor</field>
+            <field name="active" eval="True"/>
+	</record>
+
+	<record id="tcc_persons_profession_agente_viaje" model="tcc.persons.profession">
+            <field name="name">Agente de viaje</field>
+            <field name="active" eval="True"/>
+        </record>
+
+	<record id="tcc_persons_profession_barrendero" model="tcc.persons.profession">
+            <field name="name">Barrendero</field>
+            <field name="active" eval="True"/>
+        </record>
+
+	<record id="tcc_persons_profession_chef" model="tcc.persons.profession">
+            <field name="name">Chef</field>
+            <field name="active" eval="True"/>
+        </record>
+
+	<record id="tcc_persons_profession_diseñador" model="tcc.persons.profession">
+            <field name="name">Diseñador</field>
+            <field name="active" eval="True"/>
+        </record>
+
+	<record id="tcc_persons_profession_estilista" model="tcc.persons.profession">
+            <field name="name">Estilista</field>
+            <field name="active" eval="True"/>
+        </record>
+
+	<record id="tcc_persons_profession_farmaceutico" model="tcc.persons.profession">
+            <field name="name">Farmaceutico</field>
+            <field name="active" eval="True"/>
+        </record>
+
+
+    	<!-- ............................................... -->
         <record id="tcc_persons_profession_vendedor" model="tcc.persons.profession">
             <field name="name">Vendedor</field>
             <field name="active" eval="True"/>
@@ -263,6 +330,8 @@
             <field name="name">Primo/a</field>
             <field name="active" eval="True"/>
         </record>
+
+	
         
     </data>
 </odoo>
