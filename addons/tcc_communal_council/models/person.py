@@ -239,6 +239,16 @@ class TccPersons(models.Model):
     
     _sql_constraints = [('cedula_uniq', 'unique (cedula)', "La Cédula ya Existe, Verifique!")]
     
+    @api.onchange('cedula')
+    def tipo_nacionalidad(self):
+		if self.cedula:
+			print 'hola aprendiendo'
+			print self.cedula
+			v,e = self.cedula.split("-")
+			if v == "V":
+				self.nationality = 'Venezolano'
+			else:
+				self.nationality = 'Extranjero'
     
     @api.multi
     def action_start_survey(self):
