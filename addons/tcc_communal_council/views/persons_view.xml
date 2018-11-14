@@ -66,6 +66,7 @@
                             <field name="type_family_income" attrs="{'required': [('have_work', '=', 'Si')]}" readonly="context.get('read_users')" />
                             <field name="profession_id" readonly="context.get('read_users')" />
                             <field name="monthly_income" readonly="context.get('read_users')" />
+	
                             
                             <field name="bank_account" readonly="context.get('read_users')" />
                             <field name="credit_card" readonly="context.get('read_users')" />
@@ -74,13 +75,15 @@
                             <field name="workplace" readonly="context.get('read_users')" />
                             <field name="kinship_id" attrs="{'invisible': [('is_family_boss', '=', True)], 'required': [('is_family_boss', '=', False)]}" readonly="context.get('read_users')" />
                             <field name="name_workplace" attrs="{'invisible': [('workplace', '!=', 'other')]}" readonly="context.get('read_users')" />
-                            
+			    <!-- Enfermedades de la persona -->
+			    <field name="x_person_disease"/>
+			    <field name="x_need_help" readonly="context.get('read_users')"/>
                         </group>
                     </sheet>
                 </form>
             </field>
         </record>
-        
+
         
         <record id="view_tcc_persons_tree" model="ir.ui.view">
             <field name="name">tcc.persons.tree</field>
